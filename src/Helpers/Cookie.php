@@ -1,10 +1,22 @@
 <?php
 namespace App\Helpers;
 
+use App\Models\Enums\Cookies;
 use App\Exceptions\CookieNotSetException;
 
 class Cookie
 {
+	/**
+	 * Sets the last viewed product
+	 *
+	 * @param int $product the product ID
+	 */
+	public static function setLastViewedProduct(int $product)
+	{
+		static::setCookie(Cookies::RECENTLY_VIEWED_PRODUCT, $product);
+	}
+
+
     /**
      * @param string $name The name of the cookie.
      * @param string $value the value of the cookie.
@@ -27,7 +39,7 @@ class Cookie
             $domain
         );
     }
-    
+
     /**
      * Checks if a cookie exists
      *
@@ -39,7 +51,7 @@ class Cookie
     {
         return isset($_COOKIE[$cookie_name]);
     }
-    
+
     /**
      * Gets a cookie from the global $_COOKIE
      *

@@ -1,0 +1,15 @@
+.home {
+
+}
+
+.products-list {
+  display: flex;
+
+  > article {
+    flex: 1 1 30%;
+
+    &:not(:last-of-type) {
+      margin-right: 5%;
+    }
+  }
+}

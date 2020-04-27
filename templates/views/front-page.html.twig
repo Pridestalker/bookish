@@ -1,0 +1,60 @@
+{% extends 'layouts/app.twig' %}
+
+{% block content %}
+    <main class="container mx-auto home px-4 lg:px-0">
+        {% block categoriesCta %}
+            <section class="categories-cta py-16">
+                <h2 class="cta-title mb-8">{{ __('My handmade products', 'bookish') }}</h2>
+
+                <figure class="category-cta">
+                    <img src="//via.placeholder.com/500x400" alt="{{ __('Check out our %s', 'bookish')|format('booksleeves') }}">
+                    <figcaption>
+                        Bekijk alle Booksleeves
+                    </figcaption>
+                    <a href="{{ product_cat_url_on_name('booksleeves') }}"></a>
+                </figure>
+                <figure class="category-cta">
+                    <img src="//via.placeholder.com/500x400" alt="{{ __('Check out our %s', 'bookish')|format('booksleeves') }}">
+                    <figcaption>
+                        Bekijk alle Boekenlinten
+                    </figcaption>
+                    <a href="{{ product_cat_url_on_name('boekenlinten') }}"></a>
+                </figure>
+            </section>
+        {% endblock %}
+
+        {% block newProducts %}
+            <section class="new-products py-16">
+                <h2 class="text-center mb-8">Nieuwe producten</h2>
+
+                <div class="products-list mb-8">
+                    {% for product in new_products %}
+                        {{ include([
+                            'partials/tease/product' ~ product.slug ~ '.html.twig',
+                            'partials/tease/product.html.twig'
+                        ], { product: product }, with_context = false) }}
+                    {% endfor %}
+                </div>
+
+                <a href="{% do get_store_url %}" class="button primary">Alles bekijken</a>
+            </section>
+        {% endblock %}
+
+        {% block popularProducts %}
+            <section class="popular-products py-12">
+                <h2 class="text-center mb-8">Deze zijn echt populair</h2>
+
+                <div class="products-list mb-8">
+                    {% for product in popular_products %}
+                        {{ include([
+                            'partials/tease/product' ~ product.slug ~ '.html.twig',
+                            'partials/tease/product.html.twig'
+                        ], { product: product }, with_context = false) }}
+                    {% endfor %}
+                </div>
+
+                <a href="{% do get_store_url %}" class="button primary">Alles bekijken</a>
+            </section>
+        {% endblock %}
+    </main>
+{% endblock %}

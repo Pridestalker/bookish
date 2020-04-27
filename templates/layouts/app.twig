@@ -1,20 +1,72 @@
 <!doctype html>
 <html lang="{{ site.language }}">
 <head>
-    {% block head %}{% include 'templates/layouts/helpers/head.twig' %}{% endblock %}
+    {% block page_meta %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="application-name" content="{{ site.title }}">
+    {% endblock %}
+
+    <title>{% block page_title %}{{ site.title }}{% endblock %}</title>
+
+    {% block page_description %}
+        <meta name="description" content="{{ site.description }}"/>
+    {% endblock %}
+    {% block head_styles %}
+        <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Montserrat&display=swap" rel="stylesheet">
+    {% endblock %}
+    {% block head_scripts %}
+        <script src="https://kit.fontawesome.com/eaa399fb9a.js" crossorigin="anonymous"></script>
+    {% endblock %}
     {{ fn('wp_head') }}
 </head>
 <body {{ fn('body_class') }}>
-{% block header %}
-{% include 'templates/layouts/helpers/header.twig' %}
+<header class="header" id="header_{{ post.id }}">
+<div class="container mx-auto py-4">
+    <div class="flex">
+        <figure>
+            {% set _logo = Image(theme.theme_mod('custom_logo')) %}
+            <a href="{{ site.link }}">
+                <img src="{{ _logo.src }}" alt="{{ site.title }}" class="custom-logo">
+            </a>
+        </figure>
+        <div class="ml-auto my-auto">
+            <button class="text-primary js-shopping-cart-button shopping-cart-button p-2">
+                <span class="hidden lg:inline-block mr-2">Winkelmandje</span>
+                <i class="fad fa-shopping-bag"></i>
+            </button>
+        </div>
+    </div>
+</div>
+</header>
+<div class="nav-wrapper">
+    <div class="container mx-auto py-4">
+        <nav class="nav">
+            {% for item in primaryMenu.items %}
+                <a
+                        href="{{ item.link }}"
+                        class="nav-item {{ item.classes|join(' ') }}"
+                        title="{{ item.title }}"
+                        rel="{{ link.is_external? 'noopener': '' }}"
+                >
+                    {{ item.name }}
+                </a>
+            {% endfor %}
+        </nav>
+    </div>
+</div>
+
+{% block content %}
+    <main class="container mx-auto" id="app">
+        {{ post.content }}
+    </main>
 {% endblock %}
 
-{% block content %}{{ post.content }}{% endblock %}
+<footer>
+    <div class="container">
 
-{% block footer %}
-{% include 'templates/layouts/helpers/footer.twig' %}
-{% endblock footer %}
-
+    </div>
+</footer>
 {{ fn('wp_footer') }}
 </body>
 </html>

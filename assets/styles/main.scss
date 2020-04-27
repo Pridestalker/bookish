@@ -2,6 +2,7 @@
 
 @use "~tailwindcss/components";
 
+@use 'abstracts';
 @use "base" as *;
 @use "components" as *;
 @use "layout" as *;

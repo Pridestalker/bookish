@@ -1,0 +1,32 @@
+@use 'abstracts/variables';
+@use 'abstracts/templates' as *;
+@use 'sass:color';
+
+.product-card {
+  transition: box-shadow 225ms ease-in-out;
+
+  & img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 1rem;
+  }
+
+  &:hover {
+    @extend %shaded-sm;
+  }
+  @extend %shaded;
+}
+
+.product-card--categories {
+  > a {
+    color: variables.$primary;
+    transition: color 225ms ease-in;
+
+    &:hover {
+      color: color.scale(variables.$primary, $lightness: -18.75%);
+    }
+  }
+}

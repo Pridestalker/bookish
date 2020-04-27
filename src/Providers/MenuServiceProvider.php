@@ -9,7 +9,7 @@ use function register_nav_menus;
  *
  * @package App\Providers
  */
-class MenuServiceProvider
+class MenuServiceProvider extends ServiceProvider
 {
     /**
      * The registered menus
@@ -19,15 +19,7 @@ class MenuServiceProvider
     protected $menus = [
         'primary-menu' => 'Primary',
     ];
-    
-    /**
-     * MenuServiceProvider constructor.
-     */
-    public function __construct()
-    {
-        $this->boot();
-    }
-    
+
     /**
      * Register nav menus in timber
      *
@@ -36,10 +28,10 @@ class MenuServiceProvider
     public function boot(): void
     {
         register_nav_menus($this->menus);
-        
+
         add_filter('timber/context', [ $this, 'registerContent' ]);
     }
-    
+
     /**
      * Register nav menu's in twig.
      *

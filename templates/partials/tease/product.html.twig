@@ -1,0 +1,17 @@
+<article class="product-card">
+    <a href="{{ product.get_link }}" title="Bekijk {{ product.get_title }}">
+        <img src="//via.placeholder.com/350x350" alt="'{{ product.get_title }}'" loading="lazy">
+    </a>
+
+    <main class="card-content">
+        <a href="{{ product.get_link }}" title="Bekijk {{ product.get_title }}" class="mb-2">
+            <h2 class="is-h3">{{ product.get_title }}</h2>
+        </a>
+
+        <p class="product-card--categories mb-2">
+            {{ product.get_product_categories_links }}
+        </p>
+
+        <p class="product-card--price">&euro; {{ product.get_price }}</p>
+    </main>
+</article>

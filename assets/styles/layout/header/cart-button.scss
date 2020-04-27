@@ -1,0 +1,6 @@
+@use 'abstracts/variables' as v;
+
+.shopping-cart-button {
+  border: 1px solid v.$primary;
+  border-radius: 4px;
+}

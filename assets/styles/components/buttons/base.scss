@@ -1,0 +1,24 @@
+@use 'abstracts/variables' as v;
+
+.button {
+  @apply p-2;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  display: inline-block;
+
+  @each $color, $map in v.$colors {
+    &.#{$color} {
+      background: nth($map, 1);
+      color: nth($map, 2);
+
+      &.outlined {
+        background: transparent;
+        color: nth($map, 1);
+      }
+    }
+  }
+
+  &.outlined {
+   border-color: currentColor;
+  }
+}

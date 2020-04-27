@@ -1,0 +1,9 @@
+@use 'abstracts/templates';
+
+header.header {
+  @apply px-4;
+
+  @screen lg {
+    @apply px-0;
+  }
+}

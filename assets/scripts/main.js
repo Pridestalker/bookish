@@ -1,3 +1,4 @@
+import './vendor';
 import './bootstrap';
 import Ready from './tools/Ready';
 import Router from './tools/Router';

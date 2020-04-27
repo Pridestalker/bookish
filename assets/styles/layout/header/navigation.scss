@@ -1,0 +1,56 @@
+@use 'abstracts/variables' as v;
+@use 'abstracts/functions' as f;
+@use 'sass:color';
+
+.nav-wrapper {
+  background: f.theme-color('secondary');
+  position: absolute;
+  transform: scale(0);
+  transform-origin: top right;
+  transition: transform 285ms cubic-bezier(0, .5, .5, 1);
+
+  &.active {
+    transform: scale(1);
+  }
+
+  @screen lg {
+    position: static;
+    transform: unset;
+  }
+}
+
+a.nav-item {
+  color: v.$primary;
+  margin-right: 1rem;
+  transition: color 225ms ease;
+  position: relative;
+
+
+  @screen lg {
+    // Add an after line to show either active, or hover state
+    &::after {
+      position: absolute;
+      bottom: -2px;
+      height: 2px;
+      content: ' ';
+      background: currentColor;
+      left: 0;
+      width: 100%;
+      transform: scale(0, 1);
+      transition: transform 225ms cubic-bezier(0, .5, .5, 1);
+      transform-origin: left;
+    }
+
+    &:hover {
+      &::after {
+        transform: scale(1);
+      }
+    }
+  }
+
+
+  &:hover {
+    cursor: pointer;
+    color: color.adjust(v.$primary, $lightness: -20%);
+  }
+}
