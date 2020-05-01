@@ -6,15 +6,15 @@ use App\Exceptions\CookieNotSetException;
 
 class Cookie
 {
-	/**
-	 * Sets the last viewed product
-	 *
-	 * @param int $product the product ID
-	 */
-	public static function setLastViewedProduct(int $product)
-	{
-		static::setCookie(Cookies::RECENTLY_VIEWED_PRODUCT, $product);
-	}
+    /**
+     * Sets the last viewed product
+     *
+     * @param int $product the product ID
+     */
+    public static function setLastViewedProduct(int $product)
+    {
+        static::setCookie(Cookies::RECENTLY_VIEWED_PRODUCT, $product);
+    }
 
 
     /**
@@ -34,9 +34,13 @@ class Cookie
         setcookie(
             $name,
             $value,
-            time() + $exp,
-            $path,
-            $domain
+            [
+                'expires' => time() + $exp,
+                'path' => $path,
+                'domain' => $domain,
+                'secure' => true,
+                'samesite' => 'Strict',
+            ]
         );
     }
 

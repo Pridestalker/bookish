@@ -1,0 +1,14 @@
+@use 'abstracts/variables' as v;
+
+.product-breadcrumbs a {
+  &:not([aria-current="page"]) {
+    color: v.$primary;
+
+    &::after {
+      @screen md {
+        content: '/';
+        margin: 0 .5rem;
+      }
+    }
+  }
+}

@@ -7,6 +7,8 @@
         <meta name="application-name" content="{{ site.title }}">
     {% endblock %}
 
+    <meta name="base_assets" content="{{ theme.link }}/">
+
     <title>{% block page_title %}{{ site.title }}{% endblock %}</title>
 
     {% block page_description %}
@@ -21,6 +23,7 @@
     {{ fn('wp_head') }}
 </head>
 <body {{ fn('body_class') }}>
+{% block header %}
 <header class="header" id="header_{{ post.id }}">
 <div class="container mx-auto py-4">
     <div class="flex">
@@ -31,17 +34,26 @@
             </a>
         </figure>
         <div class="ml-auto my-auto">
-            <button class="text-primary js-shopping-cart-button shopping-cart-button p-2">
+            <a href="{{ get_cart_url() }}" class="text-primary js-shopping-cart-button shopping-cart-button p-2">
                 <span class="hidden lg:inline-block mr-2">Winkelmandje</span>
                 <i class="fad fa-shopping-bag"></i>
-            </button>
+            </a>
         </div>
+    </div>
+    <div class="flex lg:hidden">front
+        <button class="button primary ml-auto">
+            <i class="fas fa-bars"></i>
+        </button>
     </div>
 </div>
 </header>
+{% endblock %}
+
+{% block navbar %}
 <div class="nav-wrapper">
     <div class="container mx-auto py-4">
         <nav class="nav">
+            {% do action('bookish/view/layout/app/nav/pre') %}
             {% for item in primaryMenu.items %}
                 <a
                         href="{{ item.link }}"
@@ -52,9 +64,11 @@
                     {{ item.name }}
                 </a>
             {% endfor %}
+            {% do action('bookish/view/layout/app/nav/post') %}
         </nav>
     </div>
 </div>
+{% endblock %}
 
 {% block content %}
     <main class="container mx-auto" id="app">
@@ -62,11 +76,44 @@
     </main>
 {% endblock %}
 
-<footer>
-    <div class="container">
+{% block footer %}
+<footer class="footer">
+    <div class="container mx-auto py-4 px-4 lg:px-0">
+        <div class="lg:flex">
+            <div class="lg:w-1/3 mb-4">
+                <h3>Contact</h3>
 
+                <p>
+                    <a href="mailto:info@bookishgoods.nl">
+                        <i class="fad fa-envelope-open-text"></i>
+                        info@bookishgoods.nl
+                    </a>
+                </p>
+            </div>
+            <div class="lg:w-1/3 mb-4">
+                <h3>Over Bookish Goods</h3>
+
+            </div>
+            <div class="lg:w-1/3">
+                <h3>Socials</h3>
+                <a href="//facebook.com/bookishgoods">
+                    <i class="fab fa-facebook-square"></i>
+                </a>
+
+                <a href="//www.instagram.com/bookishgoods/">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="flex justify-center flex-col lg:flex-row py-2 px-4 lg:px-0">
+        <a>Privacy</a> <span class="mx-2 hidden lg:inline">|</span>
+        <a>Algemene voorwaarden</a> <span class="mx-2 hidden lg:inline">|</span>
+        <a>Disclaimer</a>
     </div>
 </footer>
+{% endblock %}
 {{ fn('wp_footer') }}
 </body>
 </html>

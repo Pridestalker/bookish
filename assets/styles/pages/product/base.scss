@@ -1,0 +1,13 @@
+.main-content {
+  @screen lg {
+    display: flex;
+
+    > div {
+      flex: 0 1 60%;
+    }
+
+    > aside {
+      flex: 1 0 40%;
+    }
+  }
+}

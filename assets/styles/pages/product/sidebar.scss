@@ -1,0 +1,7 @@
+@use 'abstracts/variables' as av;
+
+.product-sidebar {
+  .product-price {
+    color: av.$primary;
+  }
+}

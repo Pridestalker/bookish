@@ -9,16 +9,16 @@
                 <figure class="category-cta">
                     <img src="//via.placeholder.com/500x400" alt="{{ __('Check out our %s', 'bookish')|format('booksleeves') }}">
                     <figcaption>
-                        Bekijk alle Booksleeves
+                        Bekijk alle booksleeves
                     </figcaption>
                     <a href="{{ product_cat_url_on_name('booksleeves') }}"></a>
                 </figure>
                 <figure class="category-cta">
                     <img src="//via.placeholder.com/500x400" alt="{{ __('Check out our %s', 'bookish')|format('booksleeves') }}">
                     <figcaption>
-                        Bekijk alle Boekenlinten
+                        Bekijk alle boekenleggers
                     </figcaption>
-                    <a href="{{ product_cat_url_on_name('boekenlinten') }}"></a>
+                    <a href="{{ product_cat_url_on_name('boekenleggers') }}"></a>
                 </figure>
             </section>
         {% endblock %}
@@ -30,13 +30,15 @@
                 <div class="products-list mb-8">
                     {% for product in new_products %}
                         {{ include([
-                            'partials/tease/product' ~ product.slug ~ '.html.twig',
+                            'partials/tease/product/' ~ product.slug ~ '.html.twig',
                             'partials/tease/product.html.twig'
                         ], { product: product }, with_context = false) }}
                     {% endfor %}
                 </div>
 
-                <a href="{% do get_store_url %}" class="button primary">Alles bekijken</a>
+                <div class="flex">
+                    <a href="{{ get_store_url() }}" class="mx-auto button primary">Alles bekijken</a>
+                </div>
             </section>
         {% endblock %}
 
@@ -47,13 +49,15 @@
                 <div class="products-list mb-8">
                     {% for product in popular_products %}
                         {{ include([
-                            'partials/tease/product' ~ product.slug ~ '.html.twig',
+                            'partials/tease/product/' ~ product.slug ~ '.html.twig',
                             'partials/tease/product.html.twig'
                         ], { product: product }, with_context = false) }}
                     {% endfor %}
                 </div>
 
-                <a href="{% do get_store_url %}" class="button primary">Alles bekijken</a>
+                <div class="flex">
+                    <a href="{{ get_store_url() }}" class="mx-auto button primary">Alles bekijken</a>
+                </div>
             </section>
         {% endblock %}
     </main>
