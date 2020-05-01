@@ -1,0 +1,26 @@
+{% extends 'layouts/app.twig' %}
+
+{% block content %}
+    <section class="container mx-auto my-8 lg:flex">
+        <aside class="lg:w-1/3 pr-4">
+            <!-- space for a filter? -->
+        </aside>
+        <main class="products-wrapper lg:w-2/3">
+            <header class="lg:flex justify-between">
+                {% do fn('woocommerce_result_count') %}
+
+                {% do fn('woocommerce_catalog_ordering') %}
+            </header>
+            <section class="products py-4">
+                {% for product in products %}
+                    {{ include([
+                        'partials/tease/product/' ~ product.slug ~ '.html.twig',
+                        'partials/tease/product.html.twig'
+                    ], { product: product }, with_context = false, ignore_missing = true) }}
+                {% endfor %}
+            </section>
+            <!-- Load products 'ere -->
+            {% do action('woocommerce_after_shop_loop') %}
+        </main>
+    </section>
+{% endblock %}

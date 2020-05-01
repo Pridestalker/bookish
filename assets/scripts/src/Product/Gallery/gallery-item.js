@@ -4,6 +4,7 @@ export default {
 	name: '',
 	src: '#',
 	alt: '',
+	srcSet: {},
 	active: false,
-	render: ({ src, alt}) => html``
+	render: ({ src, alt }) => html``
 };

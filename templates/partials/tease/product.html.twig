@@ -1,6 +1,9 @@
 <article class="product-card">
     <a href="{{ product.get_link }}" title="Bekijk {{ product.get_title }}">
-        <img src="//via.placeholder.com/350x350" alt="'{{ product.get_title }}'" loading="lazy">
+        <picture>
+            <source srcset="{{ product.thumbnail|resize(400,400)|towebp }}" type="image/webp" >
+            <img src="{{ product.thumbnail|resize(400, 400) }}" alt="'{{ product.get_title }}'" loading="lazy">
+        </picture>
     </a>
 
     <main class="card-content">

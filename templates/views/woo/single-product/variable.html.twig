@@ -1,0 +1,19 @@
+{% extends 'views/woo/single-product/main.html.twig' %}
+
+{% block productAddToCart %}
+    {% for key, variations in product.get_variation_attributes %}
+        <label for="{{ key }}">
+            {{ key|replace({'pa_': '', '-': ' ' }) }}
+        </label>
+        <select id="{{ key }}">
+            <option placeholder="">Kies een {{ key|replace({'pa_': '', '-': ' ' }) }}</option>
+            {% for option in variations %}
+                <option>
+                    {{ option|replace({ '-': ' '})|capitalize }}
+                </option>
+            {% endfor %}
+        </select>
+    {% endfor %}
+
+    {{ parent() }}
+{% endblock %}

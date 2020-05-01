@@ -23,4 +23,4 @@ mix
     processCssUrls: false,
     postCss: [require('tailwindcss'), require('autoprefixer'), ...purger],
   })
-    .disableNotifications();
+    .disableNotifications()

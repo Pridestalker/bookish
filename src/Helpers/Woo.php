@@ -12,7 +12,7 @@ class Woo
         return Helper::transient('_wc_popular_products', static function () use ($limit) {
             $args = [
                 'post_type' => 'product',
-                'limit' => $limit,
+                'posts_per_page' => $limit,
                 'orderby' => 'meta_value_num',
                 'order' => 'desc',
                 'meta_key' => '_product_view_count'
@@ -29,7 +29,7 @@ class Woo
                 'post_type' => 'product',
                 'orderby' => 'modified',
                 'order' => 'DESC',
-                'limit' => $limit
+                'posts_per_page' => $limit
             ];
 
             return new PostQuery($args, \App\Models\Product::class);

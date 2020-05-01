@@ -3,7 +3,7 @@
 {% block navbar %}
     {{ parent() }}
 
-    <div class="container mx-auto">
+    <div class="container mx-auto pt-4">
         <nav aria-label="breadcrumb" class="product-breadcrumbs">
             <a href="{{ site.link }}">Home</a>
             {{ product.get_product_categories_links('') }}
@@ -16,61 +16,87 @@
     <main class="container mx-auto">
         <h1>{{ product.get_title }}</h1>
 
-        <section class="main-content">
+        <section class="main-content py-4">
             <div>
-                <gallery-group>
-                    <gallery-item name="thumnail" src="{{ product.thumbnail.src }}" alt="{{ product.get_title }}" active></gallery-item>
-                    {% for item in product.gallery_items %}
-                        {% set gallery_item = Image(item) %}
-                        {{ gallery_item.slug }}
-                        <gallery-item name="gallery-{{ loop.index }}" src="{{ gallery_item.src }}" aly="{{ gallery_item.alt }}"></gallery-item>
-                    {% endfor %}
-                </gallery-group>
+                {% block productGallery %}
+                    <gallery-group>
+                        <gallery-item name="thumnail" src="{{ product.thumbnail.src|resize(450,450) }}" alt="{{ product.get_title }}" active></gallery-item>
+                        {% for item in product.gallery_items %}
+                            {% set gallery_item = Image(item) %}
+                            {{ gallery_item.slug }}
+                            <gallery-item name="gallery-{{ loop.index }}" src="{{ gallery_item.src|resize(450,450) }}" aly="{{ gallery_item.alt }}"></gallery-item>
+                        {% endfor %}
+                    </gallery-group>
+                {% endblock %}
             </div>
-            {% for item in product.gallery_items %}
-                {% set gallery_item = Image(item) %}
-                {{ gallery_item.slug }}
-                <gallery-item name="{{ gallery_item.slug }}" src="{{ gallery_item.src }}" aly="{{ gallery_item.alt }}"></gallery-item>
-            {% endfor %}
 
             <aside class="product-sidebar">
-                <h2 class="product-price">&euro; {{ product.get_price }}</h2>
+                <h2 class="product-price">
+                    {% block productPrice %}
+                    &euro; {{ product.get_price }}
+                    {% endblock %}
+                </h2>
 
-                <a href="{{ product.product.add_to_cart_url }}" class="product-add-to-cart">
-                    <i class="fad fa-plus-hexagon"></i>
-                    <span>Toevoegen aan winkelmand</span>
-                </a>
+                <form action="{{ product.product.get_permalink|filter('woocommerce_add_to_cart_form_action') }}" method="post" enctype="multipart/form-data">
 
-                {% if product.is_in_stock %}
-                    <p class="text-primary">
-                        <i class="fad fa-box-check mr-2"></i>
-                        <span>Op voorraad! Binnen 2-4 dagen verzonden.</span>
-                    </p>
-                {% elseif product.can_backorder %}
-                    <p>
-                        <i class="fad fa-exclamation-circle mr-2"></i>
-                        <span>Tijdelijk niet op voorraad.</span>
-                    </p>
-                {% else %}
-                    <p class="text-red">
-                        <i class="fad fa-exclamation-circle mr-2"></i>
-                        <span>Niet op voorraad</span>
-                    </p>
-                {% endif %}
+                    {% do action('woocommerce_before_add_to_cart_quantity') %}
+                    <input type="number" min="{{ product.product.get_min_purchase_quantity }}" max="{{ product.product.get_max_purchase_quantity }}" />
+
+                    {% do action('woocommerce_after_add_to_cart_quantity') %}
+
+                    {% block productAddToCart %}
+                        {% do action('woocommerce_before_add_to_cart_button') %}
+                        <button type="submit" name="add-to-cart" value="{{ product.id }}" class="product-add-to-cart">
+                            <i class="fad fa-plus-hexagon"></i>
+                            <span>Toevoegen aan winkelmand</span>
+                        </button>
+                        {% do action('woocommerce_after_add_to_cart_button') %}
+                    {% endblock %}
+
+                </form>
+
+
+                {% block productStock %}
+                    {% if product.is_in_stock %}
+                        <p class="text-primary">
+                            <i class="fad fa-box-check mr-2"></i>
+                            <span>Op voorraad! Binnen 2-4 dagen verzonden.</span>
+                        </p>
+                    {% elseif product.can_backorder %}
+                        <p>
+                            <i class="fad fa-exclamation-circle mr-2"></i>
+                            <span>Tijdelijk niet op voorraad.</span>
+                        </p>
+                    {% else %}
+                        <p class="text-red">
+                            <i class="fad fa-exclamation-circle mr-2"></i>
+                            <span>Niet op voorraad</span>
+                        </p>
+                    {% endif %}
+                {% endblock %}
             </aside>
         </section>
 
-        <section>
+        <section class="py-4">
             <tab-group>
                 <tab-item name="Omschrijving" active>
-                    {{ product.content|wpautop }}
+                    <div class="product-description content">
+                        {{ product.content|wpautop }}
+
+                        <p>
+                            <em>
+                                Alle producten worden handgemaakt,
+                                de print en het formaat kunnen dus iets afwijken van de foto's
+                            </em>
+                        </p>
+                    </div>
                 </tab-item>
                 <tab-item name="Eigenschappen">
-                    <table>
+                    <table class="attribute-table">
                         {% for attribute in product.get_attributes %}
                             <tr>
                                 <th>
-                                    {{ attribute.name|upper }}
+                                    {{ attribute.name|capitalize }}
                                 </th>
                                 <td>
                                     {% for option in attribute.options %}
@@ -84,8 +110,8 @@
             </tab-group>
         </section>
 
-        <section class="related-products">
-            <h2>Gerelateerde producten</h2>
+        <section class="related-products py-4">
+            <h2 class="pb-4">Gerelateerde producten</h2>
 
             <div class="products-list">
                 {% for related in product.related_products %}

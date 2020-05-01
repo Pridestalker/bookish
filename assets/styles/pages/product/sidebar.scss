@@ -2,6 +2,15 @@
 
 .product-sidebar {
   .product-price {
-    color: av.$primary;
+    color: av.$black;
   }
+}
+
+.product-add-to-cart {
+  border: 1px solid av.$green;
+  background: av.$green;
+  color: av.$white;
+  padding: .5rem;
+  margin: 1rem 0;
+  display: block;
 }

@@ -7,9 +7,9 @@ use Timber\Post;
 use Timber\Term;
 use Timber\PostQuery;
 use App\Helpers\Terms;
+use WC_Product_Attribute;
 use App\Controllers\TwigFunctions\ProductCategoryUrl;
 
-// Todo: Add fetch for product gallery.
 class Product extends Post
 {
     /**
@@ -84,7 +84,7 @@ class Product extends Post
         }
         $this->setProduct();
 
-        /** @var \WC_Product_Attribute $attribute */
+        /** @var WC_Product_Attribute $attribute */
         foreach ($this->product->get_attributes() as $attribute) {
             if (!$attribute->get_visible()) {
                 continue;
@@ -133,7 +133,7 @@ class Product extends Post
     public function related_products()
     {
         if (!isset(static::$related_cache[$this->id])) {
-            static::$related_cache[$this->id] = wc_get_related_products($this->id);
+            static::$related_cache[$this->id] = wc_get_related_products($this->id, 3);
         }
 
         return new PostQuery(static::$related_cache[$this->id], __CLASS__);
@@ -150,7 +150,7 @@ class Product extends Post
         return static::$gallery_id_cache[$this->id] = $this->product->get_gallery_image_ids();
     }
 
-    private function setProduct():void
+    public function setProduct()
     {
         if ($this->product === null) {
             if (isset(static::$product_cache[$this->id])) {
@@ -159,5 +159,7 @@ class Product extends Post
                 $this->product = static::$product_cache[$this->id] = wc_get_product($this->id);
             }
         }
+
+        return $this->product;
     }
 }

@@ -4,6 +4,7 @@ import {
 	html
 } from 'hybrids';
 import TabItem from './tab-item';
+import buttonStyle from './button-style';
 
 function activate(name) {
 	return (host) => {
@@ -21,6 +22,7 @@ export default {
 			.map(({name}) => name)[0],
 	},
 	render: ({ items }) => html`
+${buttonStyle}
     <nav>
       ${items.map(({ name, active }) =>
 		html`

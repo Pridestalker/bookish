@@ -32,7 +32,7 @@
                         {{ include([
                             'partials/tease/product/' ~ product.slug ~ '.html.twig',
                             'partials/tease/product.html.twig'
-                        ], { product: product }, with_context = false) }}
+                        ], { product: product },ignore_missing = true, with_context = false) }}
                     {% endfor %}
                 </div>
 
@@ -51,7 +51,7 @@
                         {{ include([
                             'partials/tease/product/' ~ product.slug ~ '.html.twig',
                             'partials/tease/product.html.twig'
-                        ], { product: product }, with_context = false) }}
+                        ], { product: product },ignore_missing = true, with_context = false) }}
                     {% endfor %}
                 </div>
 
