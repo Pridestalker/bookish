@@ -58,14 +58,26 @@
         <nav class="nav">
             {% do action('bookish/view/layout/app/nav/pre') %}
             {% for item in primaryMenu.items %}
-                <a
-                        href="{{ item.link }}"
-                        class="nav-item {{ item.classes|join(' ') }}"
-                        title="{{ item.title }}"
-                        rel="{{ link.is_external? 'noopener': '' }}"
-                >
-                    {{ item.name }}
-                </a>
+                <div class="submenu-group">
+                    <a
+                            href="{{ item.link }}"
+                            class="nav-item {{ item.classes|join(' ') }}"
+                            title="{{ item.title }}"
+                            rel="{{ link.is_external? 'noopener': '' }}"
+                    >
+                        {{ item.name }}
+                    </a>
+
+                    {% if item.children %}
+                        <ul class="submenu">
+                            {% for child in item.children %}
+                                <li>
+                                    <a href="{{ child.link }}" title="{{ child.title }}">{{ child.name }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
             {% endfor %}
             {% do action('bookish/view/layout/app/nav/post') %}
         </nav>
@@ -111,7 +123,7 @@
     </div>
     <hr>
     <div class="flex justify-center flex-col lg:flex-row py-2 px-4 lg:px-0">
-        <a>Privacy</a> <span class="mx-2 hidden lg:inline">|</span>
+        <a href="{{ fn('get_privacy_policy_url') }}">Privacy</a> <span class="mx-2 hidden lg:inline">|</span>
         <a>Algemene voorwaarden</a> <span class="mx-2 hidden lg:inline">|</span>
         <a>Disclaimer</a>
     </div>

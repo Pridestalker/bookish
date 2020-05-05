@@ -12,6 +12,11 @@ use App\Controllers\TwigFunctions\ProductCategoryUrl;
 
 class Product extends Post
 {
+    public function __call($field, $args)
+    {
+        return call_user_func_array([$this->setProduct(), $field], $args);
+    }
+
     /**
      * @var WC_Product|null $product
      */
@@ -38,6 +43,11 @@ class Product extends Post
         $this->setProduct();
 
         return static::$price_cache[$this->id] = $this->product->get_regular_price();
+    }
+
+    public function get_title()
+    {
+        return $this->title();
     }
 
     /**
@@ -150,7 +160,7 @@ class Product extends Post
         return static::$gallery_id_cache[$this->id] = $this->product->get_gallery_image_ids();
     }
 
-    public function setProduct()
+    public function setProduct(): \WC_Product
     {
         if ($this->product === null) {
             if (isset(static::$product_cache[$this->id])) {
