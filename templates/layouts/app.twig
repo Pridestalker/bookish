@@ -37,10 +37,13 @@
             <a href="{{ get_cart_url() }}" class="text-primary js-shopping-cart-button shopping-cart-button p-2">
                 <span class="hidden lg:inline-block mr-2">Winkelmandje</span>
                 <i class="fad fa-shopping-bag"></i>
+                <span class="bulb">
+                    {{ fn('WC').cart.get_cart_contents_count }}
+                </span>
             </a>
         </div>
     </div>
-    <div class="flex lg:hidden">front
+    <div class="flex lg:hidden">
         <button class="button primary ml-auto">
             <i class="fas fa-bars"></i>
         </button>
@@ -71,7 +74,7 @@
 {% endblock %}
 
 {% block content %}
-    <main class="container mx-auto" id="app">
+    <main id="app">
         {{ post.content }}
     </main>
 {% endblock %}

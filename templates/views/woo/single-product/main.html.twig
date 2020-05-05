@@ -14,6 +14,7 @@
 
 {% block content %}
     <main class="container mx-auto">
+        {% do action('woocommerce_before_single_product') %}
         <h1>{{ product.get_title }}</h1>
 
         <section class="main-content py-4">
@@ -37,10 +38,18 @@
                     {% endblock %}
                 </h2>
 
-                <form action="{{ product.product.get_permalink|filter('woocommerce_add_to_cart_form_action') }}" method="post" enctype="multipart/form-data">
+                <form
+                        class="js-add-to-cart"
+                        action="{{ product.product.get_permalink|apply_filters('woocommerce_add_to_cart_form_action') }}"
+                        method="post"
+                        enctype="multipart/form-data">
 
                     {% do action('woocommerce_before_add_to_cart_quantity') %}
-                    <input type="number" min="{{ product.product.get_min_purchase_quantity }}" max="{{ product.product.get_max_purchase_quantity }}" />
+                    <input type="number"
+                           name="quantity"
+                           value="1"
+                           min="{{ product.product.get_min_purchase_quantity }}"
+                           max="{{ product.product.get_max_purchase_quantity > 0 ? product.product.get_max_purchase_quantity : '' }}" />
 
                     {% do action('woocommerce_after_add_to_cart_quantity') %}
 
@@ -54,7 +63,6 @@
                     {% endblock %}
 
                 </form>
-
 
                 {% block productStock %}
                     {% if product.is_in_stock %}
@@ -111,7 +119,7 @@
         </section>
 
         <section class="related-products py-4">
-            <h2 class="pb-4">Gerelateerde producten</h2>
+            <h2 class="pb-4 px-4 lg:px-0">Gerelateerde producten</h2>
 
             <div class="products-list">
                 {% for related in product.related_products %}

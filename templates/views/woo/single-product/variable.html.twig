@@ -1,19 +1,37 @@
 {% extends 'views/woo/single-product/main.html.twig' %}
 
 {% block productAddToCart %}
+
     {% for key, variations in product.get_variation_attributes %}
-        <label for="{{ key }}">
+        <label for="{{ key }}" class="sr-only">
             {{ key|replace({'pa_': '', '-': ' ' }) }}
         </label>
-        <select id="{{ key }}">
+        <select id="{{ key }}"
+                name="{{ key }}"
+                data-attribute_name="attribute_{{ key }}"
+                data-show_option_none="yes">
             <option placeholder="">Kies een {{ key|replace({'pa_': '', '-': ' ' }) }}</option>
             {% for option in variations %}
-                <option>
+
+                <option value="{{ option }}">
                     {{ option|replace({ '-': ' '})|capitalize }}
                 </option>
             {% endfor %}
         </select>
     {% endfor %}
 
-    {{ parent() }}
+    {% do action('woocommerce_before_add_to_cart_button') %}
+    <button type="submit" name="add-to-cart" disabled value="{{ product.id }}" class="product-add-to-cart">
+        <i class="fad fa-plus-hexagon"></i>
+        <span>Toevoegen aan winkelmand</span>
+    </button>
+    {% do action('woocommerce_after_add_to_cart_button') %}
+
+    <input type="hidden" name="add-to-cart" value="{{ product.id }}">
+    <input type="hidden" name="product_id" value="{{ product.id }}">
+    <input type="hidden" name="variation_id" value="0">
+
+    <script>
+        window.acceptedAttributes = {{ product.get_variations|json_encode|raw }};
+    </script>
 {% endblock %}

@@ -11,6 +11,7 @@ class VariableProduct extends Product
      */
     public $product = null;
     protected static $variation_attribute_cache = [];
+    protected static $variations_cache = [];
 
     public function get_price()
     {
@@ -42,6 +43,17 @@ class VariableProduct extends Product
 
         $this->setProduct();
 
-        return $this->product->get_variation_attributes();
+        return static::$variation_attribute_cache[$this->id] = $this->product->get_variation_attributes();
+    }
+
+    public function get_variations()
+    {
+        if (isset(static::$variations_cache[$this->id])) {
+            return static::$variations_cache[$this->id];
+        }
+
+        $this->setProduct();
+
+        return static::$variations_cache[$this->id] = $this->product->get_available_variations();
     }
 }

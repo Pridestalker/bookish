@@ -1,5 +1,6 @@
-import '../src/Product/tabs';
-import '../src/Product/gallery';
+import '../src/Elements/Product/tabs';
+import '../src/Elements/Product/gallery';
+import VariableProductSelector from '../src/VariableProductSelector/VariableProductSelector'
 
 export default {
 	init() {
@@ -8,5 +9,6 @@ export default {
 
 	finalize() {
 		// Javascript that fires on all pages. after page specific JS is fires.
+		new VariableProductSelector();
 	},
 };

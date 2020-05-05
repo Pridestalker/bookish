@@ -22,6 +22,12 @@ $templates = [
 
 if ($context['product']->setProduct()->is_type('variable')) {
     $context['product'] = new VariableProduct();
+
+    $variations_json = wp_json_encode($context['product']->get_variations());
+    $context['variations_attr'] = function_exists('wc_esc_json')
+        ? wc_esc_json($variations_json)
+        : _wp_specialchars($variations_json, ENT_QUOTES, 'UTF-8', true);
+
     array_unshift($templates, Template::viewHtmlTwigFile('woo/single-product/variable'));
 }
 
