@@ -34,7 +34,7 @@
             <aside class="product-sidebar">
                 <h2 class="product-price">
                     {% block productPrice %}
-                    &euro; {{ product.get_price }}
+                    {{ product.get_price }}
                     {% endblock %}
                 </h2>
 
@@ -48,6 +48,7 @@
                     <input type="number"
                            name="quantity"
                            value="1"
+                           class="w-64"
                            min="{{ product.product.get_min_purchase_quantity }}"
                            max="{{ product.product.get_max_purchase_quantity > 0 ? product.product.get_max_purchase_quantity : '' }}" />
 
@@ -94,7 +95,7 @@
                         <p>
                             <em>
                                 Alle producten worden handgemaakt,
-                                de print en het formaat kunnen dus iets afwijken van de foto's
+                                de print en het formaat kunnen dus iets afwijken van de foto's.
                             </em>
                         </p>
                     </div>

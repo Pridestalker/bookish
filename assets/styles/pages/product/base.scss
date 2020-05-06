@@ -23,7 +23,7 @@
   }
 
   tr:nth-child(2n+0) {
-    background: color.scale(variables.$yellow, $alpha: -40%);
+    background: color.scale(variables.$yellow);
   }
 }
 

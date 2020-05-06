@@ -21,7 +21,7 @@ class VariableProduct extends Product
 
         $this->setProduct();
 
-        return static::$price_cache[$this->id] = $this->product->get_variation_price();
+        return static::$price_cache[$this->id] = wc_price($this->product->get_variation_price());
     }
 
     public function get_sale_price()

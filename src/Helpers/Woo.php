@@ -4,6 +4,8 @@ namespace App\Helpers;
 
 use Timber\Helper;
 use Timber\PostQuery;
+use App\Models\Product;
+use App\Models\VariableProduct;
 
 class Woo
 {
@@ -18,7 +20,19 @@ class Woo
                 'meta_key' => '_product_view_count'
             ];
 
-            return new PostQuery($args, \App\Models\Product::class);
+
+            $posts = [];
+
+            /** @var Product $post */
+            foreach (new PostQuery($args, \App\Models\Product::class) as $post) {
+                if ($post->setProduct()->is_type('variable')) {
+                    $posts[] = new VariableProduct($post->id);
+                } else {
+                    $posts[] = new Product($post->id);
+                }
+            }
+
+            return $posts;
         }, 3600);
     }
 
@@ -32,7 +46,18 @@ class Woo
                 'posts_per_page' => $limit
             ];
 
-            return new PostQuery($args, \App\Models\Product::class);
+            $posts = [];
+
+            /** @var Product $post */
+            foreach (new PostQuery($args, \App\Models\Product::class) as $post) {
+                if ($post->setProduct()->is_type('variable')) {
+                    $posts[] = new VariableProduct($post->id);
+                } else {
+                    $posts[] = new Product($post->id);
+                }
+            }
+
+            return $posts;
         }, 600);
     }
 

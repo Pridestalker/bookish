@@ -42,7 +42,7 @@ class Product extends Post
 
         $this->setProduct();
 
-        return static::$price_cache[$this->id] = $this->product->get_regular_price();
+        return static::$price_cache[$this->id] = wc_price($this->product->get_regular_price());
     }
 
     public function get_title()

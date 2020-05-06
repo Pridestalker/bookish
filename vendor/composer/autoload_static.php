@@ -137,6 +137,7 @@ class ComposerStaticInitd478b73b9349bee22e9b4091ab0df69b
     public static $classMap = array (
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
         'App\\Controllers\\Hooks\\Actions\\Action' => __DIR__ . '/../..' . '/src/Controllers/Hooks/Actions/Action.php',
+        'App\\Controllers\\Hooks\\Actions\\Init' => __DIR__ . '/../..' . '/src/Controllers/Hooks/Actions/Init.php',
         'App\\Controllers\\Hooks\\Filters\\Filter' => __DIR__ . '/../..' . '/src/Controllers/Hooks/Filters/Filter.php',
         'App\\Controllers\\Hooks\\Filters\\WooCommerce\\ProductFromProductId' => __DIR__ . '/../..' . '/src/Controllers/Hooks/Filters/WooCommerce/ProductFromProductId.php',
         'App\\Controllers\\TwigFunctions\\ProductCategoryUrl' => __DIR__ . '/../..' . '/src/Controllers/TwigFunctions/ProductCategoryUrl.php',

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Product;
 use App\Models\VariableProduct;
+use App\Controllers\Hooks\Actions\Init;
 use App\Controllers\Hooks\Actions\Action;
 use App\Controllers\Hooks\Filters\Filter;
 use App\Controllers\Hooks\Filters\WooCommerce\ProductFromProductId;
@@ -27,7 +28,7 @@ class HookServiceProvider extends ServiceProvider
         ]);
 
         $this->actions = apply_filters('bookish/providers/actions', [
-
+            'init' => Init::class
         ]);
     }
 

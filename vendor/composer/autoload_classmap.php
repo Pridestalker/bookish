@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AltoRouter' => $vendorDir . '/altorouter/altorouter/AltoRouter.php',
     'App\\Controllers\\Hooks\\Actions\\Action' => $baseDir . '/src/Controllers/Hooks/Actions/Action.php',
+    'App\\Controllers\\Hooks\\Actions\\Init' => $baseDir . '/src/Controllers/Hooks/Actions/Init.php',
     'App\\Controllers\\Hooks\\Filters\\Filter' => $baseDir . '/src/Controllers/Hooks/Filters/Filter.php',
     'App\\Controllers\\Hooks\\Filters\\WooCommerce\\ProductFromProductId' => $baseDir . '/src/Controllers/Hooks/Filters/WooCommerce/ProductFromProductId.php',
     'App\\Controllers\\TwigFunctions\\ProductCategoryUrl' => $baseDir . '/src/Controllers/TwigFunctions/ProductCategoryUrl.php',
