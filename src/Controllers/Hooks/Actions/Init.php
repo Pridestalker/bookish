@@ -16,4 +16,9 @@ class Init extends Action
             remove_image_size($size);
         }
     }
+
+    public function parameterCount(): int
+    {
+        return 1;
+    }
 }

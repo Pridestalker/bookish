@@ -36,7 +36,7 @@ class HookServiceProvider extends ServiceProvider
     {
         foreach ($this->actions as $hookName => $action) {
             $called = new $action();
-            add_action($hookName, $called->action(), $called->priority(), $called->parameterCount());
+            add_action($hookName, [$called, 'action'], $called->priority(), $called->parameterCount());
         }
 
         foreach ($this->filters as $hookName => $filter) {

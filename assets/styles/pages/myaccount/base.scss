@@ -1,0 +1,61 @@
+@use 'abstracts/variables' as av;
+@use 'sass:color';
+
+.woocommerce-account {
+  .woocommerce {
+    display: flex;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  .woocommerce-MyAccount-navigation {
+    flex: 1 1 30%;
+  }
+
+  .woocommerce-MyAccount-content {
+    flex: 1 1 70%;
+  }
+
+  .col2-set {
+    display: flex;
+    flex-wrap: wrap;
+
+    .col-1, .col-2 {
+      flex: 1 1 50%;
+    }
+  }
+
+  .woocommerce-form-row {
+    margin-bottom: 1rem;
+    label {
+      display: block;
+    }
+
+    .input-text {
+      display: block;
+      appearance: textfield;
+      width: 100%;
+      background: av.$white;
+      border: 1px solid color.scale(av.$gray, $lightness: 30%);
+      line-height: 1;
+      border-radius: 4px;
+      padding: .5rem 1rem;
+      box-shadow: 0 3px 6px rgba(51, 51, 51, 0.2);
+      transition: all 225ms ease;
+
+      &:hover {
+        border-color: av.$gray;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 3px 6px color.scale(av.$green, $alpha: -80%);
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    text-align: left;
+  }
+}

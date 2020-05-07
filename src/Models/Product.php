@@ -14,7 +14,7 @@ class Product extends Post
 {
     public function __call($field, $args)
     {
-        return call_user_func_array([$this->setProduct(), $field], $args);
+	    return call_user_func_array([$this->setProduct(), $field], $args);
     }
 
     /**

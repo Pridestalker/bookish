@@ -21,4 +21,9 @@
   &.outlined {
    border-color: currentColor;
   }
+
+  &.woocommerce-Button {
+    background: v.$primary;
+    color: v.$white;
+  }
 }

@@ -1,6 +1,8 @@
+import navigation from '../src/Common/navigation';
+
 export default {
   init() {
-    // Javascript that fires on all pages.
+    new navigation;
   },
 
   finalize() {

@@ -10,16 +10,6 @@ table.cart {
   .product-remove {
     color: av.$red;
   }
-
-  input[type="number"] {
-    border: 1px solid av.$primary;
-    appearance: textfield;
-    display: block;
-    border-radius: 4px;
-    padding: .25rem .5rem;
-    margin: 2rem 0;
-    text-align: center;
-  }
 }
 
 form.cart-form {
