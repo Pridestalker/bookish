@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Product;
+use App\Bootstrap\Container;
 use App\Models\VariableProduct;
 use App\Controllers\Hooks\Actions\Init;
 use App\Controllers\Hooks\Actions\Action;
@@ -48,7 +49,7 @@ class HookServiceProvider extends ServiceProvider
     {
         foreach ($this->actions as $hookName => $action) {
             if (class_exists($action) && is_subclass_of($action, Action::class)) {
-                $called = new $action();
+                $called = Container::get($action);
                 add_action($hookName, [$called, 'action'], $called->priority(), $called->parameterCount());
             } else {
                 add_action($hookName, $action);
@@ -56,8 +57,12 @@ class HookServiceProvider extends ServiceProvider
         }
 
         foreach ($this->filters as $hookName => $filter) {
-            $called = new $filter();
-            add_filter($hookName, [$called, 'filter'], $called->priority(), $called->parameterCount());
+            if (class_exists($filter) && is_subclass_of($filter, Filter::class)) {
+                $called = Container::get($filter);
+                add_filter($hookName, [$called, 'filter'], $called->priority(), $called->parameterCount());
+            } else {
+                add_filter($hookName, $filter);
+            }
         }
 
         foreach ($this->actions_unhook as $hook => $item) {

@@ -1,8 +1,9 @@
 <article class="product-card">
     <a href="{{ product.get_link }}" title="Bekijk {{ product.get_title }}">
         <picture>
-            <source srcset="{{ product.thumbnail|resize(400,400)|towebp }}" type="image/webp" >
-            <img src="{{ product.thumbnail|resize(400, 400) }}" alt="'{{ product.get_title }}'" loading="lazy">
+            <source srcset="{{ product.thumbnail|resize(900,900)|towebp }} 2x" type="image/webp">
+            <source srcset="{{ product.thumbnail|resize(450,450)|towebp }}" type="image/webp" >
+            <img src="{{ product.thumbnail|resize(450,450) }}" alt="'{{ product.get_title }}'" loading="lazy">
         </picture>
     </a>
 

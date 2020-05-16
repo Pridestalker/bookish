@@ -4,7 +4,10 @@ export default html`
 nav {
     display: flex;
 	scroll-snap-type: x mandatory;
-	overflow: scroll
+	overflow: scroll;
+	overflow-y: hidden;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 button {
     padding: 0;
@@ -60,6 +63,8 @@ figure {
 	nav {
 		overflow: unset;
 		scroll-snap-type: unset;
+		padding-left: 0;
+		padding-right: 0;
 	}
 	
 	.featured-image {

@@ -15,6 +15,14 @@
   }
 }
 
+.product-description {
+  @apply px-4;
+
+  @screen lg {
+    @apply px-0;
+  }
+}
+
 .attribute-table {
   width: 100%;
 
@@ -33,7 +41,7 @@
     display: block;
   }
 
-  a {
+  a:not(.button) {
     color: variables.$primary;
     text-decoration: underline;
     transition: color 225ms ease;

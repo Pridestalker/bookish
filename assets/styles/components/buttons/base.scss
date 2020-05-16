@@ -25,5 +25,9 @@
   &.woocommerce-Button {
     background: v.$primary;
     color: v.$white;
+
+    .woocommerce-MyAccount-content & {
+      color: v.$white;
+    }
   }
 }

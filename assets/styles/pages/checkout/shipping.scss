@@ -14,3 +14,10 @@
     opacity: 1;
   }
 }
+
+.shipping {
+  .woocommerce-shipping-destination,
+  .woocommerce-shipping-calculator {
+    display: none;
+  }
+}

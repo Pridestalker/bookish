@@ -7,18 +7,28 @@
                 <h2 class="cta-title mb-8">Handgemaakte producten</h2>
 
                 <figure class="category-cta">
-                    <img src="https://bookishgoods.nl/app/uploads/2020/05/Booksleeve-frontpage-pic-klein.jpg" alt="{{ __('Check out our %s', 'bookish')|format('booksleeves') }}">
+                    <picture>
+                        {% set _sleeveImage = Image('https://bookishgoods.nl/app/uploads/2020/05/Booksleeve-frontpage-pic-klein.jpg') %}
+                        <source srcset="{{ _sleeveImage.src|retina(2)|towebp }} 2x" type="image/webp">
+                        <source srcset="{{ _sleeveImage.src|resize(620, 515)|towebp }}" type="image/webp">
+                        <img src="{{ _sleeveImage.src|resize(620, 515) }}" alt="{{ __('Bekijk alle %s', 'bookish')|format('booksleeves') }}" loading="lazy">
+                    </picture>
                     <figcaption>
                         Bekijk alle booksleeves
                     </figcaption>
-                    <a href="{{ product_cat_url_on_name('booksleeves') }}"></a>
+                    <a href="{{ product_cat_url_on_name('booksleeves') }}" title="Bekijk alle booksleeves" name="Bekijk alle booksleeves"></a>
                 </figure>
                 <figure class="category-cta">
-                    <img src="//via.placeholder.com/500x400" alt="{{ __('Check out our %s', 'bookish')|format('booksleeves') }}">
+                    <picture>
+                        {% set _ribbonImage = Image('https://bookishgoods.nl/app/uploads/2020/05/Boekenlegger-frontpage-pic.jpg') %}
+                        <source srcset="{{ _ribbonImage.src|retina(2)|towebp }} 2x" type="image/webp">
+                        <source srcset="{{ _ribbonImage.src|resize(620, 515)|towebp }}" type="image/webp">
+                        <img src="{{ _ribbonImage.src|resize(620, 515) }}" alt="{{ __('Bekijk alle %s', 'bookish')|format('bookmarks') }}" loading="lazy">
+                    </picture>
                     <figcaption>
                         Bekijk alle boekenleggers
                     </figcaption>
-                    <a href="{{ product_cat_url_on_name('boekenleggers') }}"></a>
+                    <a href="{{ product_cat_url_on_name('boekenleggers') }}" title="Bekijk alle boekenleggers" name="Bekijk alle boekenleggers"></a>
                 </figure>
             </section>
         {% endblock %}

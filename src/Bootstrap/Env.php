@@ -13,11 +13,38 @@ class Env implements Bootstrapper
      */
     protected $env = null;
 
-    public static function get($name, $default = '')
+    public static function get($name, $default = '', $type = null)
     {
         static::bootstrap();
 
-        return getenv($name)?? $default;
+        if ($type === null) {
+            return getenv($name)?? $default;
+        }
+
+        switch ($type) {
+            case 'int':
+            case 'integer':
+            case 'number':
+            case 'num':
+                return (int) (getenv($name)?? $default);
+                break;
+            case 'bool':
+            case 'boolean':
+                return filter_var((getenv($name)?? $default), FILTER_VALIDATE_BOOLEAN);
+                break;
+            default:
+                return getenv($name)?? $default;
+        }
+    }
+
+    public static function getInt($name, $default = 0)
+    {
+    	return static::get($name, $default, 'integer');
+    }
+
+    public static function getBool($name, $default = false)
+    {
+    	return static::get($name, $default, 'boolean');
     }
 
     public function __construct()

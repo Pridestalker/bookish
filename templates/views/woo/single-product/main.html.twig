@@ -28,17 +28,17 @@
 {% block content %}
     <main class="container mx-auto">
         {% do action('woocommerce_before_single_product') %}
-        <h1>{{ product.get_title }}</h1>
+        <h1 class="px-4 lg:px-0">{{ product.get_title }}</h1>
 
         <section class="main-content py-4">
             <div>
                 {% block productGallery %}
                     <gallery-group>
-                        <gallery-item name="thumnail" src="{{ product.thumbnail.src|resize(450,450) }}" alt="{{ product.get_title }}" active></gallery-item>
+                        <gallery-item name="thumnail" src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}" active></gallery-item>
                         {% for item in product.gallery_items %}
                             {% set gallery_item = Image(item) %}
                             {{ gallery_item.slug }}
-                            <gallery-item name="gallery-{{ loop.index }}" src="{{ gallery_item.src|resize(450,450) }}" aly="{{ gallery_item.alt }}"></gallery-item>
+                            <gallery-item name="gallery-{{ loop.index }}" src="{{ gallery_item.src|resize(900,900) }}" aly="{{ gallery_item.alt }}"></gallery-item>
                         {% endfor %}
                     </gallery-group>
                 {% endblock %}
