@@ -18,6 +18,12 @@
                         'partials/tease/product/' ~ product.slug ~ '.html.twig',
                         'partials/tease/product.html.twig'
                     ], { product: product }, with_context = false, ignore_missing = true) }}
+
+                {% else %}
+                    <h2>Niks gevonden...</h2>
+                    <p>
+                        Probeer het opnieuw met een andere zoekterm. Of bekijk de populaire producten op de <a href="{{ site.link }}">Homepage</a>.
+                    </p>
                 {% endfor %}
             </section>
             <!-- Load products 'ere -->

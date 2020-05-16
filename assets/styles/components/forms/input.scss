@@ -2,10 +2,9 @@
 @use 'sass:color';
 
 form {
-  input {
-
-    &:not([type="checkbox"]) {
-
+  input,
+  textarea {
+    &:not([type="checkbox"]):not([type="radio"]) {
       display: block;
       appearance: textfield;
       width: 100%;
@@ -24,6 +23,60 @@ form {
       &:focus {
         outline: none;
         box-shadow: 0 3px 6px color.scale(av.$green, $alpha: -80%);
+      }
+    }
+
+    &[type="checkbox"], &[type="radio"] {
+      display: none; // Default hide checkout
+      // Give checkout a special one of a kind-esque box
+      + label {
+        position: relative;
+        padding-left: 2rem;
+
+        &::before {
+          content: ' ';
+          width: 1rem;
+          height: 1rem;
+          border: 2px solid av.$primary;
+          display: inline-block;
+          position: absolute;
+          left: 0;
+          top: .125rem;
+          transition: all 225ms ease;
+        }
+      }
+
+      // Default hide checkbox description
+      ~ .payment_box {
+        transform: rotateY(90deg) scale3d(1,0,0);
+        transition: transform 225ms ease-in-out;
+        transition-delay: 0ms;
+        transform-origin: top left;
+        position: absolute;
+        opacity: 0;
+      }
+
+      &:checked {
+        // Show checkmark as checked only when input IS checked
+        + label {
+          &::before {
+            border-left-color: transparent;
+            border-top-color: transparent;
+            border-radius: 0;
+            left: 5px;
+            top: -5px;
+            width: .5rem;
+            transform: rotate(45deg);
+
+          }
+        }
+
+        ~ .payment_box {
+          transform: rotateY(0) scale3d(1, 1, 1);
+          position: static;
+          transition-delay: 75ms;
+          opacity: 1;
+        }
       }
     }
   }

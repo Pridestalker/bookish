@@ -20,6 +20,7 @@
     {% block head_scripts %}
         <script src="https://kit.fontawesome.com/eaa399fb9a.js" crossorigin="anonymous"></script>
     {% endblock %}
+    {% block post_head_scripts %}{% endblock %}
     {{ fn('wp_head') }}
 </head>
 <body {{ fn('body_class') }}>
@@ -33,7 +34,19 @@
                 <img src="{{ _logo.src }}" alt="{{ site.title }}" class="custom-logo">
             </a>
         </figure>
-        <div class="ml-auto my-auto">
+        <div class="ml-auto my-auto hidden lg:block">
+            <form class="search-form" action="{{ site.link }}">
+                <input type="hidden" name="post_type" value="product" id="post_type">
+                <input type="text"
+                       placeholder="Waar ben je naar op zoek?"
+                       tabindex="1"
+                       id="autoComplete" name="s" autocomplete="off">
+                <button class="btn search-icon" type="submit">
+                    <i class="fad fa-search text-primary"></i>
+                </button>
+            </form>
+        </div>
+        <div class="ml-auto lg:ml-2 my-auto">
             <a href="{{ get_cart_url() }}" class="text-primary js-shopping-cart-button shopping-cart-button p-2">
                 <span class="hidden lg:inline-block mr-2">Winkelmandje</span>
                 <i class="fad fa-shopping-bag"></i>
@@ -44,6 +57,16 @@
         </div>
     </div>
     <div class="flex lg:hidden">
+        <form class="search-form" action="{{ site.link }}">
+            <input type="hidden" name="post_type" value="product" id="post_type">
+            <input type="text"
+                   placeholder="Waar ben je naar op zoek?"
+                   tabindex="1"
+                   id="autoComplete" name="s" autocomplete="off">
+            <button class="btn search-icon" type="submit">
+                <i class="fad fa-search text-primary"></i>
+            </button>
+        </form>
         <button class="button primary ml-auto js-nav-opener">
             <i class="fas fa-bars"></i>
         </button>
@@ -129,8 +152,8 @@
     <hr>
     <div class="flex justify-center flex-col lg:flex-row py-2 px-4 lg:px-0">
         <a href="{{ fn('get_privacy_policy_url') }}">Privacy</a> <span class="mx-2 hidden lg:inline">|</span>
-        <a>Algemene voorwaarden</a> <span class="mx-2 hidden lg:inline">|</span>
-        <a>Disclaimer</a>
+        <a href="/algemene-voorwaarden/">Algemene voorwaarden</a> <span class="mx-2 hidden lg:inline">|</span>
+        <a href="/disclaimer/">Disclaimer</a>
     </div>
 </footer>
 {% endblock %}

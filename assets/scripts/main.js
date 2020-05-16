@@ -9,11 +9,14 @@ const home = async () =>
     (await import(/* webpackChunkName: "dist/scripts/routes/home" */ './routes/Home')).default;
 const singleProduct = async () =>
     (await import(/* webpackChunkName: "dist/scripts/routes/single-product" */ './routes/SingleProduct')).default;
+const woocommerceCheckout = async () =>
+    (await import(/* webpackChunkName: "dist/scripts/routes/woocommerce/checkout" */ './routes/WoocommerceCheckout')).default;
 
 const routes = new Router({
     common: common(),
     home: home(),
-    singleProduct: singleProduct()
+    singleProduct: singleProduct(),
+    woocommerceCheckout: woocommerceCheckout()
 });
 
 Ready(() => routes.loadEvents());

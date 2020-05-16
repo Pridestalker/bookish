@@ -4,5 +4,6 @@
     "/dist/scripts/routes/common.js": "/dist/scripts/routes/common.js",
     "/dist/scripts/routes/home.js": "/dist/scripts/routes/home.js",
     "/dist/scripts/routes/single-product.js": "/dist/scripts/routes/single-product.js",
+    "/dist/scripts/routes/woocommerce/checkout.js": "/dist/scripts/routes/woocommerce/checkout.js",
     "/vendors~dist/scripts/routes/single-product.js": "/vendors~dist/scripts/routes/single-product.js"
 }

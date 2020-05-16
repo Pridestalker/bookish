@@ -1,0 +1,14 @@
+.search-form {
+  display: flex;
+  position: relative;
+
+  .btn.search-icon {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+  }
+
+  #autoComplete {
+    margin-bottom: 0;
+  }
+}

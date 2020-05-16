@@ -1,0 +1,28 @@
+<div class="woocommerce-billing-fields">
+    <h3>{{ __('Billing details', 'woocommerce') }}</h3>
+
+    {% do action('woocommerce_before_checkout_billing_form', checkout) %}
+
+    <div class="woocommerce-billing-fields__field-wrapper">
+        {% for key, field in checkout.get_checkout_fields('billing') %}
+            {{ fn('woocommerce_form_field', key, field, checkout.get_value(key)) }}
+        {% endfor %}
+    </div>
+    {% do action('woocommerce_after_checkout_billing_form', checkout) %}
+</div>
+
+{% if is_user_logged_in and checkout.is_registration_enabled %}
+    <div class="woocommerce-account-fields">
+        {% do action('woocommerce_before_checkout_registration_form', checkout) %}
+
+        {% if checkout.get_checkout_fields('account') %}
+            <div class="create-account">
+                {% for key, field in checkout.get_checkout_fields('account') %}
+                    {{ fn('woocommerce_form_field', key, field, checkout.get_value(key)) }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% do action('woocommerce_after_checkout_registration_form', checkout) %}
+    </div>
+{% endif %}

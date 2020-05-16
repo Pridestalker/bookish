@@ -1,6 +1,9 @@
 <?php
 namespace App;
 
+use App\Bootstrap\Container;
 use App\Providers\AppServiceProvider;
+use App\Bootstrap\Env;
 
-new AppServiceProvider();
+Container::get(Env::class);
+Container::get(AppServiceProvider::class);

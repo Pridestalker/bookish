@@ -2,6 +2,7 @@
 namespace App\Providers;
 
 use App\Helpers\Log;
+use App\Bootstrap\Container;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
             } catch (\ReflectionException $exception) {
                 Log::warning('Reflection error while registering providers', ['class' => $provider]);
             }
-            new $provider();
+            Container::get($provider);
         }
     }
 }

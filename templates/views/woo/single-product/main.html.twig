@@ -1,5 +1,18 @@
 {% extends 'layouts/app.twig' %}
 
+{% block post_head_scripts %}
+    <script>
+		var _paq = window._paq || [];
+		_paq.push([
+			'setEcommerceView',
+            'product-{{ product.get_id }}',
+            '{{ product.get_title }}',
+            ['{{ product.get_category_name_array|join(',\' ') }}'],
+            {{ product.get_regular_price }}
+        ])
+    </script>
+{% endblock %}
+
 {% block navbar %}
     {{ parent() }}
 
@@ -68,20 +81,24 @@
                 {% block productStock %}
                     {% if product.is_in_stock %}
                         <p class="text-primary">
-                            <i class="fad fa-box-check mr-2"></i>
-                            <span>Op voorraad! Binnen 2-4 dagen verzonden.</span>
+                            <i class="fad fa-box-check mr-2"></i><span>Op voorraad! Binnen 2-4 dagen verzonden.</span>
                         </p>
                     {% elseif product.can_backorder %}
                         <p>
-                            <i class="fad fa-exclamation-circle mr-2"></i>
-                            <span>Tijdelijk niet op voorraad.</span>
+                            <i class="fad fa-exclamation-circle mr-2"></i><span>Tijdelijk niet op voorraad.</span>
                         </p>
                     {% else %}
                         <p class="text-red">
-                            <i class="fad fa-exclamation-circle mr-2"></i>
-                            <span>Niet op voorraad</span>
+                            <i class="fad fa-exclamation-circle mr-2"></i><span>Niet op voorraad</span>
                         </p>
                     {% endif %}
+                {% endblock %}
+
+                {% block productUSP %}
+                    <p>
+                        <i class="fas fa-comment-check mr-2 text-green"></i>
+                        <span><strong class="text-green">Gratis</strong> verzending vanaf &euro; 35,-</span>
+                    </p>
                 {% endblock %}
             </aside>
         </section>

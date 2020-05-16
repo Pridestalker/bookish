@@ -16,15 +16,6 @@
     flex: 1 1 70%;
   }
 
-  .col2-set {
-    display: flex;
-    flex-wrap: wrap;
-
-    .col-1, .col-2 {
-      flex: 1 1 50%;
-    }
-  }
-
   .woocommerce-form-row {
     margin-bottom: 1rem;
     label {
@@ -57,5 +48,18 @@
   table {
     width: 100%;
     text-align: left;
+  }
+}
+
+.col2-set {
+  display: flex;
+  flex-wrap: wrap;
+
+  .col-1, .col-2 {
+    flex: 0 1 45%;
+  }
+
+  .col-1 {
+    margin-right: auto;
   }
 }

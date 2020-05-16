@@ -14,7 +14,7 @@ class Product extends Post
 {
     public function __call($field, $args)
     {
-	    return call_user_func_array([$this->setProduct(), $field], $args);
+        return call_user_func_array([$this->setProduct(), $field], $args);
     }
 
     /**
@@ -158,6 +158,18 @@ class Product extends Post
         $this->setProduct();
 
         return static::$gallery_id_cache[$this->id] = $this->product->get_gallery_image_ids();
+    }
+
+    public function get_category_name_array()
+    {
+        if (!isset(static::$categories_cache[$this->id])) {
+            $this->setProduct();
+            static::$categories_cache[$this->id] = $this->product->get_category_ids();
+        }
+
+        return array_map(static function ($category) {
+            return Terms::getTermNameOnId($category, 'product_cat');
+        }, static::$categories_cache[$this->id]);
     }
 
     public function setProduct(): \WC_Product

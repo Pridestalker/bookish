@@ -1,13 +1,15 @@
 {
   "require": {
-    "yahnis-elsts/plugin-update-checker": "^4.8.1",
     "aristath/kirki": "^3.0",
-    "timber/timber": "^1.15",
+    "dusank/knapsack": "^10.0",
+    "htmlburger/carbon-fields": "^3.1",
     "jjgrainger/posttypes": "^2.0",
     "monolog/monolog": "^2.0",
     "nesbot/carbon": "^2.29",
-    "htmlburger/carbon-fields": "^3.1",
-    "dusank/knapsack": "^10.0"
+    "php-di/php-di": "^6.1",
+    "timber/timber": "^1.15",
+    "vlucas/phpdotenv": "^4.1",
+    "yahnis-elsts/plugin-update-checker": "^4.8.1"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master"
