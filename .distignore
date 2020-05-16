@@ -9,6 +9,7 @@ assets/
 composer.json
 composer.lock
 package.json
+stylelint.config.js
 tailwind.config.js
 uwire.config.json
 webpack.mix.js

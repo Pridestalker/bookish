@@ -30,7 +30,7 @@ class UpdatesServiceProvider extends ServiceProvider
     {
         $builder = \Puc_v4_Factory::buildUpdateChecker(
             $this->GH_URL,
-            WP::getStylesheetDir(),
+            WP::getStylesheetDir() . '/functions.php',
             $this->GH_SLUG,
             $this->GH_CHECK_PERIOD
         );
