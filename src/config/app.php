@@ -6,6 +6,7 @@ use App\Providers\HookServiceProvider;
 use App\Providers\AssetsServiceProvider;
 use App\Providers\UpdatesServiceProvider;
 use App\Providers\FunctionServiceProvider;
+use App\Providers\CustomizerServiceProvider;
 
 return [
     'providers'     => [
@@ -13,6 +14,7 @@ return [
         AssetsServiceProvider::class,
         FunctionServiceProvider::class,
         HookServiceProvider::class,
-	    UpdatesServiceProvider::class
+	    UpdatesServiceProvider::class,
+	    CustomizerServiceProvider::class
     ]
 ];

@@ -1,4 +1,5 @@
 .actions {
+  margin-top: 2rem;
   margin-bottom: 2rem;
 
   .coupon {
@@ -21,4 +22,8 @@
   .cart_totals {
     margin-left: auto;
   }
+}
+
+.cart-subtotal {
+  text-align: left;
 }

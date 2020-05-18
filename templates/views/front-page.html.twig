@@ -8,7 +8,7 @@
 
                 <figure class="category-cta">
                     <picture>
-                        {% set _sleeveImage = Image('https://bookishgoods.nl/app/uploads/2020/05/Booksleeve-frontpage-pic-klein.jpg') %}
+                        {% set _sleeveImage = Image('https://bookishgoods.nl/app/uploads/2020/05/Booksleeve-frontpage-pic.jpg') %}
                         <source srcset="{{ _sleeveImage.src|retina(2)|towebp }} 2x" type="image/webp">
                         <source srcset="{{ _sleeveImage.src|resize(620, 515)|towebp }}" type="image/webp">
                         <img src="{{ _sleeveImage.src|resize(620, 515) }}" alt="{{ __('Bekijk alle %s', 'bookish')|format('booksleeves') }}" loading="lazy">
