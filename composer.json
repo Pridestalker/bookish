@@ -1,7 +1,7 @@
 {
   "name": "elderbraum/bookish",
   "type": "wordpress-plugin",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "require": {
     "aristath/kirki": "^3.0",
     "dusank/knapsack": "^10.0",
@@ -29,5 +29,10 @@
   "config": {
     "optimize-autoloader": true,
     "sort-packages": true
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\""
+    ]
   }
 }

@@ -28,6 +28,9 @@ class UpdatesServiceProvider extends ServiceProvider
 
     public function register()
     {
+        if (!Env::getBool('UP_GH_KEY')) {
+            return;
+        }
         $builder = \Puc_v4_Factory::buildUpdateChecker(
             $this->GH_URL,
             WP::getStylesheetDir() . '/functions.php',
