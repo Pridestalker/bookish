@@ -10,7 +10,8 @@ $post = new Post();
 $context['post'] = $post;
 
 $templates = [
-    Template::viewHtmlTwigFile('index'),
+    Template::viewHtmlTwigFile(['pages', $post->type()->slug]),
+    Template::viewHtmlTwigFile('page'),
 ];
 
 $caches = [

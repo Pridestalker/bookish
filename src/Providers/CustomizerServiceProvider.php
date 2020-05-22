@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Bootstrap\Container;
 use App\Controllers\Customizer\Customize;
+use App\Controllers\Customizer\Footer\FooterCustomizer;
 
 class CustomizerServiceProvider extends ServiceProvider
 {
@@ -17,7 +18,7 @@ class CustomizerServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->customizer_calls = apply_filters('bookish/providers/customizer', [
-
+            FooterCustomizer::class
         ]);
 
         \Kirki::add_config(static::CUS_CONF_ID, [
@@ -42,6 +43,8 @@ class CustomizerServiceProvider extends ServiceProvider
                     $container->registerSection();
                     static::$customizer_panel_cache[$container::$panel_name]['section_name'] = $container::$panel_name;
                 }
+
+                $container->register();
             }
         }
     }

@@ -8,7 +8,7 @@ class ChangeCheckoutClass extends Filter
 {
     public function filter($fields = [])
     {
-        $fields['order']['billing_country']['input_class'][] = implode(',', [
+        $fields['order']['shipping_country']['input_class'][] = implode(',', [
             'block',
             'appearance-none',
             'w-full',
