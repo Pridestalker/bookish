@@ -11,6 +11,7 @@
     "nesbot/carbon": "^2.29",
     "php-di/php-di": "^6.1",
     "timber/timber": "^1.15",
+    "twig/cssinliner-extra": "^3.0",
     "vlucas/phpdotenv": "^4.1",
     "yahnis-elsts/plugin-update-checker": "^4.8.1"
   },

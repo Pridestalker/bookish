@@ -20,7 +20,7 @@ $caches = [
 ];
 
 return Timber::render(
-    apply_filters('bookish/view-composer/index-page/templates', $templates),
-    apply_filters('bookish/view-composer/index-page/context', $context),
-    apply_filters('bookish/view/composer/index-page/cache', $caches)
+    apply_filters('bookish/view-composer/page/templates', $templates),
+    apply_filters('bookish/view-composer/page/context', $context),
+    apply_filters('bookish/view/composer/page/cache', $caches)
 );

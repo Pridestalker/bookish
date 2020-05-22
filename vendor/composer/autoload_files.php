@@ -13,6 +13,6 @@ return array(
     'e5fde315a98ded36f9b25eb160f6c9fc' => $vendorDir . '/dusank/knapsack/src/utility_functions.php',
     'b33e3d135e5d9e47d845c576147bda89' => $vendorDir . '/php-di/php-di/src/functions.php',
     '241d2b5b9c1e680c0770b006b0271156' => $vendorDir . '/yahnis-elsts/plugin-update-checker/load-v4p9.php',
-    'c39e5e966364f845b8dc03db0a1c135c' => $vendorDir . '/aristath/kirki/kirki.php',
-    '644832821dc5f369571c226eb740f0b8' => $baseDir . '/src/app.php',
+    '21d09688eea72ff6bd167b5106afb7b8' => $vendorDir . '/aristath/kirki/kirki.php',
+    'e05d20d21e158abbdd890ba85ee8dd54' => $baseDir . '/src/app.php',
 );

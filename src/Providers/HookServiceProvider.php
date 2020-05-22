@@ -8,6 +8,7 @@ use App\Models\VariableProduct;
 use App\Controllers\Hooks\Actions\Init;
 use App\Controllers\Hooks\Actions\Action;
 use App\Controllers\Hooks\Filters\Filter;
+use App\Controllers\Hooks\Filters\Twig\AddTwigExtensions;
 use App\Controllers\Hooks\Filters\WooCommerce\ChangeCheckoutClass;
 use App\Controllers\Hooks\Filters\WooCommerce\ProductFromProductId;
 
@@ -30,6 +31,7 @@ class HookServiceProvider extends ServiceProvider
         $this->filters = apply_filters('bookish/providers/filters', [
             'bookish/view/cart/product-from-id' => ProductFromProductId::class,
             'woocommerce_checkout_fields' => ChangeCheckoutClass::class,
+            'timber/twig' => AddTwigExtensions::class
         ]);
 
         $this->actions = apply_filters('bookish/providers/actions', [

@@ -6,14 +6,16 @@
 
 
 use Timber\Timber;
+use App\Helpers\Template;
 
 defined('ABSPATH') || exit(0);
 
+$order->update_status('processing');
 $context = Timber::get_context();
 $context['order'] = $order;
 
 $templates = [
-    \App\Helpers\Template::partialHtmlTwigFile('woocommerce/order/thankyou')
+    Template::partialHtmlTwigFile('woocommerce/order/thankyou')
 ];
 
 Timber::render(

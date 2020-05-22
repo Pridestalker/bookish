@@ -8,6 +8,7 @@ const purger = mix.inProduction()
           './assets/scripts/**/*.vue',
           './assets/scripts/**/*.jsx',
           './assets/styles/**/*.scss',
+          './assets/styles/**/*.sass',
           './templates/**/*.html',
           './templates/**/*.twig',
         ],
@@ -19,6 +20,7 @@ const purger = mix.inProduction()
 
 mix
   .sass('assets/styles/main.scss', 'dist/styles/main.css')
+  .sass('assets/styles/mail/default/main.sass', 'dist/styles/mail.css')
   .js('assets/scripts/main.js', 'dist/scripts/main.js')
   .options({
     processCssUrls: false,
