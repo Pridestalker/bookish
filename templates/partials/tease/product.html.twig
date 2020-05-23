@@ -17,5 +17,11 @@
         </p>
 
         <p class="product-card--price">{{ product.get_price }}</p>
+
+        {% if not product.is_in_stock %}
+            <p>
+                Uitverkocht
+            </p>
+        {% endif %}
     </main>
 </article>
