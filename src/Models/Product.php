@@ -34,6 +34,17 @@ class Product extends Post
 
     protected static $gallery_id_cache = [];
 
+    public function get_price_bare()
+    {
+		if (isset(static::$price_cache[$this->id])) {
+			return static::$price_cache[$this->id];
+		}
+
+		$this->setProduct();
+
+		return static::$price_cache[$this->id] = $this->product->get_price();
+    }
+
     public function get_price()
     {
         if (isset(static::$price_cache[$this->id])) {
@@ -42,7 +53,7 @@ class Product extends Post
 
         $this->setProduct();
 
-        return static::$price_cache[$this->id] = wc_price($this->product->get_regular_price());
+        return wc_price(static::$price_cache[$this->id] = $this->product->get_regular_price());
     }
 
     public function get_title()

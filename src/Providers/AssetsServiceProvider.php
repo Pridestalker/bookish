@@ -16,9 +16,23 @@ class AssetsServiceProvider extends ServiceProvider
         );
 
         WP::addScript(
+            'main-manifest',
+            WP::getAssetLocation(['dist', 'scripts', 'manifest.js']),
+            [],
+            filemtime(WP::getAssetLocation(['dist','scripts', 'manifest.js'], false))
+        );
+
+        WP::addScript(
+            'main-vendor',
+            WP::getAssetLocation(['dist', 'scripts', 'vendor.js']),
+            ['main-manifest'],
+            filemtime(WP::getAssetLocation(['dist', 'scripts', 'vendor.js'], false))
+        );
+
+        WP::addScript(
             'main-script',
             WP::getAssetLocation(['dist', 'scripts', 'main.js']),
-            [],
+            ['main-manifest', 'main-vendor'],
             filemtime(WP::getAssetLocation('dist/scripts/main.js', false))
         );
     }

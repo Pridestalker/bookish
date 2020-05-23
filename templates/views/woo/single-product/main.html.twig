@@ -153,4 +153,28 @@
 
 {% block footer %}
     {{ parent() }}
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": "{{ product.get_name }}",
+            "image": [
+            "{{ product.thumbnail.src|resize(900,900) }}"{% if product.gallery_items|length > 0 %},{% endif %}
+            {% for item in product.gallery_items %}
+                {% set gallery_item = Image(item) %}
+                "{{ gallery_item.src|resize(900,900) }}"{% if not loop.last %},{% endif %}
+            {% endfor %}
+            ],
+            "description": "{{ product.get_description }}",
+            "offers": {
+                "@type": "Offer",
+                "url": "{{ product.link }}",
+                "priceCurrency": "EUR",
+                "price": "{{ product.product.get_price }}",
+                "priceValidUntil": "{{ "now"|date('Y-m-d') }}",
+                "itemCondition": "https://schema.org/new",
+                "availability": "https://schema.org/InStock"
+            }
+        }
+    </script>
 {% endblock %}
