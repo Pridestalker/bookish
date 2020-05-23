@@ -14,8 +14,10 @@ $templates = [
     Template::viewHtmlTwigFile('page'),
 ];
 
+$context['time'] = microtime();
+
 $caches = [
-    Env::getInt('DEFAULT_USER_CACHING', 3600),
+    Env::getInt('DEFAULT_USER_CACHING', 0),
     Env::getBool('DEFAULT_ADMIN_CACHING', false)
 ];
 
