@@ -9,8 +9,12 @@ use App\Controllers\Hooks\Actions\Init;
 use App\Controllers\Hooks\Actions\Action;
 use App\Controllers\Hooks\Filters\Filter;
 use App\Controllers\Hooks\Filters\Twig\AddTwigExtensions;
+use App\Controllers\Hooks\Filters\WooCommerce\CustomOrderAction;
 use App\Controllers\Hooks\Filters\WooCommerce\ChangeCheckoutClass;
 use App\Controllers\Hooks\Filters\WooCommerce\ProductFromProductId;
+use App\Controllers\Hooks\Filters\WooCommerce\CustomSingleOrderStatus;
+use App\Controllers\Hooks\Actions\WooCommerce\OrderStatusPaymentReceived;
+use App\Controllers\Hooks\Actions\WooCommerce\PaymentReceivedCustomNotification;
 
 class HookServiceProvider extends ServiceProvider
 {
@@ -29,14 +33,17 @@ class HookServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->filters = apply_filters('bookish/providers/filters', [
-            'bookish/view/cart/product-from-id' => ProductFromProductId::class,
-            'woocommerce_checkout_fields' => ChangeCheckoutClass::class,
-            'timber/twig' => AddTwigExtensions::class
+            ProductFromProductId::class,
+            ChangeCheckoutClass::class,
+            AddTwigExtensions::class,
+            CustomSingleOrderStatus::class,
+	        CustomOrderAction::class
         ]);
 
         $this->actions = apply_filters('bookish/providers/actions', [
-            'init' => Init::class,
-            'woocommerce_review_order_before_payment' => 'woocommerce_checkout_coupon_form'
+            Init::class,
+            OrderStatusPaymentReceived::class,
+	        PaymentReceivedCustomNotification::class,
         ]);
 
         $this->filters_unhook = apply_filters('bookish/providers/filters/unhook', []);
@@ -47,25 +54,27 @@ class HookServiceProvider extends ServiceProvider
                 'priority' => 10
             ],
         ]);
+
+        add_action('woocommerce_review_order_before_payment', 'woocommerce_checkout_coupon_form');
     }
 
     public function register(): void
     {
-        foreach ($this->actions as $hookName => $action) {
+        foreach ($this->actions as $action) {
             if (class_exists($action) && is_subclass_of($action, Action::class)) {
                 $called = Container::get($action);
-                add_action($hookName, [$called, 'action'], $called->priority(), $called->parameterCount());
+                add_action($called->hook(), [$called, 'action'], $called->priority(), $called->parameterCount());
             } else {
-                add_action($hookName, $action);
+                // Do Nothing.
             }
         }
 
-        foreach ($this->filters as $hookName => $filter) {
+        foreach ($this->filters as $filter) {
             if (class_exists($filter) && is_subclass_of($filter, Filter::class)) {
                 $called = Container::get($filter);
-                add_filter($hookName, [$called, 'filter'], $called->priority(), $called->parameterCount());
+                add_filter($called->hook(), [$called, 'filter'], $called->priority(), $called->parameterCount());
             } else {
-                add_filter($hookName, $filter);
+                // Do nothing.
             }
         }
 

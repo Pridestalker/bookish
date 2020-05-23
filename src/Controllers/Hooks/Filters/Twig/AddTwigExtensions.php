@@ -8,11 +8,16 @@ use Twig\Extra\CssInliner\CssInlinerExtension;
 
 class AddTwigExtensions extends Filter
 {
-	/**
-	 * @param Environment $twig
-	 *
-	 * @return Environment|null
-	 */
+    public function hook()
+    {
+        return 'timber/twig';
+    }
+
+    /**
+     * @param Environment $twig
+     *
+     * @return Environment|null
+     */
     public function filter($twig = null)
     {
         $twig->addExtension(new CssInlinerExtension());

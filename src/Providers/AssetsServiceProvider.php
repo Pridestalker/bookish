@@ -35,12 +35,18 @@ class AssetsServiceProvider extends ServiceProvider
             ['main-manifest', 'main-vendor'],
             filemtime(WP::getAssetLocation('dist/scripts/main.js', false))
         );
+
+        WP::addAdminStyle(
+            'main-admin',
+            WP::getAssetLocation('dist/styles/admin.css'),
+            [],
+            filemtime(WP::getAssetLocation('dist/styles/admin.css', false))
+        );
     }
 
     public function register()
     {
-        WP::enqueueStyles();
-        WP::enqueueScripts();
+        WP::enqueue();
 
         add_action('wp_enqueue_scripts', [$this, 'dequeueAssets'], 20);
         add_filter('woocommerce_enqueue_styles', '__return_empty_array');

@@ -22,6 +22,7 @@ const purger = mix.inProduction()
 mix
 	.sass('assets/styles/main.scss', 'dist/styles/main.css')
 	.sass('assets/styles/mail/default/main.sass', 'dist/styles/mail.css')
+	.sass('assets/styles/admin/main.sass', 'dist/styles/admin.css')
 	.options({
 		processCssUrls: false,
 		postCss: [require('tailwindcss'), require('autoprefixer'), ...purger],

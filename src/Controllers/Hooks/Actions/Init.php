@@ -5,6 +5,11 @@ namespace App\Controllers\Hooks\Actions;
 
 class Init extends Action
 {
+    public function hook()
+    {
+        return 'init';
+    }
+
     public function action()
     {
         $this->remove_all_image_sizes();

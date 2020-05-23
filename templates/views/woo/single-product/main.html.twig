@@ -7,7 +7,7 @@
 			'setEcommerceView',
             'product-{{ product.get_id }}',
             '{{ product.get_title }}',
-            ['{{ product.get_category_name_array|join(',\' ') }}'],
+            ['{{ product.get_category_name_array|join('\', \' ') }}'],
             {{ product.get_regular_price }}
         ])
     </script>
