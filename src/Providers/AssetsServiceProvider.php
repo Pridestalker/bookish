@@ -66,5 +66,9 @@ class AssetsServiceProvider extends ServiceProvider
 
         WP::removeStyle('wp-block-library');
         WP::removeStyle('wc-block-style');
+
+	    if (is_cart()) {
+		    wp_enqueue_script('jquery');
+	    }
     }
 }
