@@ -42,6 +42,14 @@ class AssetsServiceProvider extends ServiceProvider
             [],
             filemtime(WP::getAssetLocation('dist/styles/admin.css', false))
         );
+
+        WP::addScript(
+        	'updated-jquery',
+	        'https://code.jquery.com/jquery-3.5.1.min.js',
+	        [],
+	        '3.5.1',
+	        false
+        );
     }
 
     public function register()
@@ -67,8 +75,5 @@ class AssetsServiceProvider extends ServiceProvider
         WP::removeStyle('wp-block-library');
         WP::removeStyle('wc-block-style');
 
-	    if (is_cart()) {
-		    wp_enqueue_script('jquery');
-	    }
     }
 }
