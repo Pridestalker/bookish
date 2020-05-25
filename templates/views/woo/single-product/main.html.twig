@@ -168,7 +168,7 @@
                 "{{ gallery_item.src|resize(900,900) }}"{% if not loop.last %},{% endif %}
             {% endfor %}
             ],
-            "description": "{{ product.get_description }}",
+            "description": "{{ product.get_description|striptags }}",
             "offers": {
                 "@type": "Offer",
                 "url": "{{ product.link }}",
