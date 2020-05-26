@@ -1,1 +1,1 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{16:function(n,i,o){"use strict";o.r(i),i.default={init:function(){},finalize:function(){}}}}]);
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{16:function(e,n,o){"use strict";o.r(n),n.default={init:function(){t()},finalize:function(){}};var t=function(){var e=document.querySelector(".woocommerce-ordering");e.querySelector("select").addEventListener("change",(function(){e.submit()}))}}}]);
