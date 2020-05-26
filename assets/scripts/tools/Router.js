@@ -26,10 +26,8 @@ class Router {
       })
     );
 
-    console.dir(this.routes);
-    console.dir(this.routes[route]);
-
     Promise.resolve(this.routes[route]).then(res => {
+      console.dir(res);
       const fire = route !== '' && res && typeof res[event] === 'function';
 
       if (fire) {
