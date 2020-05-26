@@ -6,7 +6,8 @@ use App\Controllers\Hooks\Filters\Filter;
 
 class ChangeCheckoutClass extends Filter
 {
-	public function hook () {
+	public function hook ()
+	{
 		return 'woocommerce_checkout_fields';
 	}
 

@@ -25,7 +25,7 @@ class FooterCustomizer extends Customize
         $this->kirki::add_field(
             CustomizerServiceProvider::CUS_CONF_ID,
             [
-                'type' => CustomizerTypeManager::TEXTAREA,
+                'type' => CustomizerTypeManager::RICH_TEXT,
                 'section' => static::$section_name,
                 'label' => 'Over ' . get_bloginfo('name') . ' content',
                 'settings' => $this->getSettingID('About Store')

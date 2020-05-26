@@ -15,6 +15,8 @@ use function wp_deregister_script;
 
 class WP
 {
+    protected static $admin_enqueue_cache = [];
+    protected static $admin_enqueue_cache_scripts = [];
     protected static $stylesheet_dir_cache = null;
     protected static $stylesheet_url_cache = null;
     protected static $dequeue_cache = [];
@@ -58,6 +60,60 @@ class WP
         }
 
         return $base . $path;
+    }
+
+    /**
+     * Adds scripts to the cache and registers them for the admin.
+     *
+     * @param string $handle
+     * @param bool   $src
+     * @param array  $deps
+     * @param bool   $ver
+     * @param bool   $in_footer
+     *
+     * @return void
+     */
+    public static function addAdminScript($handle, $src = false, $deps = [], $ver = false, $in_footer = true)
+    {
+        if (isset(static::$admin_enqueue_cache_scripts[$handle])) {
+            return;
+        }
+
+        add_action('admin_enqueue_scripts', static function () use ($handle, $src, $deps, $ver, $in_footer) {
+            wp_register_script(
+                $handle,
+                $src,
+                $deps,
+                $ver,
+                $in_footer
+            );
+        });
+
+        static::$admin_enqueue_cache_scripts[$handle] = $handle;
+    }
+
+    /**
+     * Adds handles to the cache and registers them in the admin.
+     *
+     * @param string      $handle
+     * @param bool        $src
+     * @param array       $deps
+     * @param bool|string $ver
+     * @param string      $media
+     *
+     * @return void
+     */
+    public static function addAdminStyle($handle, $src = false, $deps = [], $ver = false, $media = 'all')
+    {
+        if (isset(static::$admin_enqueue_cache[$handle])) {
+            return;
+        }
+
+        add_action('admin_enqueue_scripts', static function () use ($handle, $src, $deps, $ver, $media) {
+            wp_register_style($handle, $src, $deps, $ver, $media);
+        });
+
+        static::$admin_enqueue_cache[$handle] = $handle;
     }
 
     /**
@@ -114,10 +170,22 @@ class WP
         static::$enqueue_cache[$handle] = $handle;
     }
 
+    public static function enqueue()
+    {
+        static::enqueueScripts();
+        static::enqueueStyles();
+    }
+
     public static function enqueueScripts()
     {
         foreach (static::$enqueue_cache_scripts as $script) {
             add_action('wp_enqueue_scripts', static function () use ($script) {
+                wp_enqueue_script($script);
+            });
+        }
+
+        foreach (static::$admin_enqueue_cache_scripts as $script) {
+            add_action('admin_enqueue_scripts', static function () use ($script) {
                 wp_enqueue_script($script);
             });
         }
@@ -131,6 +199,11 @@ class WP
     public static function enqueueStyles()
     {
         foreach (static::$enqueue_cache as $item) {
+            add_action('wp_enqueue_scripts', static function () use ($item) {
+                wp_enqueue_style($item);
+            });
+        }
+        foreach (static::$admin_enqueue_cache as $item) {
             add_action('wp_enqueue_scripts', static function () use ($item) {
                 wp_enqueue_style($item);
             });

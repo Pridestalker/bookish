@@ -11,6 +11,7 @@ $context['post'] = new Post();
 
 $context['popular_products'] = Woo::getPopularProducts(3);
 $context['new_products'] = Woo::getNewProducts(3);
+$context['time'] = microtime();
 
 
 $templates = [
@@ -19,7 +20,7 @@ $templates = [
 ];
 
 $caches = [
-    Env::getInt('DEFAULT_USER_CACHING', 3600),
+    Env::getInt('DEFAULT_USER_CACHING', 600),
     Env::getBool('DEFAULT_ADMIN_CACHING', false)
 ];
 

@@ -8,14 +8,14 @@ use App\Helpers\Template;
 $context         = Timber::get_context();
 $post = new Post();
 $context['post'] = $post;
+$context['time'] = microtime();
 
 $templates = [
-    Template::viewHtmlTwigFile(['pages', $post->type()->slug]),
-    Template::viewHtmlTwigFile('page'),
+    Template::viewHtmlTwigFile('index'),
 ];
 
 $caches = [
-    Env::getInt('DEFAULT_USER_CACHING', 3600),
+    Env::getInt('DEFAULT_USER_CACHING', 600),
     Env::getBool('DEFAULT_ADMIN_CACHING', false)
 ];
 

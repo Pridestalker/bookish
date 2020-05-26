@@ -16,7 +16,10 @@
                     <figcaption>
                         Bekijk alle booksleeves
                     </figcaption>
-                    <a href="{{ product_cat_url_on_name('booksleeves') }}" title="Bekijk alle booksleeves" name="Bekijk alle booksleeves"></a>
+                    <a href="{{ product_cat_url_on_name('booksleeves') }}"
+                       title="Bekijk alle booksleeves"
+                       id="booksleeve-cta-link"
+                       name="Bekijk alle booksleeves"></a>
                 </figure>
                 <figure class="category-cta">
                     <picture>
@@ -28,7 +31,10 @@
                     <figcaption>
                         Bekijk alle boekenleggers
                     </figcaption>
-                    <a href="{{ product_cat_url_on_name('boekenleggers') }}" title="Bekijk alle boekenleggers" name="Bekijk alle boekenleggers"></a>
+                    <a href="{{ product_cat_url_on_name('boekenleggers') }}"
+                       title="Bekijk alle boekenleggers"
+                       id="bookmark-cta-link"
+                       name="Bekijk alle boekenleggers"></a>
                 </figure>
             </section>
         {% endblock %}
@@ -47,7 +53,9 @@
                 </div>
 
                 <div class="flex">
-                    <a href="{{ get_store_url() }}" class="mx-auto button primary">Alles bekijken</a>
+                    <a href="{{ get_store_url() }}"
+                       id="new-products-store-link"
+                       class="mx-auto button primary">Alles bekijken</a>
                 </div>
             </section>
         {% endblock %}
@@ -66,9 +74,13 @@
                 </div>
 
                 <div class="flex">
-                    <a href="{{ get_store_url() }}" class="mx-auto button primary">Alles bekijken</a>
+                    <a href="{{ get_store_url() }}"
+                       id="popular-products-store-link"
+                       class="mx-auto button primary">Alles bekijken</a>
                 </div>
             </section>
         {% endblock %}
+
+        {% block homeEnd %}{% endblock %}
     </main>
 {% endblock %}
