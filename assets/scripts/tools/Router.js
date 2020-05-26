@@ -26,10 +26,12 @@ class Router {
       })
     );
 
-    Promise.resolve(this.routes[route]()).then(res => {
-      const fire = route !== '' && res && typeof res[event] === 'function';
+    if (!this.routes[route]) {
+      return;
+    }
 
-      window[route] = res;
+    this.routes[route]().then(res => {
+      const fire = route !== '' && res && typeof res[event] === 'function';
 
       if (fire) {
         res[event](arg);
