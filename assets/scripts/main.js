@@ -12,7 +12,7 @@ const singleProduct = async () =>
 const woocommerceCheckout = async () =>
     (await import(/* webpackChunkName: "dist/scripts/routes/woocommerce/checkout" */ './routes/WoocommerceCheckout')).default;
 const wooStore = async () =>
-    (await import(/* webpackChunkName: "dist/scripts/routes/woocommerce/store" */ './routes/WoocommerceCheckout')).default;
+    (await import(/* webpackChunkName: "dist/scripts/routes/woocommerce/store" */ './routes/WooStore')).default;
 
 const routes = new Router({
     common,
