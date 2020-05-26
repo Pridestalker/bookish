@@ -35,6 +35,7 @@ class Router {
 
       if (fire) {
         res[event](arg);
+        console.dir(`Fired ${res[event].toString()}`)
       }
     });
   }

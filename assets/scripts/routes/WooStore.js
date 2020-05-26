@@ -1,6 +1,4 @@
 export default {
-	init() {
-		console.log('store page')
-	},
+	init() {},
 	finalize() {},
 };
