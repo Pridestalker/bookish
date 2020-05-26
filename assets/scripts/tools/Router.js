@@ -26,7 +26,7 @@ class Router {
       })
     );
 
-    Promise.resolve(this.routes[route]).then(res => {
+    Promise.resolve(this.routes[route]()).then(res => {
       const fire = route !== '' && res && typeof res[event] === 'function';
 
       window[route] = res;
