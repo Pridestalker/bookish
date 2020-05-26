@@ -2,17 +2,9 @@
 
 namespace App\Controllers\Hooks\Actions;
 
-abstract class Action
+use App\Controllers\Hooks\Hook;
+
+abstract class Action extends Hook
 {
-    abstract public function action();
-
-    public function priority(): int
-    {
-        return 10;
-    }
-
-    public function parameterCount(): int
-    {
-        return 1;
-    }
+	abstract public function action();
 }

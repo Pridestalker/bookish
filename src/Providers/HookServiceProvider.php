@@ -33,8 +33,11 @@ class HookServiceProvider extends ServiceProvider
         ]);
 
         $this->actions = apply_filters('bookish/providers/actions', [
-            'init' => Init::class,
-            'woocommerce_review_order_before_payment' => 'woocommerce_checkout_coupon_form'
+            Init::class,
+            [
+            	'hook' => 'woocommerce_review_order_before_payment',
+	            'callback' => 'woocommerce_checkout_coupon_form'
+            ],
         ]);
 
         $this->filters_unhook = apply_filters('bookish/providers/filters/unhook', []);
@@ -49,13 +52,13 @@ class HookServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        foreach ($this->actions as $hookName => $action) {
-            if (class_exists($action) && is_subclass_of($action, Action::class)) {
-                $called = Container::get($action);
-                add_action($hookName, [$called, 'action'], $called->priority(), $called->parameterCount());
-            } else {
-                add_action($hookName, $action);
-            }
+        foreach ($this->actions as $action) {
+        	if (is_array($action)) {
+		        add_action($action['hook'], $action['callback']);
+	        } else if (class_exists($action) && is_subclass_of($action, Action::class)) {
+		        $called = Container::get($action);
+		        add_action($called->hook(), [$called, 'action'], $called->priority(), $called->parameterCount());
+	        }
         }
 
         foreach ($this->filters as $hookName => $filter) {
