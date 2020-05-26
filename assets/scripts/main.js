@@ -15,11 +15,11 @@ const wooStore = async () =>
     (await import(/* webpackChunkName: "dist/scripts/routes/woocommerce/store" */ './routes/WoocommerceCheckout')).default;
 
 const routes = new Router({
-    common: common(),
-    home: home(),
-    singleProduct: singleProduct(),
-    woocommerceCheckout: woocommerceCheckout(),
-    wooStore: wooStore()
+    common,
+    home,
+    singleProduct,
+    woocommerceCheckout,
+    wooStore
 });
 
 Ready(() => routes.loadEvents());
