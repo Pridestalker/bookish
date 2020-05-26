@@ -9,7 +9,12 @@ use App\Controllers\Hooks\Filters\Filter;
 
 class ProductFromProductId extends Filter
 {
-    public function filter($id = null)
+	public function hook ()
+	{
+		return 'bookish/view/cart/product-from-id';
+	}
+
+	public function filter($id = null)
     {
         if (get_post_type($id) === 'product_variable') {
             return new VariableProduct($id);

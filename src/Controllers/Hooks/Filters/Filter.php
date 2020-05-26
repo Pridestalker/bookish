@@ -2,17 +2,9 @@
 
 namespace App\Controllers\Hooks\Filters;
 
-abstract class Filter
+use App\Controllers\Hooks\Hook;
+
+abstract class Filter extends Hook
 {
     abstract public function filter();
-
-    public function priority(): int
-    {
-        return 10;
-    }
-
-    public function parameterCount(): int
-    {
-        return 1;
-    }
 }

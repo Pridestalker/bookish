@@ -6,7 +6,11 @@ use App\Controllers\Hooks\Filters\Filter;
 
 class ChangeCheckoutClass extends Filter
 {
-    public function filter($fields = [])
+	public function hook () {
+		return 'woocommerce_checkout_fields';
+	}
+
+	public function filter($fields = [])
     {
         $fields['order']['billing_country']['input_class'][] = implode(',', [
             'block',

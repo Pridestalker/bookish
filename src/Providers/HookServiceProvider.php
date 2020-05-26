@@ -62,11 +62,11 @@ class HookServiceProvider extends ServiceProvider
         }
 
         foreach ($this->filters as $hookName => $filter) {
-            if (class_exists($filter) && is_subclass_of($filter, Filter::class)) {
+        	if (is_array($filter)) {
+        		add_filter($filter['hook'], $filter['callback']);
+	        } else if (class_exists($filter) && is_subclass_of($filter, Filter::class)) {
                 $called = Container::get($filter);
-                add_filter($hookName, [$called, 'filter'], $called->priority(), $called->parameterCount());
-            } else {
-                add_filter($hookName, $filter);
+                add_filter($called->hook(), [$called, 'filter'], $called->priority(), $called->parameterCount());
             }
         }
 
