@@ -27,8 +27,9 @@ class Router {
     );
 
     Promise.resolve(this.routes[route]).then(res => {
-      console.dir(res);
       const fire = route !== '' && res && typeof res[event] === 'function';
+
+      window[route] = res;
 
       if (fire) {
         res[event](arg);
