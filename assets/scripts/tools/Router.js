@@ -33,10 +33,10 @@ class Router {
     this.routes[route]().then(res => {
       const fire = route !== '' && res && typeof res[event] === 'function';
 
-      console.dir(res);
 
       if (fire) {
         res[event](arg);
+        console.dir(res);
       }
     });
   }
