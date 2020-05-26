@@ -33,7 +33,6 @@ class Router {
     this.routes[route]().then(res => {
       const fire = route !== '' && res && typeof res[event] === 'function';
 
-
       if (fire) {
         res[event](arg);
       }
