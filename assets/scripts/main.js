@@ -19,7 +19,7 @@ const routes = new Router({
     home: home(),
     singleProduct: singleProduct(),
     woocommerceCheckout: woocommerceCheckout(),
-    wooStore
+    wooStore: wooStore()
 });
 
 Ready(() => routes.loadEvents());
