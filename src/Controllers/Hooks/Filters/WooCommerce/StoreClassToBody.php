@@ -8,8 +8,8 @@ class StoreClassToBody extends Filter
 {
 	public function filter($classes = [])
 	{
-		if (is_shop()) {
-			$classes[] = 'wooStore';
+		if (\is_shop() || \is_product_category()) {
+			$classes[] = 'woo-store';
 		}
 
 		return $classes;
