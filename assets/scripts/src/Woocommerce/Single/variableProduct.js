@@ -28,6 +28,9 @@ export default () => {
 		select.addEventListener('change', e => Variable.selectEvent(e, attributes));
 
 		for ( let option of select.options ) {
+			if (option.hasAttribute('placeholder')) {
+				continue;
+			}
 			if (!Variable.isValidOption(option, select, attributes)) {
 				option.disabled = true;
 				option.innerHTML += ' - UITVERKOCHT';
