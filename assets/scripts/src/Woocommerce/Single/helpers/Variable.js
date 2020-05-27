@@ -30,6 +30,8 @@ export const isValidOption = (option, select, attributesMemo) => {
 	const { attribute_name } = select.dataset;
 	window['attr'] = attributesMemo
 		.filter(attribute => attribute.attributes.hasOwnProperty(attribute_name));
+	console.dir(option.value);
+
 	const attributes = attributesMemo
 		.filter(attribute => attribute.attributes.hasOwnProperty(attribute_name))
 		.filter(attribute => attribute.attributes[attribute_name] === option.value);
