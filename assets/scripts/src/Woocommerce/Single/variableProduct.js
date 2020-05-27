@@ -25,12 +25,11 @@ export default () => {
 		 * @type {HTMLSelectElement} select
 		 */
 		const select = selects[i];
+		select.addEventListener('change', e => Variable.selectEvent(e, attributes));
 		for ( let option of select.options ) {
 			if (!Variable.isValidOption(option, select, attributes)) {
 				option.disabled = true;
 			}
 		}
-
-		select.addEventListener('change', e => Variable.selectEvent(e, attributes));
 	}
 }
