@@ -30,6 +30,7 @@ export default () => {
 		for ( let option of select.options ) {
 			if (!Variable.isValidOption(option, select, attributes)) {
 				option.disabled = true;
+				option.innerHTML += ' - UITVERKOCHT';
 			}
 		}
 	}
