@@ -12,7 +12,7 @@
   right: 0;
   text-align: right;
   z-index: 10;
-  padding: .5rem 2rem;
+  padding: 0 2rem;
 
   &.active {
     transform: scale(1);
@@ -36,6 +36,7 @@ nav.nav {
   }
 
   @screen lg {
+    padding: 1.5rem 0;
     position: relative;
     perspective: 1500px;
     margin-right: 1rem;

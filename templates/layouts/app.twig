@@ -82,7 +82,7 @@
 
 {% block navbar %}
 <div class="nav-wrapper">
-    <div class="container mx-auto py-4">
+    <div class="container mx-auto">
         <nav class="nav">
             {% do action('bookish/view/layout/app/nav/pre') %}
             {% for item in primaryMenu.items %}
@@ -109,10 +109,12 @@
             {% endfor %}
             {% do action('bookish/view/layout/app/nav/post') %}
 
-            <a href="{{ fn('get_permalink', fn('get_option', 'woocommerce_myaccount_page_id')) }}" class="ml-auto nav-item">
-                <i class="fad fa-book-reader"></i>
-                <span class="inline-block">Mijn account</span>
-            </a>
+            <div class="submenu-group ml-auto ">
+                <a href="{{ fn('get_permalink', fn('get_option', 'woocommerce_myaccount_page_id')) }}" class="nav-item">
+                    <i class="fad fa-book-reader"></i>
+                    <span class="inline-block">Mijn account</span>
+                </a>
+            </div>
         </nav>
     </div>
 </div>
