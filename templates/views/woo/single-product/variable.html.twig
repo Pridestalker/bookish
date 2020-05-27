@@ -15,7 +15,6 @@
             >
                 <option placeholder="">Kies een {{ key|replace({'pa_': '', '-': ' ' }) }}</option>
                 {% for option in variations %}
-
                     <option value="{{ option }}">
                         {{ option|replace({ '-': ' '})|capitalize }}
                     </option>

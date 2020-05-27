@@ -1,7 +1,7 @@
 import { GalleryGroup, GalleryItem } from '../src/Elements/Product/gallery';
 import { TabGroup, TabItem } from '../src/Elements/Product/tabs';
 import { define } from 'hybrids';
-import VariableProductSelector from '../src/VariableProductSelector/VariableProductSelector';
+import variableProduct from '../src/Woocommerce/Single/variableProduct'
 
 export default {
 	init() {
@@ -13,7 +13,6 @@ export default {
 	},
 
 	finalize() {
-		// Javascript that fires on all pages. after page specific JS is fires.
-		new VariableProductSelector();
+		variableProduct();
 	},
 };
