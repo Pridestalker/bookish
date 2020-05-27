@@ -25,18 +25,12 @@ export const selectEvent = (e, attributesMemo) => {
  * @param {any} attributesMemo
  */
 export const isValidOption = (option, select, attributesMemo) => {
-	if (!option.value) return;
-
 	const { attribute_name } = select.dataset;
-	window['attr'] = attributesMemo
-		.filter(attribute => attribute.attributes.hasOwnProperty(attribute_name));
-	console.dir(option.value);
-
 	const attributes = attributesMemo
 		.filter(attribute => attribute.attributes.hasOwnProperty(attribute_name))
 		.filter(attribute => attribute.attributes[attribute_name] === option.value);
 
-	return attributes[0].is_in_stock;
+	return attributes.length > 0 && attributes[0].is_in_stock;
 }
 
 export default {
