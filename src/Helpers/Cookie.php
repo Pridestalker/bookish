@@ -11,11 +11,15 @@ class Cookie
      *
      * @param int $product the product ID
      */
-    public static function setLastViewedProduct(int $product)
+    public static function setLastViewedProduct(int $product): void
     {
         static::setCookie(Cookies::RECENTLY_VIEWED_PRODUCT, $product);
     }
 
+	public static function setRecurringVisitor(): void
+	{
+		static::setCookie(Cookies::RECURRING_VISITOR, true);
+	}
 
     /**
      * @param string $name The name of the cookie.
