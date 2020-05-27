@@ -30,6 +30,8 @@ export const isValidOption = (option, select, attributesMemo) => {
 		.filter(attribute => attribute.attributes.hasOwnProperty(attribute_name))
 		.filter(attribute => attribute.attributes[attribute_name] === option.value);
 
+	console.dir(attributes);
+
 	return attributes[0].is_in_stock;
 }
 
