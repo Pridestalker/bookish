@@ -19,10 +19,10 @@ class CurrentUserCartItems extends AjaxController
 
 	public function hookName (): string
 	{
-		return 'getCartItemCount';
+		return 'getCartItems';
 	}
 
-	public function getCartItemCount()
+	public function getCartItems()
 	{
 		$cart = WC()->cart;
 
