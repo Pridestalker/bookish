@@ -18,9 +18,9 @@ class AjaxManager
 		/** @var AjaxInterface $class */
 		$class = Container::get($class);
 
-		add_action('wp_ajax_' . $class->hookName(), [$class, $class->actionName()]);
+		add_action('wp_ajax_' . $class->actionName(), [$class, $class->hookName()]);
 		if (!$class->isPrivate()) {
-			add_action('wp_ajax_nopriv_' . $class->hookName(), [$class, $class->actionName()]);
+			add_action('wp_ajax_nopriv_' . $class->actionName(), [$class, $class->hookName()]);
 		}
 	}
 }
