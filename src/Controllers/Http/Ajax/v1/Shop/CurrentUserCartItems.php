@@ -28,6 +28,7 @@ class CurrentUserCartItems extends AjaxController
 
 		wp_send_json_success([
 			'cart_items_count' => $cart->get_cart_contents_count(),
+			'cart_items' => $cart->get_cart_contents(),
 		]);
 	}
 
