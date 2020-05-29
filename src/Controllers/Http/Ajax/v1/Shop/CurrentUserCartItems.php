@@ -29,7 +29,7 @@ class CurrentUserCartItems extends AjaxController
 		$products = [];
 
 		foreach ($cart->get_cart() as $key => $value) {
-			$products []= (new Product(apply_filters('bookish/view/cart/product-from-id', $value['product_id'])))->toArray();
+			$products []= (new Product(apply_filters('bookish/view/cart/product-from-id', $value['product_id']), $value))->toArray();
 		}
 
 		wp_send_json_success([
