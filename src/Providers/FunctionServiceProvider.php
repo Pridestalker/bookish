@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Twig\Environment;
 use Twig\TwigFunction;
+use App\Controllers\TwigFunctions\AdminHelpers;
 use App\Controllers\TwigFunctions\CustomizerHelper;
 use App\Controllers\TwigFunctions\ProductCategoryUrl;
 use App\Controllers\TwigFunctions\WooCommerceGeneral;
@@ -19,7 +20,8 @@ class FunctionServiceProvider extends ServiceProvider
             'product_cat_url_on_id' => [ProductCategoryUrl::class, 'getUrlOnID'],
             'get_store_url' => [WooCommerceGeneral::class, 'getShopUrl'],
             'get_cart_url' => [WooCommerceGeneral::class, 'getCartUrl'],
-            'bookish_theme_option' => [CustomizerHelper::class, 'getThemeOption']
+            'bookish_theme_option' => [CustomizerHelper::class, 'getThemeOption'],
+	        'is_admin' => [AdminHelpers::class, 'isAdmin']
         ]);
 
         add_filter('timber/twig', [$this, 'registerFunctions']);
