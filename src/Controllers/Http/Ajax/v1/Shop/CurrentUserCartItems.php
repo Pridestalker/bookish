@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Http\Ajax\v1\Shop;
 
+use App\Controllers\Resources\Api\Product;
 use App\Controllers\Http\Ajax\AjaxController;
 
 class CurrentUserCartItems extends AjaxController
@@ -28,7 +29,7 @@ class CurrentUserCartItems extends AjaxController
 		$products = [];
 
 		foreach ($cart->get_cart() as $key => $value) {
-			$products []= apply_filters('bookish/view/cart/product-from-id', $value['product_id']);
+			$products []= (new Product(apply_filters('bookish/view/cart/product-from-id', $value['product_id'])))->toArray();
 		}
 
 		wp_send_json_success([
