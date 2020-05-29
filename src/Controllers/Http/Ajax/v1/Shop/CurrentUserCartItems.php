@@ -25,10 +25,15 @@ class CurrentUserCartItems extends AjaxController
 	public function getCartItems()
 	{
 		$cart = WC()->cart;
+		$products = [];
+
+		foreach ($cart->get_cart() as $key => $value) {
+			$products []= apply_filters('bookish/view/cart/product-from-id', $value['product_id']);
+		}
 
 		wp_send_json_success([
 			'cart_items_count' => $cart->get_cart_contents_count(),
-			'cart_items' => $cart->get_cart_contents(),
+			'cart_items' => $products,
 		]);
 	}
 
