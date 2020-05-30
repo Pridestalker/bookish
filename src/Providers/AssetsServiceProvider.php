@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Helpers\WP;
+use App\Controllers\TwigFunctions\AdminHelpers;
 
 class AssetsServiceProvider extends ServiceProvider
 {
@@ -42,6 +43,15 @@ class AssetsServiceProvider extends ServiceProvider
             [],
             filemtime(WP::getAssetLocation('dist/styles/admin.css', false))
         );
+
+        if (AdminHelpers::isAdmin()) {
+        	WP::addScript(
+        		'mini-cart-app',
+		        WP::getAssetLocation('dist/services/mini-cart.js'),
+		        [],
+		        filemtime(WP::getAssetLocation('dist/services/mini-cart.js', false))
+	        );
+        }
 
         WP::addScript(
         	'updated-jquery',
