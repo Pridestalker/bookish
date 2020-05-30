@@ -1,10 +1,10 @@
 {
-    "/dist/scripts/vendor.js": "/dist/scripts/vendor.js?id=7fa38edabf1d957ea2ac",
-    "/dist/scripts/main.js": "/dist/scripts/main.js?id=4cbf9acfdb8993981ded",
+    "/dist/scripts/main.js": "/dist/scripts/main.js?id=56e1ff67948a3ad16982",
     "/dist/scripts/manifest.js": "/dist/scripts/manifest.js",
-    "/dist/scripts/routes/common.js": "/dist/scripts/routes/common.js?id=abf38562236dba679c35",
-    "/dist/scripts/routes/home.js": "/dist/scripts/routes/home.js?id=8911210132989a1f77b8",
-    "/dist/scripts/routes/single-product.js": "/dist/scripts/routes/single-product.js?id=a99ec1e20da321083267",
-    "/dist/scripts/routes/woocommerce/checkout.js": "/dist/scripts/routes/woocommerce/checkout.js?id=765cd39731afb2107444",
-    "/dist/scripts/routes/woocommerce/store.js": "/dist/scripts/routes/woocommerce/store.js?id=70578dc2324fed4d188a"
+    "/dist/scripts/vendor.js": "/dist/scripts/vendor.js?id=adfd58450ac90a6592b4",
+    "/dist/scripts/routes/common.js": "/dist/scripts/routes/common.js?id=0cf8048d7f52686b73de",
+    "/dist/scripts/routes/home.js": "/dist/scripts/routes/home.js?id=17a62a97c7b867737dfa",
+    "/dist/scripts/routes/single-product.js": "/dist/scripts/routes/single-product.js?id=365b1e25ce245422d092",
+    "/dist/scripts/routes/woocommerce/checkout.js": "/dist/scripts/routes/woocommerce/checkout.js?id=7b7f80eca69d1224e9da",
+    "/dist/scripts/routes/woocommerce/store.js": "/dist/scripts/routes/woocommerce/store.js?id=8284372f960a6dc232f0"
 }
