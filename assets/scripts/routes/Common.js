@@ -1,3 +1,4 @@
+import '../services/mini-cart/app';
 import navigation from '../src/Common/navigation';
 
 export default {

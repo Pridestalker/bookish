@@ -18,6 +18,11 @@
     {% block head_scripts %}
         <script src="https://kit.fontawesome.com/eaa399fb9a.js" crossorigin="anonymous"></script>
     {% endblock %}
+    <script>
+        window['shopping_cart_url'] = "{{ get_cart_url() }}"
+        window['ajax_url'] = "{{ fn('admin_url', 'admin-ajax.php') }}"
+        {% block window_definitions %}{% endblock %}
+    </script>
     {% block post_head_scripts %}{% endblock %}
     {{ fn('wp_head') }}
 </head>
@@ -52,13 +57,13 @@
             </form>
         </div>
         <div class="ml-auto lg:ml-4 my-auto">
-            <a href="{{ get_cart_url() }}" class="text-primary js-shopping-cart-button shopping-cart-button p-2">
-                <span class="hidden lg:inline-block mr-2">Winkelmandje</span>
-                <i class="fad fa-shopping-bag"></i>
-                <span class="bulb">
-                    {{ fn('WC').cart.get_cart_contents_count }}
-                </span>
-            </a>
+            <span id="mini-cart-app"></span>
+            <noscript>
+                <a href="{{ get_cart_url() }}" class="text-primary js-shopping-cart-button shopping-cart-button p-2">
+                    <span class="hidden lg:inline-block mr-2">Winkelmandje</span>
+                    <i class="fad fa-shopping-bag"></i>
+                </a>
+            </noscript>
         </div>
     </div>
     <div class="flex lg:hidden mt-4">

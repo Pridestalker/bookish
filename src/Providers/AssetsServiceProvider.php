@@ -44,21 +44,12 @@ class AssetsServiceProvider extends ServiceProvider
             filemtime(WP::getAssetLocation('dist/styles/admin.css', false))
         );
 
-        if (AdminHelpers::isAdmin()) {
-        	WP::addScript(
-        		'mini-cart-app',
-		        WP::getAssetLocation('dist/services/mini-cart.js'),
-		        [],
-		        filemtime(WP::getAssetLocation('dist/services/mini-cart.js', false))
-	        );
-        }
-
         WP::addScript(
-        	'updated-jquery',
-	        'https://code.jquery.com/jquery-3.5.1.min.js',
-	        [],
-	        '3.5.1',
-	        false
+            'updated-jquery',
+            'https://code.jquery.com/jquery-3.5.1.min.js',
+            [],
+            '3.5.1',
+            false
         );
     }
 
@@ -84,6 +75,5 @@ class AssetsServiceProvider extends ServiceProvider
 
         WP::removeStyle('wp-block-library');
         WP::removeStyle('wc-block-style');
-
     }
 }
