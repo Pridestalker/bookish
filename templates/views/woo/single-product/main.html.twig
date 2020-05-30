@@ -13,6 +13,19 @@
     </script>
 {% endblock %}
 
+{% block window_definitions %}
+    {{ parent() }}
+
+    <script>
+        window['product_id'] = {{ product.get_id }}
+        window['product_settings'] = {
+        	"qty": {
+        		'min': '{{ product.product.get_min_purchase_quantity }}',
+                'max': '{{ product.product.get_max_purchase_quantity > 0 ? product.product.get_max_purchase_quantity : '' }}',            }
+        }
+    </script>
+
+{% endblock %}
 {% block navbar %}
     {{ parent() }}
 
@@ -51,32 +64,36 @@
                     {% endblock %}
                 </h2>
 
-                <form
-                        class="js-add-to-cart"
-                        action="{{ product.product.get_permalink|apply_filters('woocommerce_add_to_cart_form_action') }}"
-                        method="post"
-                        enctype="multipart/form-data">
+                {% if is_admin() %}
+                    <span id="add-product-to-cart"></span>
+                {% else %}
+                    <form
+                            class="js-add-to-cart"
+                            action="{{ product.product.get_permalink|apply_filters('woocommerce_add_to_cart_form_action') }}"
+                            method="post"
+                            enctype="multipart/form-data">
 
-                    {% do action('woocommerce_before_add_to_cart_quantity') %}
-                    <input type="number"
-                           name="quantity"
-                           value="1"
-                           class="w-64"
-                           min="{{ product.product.get_min_purchase_quantity }}"
-                           max="{{ product.product.get_max_purchase_quantity > 0 ? product.product.get_max_purchase_quantity : '' }}" />
+                        {% do action('woocommerce_before_add_to_cart_quantity') %}
+                        <input type="number"
+                               name="quantity"
+                               value="1"
+                               class="w-64"
+                               min="{{ product.product.get_min_purchase_quantity }}"
+                               max="{{ product.product.get_max_purchase_quantity > 0 ? product.product.get_max_purchase_quantity : '' }}" />
 
-                    {% do action('woocommerce_after_add_to_cart_quantity') %}
+                        {% do action('woocommerce_after_add_to_cart_quantity') %}
 
-                    {% block productAddToCart %}
-                        {% do action('woocommerce_before_add_to_cart_button') %}
-                        <button type="submit" name="add-to-cart" value="{{ product.id }}" class="product-add-to-cart">
-                            <i class="fad fa-plus-hexagon"></i>
-                            <span>Toevoegen aan winkelmand</span>
-                        </button>
-                        {% do action('woocommerce_after_add_to_cart_button') %}
-                    {% endblock %}
+                        {% block productAddToCart %}
+                            {% do action('woocommerce_before_add_to_cart_button') %}
+                            <button type="submit" name="add-to-cart" value="{{ product.id }}" class="product-add-to-cart">
+                                <i class="fad fa-plus-hexagon"></i>
+                                <span>Toevoegen aan winkelmand</span>
+                            </button>
+                            {% do action('woocommerce_after_add_to_cart_button') %}
+                        {% endblock %}
 
-                </form>
+                    </form>
+                {% endif %}
 
                 {% block productStock %}
                     {% if product.is_in_stock %}

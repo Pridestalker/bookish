@@ -8,7 +8,7 @@ class MiniCart extends Component {
 
 		this.state = {
 			cart: [],
-			cartCount: 0,
+			cartCount: null,
 		};
 	}
 
@@ -43,7 +43,6 @@ class MiniCart extends Component {
 			>
 				<span className="hidden lg:inline-block mr-2">winkelmandje</span>
 				<span className="shopping-icon" key={`icon-${cartCount}`}>
-
 					<i className="fad fa-shopping-bag" />
 				</span>
 				{

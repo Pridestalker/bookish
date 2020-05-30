@@ -68,7 +68,7 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(MiniCart).call(this, props));
     _this.state = {
       cart: [],
-      cartCount: 0
+      cartCount: null
     };
     return _this;
   }

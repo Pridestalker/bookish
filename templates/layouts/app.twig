@@ -18,11 +18,12 @@
     {% block head_scripts %}
         <script src="https://kit.fontawesome.com/eaa399fb9a.js" crossorigin="anonymous"></script>
     {% endblock %}
-    <script>
-        window['shopping_cart_url'] = "{{ get_cart_url() }}"
-        window['ajax_url'] = "{{ fn('admin_url', 'admin-ajax.php') }}"
-        {% block window_definitions %}{% endblock %}
-    </script>
+    {% block window_definitions %}
+        <script>
+			window['shopping_cart_url'] = "{{ get_cart_url() }}"
+			window['ajax_url'] = "{{ fn('admin_url', 'admin-ajax.php') }}"
+        </script>
+    {% endblock %}
     {% block post_head_scripts %}{% endblock %}
     {{ fn('wp_head') }}
 </head>

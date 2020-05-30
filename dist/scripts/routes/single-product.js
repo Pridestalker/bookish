@@ -13,6 +13,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_Elements_Product_tabs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../src/Elements/Product/tabs */ "./assets/scripts/src/Elements/Product/tabs.js");
 /* harmony import */ var hybrids__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! hybrids */ "./node_modules/hybrids/esm/index.js");
 /* harmony import */ var _src_Woocommerce_Single_variableProduct__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../src/Woocommerce/Single/variableProduct */ "./assets/scripts/src/Woocommerce/Single/variableProduct.js");
+/* harmony import */ var _services_simple_add_to_cart_app__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/simple-add-to-cart/app */ "./assets/scripts/services/simple-add-to-cart/app.js");
+
 
 
 
@@ -29,6 +31,94 @@ __webpack_require__.r(__webpack_exports__);
     Object(_src_Woocommerce_Single_variableProduct__WEBPACK_IMPORTED_MODULE_3__["default"])();
   }
 });
+
+/***/ }),
+
+/***/ "./assets/scripts/services/simple-add-to-cart/app.js":
+/*!***********************************************************!*\
+  !*** ./assets/scripts/services/simple-add-to-cart/app.js ***!
+  \***********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+var formElement = document.querySelector('#add-product-to-cart');
+
+var AddToCart =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(AddToCart, _Component);
+
+  function AddToCart(props) {
+    var _this;
+
+    _classCallCheck(this, AddToCart);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AddToCart).call(this, props));
+    _this.state = {
+      productID: null,
+      quantity: null,
+      minQuantity: null,
+      maxQuantity: null
+    };
+    return _this;
+  }
+
+  _createClass(AddToCart, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.setState({
+        productID: window['product_id'],
+        quantity: 1,
+        minQuantity: window['product_settings'].qty.min,
+        maxQuantity: window['product_settings'].qty.max
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("form", null, Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("input", {
+        type: "number",
+        name: "quantity",
+        value: this.state.quantity
+      }), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("button", {
+        type: "submit",
+        name: "add-to-cart",
+        value: this.state.productID,
+        className: "product-add-to-cart"
+      }, Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("i", {
+        className: "fad fa-plus-hexagon"
+      }), Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])("span", null, "Toevoegen aan winkelmand")));
+    }
+  }]);
+
+  return AddToCart;
+}(preact__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+if (formElement) {
+  Object(preact__WEBPACK_IMPORTED_MODULE_0__["render"])(Object(preact__WEBPACK_IMPORTED_MODULE_0__["h"])(AddToCart, null), formElement);
+}
 
 /***/ }),
 
