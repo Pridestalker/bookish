@@ -35,11 +35,12 @@ class AddToCart extends Component {
 		e.preventDefault();
 
 		ky.post(window['ajax_url'], {
-			body: {
+			json: {
 				action: 'add_product_to_cart',
 				product_id: this.state.productID,
 				qty: this.state.quantity,
-			}
+			},
+			credentials: 'include'
 		})
 			.then(res => res.json())
 			.then(res => document.body.dispatchEvent(new CustomEvent('product-added-to-cart', { ...(res?.data?? []) })))
