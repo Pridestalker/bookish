@@ -1,4 +1,5 @@
 import { Component, h, render } from 'preact';
+import ky from 'ky';
 
 const formElement = document.querySelector('#add-simple-product-to-cart');
 
@@ -32,6 +33,16 @@ class AddToCart extends Component {
 	 */
 	addToCart(e) {
 		e.preventDefault();
+
+		ky.get(window['ajax_url'], {
+			body: {
+				action: 'add_product_to_cart',
+				product_id: this.state.productID,
+				qty: this.state.quantity,
+			}
+		})
+			.then(res => res.json())
+			.then(res => document.body.dispatchEvent(new CustomEvent('product-added-to-cart', { ...(res?.data?? []) })))
 	}
 
 	editQuantity(e) {

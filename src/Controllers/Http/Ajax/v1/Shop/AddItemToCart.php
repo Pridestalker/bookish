@@ -48,7 +48,7 @@ class AddItemToCart extends AjaxController
         do_action('woocommerce_ajax_added_to_cart', $productID);
 
         wp_send_json_success([
-            'message' => __('Product toegevoegd aan je winkelmandje!', 'booksih'),
+            'message' => __('Product toegevoegd aan je winkelmandje!', 'bookish'),
             'product' => $productID,
             'quantity' => $quantity
         ]);
