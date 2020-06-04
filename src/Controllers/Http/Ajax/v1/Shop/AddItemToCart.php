@@ -26,9 +26,9 @@ class AddItemToCart extends AjaxController
     {
         $request = $this->getRequest();
 
-        $productID = apply_filters('bookish/ajax/v1/shop/add-to-cart/product-id', $request->get('product_id', false));
-        $quantity = apply_filters('bookish/ajax/v1/shop/add-to-cart/qty', $request->get('qty', 1), $productID);
-        $variationID = apply_filters('bookish/ajax/v1/shop/add-to-cart/product-variation-id', $request->get('variation_id', 0));
+        $productID = apply_filters('bookish/ajax/v1/shop/add-to-cart/product-id', $request->request->get('product_id', false));
+        $quantity = apply_filters('bookish/ajax/v1/shop/add-to-cart/qty', $request->request->get('qty', 1), $productID);
+        $variationID = apply_filters('bookish/ajax/v1/shop/add-to-cart/product-variation-id', $request->request->get('variation_id', 0));
         $postStatus = get_post_status($productID);
 
         if ($postStatus !== 'publish') {
