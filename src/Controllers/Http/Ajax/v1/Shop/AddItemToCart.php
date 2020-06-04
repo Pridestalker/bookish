@@ -42,7 +42,7 @@ class AddItemToCart extends AjaxController
             ], 403);
         }
 
-        if (!validate($productID, $quantity) || !WC()->cart->add_to_cart($productID, $quantity, $variationID)) {
+        if (!$this->validate($productID, $quantity) || !WC()->cart->add_to_cart($productID, $quantity, $variationID)) {
             wp_send_json_error([
                 'error_code' => 'REQUEST_NOT_VALID',
                 'message' => __('Het product is niet toegevoegd aan je mandje.', 'bookish')
