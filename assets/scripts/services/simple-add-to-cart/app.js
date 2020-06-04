@@ -42,7 +42,7 @@ class AddToCart extends Component {
 
 	render() {
 		return (
-			<form>
+			<form onSubmit={this.addToCart}>
 				<input
 					type='number'
 					name='quantity'
@@ -50,7 +50,7 @@ class AddToCart extends Component {
 					onChange={this.editQuantity}
 				/>
 
-				<button type='submit' name='add-to-cart' value={this.state.productID} className='product-add-to-cart' onSubmit={this.addToCart} >
+				<button type='submit' name='add-to-cart' value={this.state.productID} className='product-add-to-cart' >
 					<span key={`icon-${this.state.quantity}-${new Date().getTime()}`}>
 						<i className='fad fa-plus-hexagon' />
 					</span>
