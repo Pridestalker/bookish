@@ -16,9 +16,7 @@ class AddToCart extends Component {
 
 		this.addToCart = this.addToCart.bind(this);
 		this.editQuantity = this.editQuantity.bind(this);
-	}
 
-	componentWillMount() {
 		this.setState({
 			productID: window['product_id'],
 			quantity: 1,
