@@ -12,6 +12,9 @@ class AddToCart extends Component {
 			minQuantity: null,
 			maxQuantity: null,
 		};
+
+		this.addToCart = this.addToCart.bind(this);
+		this.editQuantity = this.editQuantity.bind(this);
 	}
 
 	componentWillMount() {
@@ -23,6 +26,20 @@ class AddToCart extends Component {
 		});
 	}
 
+	/**
+	 *
+	 * @param {Event} e
+	 */
+	addToCart(e) {
+		e.preventDefault();
+	}
+
+	editQuantity(e) {
+		this.setState({
+			quantity: e.target.value
+		});
+	}
+
 	render() {
 		return (
 			<form>
@@ -30,9 +47,10 @@ class AddToCart extends Component {
 					type='number'
 					name='quantity'
 					value={this.state.quantity}
+					onChange={this.editQuantity}
 				/>
 
-				<button type='submit' name='add-to-cart' value={this.state.productID} className='product-add-to-cart'>
+				<button type='submit' name='add-to-cart' value={this.state.productID} className='product-add-to-cart' onSubmit={this.addToCart} >
 					<i className='fad fa-plus-hexagon' />
 					<span>Toevoegen aan winkelmand</span>
 				</button>
