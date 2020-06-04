@@ -31,7 +31,7 @@ class AddItemToCart extends AjaxController
         $variationID = apply_filters('bookish/ajax/v1/shop/add-to-cart/product-variation-id', $request->request->get('variation_id', 0));
         $postStatus = get_post_status($productID);
 
-        var_dump($request->get('product_id'));
+        var_dump($request->request->get('product_id'));
 
         if ($postStatus !== 'publish') {
             wp_send_json_error([
