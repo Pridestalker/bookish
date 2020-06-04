@@ -8,21 +8,14 @@ class AddToCart extends Component {
 		super(props);
 
 		this.state = {
-			productID: null,
-			quantity: null,
-			minQuantity: null,
-			maxQuantity: null,
-		};
-
-		this.addToCart = this.addToCart.bind(this);
-		this.editQuantity = this.editQuantity.bind(this);
-
-		this.setState({
 			productID: window['product_id'],
 			quantity: 1,
 			minQuantity: window['product_settings'].qty.min,
 			maxQuantity: window['product_settings'].qty.max
-		});
+		};
+
+		this.addToCart = this.addToCart.bind(this);
+		this.editQuantity = this.editQuantity.bind(this);
 	}
 
 	/**
