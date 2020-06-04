@@ -29,11 +29,11 @@ class AddToCart extends Component {
 			searchParams: {
 				action: 'add_product_to_cart',
 			},
-			body: JSON.stringify({
+			json:{
 				action: 'add_product_to_cart',
 				product_id: this.state.productID,
 				qty: this.state.quantity,
-			}),
+			},
 			credentials: 'same-origin'
 		})
 			.then(res => res.json())

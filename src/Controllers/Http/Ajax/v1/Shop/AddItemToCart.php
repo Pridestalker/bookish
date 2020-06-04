@@ -2,7 +2,6 @@
 
 namespace App\Controllers\Http\Ajax\v1\Shop;
 
-use DusanKasan\Knapsack\Collection;
 use App\Controllers\Resources\Api\Product;
 use App\Controllers\Http\Ajax\AjaxController;
 
@@ -27,13 +26,14 @@ class AddItemToCart extends AjaxController
     {
         $request = $this->getRequest();
 
-        $data = Collection::from(json_decode($request->getContent(), true));
+        $data = json_decode($request->getContent(), true);
+	    $request->request->replace(is_array($data) ? $data : array());
 
-        $productID = apply_filters('bookish/ajax/v1/shop/add-to-cart/product-id', $data->getOrDefault('product_id', false));
-        $quantity = apply_filters('bookish/ajax/v1/shop/add-to-cart/qty', $data->getOrDefault('qty', 1), $productID);
-        $variationID = apply_filters('bookish/ajax/v1/shop/add-to-cart/product-variation-id', $data->getOrDefault('variation_id', 0));
+        $productID = apply_filters('bookish/ajax/v1/shop/add-to-cart/product-id', $request->request->get('product_id', false));
+        $quantity = apply_filters('bookish/ajax/v1/shop/add-to-cart/qty', $request->request->get('qty', 1), $productID);
+        $variationID = apply_filters('bookish/ajax/v1/shop/add-to-cart/product-variation-id', $request->request->get('variation_id', 0));
         $postStatus = get_post_status($productID);
-        
+
         if ($postStatus !== 'publish') {
             wp_send_json_error([
                 'error_code' => 'PRODUCT_NOT_PUBLIC',
