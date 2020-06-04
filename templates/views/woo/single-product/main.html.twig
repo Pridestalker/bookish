@@ -47,13 +47,16 @@
             <div>
                 {% block productGallery %}
                     <gallery-group>
-                        <gallery-item name="thumnail" src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}" active></gallery-item>
+                        <gallery-item name="thumbnail" src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}" active></gallery-item>
                         {% for item in product.gallery_items %}
                             {% set gallery_item = Image(item) %}
                             {{ gallery_item.slug }}
-                            <gallery-item name="gallery-{{ loop.index }}" src="{{ gallery_item.src|resize(900,900) }}" aly="{{ gallery_item.alt }}"></gallery-item>
+                            <gallery-item name="gallery-{{ loop.index }}" src="{{ gallery_item.src|resize(900,900) }}" alt="{{ gallery_item.alt }}"></gallery-item>
                         {% endfor %}
                     </gallery-group>
+                    <noscript>
+                        <img src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}" />
+                    </noscript>
                 {% endblock %}
             </div>
 
