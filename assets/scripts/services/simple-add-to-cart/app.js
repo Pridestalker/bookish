@@ -1,6 +1,6 @@
 import { Component, h, render } from 'preact';
 
-const formElement = document.querySelector('#add-product-to-cart');
+const formElement = document.querySelector('#add-simple-product-to-cart');
 
 class AddToCart extends Component {
 	constructor(props) {
