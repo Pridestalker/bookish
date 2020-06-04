@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Controllers\Http\Ajax\AjaxManager;
+use App\Controllers\Http\Ajax\v1\Shop\AddItemToCart;
 use App\Controllers\Http\Ajax\v1\Shop\CurrentUserCartItems;
 
 class AjaxServiceProvider extends ServiceProvider
@@ -12,7 +13,8 @@ class AjaxServiceProvider extends ServiceProvider
 	public function boot ()
 	{
 		$this->ajaxClasses = apply_filters('bookish/providers/ajax', [
-			CurrentUserCartItems::class
+			CurrentUserCartItems::class,
+			AddItemToCart::class
 		]);
 	}
 
