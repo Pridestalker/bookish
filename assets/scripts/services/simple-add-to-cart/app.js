@@ -51,7 +51,9 @@ class AddToCart extends Component {
 				/>
 
 				<button type='submit' name='add-to-cart' value={this.state.productID} className='product-add-to-cart' onSubmit={this.addToCart} >
-					<i className='fad fa-plus-hexagon' />
+					<span key={`icon-${this.state.quantity}-${new Date().getTime()}`}>
+						<i className='fad fa-plus-hexagon' />
+					</span>
 					<span>Toevoegen aan winkelmand</span>
 				</button>
 			</form>
