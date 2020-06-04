@@ -68,7 +68,7 @@
                 </h2>
 
                 {% if is_admin() %}
-                    <span id="add-product-to-cart"></span>
+                    <span id="add-{{ product.get_type }}-product-to-cart"></span>
                 {% else %}
                     <form
                             class="js-add-to-cart"

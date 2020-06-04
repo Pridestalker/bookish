@@ -1,4 +1,4 @@
-import { Component, render, h } from 'preact';
+import { Component, h, render } from 'preact';
 
 const formElement = document.querySelector('#add-product-to-cart');
 
@@ -11,7 +11,7 @@ class AddToCart extends Component {
 			quantity: null,
 			minQuantity: null,
 			maxQuantity: null,
-		}
+		};
 	}
 
 	componentWillMount() {
@@ -20,7 +20,7 @@ class AddToCart extends Component {
 			quantity: 1,
 			minQuantity: window['product_settings'].qty.min,
 			maxQuantity: window['product_settings'].qty.max
-		})
+		});
 	}
 
 	render() {
@@ -37,7 +37,7 @@ class AddToCart extends Component {
 					<span>Toevoegen aan winkelmand</span>
 				</button>
 			</form>
-		)
+		);
 	}
 }
 
