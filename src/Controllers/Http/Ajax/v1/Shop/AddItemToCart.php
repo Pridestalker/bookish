@@ -34,7 +34,7 @@ class AddItemToCart extends AjaxController
         if ($postStatus !== 'publish') {
             wp_send_json_error([
                 'error_code' => 'PRODUCT_NOT_PUBLIC',
-                'message' => __('Dit product kan niet worden toegevoegd aan je winkelmandje.', 'bookish')
+                'message' => __('Dit product kan niet worden toegevoegd aan je winkelmandje.', 'bookish'),
 	            'post_status' => $postStatus,
             ], 403);
         }
