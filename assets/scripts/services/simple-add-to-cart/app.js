@@ -39,10 +39,10 @@ class AddToCart extends Component {
 				action: 'add_product_to_cart',
 			},
 			json: {
+				action: 'add_product_to_cart',
 				product_id: this.state.productID,
 				qty: this.state.quantity,
-			},
-			credentials: 'same-origin'
+			}
 		})
 			.then(res => res.json())
 			.then(res => document.body.dispatchEvent(new CustomEvent('product-added-to-cart', { ...(res?.data?? []) })))
