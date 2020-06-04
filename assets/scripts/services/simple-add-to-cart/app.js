@@ -37,7 +37,7 @@ class AddToCart extends Component {
 			credentials: 'same-origin'
 		})
 			.then(res => res.json())
-			.then(res => document.body.dispatchEvent(new CustomEvent('product-added-to-cart', { ...(res?.data|| []) })))
+			.then(res => document.body.dispatchEvent(new CustomEvent('product-added-to-cart', { res: res?.data|| [] })))
 	}
 
 	editQuantity(e) {
