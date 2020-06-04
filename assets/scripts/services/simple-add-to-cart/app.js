@@ -35,8 +35,10 @@ class AddToCart extends Component {
 		e.preventDefault();
 
 		ky.post(window['ajax_url'], {
-			json: {
+			searchParams: {
 				action: 'add_product_to_cart',
+			},
+			json: {
 				product_id: this.state.productID,
 				qty: this.state.quantity,
 			},
