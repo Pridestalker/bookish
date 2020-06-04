@@ -17,7 +17,7 @@ class MiniCart extends Component {
 			searchParams: {
 				action: 'get_cart_item_count'
 			},
-			credentials: 'include'
+			credentials: 'same-origin'
 		}).then(res => {
 			if (!res.ok) {
 				this.setState({
