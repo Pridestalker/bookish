@@ -51,7 +51,6 @@ class AddToCart extends Component {
 	}
 
 	render() {
-		this.setState({ loading: false });
 		return (
 			<form onSubmit={this.addToCart}>
 				<input
