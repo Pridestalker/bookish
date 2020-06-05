@@ -12,7 +12,8 @@ class AddToCart extends Component {
 			productID: window['product_id'],
 			quantity: 1,
 			minQuantity: window['product_settings'].qty.min,
-			maxQuantity: window['product_settings'].qty.max
+			maxQuantity: window['product_settings'].qty.max,
+			loading: true
 		};
 
 		this.addToCart = this.addToCart.bind(this);
@@ -26,6 +27,7 @@ class AddToCart extends Component {
 	addToCart(e) {
 		e.preventDefault();
 
+		this.setState({loading: true});
 		ky.post(window['ajax_url'], {
 			searchParams: {
 				action: 'add_product_to_cart',
@@ -39,6 +41,7 @@ class AddToCart extends Component {
 		})
 			.then(res => res.json())
 			.then(res => document.body.dispatchEvent(new CustomEvent('product-added-to-cart', { detail: res?.data|| [] })))
+			.finally(() => this.setState({loading:false}));
 	}
 
 	editQuantity(e) {
@@ -48,6 +51,7 @@ class AddToCart extends Component {
 	}
 
 	render() {
+		this.setState({ loading: false });
 		return (
 			<form onSubmit={this.addToCart}>
 				<input
@@ -57,7 +61,7 @@ class AddToCart extends Component {
 					onChange={this.editQuantity}
 				/>
 
-				<SubmitButton />
+				<SubmitButton productID={this.state.productID} loading={} />
 			</form>
 		);
 	}
