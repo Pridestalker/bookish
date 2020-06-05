@@ -13,7 +13,7 @@ class AddToCart extends Component {
 			quantity: 1,
 			minQuantity: window['product_settings'].qty.min,
 			maxQuantity: window['product_settings'].qty.max,
-			loading: true
+			loading: false
 		};
 
 		this.addToCart = this.addToCart.bind(this);
