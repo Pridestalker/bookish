@@ -7,7 +7,7 @@ export class BulbCounter extends Component {
 	}
 
 	componentDidMount() {
-		document.addEventListener('product-added-to-cart', (e) => {
+		document.body.addEventListener('product-added-to-cart', (e) => {
 			console.dir(e);
 
 			this.props.dataRefresh()
