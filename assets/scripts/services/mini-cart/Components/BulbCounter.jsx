@@ -4,7 +4,9 @@ import { Component, render, h, Fragment } from 'preact'
 export class BulbCounter extends Component {
 	constructor(props) {
 		super(props);
+	}
 
+	componentDidMount() {
 		document.addEventListener('product-added-to-cart', (e) => {
 			console.dir(e);
 
