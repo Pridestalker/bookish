@@ -5,7 +5,11 @@ export class BulbCounter extends Component {
 	constructor(props) {
 		super(props);
 
-		document.addEventListener('product-added-to-cart', (e) => this.props.dataRefresh);
+		document.addEventListener('product-added-to-cart', (e) => {
+			console.dir(e);
+
+			this.props.dataRefresh()
+		});
 	}
 
 	render() {
