@@ -7,7 +7,7 @@ export class SubmitButton extends Component {
 		return (
 			<button type='submit' name='add-to-cart' value={this.props.productID} className='product-add-to-cart' >
 				<FontAwesomeIcon icon={this.props.loading? faSpinner: faPlusHexagon} spin={this.props.loading}/>
-				<span>
+				<span style={{ 'margin-left': '.5rem' }}>
 					Toevoegen aan winkelmand
 				</span>
 			</button>
