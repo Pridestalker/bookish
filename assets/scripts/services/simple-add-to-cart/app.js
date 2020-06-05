@@ -61,7 +61,7 @@ class AddToCart extends Component {
 					onChange={this.editQuantity}
 				/>
 
-				<SubmitButton productID={this.state.productID} loading={} />
+				<SubmitButton productID={this.state.productID} loading={this.state.loading} />
 			</form>
 		);
 	}
