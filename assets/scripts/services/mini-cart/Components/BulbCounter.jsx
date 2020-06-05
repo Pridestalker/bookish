@@ -1,4 +1,4 @@
-import { Component, render, h } from 'preact'
+import { Component, render, h, Fragment } from 'preact'
 
 
 export class BulbCounter extends Component {
@@ -10,7 +10,7 @@ export class BulbCounter extends Component {
 
 	render() {
 		if (this.props.cartCount === 0) {
-			return <></>;
+			return <Fragment />;
 		}
 
 
