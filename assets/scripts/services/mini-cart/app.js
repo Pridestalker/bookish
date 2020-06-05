@@ -1,5 +1,6 @@
 import { Component, render, h } from 'preact';
 import ky from 'ky';
+import { BulbCounter } from './Components/BulbCounter'
 
 class MiniCart extends Component {
 
@@ -10,9 +11,15 @@ class MiniCart extends Component {
 			cart: [],
 			cartCount: null,
 		};
+
+		this.fetchData = this.fetchData.bind(this);
 	}
 
 	componentWillMount() {
+		this.fetchData()
+	}
+
+	fetchData() {
 		ky.get(window['ajax_url'], {
 			searchParams: {
 				action: 'get_cart_item_count'
@@ -45,13 +52,7 @@ class MiniCart extends Component {
 				<span className="shopping-icon" key={`icon-${cartCount}`}>
 					<i className="fad fa-shopping-bag" />
 				</span>
-				{
-					cartCount > 0 &&
-					<span className="bulb">
-						{ cartCount }
-					</span>
-				}
-
+				<BulbCounter dataRefresh={this.fetchData} cartCount={cartCount} />
 			</a>);
 	}
 }
