@@ -44,7 +44,8 @@ class AddToCart extends Component {
 
 		for ( const key in this.variations ) {
 			if (this.variations.hasOwnProperty(key)) {
-				selects.push(<VariableSelect options={this.variations[key]} />)
+				console.dir(this.variations[key]);
+				// selects.push(<VariableSelect options={this.variations[key]} />)
 			}
 		}
 
