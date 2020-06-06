@@ -38,6 +38,6 @@
     <input type="hidden" name="variation_id" value="0">
 
     <script>
-        window.acceptedAttributes = {{ product.get_variations|json_encode|raw }};
+        window['acceptedAttributes'] = {{ product.get_variations|json_encode|raw }};
     </script>
 {% endblock %}
