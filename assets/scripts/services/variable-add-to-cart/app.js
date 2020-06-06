@@ -60,6 +60,7 @@ class AddToCart extends Component {
 					type='number'
 					name='quantity'
 					value={this.state.quantity}
+					className={'w-64'}
 					onChange={this.editQuantity}
 				/>
 
