@@ -19,7 +19,11 @@ class AddToCart extends Component {
 
 	render() {
 		return (
-
+			<form onSubmit={event => event.preventDefault()}>
+				<pre>
+					{window['acceptedAttributes']}
+				</pre>
+			</form>
 		)
 	}
 }
