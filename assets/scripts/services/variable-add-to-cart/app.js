@@ -19,7 +19,7 @@ class AddToCart extends Component {
 		}
 
 		this.editQuantity = this.editQuantity.bind(this);
-		this.variation = variations;
+		this.variations = variations;
 
 		console.dir(acceptedAttributes);
 		console.dir(this.variations);
