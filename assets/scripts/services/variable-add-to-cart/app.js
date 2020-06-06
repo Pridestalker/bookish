@@ -28,6 +28,7 @@ class AddToCart extends Component {
 	}
 
 	addToCart(e) {
+		e.preventDefault();
 		if (!this.state.variationID) {
 			// Send toast notification?
 			// Only if no variation selected
@@ -77,7 +78,7 @@ class AddToCart extends Component {
 		}
 
 		return (
-			<form onSubmit={event => event.preventDefault()}>
+			<form onSubmit={this.addToCart}>
 				<input
 					type='number'
 					name='quantity'
