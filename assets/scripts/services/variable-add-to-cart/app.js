@@ -57,7 +57,7 @@ class AddToCart extends Component {
 			})
 		}
 
-		console.log(this.state.variationID)
+		console.log(possibilities)
 	}
 
 	editQuantity(e) {
