@@ -32,9 +32,26 @@ class AddToCart extends Component {
 		if (!this.state.variationID) {
 			// Send toast notification?
 			// Only if no variation selected
+			return;
 		}
 
-		window.alert(this.state.variationID);
+		this.setState({loading: true});
+
+		ky.post(window['ajax_url'], {
+			searchParams: {
+				action: 'add_product_to_cart',
+			},
+			json:{
+				action: 'add_product_to_cart',
+				product_id: this.state.productID,
+				qty: this.state.quantity,
+				variation_id: this.state.variationID,
+			},
+			credentials: 'same-origin'
+		})
+			.then(res => res.json())
+			.then(res => document.body.dispatchEvent(new CustomEvent('product-added-to-cart', { detail: res?.data|| [] })))
+			.finally(() => this.setState({loading:false}));
 	}
 
 	changeVariation(e) {
