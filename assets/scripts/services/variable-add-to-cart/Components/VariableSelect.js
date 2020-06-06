@@ -6,8 +6,8 @@ export class VariableSelect extends Component {
 
 		return (
 			<select onChange={this.props.changeHandler}>
-				{/*{ this.props.options.map((option, key) =>*/}
-				{/*	<option value={option.lowercase()} key={key}>{option}</option>) }*/}
+				{ this.props.options.map((option, key) =>
+					<option value={option.toLowerCase()} key={key}>{option}</option>) }
 			</select>
 		)
 	}
