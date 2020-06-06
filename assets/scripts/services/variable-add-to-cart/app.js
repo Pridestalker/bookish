@@ -22,6 +22,7 @@ class AddToCart extends Component {
 		this.editQuantity = this.editQuantity.bind(this);
 		this.addToCart = this.addToCart.bind(this);
 		this.changeVariation = this.changeVariation.bind(this);
+
 		this.variations = variations;
 		this.attributes = getWindowAttributes();
 	}
@@ -55,6 +56,8 @@ class AddToCart extends Component {
 				loading: false,
 			})
 		}
+
+		console.log(this.state.variationID)
 	}
 
 	editQuantity(e) {
