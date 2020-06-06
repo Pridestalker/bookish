@@ -50,7 +50,7 @@ class AddToCart extends Component {
 		for ( const key in this.variations ) {
 			if (this.variations.hasOwnProperty(key)) {
 				selects.push(<VariableSelect
-					options={this.variations[key]} key={key} changeHandler={this.changeVariation} />)
+					options={this.variations[key]} key={key} changeHandler={this.changeVariation} selectName={{key} />)
 			}
 		}
 
