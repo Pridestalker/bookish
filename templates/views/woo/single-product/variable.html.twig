@@ -1,7 +1,14 @@
 {% extends 'views/woo/single-product/main.html.twig' %}
 
-{% block productAddToCart %}
+{% block window_definitions %}
+    {{ parent() }}
 
+    <script>
+		window['acceptedAttributes'] = {{ product.get_variations|json_encode|raw }};
+    </script>
+{% endblock %}
+
+{% block productAddToCart %}
     {% for key, variations in product.get_variation_attributes %}
         <div class="inline-block relative w-64">
             <label for="{{ key }}" class="sr-only">
@@ -36,8 +43,4 @@
     <input type="hidden" name="add-to-cart" value="{{ product.id }}">
     <input type="hidden" name="product_id" value="{{ product.id }}">
     <input type="hidden" name="variation_id" value="0">
-
-    <script>
-        window['acceptedAttributes'] = {{ product.get_variations|json_encode|raw }};
-    </script>
 {% endblock %}
