@@ -15,7 +15,7 @@ export class VariableSelect extends Component {
 	render() {
 		return (
 			<Fragment>
-				<label htmlFor={this.props.selectName}>
+				<label htmlFor={this.props.selectName} style={{'text-transform': 'capitalize'}}>
 					{fixSelectLabel(this.props.selectName)}
 				</label>
 
