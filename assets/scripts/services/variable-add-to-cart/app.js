@@ -2,6 +2,7 @@ import React, { Component, h, render } from 'preact';
 import ky from 'ky';
 import { SubmitButton } from '../simple-add-to-cart/Components/SubmitButton'
 import { VariableSelect } from './Components/VariableSelect'
+import getWindowAttributes from '../../src/Woocommerce/Single/helpers/getWindowAttributes'
 
 const formElement = document.querySelector('#add-variable-product-to-cart');
 
@@ -22,8 +23,7 @@ class AddToCart extends Component {
 		this.addToCart = this.addToCart.bind(this);
 		this.changeVariation = this.changeVariation.bind(this);
 		this.variations = variations;
-
-		console.dir(acceptedAttributes);
+		this.attributes = getWindowAttributes();
 	}
 
 	addToCart(e) {
@@ -31,11 +31,30 @@ class AddToCart extends Component {
 			// Send toast notification?
 			// Only if no variation selected
 		}
+
+		window.alert(this.state.variationID);
 	}
 
 	changeVariation(e) {
 		// Show a notification of selection?
-		console.dir(e);
+		const { value, dataset } = e.target;
+		const { attribute_name } = dataset;
+
+		const possibilities = this.attributes
+			.filter(attribute => attribute.attributes.hasOwnProperty(attribute_name))
+			.filter(attribute => attribute.attributes[attribute_name] === ''? true: attribute.attributes[attribute_name] === value)
+
+		if (possibilities.length === 1) {
+			this.setState({
+				variationID: possibilities[0].id,
+				loading: false,
+			})
+		} else {
+			this.setState({
+				variationID: false,
+				loading: false,
+			})
+		}
 	}
 
 	editQuantity(e) {
