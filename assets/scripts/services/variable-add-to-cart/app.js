@@ -27,3 +27,7 @@ class AddToCart extends Component {
 		)
 	}
 }
+
+if (formElement) {
+	render(<AddToCart />, formElement);
+}
