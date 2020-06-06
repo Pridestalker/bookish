@@ -40,6 +40,12 @@ class AddToCart extends Component {
 	}
 
 	render() {
+		const selects = [];
+
+		for ( const [index, value] of this.variations ) {
+			selects.push(<VariableSelect options={value} />)
+		}
+
 		return (
 			<form onSubmit={event => event.preventDefault()}>
 				<input
@@ -49,7 +55,7 @@ class AddToCart extends Component {
 					onChange={this.editQuantity}
 				/>
 
-				{this.variations.map((variation, key) => <VariableSelect options={variation} />)}
+				{selects}
 
 				<SubmitButton productID={this.state.productID} loading={this.state.loading} />
 			</form>
