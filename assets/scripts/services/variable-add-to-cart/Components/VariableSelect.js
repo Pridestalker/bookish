@@ -1,4 +1,4 @@
-import { Component, h } from 'preact';
+import React, { Component, h } from 'preact';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/pro-solid-svg-icons';
 
@@ -6,6 +6,9 @@ export class VariableSelect extends Component {
 	render() {
 		return (
 			<div className={'inline-block relative w-64'}>
+				<label htmlFor={this.props.key}>
+					{this.props.key}
+				</label>
 				<select onChange={this.props.changeHandler}
 						id={this.props.key}
 						name={this.props.key}
