@@ -14,15 +14,15 @@ class AddToCart extends Component {
 			maxQuantity: window['product_settings'].qty.max,
 			loading: false,
 		}
+
+		console.dir(acceptedAttributes);
+		console.dir(variations);
 	}
 
 
 	render() {
 		return (
 			<form onSubmit={event => event.preventDefault()}>
-				<pre>
-					{window['acceptedAttributes']}
-				</pre>
 			</form>
 		)
 	}

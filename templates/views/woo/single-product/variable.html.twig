@@ -5,6 +5,7 @@
 
     <script>
 		window['acceptedAttributes'] = {{ product.get_variations|json_encode|raw }};
+		window['variations'] = {{ product.get_variation_attributes|json_encode|raw }};
     </script>
 {% endblock %}
 
