@@ -2,12 +2,19 @@ import React, { Component, h, Fragment } from 'preact';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/pro-solid-svg-icons';
 
+/**
+ *
+ * @param {string} name
+ * @returns {string}
+ */
+const fixSelectLabel = (name) => name.replace('pa_', '').replace('-', ' ');
+
 export class VariableSelect extends Component {
 	render() {
 		return (
 			<Fragment>
 				<label htmlFor={this.props.selectName}>
-					{this.props.selectName}
+					{fixSelectLabel(this.props.selectName)}
 				</label>
 
 				<div className={'inline-block relative w-64'}>
