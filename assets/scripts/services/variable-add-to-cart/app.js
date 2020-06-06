@@ -1,4 +1,4 @@
-import { Component, h, render } from 'preact';
+import React, { Component, h, render } from 'preact';
 import ky from 'ky';
 import { SubmitButton } from '../simple-add-to-cart/Components/SubmitButton'
 import { VariableSelect } from './Components/VariableSelect'
@@ -19,10 +19,11 @@ class AddToCart extends Component {
 		}
 
 		this.editQuantity = this.editQuantity.bind(this);
+		this.addToCart = this.addToCart.bind(this);
+		this.changeVariation = this.changeVariation.bind(this);
 		this.variations = variations;
 
 		console.dir(acceptedAttributes);
-		console.dir(this.variations);
 	}
 
 	addToCart(e) {
@@ -30,7 +31,11 @@ class AddToCart extends Component {
 			// Send toast notification?
 			// Only if no variation selected
 		}
+	}
 
+	changeVariation(e) {
+		// Show a notification of selection?
+		console.dir(e);
 	}
 
 	editQuantity(e) {
@@ -44,7 +49,8 @@ class AddToCart extends Component {
 
 		for ( const key in this.variations ) {
 			if (this.variations.hasOwnProperty(key)) {
-				selects.push(<VariableSelect options={this.variations[key]} />)
+				selects.push(<VariableSelect
+					options={this.variations[key]} key={key} changeHandler={this.changeVariation} />)
 			}
 		}
 
