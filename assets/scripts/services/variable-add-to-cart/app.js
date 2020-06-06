@@ -42,7 +42,7 @@ class AddToCart extends Component {
 	render() {
 		const selects = [];
 
-		for ( const [index, value] of this.variations ) {
+		for ( const [index, value] in this.variations ) {
 			selects.push(<VariableSelect options={value} />)
 		}
 
