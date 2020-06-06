@@ -7,7 +7,9 @@ import { faChevronDown } from '@fortawesome/pro-solid-svg-icons';
  * @param {string} name
  * @returns {string}
  */
-const fixSelectLabel = (name) => name.replace('pa_', '').replace('-', ' ');
+const fixSelectLabel = (name) => name
+	.replace('pa_', '')
+	.split('-').join(' ');
 
 export class VariableSelect extends Component {
 	render() {
