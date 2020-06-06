@@ -57,7 +57,7 @@ class AddToCart extends Component {
 			})
 		}
 
-		console.log(possibilities)
+		console.log(value)
 	}
 
 	editQuantity(e) {
