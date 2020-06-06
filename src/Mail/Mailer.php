@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use App\Helpers\Log;
+use App\Bootstrap\Env;
 use Symfony\Component\Mailer\Transport;
 
 class Mailer
@@ -22,7 +23,8 @@ class Mailer
                 null
             );
         }
-        return Transport::fromDsn($this->dsn);
+
+        return Transport::fromDsn(Env::get('DSN', $this->dsn));
     }
 
 

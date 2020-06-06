@@ -3,6 +3,7 @@
   "type": "wordpress-theme",
   "version": "1.0.0",
   "require": {
+    "php": ">7.2",
     "aristath/kirki": "^3.0",
     "dusank/knapsack": "^10.0",
     "htmlburger/carbon-fields": "^3.1",
