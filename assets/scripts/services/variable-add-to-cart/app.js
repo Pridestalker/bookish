@@ -42,10 +42,10 @@ class AddToCart extends Component {
 	render() {
 		const selects = [];
 
-		for ( const [index, value] in this.variations ) {
-			console.log(index);
-			console.log(value);
-			selects.push(<VariableSelect options={value} />)
+		for ( const key in this.variations ) {
+			if (this.variations.hasOwnProperty(key)) {
+				selects.push(<VariableSelect options={this.variations[key]} />)
+			}
 		}
 
 		return (
