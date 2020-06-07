@@ -18,7 +18,7 @@ export class ToastWrapper extends Component {
 	}
 
 	findToasts() {
-		document.addEventListener('register-toast', evt => {
+		document.body.addEventListener('register-toast', evt => {
 			const {
 				title,
 				time,
