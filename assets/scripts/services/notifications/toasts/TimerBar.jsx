@@ -14,7 +14,6 @@ export class TimerBar extends Component {
 		super();
 
 		this.state = {
-			time: this.props.time || false,
 			width: 0,
 		}
 	}
