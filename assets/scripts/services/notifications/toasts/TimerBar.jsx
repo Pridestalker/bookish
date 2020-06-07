@@ -1,4 +1,4 @@
-import React, { Component, h } from 'preact';
+import React, { Component, h, Fragment } from 'preact';
 import styled from 'styled-components';
 
 const ProgressBar = styled.div`
@@ -14,12 +14,15 @@ export class TimerBar extends Component {
 		super();
 
 		this.state = {
-			time: this.props.time,
+			time: this.props.time || false,
 			width: 0,
 		}
 	}
 
 	render() {
+		if (!this.state.time) {
+			return <Fragment />
+		}
 		return (
 			<ProgressBar width={this.state.width} />
 		);

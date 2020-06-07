@@ -37,7 +37,7 @@ export class Toast extends Component {
 				<ButtonToastElement onClick={e => this.props.action(this.props.slug)}>
 					{this.props.actionText}
 				</ButtonToastElement>
-				<TimerBar time={this.props.time?? 5000} />
+				<TimerBar />
 			</ToastElement>
 		)
 	}
