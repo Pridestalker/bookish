@@ -2,9 +2,9 @@
     "/dist/scripts/vendor.js": "/dist/scripts/vendor.js?id=9b9cb272b352f67015af",
     "/dist/scripts/main.js": "/dist/scripts/main.js?id=0e96ca925c2d9697388a",
     "/dist/scripts/manifest.js": "/dist/scripts/manifest.js",
-    "/dist/scripts/routes/common.js": "/dist/scripts/routes/common.js?id=3b59b0e7257dc3c5cfd9",
+    "/dist/scripts/routes/common.js": "/dist/scripts/routes/common.js?id=2d6dee5a974ccec167d0",
     "/dist/scripts/routes/home.js": "/dist/scripts/routes/home.js?id=2e3a97cba720af000f81",
-    "/dist/scripts/routes/single-product.js": "/dist/scripts/routes/single-product.js?id=3589b3fa17f2b83bd63b",
+    "/dist/scripts/routes/single-product.js": "/dist/scripts/routes/single-product.js?id=a6cce8ea3792b4e660d9",
     "/dist/scripts/routes/woocommerce/checkout.js": "/dist/scripts/routes/woocommerce/checkout.js?id=4ef1e3d67fe9e1c5b184",
     "/dist/scripts/routes/woocommerce/store.js": "/dist/scripts/routes/woocommerce/store.js?id=4bcc8c6c925bf72e41ad"
 }

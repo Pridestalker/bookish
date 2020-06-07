@@ -13,11 +13,11 @@ backdrop-filter: blur(2px);
 `
 
 export class TimerBar extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
-			time: 5000,
+			time: props.time || false,
 			width: 0,
 		}
 	}
@@ -27,7 +27,6 @@ export class TimerBar extends Component {
 			return <Fragment />
 		}
 
-		console.dir(this.props.time || 300)
 		return (
 			<ProgressBar width={this.state.width} />
 		);
