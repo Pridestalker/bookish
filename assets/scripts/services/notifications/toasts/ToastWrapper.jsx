@@ -27,7 +27,7 @@ export class ToastWrapper extends Component {
 
 		this.findToasts = this.findToasts.bind(this);
 		this.createNewToast = this.createNewToast.bind(this);
-		
+
 		this.findToasts();
 	}
 
@@ -54,9 +54,7 @@ export class ToastWrapper extends Component {
 			actionText={actionText}
 			action={action}
 		/>);
-
-		console.dir('Toast added ' + title);
-
+		
 		this.setState({toastList});
 	}
 
