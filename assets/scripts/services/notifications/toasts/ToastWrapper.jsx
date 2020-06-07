@@ -51,16 +51,7 @@ export class ToastWrapper extends Component {
 	removeToast(slug) {
 		const { toastList } = this.state;
 
-		for ( let i = 0; i < toastList.length; i++ ) {
-			const toast = toastList[i];
-			if (toast.slug === slug) {
-				delete toastList[i];
-			}
-		}
-		
-		console.dir(toastList);
-
-		this.setState({toastList});
+		this.setState({toastList: toastList.filter(toast => toast.slug !== slug)});
 	}
 
 	createNewToast(slug, content, color = 'primary', time = 5000, actionText = 'Close') {
