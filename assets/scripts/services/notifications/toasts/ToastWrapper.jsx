@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Toast } from './Toast';
 
-const ToastWrapper = styled.aside`
+const ToastWrapperElement = styled.aside`
 position: fixed;
 top: 0;
 left: 0;
@@ -59,9 +59,9 @@ export class ToastWrapper extends Component {
 
 	render() {
 		return (
-			<ToastWrapper>
+			<ToastWrapperElement>
 				{(this.state.toastList || []).map(item => item)}
-			</ToastWrapper>
+			</ToastWrapperElement>
 		)
 	}
 }
