@@ -58,7 +58,7 @@ export class ToastWrapper extends Component {
 			}
 		}
 
-		this.setState({toastList});
+		this.setState({toastList: [...toastList]});
 	}
 
 	createNewToast(slug, content, color = 'primary', time = 5000, actionText = 'Close') {
