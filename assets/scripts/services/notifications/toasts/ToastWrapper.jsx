@@ -28,32 +28,39 @@ export class ToastWrapper extends Component {
 
 		this.findToasts = this.findToasts.bind(this);
 		this.createNewToast = this.createNewToast.bind(this);
+		this.removeToast = this.removeToast.bind(this);
 
 		this.findToasts();
+
 	}
 
 	findToasts() {
 		document.body.addEventListener('register-toast', evt => {
 			const {
+				slug,
 				time,
 				content,
 				color,
-				actionText,
-				action
+				actionText
 			} = evt.detail;
 
-			this.createNewToast(content, color, time, actionText, action);
+			this.createNewToast(slug, content, color, time, actionText);
 		})
 	}
 
-	createNewToast(content, color = 'primary', time = 5000, actionText = 'Close', action = function () {}) {
+	removeToast(slug) {
+		console.log(slug);
+	}
+
+	createNewToast(slug, content, color = 'primary', time = 5000, actionText = 'Close') {
 		const { toastList } = this.state;
 		toastList.push(<Toast
 			content={content}
 			color={color}
 			time={time}
 			actionText={actionText}
-			action={action}
+			action={this.removeToast}
+			slug={slug}
 		/>);
 
 		const [...rest] = toastList;

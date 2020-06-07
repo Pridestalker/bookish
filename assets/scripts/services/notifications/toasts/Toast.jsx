@@ -37,7 +37,7 @@ export class Toast extends Component {
 				<MainToastElement>
 					{this.props.content}
 				</MainToastElement>
-				<button>
+				<button onClick={e => this.props.action(this.props.slug)}>
 					{this.props.actionText}
 				</button>
 			</ToastElement>
