@@ -15,7 +15,7 @@ align-items: flex-end;
 justify-content: flex-end;
 padding: 1rem;
 overflow: hidden;
-flex-direction: column-reverse;
+flex-direction: column;
 `
 
 export class ToastWrapper extends Component {
@@ -49,7 +49,17 @@ export class ToastWrapper extends Component {
 	}
 
 	removeToast(slug) {
-		console.log(slug);
+		const { toastList } = this.state;
+		for ( let i = 0; i < toastList; i++ ) {
+			const toast = toastList[i];
+			if (toast.slug === slug) {
+				delete toastList[i];
+			}
+		}
+
+		if (toastList !== this.state.toastList) {
+			this.setState({toastList});
+		}
 	}
 
 	createNewToast(slug, content, color = 'primary', time = 5000, actionText = 'Close') {
@@ -67,6 +77,12 @@ export class ToastWrapper extends Component {
 		});
 
 		const [...rest] = toastList;
+
+		if (typeof time === 'number') {
+			setTimeout(() => {
+				this.removeToast(slug);
+			}, time);
+		}
 
 		this.setState({toastList: rest.slice(-5)});
 	}
