@@ -10,8 +10,9 @@ background: ${Colors.primary};
 color: ${Colors.white};
 display: flex;
 margin: .5rem 0;
-padding: .5rem;
-border-radius: 14px;
+padding: .5rem 1rem;
+border-radius: 4px;
+width: 300px;
 `;
 
 const MainToastElement = styled.main`
@@ -21,6 +22,13 @@ const MainToastElement = styled.main`
 export class Toast extends Component {
 	constructor(props) {
 		super(props);
+
+		this.closeMe = this.closeMe.bind(this);
+	}
+
+
+	closeMe() {
+
 	}
 
 	render() {

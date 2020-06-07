@@ -56,7 +56,9 @@ export class ToastWrapper extends Component {
 			action={action}
 		/>);
 
-		this.setState({toastList});
+		const [...rest] = toastList;
+
+		this.setState({toastList: rest.slice(-5)});
 	}
 
 	render() {
