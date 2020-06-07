@@ -14,6 +14,7 @@ export class TimerBar extends Component {
 		super();
 
 		this.state = {
+			time: 5000,
 			width: 0,
 		}
 	}
