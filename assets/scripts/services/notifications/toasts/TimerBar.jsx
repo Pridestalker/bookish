@@ -25,6 +25,8 @@ export class TimerBar extends Component {
 	}
 
 	increaseWidth() {
+		console.log(this.state.width);
+
 		this.setState({
 			width: this.state.width++
 		});
