@@ -70,7 +70,7 @@ export class ToastWrapper extends Component {
 
 		const [...rest] = toastList;
 
-		if (typeof time === 'number') {
+		if (time && typeof time === 'number') {
 			setTimeout(() => {
 				this.removeToast(slug);
 			}, time);
