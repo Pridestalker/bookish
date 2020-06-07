@@ -4,11 +4,9 @@ import { Toast } from './Toast'
 export class ToastWrapper extends Component {
 	constructor() {
 		super();
-
-		this.toastList = [];
-
+		
 		this.state = {
-			toastList: null
+			toastList: []
 		}
 
 		this.findToasts = this.findToasts.bind(this);
