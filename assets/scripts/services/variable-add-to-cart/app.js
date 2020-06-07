@@ -4,6 +4,8 @@ import { SubmitButton } from '../simple-add-to-cart/Components/SubmitButton'
 import { VariableSelect } from './Components/VariableSelect'
 import getWindowAttributes from '../../src/Woocommerce/Single/helpers/getWindowAttributes'
 import { registerToast } from '../notifications'
+import { faTimes } from '@fortawesome/pro-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const formElement = document.querySelector('#add-variable-product-to-cart');
 
@@ -56,7 +58,7 @@ class AddToCart extends Component {
 				registerToast({
 					slug: `add_product_to_cart-${new Date().getTime()}`,
 					content: `Product toegevoegd aan je winkelmandje!`,
-					actionText: ''
+					actionText: <FontAwesomeIcon icon={faTimes} />
 				})
 				this.setState({loading:false})
 			});

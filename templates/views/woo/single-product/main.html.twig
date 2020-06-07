@@ -67,9 +67,8 @@
                     {% endblock %}
                 </h2>
 
-                {% if is_admin() %}
-                    <span id="add-{{ product.get_type }}-product-to-cart"></span>
-                {% else %}
+                <span id="add-{{ product.get_type }}-product-to-cart"></span>
+                <noscript>
                     <form
                             class="js-add-to-cart"
                             action="{{ product.product.get_permalink|apply_filters('woocommerce_add_to_cart_form_action') }}"
@@ -96,7 +95,7 @@
                         {% endblock %}
 
                     </form>
-                {% endif %}
+                </noscript>
 
                 {% block productStock %}
                     {% if product.is_in_stock %}
