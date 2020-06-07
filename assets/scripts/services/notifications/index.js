@@ -1,5 +1,6 @@
-import { enableToasts } from './toasts/ToastWrapper'
+import { enableToasts, registerToast } from './toasts/ToastWrapper'
 
 export {
-	enableToasts
+	enableToasts,
+	registerToast
 }

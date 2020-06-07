@@ -3,6 +3,7 @@ import ky from 'ky';
 import { SubmitButton } from '../simple-add-to-cart/Components/SubmitButton'
 import { VariableSelect } from './Components/VariableSelect'
 import getWindowAttributes from '../../src/Woocommerce/Single/helpers/getWindowAttributes'
+import { registerToast } from '../notifications'
 
 const formElement = document.querySelector('#add-variable-product-to-cart');
 
@@ -51,7 +52,14 @@ class AddToCart extends Component {
 		})
 			.then(res => res.json())
 			.then(res => document.body.dispatchEvent(new CustomEvent('product-added-to-cart', { detail: res?.data|| [] })))
-			.finally(() => this.setState({loading:false}));
+			.finally(() => {
+				registerToast({
+					slug: `add_product_to_cart-${new Date().getTime()}`,
+					content: `Product toegevoegd aan je winkelmandje!`,
+					actionText: ''
+				})
+				this.setState({loading:false})
+			});
 	}
 
 	changeVariation(e) {

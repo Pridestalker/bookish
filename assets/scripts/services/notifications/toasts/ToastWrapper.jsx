@@ -103,3 +103,7 @@ export function enableToasts() {
 		render(<ToastWrapper />, toastContainer);
 	}
 }
+
+export function registerToast({ slug, time, content, color, actionText }) {
+	document.body.dispatchEvent(new CustomEvent('register-toast', { detail: { slug, time, content, color, actionText }}));
+}
