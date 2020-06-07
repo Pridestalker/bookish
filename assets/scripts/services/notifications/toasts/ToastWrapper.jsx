@@ -54,7 +54,7 @@ export class ToastWrapper extends Component {
 			actionText={actionText}
 			action={action}
 		/>);
-		
+
 		this.setState({toastList});
 	}
 
@@ -67,8 +67,11 @@ export class ToastWrapper extends Component {
 	}
 }
 
-const toastContainer = document.querySelector('#toast-container');
 
-if (toastContainer) {
-	render(<ToastWrapper />, toastContainer);
+export function enableToasts() {
+	const toastContainer = document.querySelector('#toast-container');
+
+	if (toastContainer) {
+		render(<ToastWrapper />, toastContainer);
+	}
 }

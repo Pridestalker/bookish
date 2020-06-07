@@ -1,10 +1,11 @@
 import '../services/mini-cart/app';
-import '../services/notifications/toasts/ToastWrapper';
 import navigation from '../src/Common/navigation';
+import { enableToasts } from '../services/notifications'
 
 export default {
   init() {
     new navigation;
+    enableToasts()
   },
 
   finalize() {
