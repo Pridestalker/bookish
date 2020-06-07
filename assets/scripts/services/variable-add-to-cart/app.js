@@ -82,8 +82,6 @@ class AddToCart extends Component {
 				loading: false,
 			})
 		}
-
-		console.log(possibilities)
 	}
 
 	editQuantity(e) {
