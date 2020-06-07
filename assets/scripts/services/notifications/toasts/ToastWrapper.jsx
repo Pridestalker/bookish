@@ -22,7 +22,7 @@ export class ToastWrapper extends Component {
 				color,
 				actionText,
 				action
-			} = evt.details;
+			} = evt.detail;
 
 			this.createNewToast(title, content, color, time, actionText, action);
 		})
