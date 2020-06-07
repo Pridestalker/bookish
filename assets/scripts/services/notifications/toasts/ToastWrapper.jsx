@@ -43,6 +43,8 @@ export class ToastWrapper extends Component {
 			action={action}
 		/>);
 
+		console.dir('Toast added ' + title);
+
 		this.setState({toastList});
 	}
 
