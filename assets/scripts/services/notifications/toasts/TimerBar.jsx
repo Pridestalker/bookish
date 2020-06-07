@@ -20,12 +20,22 @@ export class TimerBar extends Component {
 			time: props.time || false,
 			width: 0,
 		}
+
+		this.increaseWidth = this.increaseWidth.bind(this);
+	}
+
+	increaseWidth() {
+		this.setState({
+			width: this.state.width++
+		});
 	}
 
 	render() {
 		if (!this.state.time) {
 			return <Fragment />
 		}
+
+		setInterval(this.increaseWidth, (100 / this.state.time));
 
 		return (
 			<ProgressBar width={this.state.width} />
