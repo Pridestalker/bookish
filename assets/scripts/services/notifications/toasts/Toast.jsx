@@ -1,6 +1,7 @@
 import React, { Component, h} from 'preact'
 import styled from 'styled-components';
 import { Colors } from '../../../config';
+import { TimerBar } from './TimerBar'
 
 const ToastElement = styled.section`
 pointer-events: all;
@@ -13,22 +14,18 @@ margin: .5rem 0;
 padding: .5rem 1rem;
 border-radius: 4px;
 width: 300px;
+position: relative;
 `;
 
 const MainToastElement = styled.main`
 	flex: 1 0 60%;
 `
 
+const ButtonToastElement = styled.button``;
+
 export class Toast extends Component {
 	constructor(props) {
 		super(props);
-
-		this.closeMe = this.closeMe.bind(this);
-	}
-
-
-	closeMe() {
-
 	}
 
 	render() {
@@ -37,9 +34,10 @@ export class Toast extends Component {
 				<MainToastElement>
 					{this.props.content}
 				</MainToastElement>
-				<button onClick={e => this.props.action(this.props.slug)}>
+				<ButtonToastElement onClick={e => this.props.action(this.props.slug)}>
 					{this.props.actionText}
-				</button>
+				</ButtonToastElement>
+				<TimerBar time={this.props.time} />
 			</ToastElement>
 		)
 	}
