@@ -37,7 +37,8 @@ export class TimerBar extends Component {
 			return <Fragment />
 		}
 
-		setInterval(this.increaseWidth, (100 / this.state.time));
+		const widthErVal = setInterval(this.increaseWidth, (this.state.time / 100));
+		clearInterval(widthErVal);
 
 		return (
 			<ProgressBar width={this.state.width} />
