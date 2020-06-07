@@ -50,7 +50,8 @@ export class ToastWrapper extends Component {
 
 	removeToast(slug) {
 		const { toastList } = this.state;
-		for ( let i = 0; i < toastList; i++ ) {
+
+		for ( let i = 0; i < toastList.length; i++ ) {
 			const toast = toastList[i];
 			if (toast.slug === slug) {
 				delete toastList[i];
