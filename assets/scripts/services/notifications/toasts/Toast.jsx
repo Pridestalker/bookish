@@ -4,13 +4,14 @@ import { Colors } from '../../../config';
 
 const ToastElement = styled.section`
 pointer-events: all;
-position: absolute;
-right: 1rem;
 overflow: hidden;
 box-shadow: 0 3px 6px rgba(51, 51, 51, 0.2);
 background: ${Colors.primary};
 color: ${Colors.white};
 display: flex;
+margin: .5rem 0;
+padding: .5rem;
+border-radius: 14px;
 `;
 
 const MainToastElement = styled.main`
@@ -26,9 +27,11 @@ export class Toast extends Component {
 		return (
 			<ToastElement>
 				<MainToastElement>
-					<p dangerouslySetInnerHTML={this.props.content} />
 					{this.props.content}
 				</MainToastElement>
+				<button>
+					{this.props.actionText}
+				</button>
 			</ToastElement>
 		)
 	}

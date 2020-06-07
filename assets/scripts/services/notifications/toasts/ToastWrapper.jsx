@@ -15,6 +15,7 @@ align-items: flex-end;
 justify-content: flex-end;
 padding: 1rem;
 overflow: hidden;
+flex-direction: column-reverse;
 `
 
 export class ToastWrapper extends Component {
