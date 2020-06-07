@@ -18,7 +18,7 @@ export class TimerBar extends Component {
 			width: 0,
 		}
 	}
-	
+
 	render() {
 		return (
 			<ProgressBar width={this.state.width} />
