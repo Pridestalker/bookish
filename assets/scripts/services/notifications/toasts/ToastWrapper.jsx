@@ -1,10 +1,21 @@
 import React, { Component, render, h } from 'preact';
-import { Toast } from './Toast'
+import styled from 'styled-components';
+
+import { Toast } from './Toast';
+
+const ToastWrapper = styled.aside`
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+pointer-events: none;
+`
 
 export class ToastWrapper extends Component {
 	constructor() {
 		super();
-		
+
 		this.state = {
 			toastList: []
 		}
@@ -48,9 +59,9 @@ export class ToastWrapper extends Component {
 
 	render() {
 		return (
-			<aside>
+			<ToastWrapper>
 				{(this.state.toastList || []).map(item => item)}
-			</aside>
+			</ToastWrapper>
 		)
 	}
 }
