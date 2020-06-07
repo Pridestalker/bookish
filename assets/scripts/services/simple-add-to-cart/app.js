@@ -1,7 +1,9 @@
-import { Component, h, render } from 'preact';
+import React, { Component, h, render } from 'preact';
 import ky from 'ky';
 import { SubmitButton } from './Components/SubmitButton'
 import { registerToast } from '../notifications'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes} from '@fortawesome/pro-solid-svg-icons';
 
 const formElement = document.querySelector('#add-simple-product-to-cart');
 
@@ -46,7 +48,7 @@ class AddToCart extends Component {
 				registerToast({
 					slug: `add_product_to_cart-${new Date().getTime()}`,
 					content: `Product toegevoegd aan je winkelmandje!`,
-					actionText: ''
+					actionText: <FontAwesomeIcon icon={faTimes} />
 				});
 				this.setState({ loading: false });
 			});
