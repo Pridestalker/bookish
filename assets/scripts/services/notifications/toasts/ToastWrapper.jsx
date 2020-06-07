@@ -10,6 +10,11 @@ left: 0;
 right: 0;
 bottom: 0;
 pointer-events: none;
+display: flex;
+align-items: flex-end;
+justify-content: flex-end;
+padding: 1rem;
+overflow: hidden;
 `
 
 export class ToastWrapper extends Component {
@@ -29,7 +34,6 @@ export class ToastWrapper extends Component {
 	findToasts() {
 		document.body.addEventListener('register-toast', evt => {
 			const {
-				title,
 				time,
 				content,
 				color,
@@ -37,14 +41,13 @@ export class ToastWrapper extends Component {
 				action
 			} = evt.detail;
 
-			this.createNewToast(title, content, color, time, actionText, action);
+			this.createNewToast(content, color, time, actionText, action);
 		})
 	}
 
-	createNewToast(title, content, color = 'primary', time = 5000, actionText = 'Close', action = function () {}) {
+	createNewToast(content, color = 'primary', time = 5000, actionText = 'Close', action = function () {}) {
 		const { toastList } = this.state;
 		toastList.push(<Toast
-			title={title}
 			content={content}
 			color={color}
 			time={time}
