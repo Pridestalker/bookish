@@ -24,12 +24,12 @@ export class Toast extends Component {
 
 	render() {
 		return (
-			<section className={'toast'}>
+			<ToastElement>
 				<MainToastElement>
 					<p dangerouslySetInnerHTML={this.props.content} />
 					{this.props.content}
 				</MainToastElement>
-			</section>
+			</ToastElement>
 		)
 	}
 }
