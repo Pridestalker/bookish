@@ -1,4 +1,5 @@
 import '../services/mini-cart/app';
+import '../services/notifications/toasts/ToastWrapper';
 import navigation from '../src/Common/navigation';
 
 export default {
