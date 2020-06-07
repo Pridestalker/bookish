@@ -28,7 +28,6 @@ export class Toast extends Component {
 				<MainToastElement>
 					<p dangerouslySetInnerHTML={this.props.content} />
 				</MainToastElement>
-				<!-- Hier komt dan buttonp. -->
 			</section>
 		)
 	}
