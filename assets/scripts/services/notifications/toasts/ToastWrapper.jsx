@@ -7,6 +7,10 @@ export class ToastWrapper extends Component {
 
 		this.toastList = [];
 
+		this.state = {
+			toastList: null
+		}
+
 		this.findToasts = this.findToasts.bind(this);
 		this.createNewToast = this.createNewToast.bind(this);
 
@@ -29,20 +33,23 @@ export class ToastWrapper extends Component {
 	}
 
 	createNewToast(title, content, color = 'primary', time = 5000, actionText = 'Close', action = function () {}) {
-		this.toastList.push(<Toast
+		const { toastList } = this.state;
+		toastList.push(<Toast
 			title={title}
 			content={content}
 			color={color}
 			time={time}
 			actionText={actionText}
 			action={action}
-		/>)
+		/>);
+
+		this.setState({toastList});
 	}
 
 	render() {
 		return (
 			<aside>
-				{this.toastList}
+				{(this.state.toastList || []).map(item => item)}
 			</aside>
 		)
 	}
