@@ -1,6 +1,7 @@
 import { Component, h, render } from 'preact';
 import ky from 'ky';
 import { SubmitButton } from './Components/SubmitButton'
+import { registerToast } from '../notifications'
 
 const formElement = document.querySelector('#add-simple-product-to-cart');
 
@@ -41,7 +42,14 @@ class AddToCart extends Component {
 		})
 			.then(res => res.json())
 			.then(res => document.body.dispatchEvent(new CustomEvent('product-added-to-cart', { detail: res?.data|| [] })))
-			.finally(() => this.setState({loading:false}));
+			.finally(() => {
+				registerToast({
+					slug: `add_product_to_cart-${new Date().getTime()}`,
+					content: `Product toegevoegd aan je winkelmandje!`,
+					actionText: ''
+				});
+				this.setState({ loading: false });
+			});
 	}
 
 	editQuantity(e) {
