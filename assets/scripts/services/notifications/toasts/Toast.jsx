@@ -27,6 +27,7 @@ export class Toast extends Component {
 			<section className={'toast'}>
 				<MainToastElement>
 					<p dangerouslySetInnerHTML={this.props.content} />
+					{this.props.content}
 				</MainToastElement>
 			</section>
 		)
