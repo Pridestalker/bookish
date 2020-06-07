@@ -57,8 +57,10 @@ export class ToastWrapper extends Component {
 				delete toastList[i];
 			}
 		}
+		
+		console.dir(toastList);
 
-		this.setState({toastList: [...toastList]});
+		this.setState({toastList});
 	}
 
 	createNewToast(slug, content, color = 'primary', time = 5000, actionText = 'Close') {
