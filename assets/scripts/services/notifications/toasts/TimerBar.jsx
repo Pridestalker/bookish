@@ -26,7 +26,7 @@ export class TimerBar extends Component {
 
 	increaseWidth(width) {
 		console.log(width);
-		
+
 		this.setState({
 			width: this.state.width += width
 		});
@@ -37,7 +37,7 @@ export class TimerBar extends Component {
 			return <Fragment />
 		}
 
-		const widthErVal = setInterval(() => this.increaseWidth(50/this.state.time), (100/this.state.time));
+		const widthErVal = setInterval(() => this.increaseWidth(100/this.state.time), (100/this.state.time));
 		if (this.state.width >= 100) {
 			clearInterval(widthErVal);
 		}
