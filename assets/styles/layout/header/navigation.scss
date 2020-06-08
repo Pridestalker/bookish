@@ -33,6 +33,10 @@ nav.nav {
 .submenu-group {
   .submenu {
     display: none;
+
+    &.active {
+      display: block;
+    }
   }
 
   @screen lg {

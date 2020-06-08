@@ -17,3 +17,22 @@ export default class navigation {
 		button.addEventListener('click', () => nav.classList.toggle('active'));
 	}
 }
+
+export function addSubMenuListeners() {
+	const buttons = document.querySelectorAll('.js-submenu-opener');
+
+	if (!buttons) {
+		return;
+	}
+
+	buttons.forEach((element) => {
+		element.addEventListener('click', (e) => {
+			e.preventDefault();
+
+			element
+				.closest('.submenu-group')
+				.querySelector('.submenu')
+				.classList.toggle('active')
+		})
+	});
+}

@@ -100,6 +100,12 @@
                             rel="{{ link.is_external? 'noopener': '' }}"
                     >
                         {{ item.name }}
+
+                        {% if item.children %}
+                        <button class="js-submenu-opener">
+                            <i class="fad fa-chevron-down"></i>
+                        </button>
+                        {% endif %}
                     </a>
 
                     {% if item.children %}

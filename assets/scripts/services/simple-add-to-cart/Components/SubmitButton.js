@@ -1,4 +1,4 @@
-import { Component, h } from 'preact';
+import React, { Component, h } from 'preact';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusHexagon, faSpinner } from '@fortawesome/pro-duotone-svg-icons'
 
