@@ -24,10 +24,7 @@ class AddItemToCart extends AjaxController
 
     public function addToCart()
     {
-        $request = $this->getRequest();
-
-        $data = json_decode($request->getContent(), true);
-	    $request->request->replace(is_array($data) ? $data : array());
+        $request = $this->getRequestWithJson();
 
         $productID = apply_filters('bookish/ajax/v1/shop/add-to-cart/product-id', $request->request->get('product_id', false));
         $quantity = apply_filters('bookish/ajax/v1/shop/add-to-cart/qty', $request->request->get('qty', 1), $productID);
@@ -38,7 +35,7 @@ class AddItemToCart extends AjaxController
             wp_send_json_error([
                 'error_code' => 'PRODUCT_NOT_PUBLIC',
                 'message' => __('Dit product kan niet worden toegevoegd aan je winkelmandje.', 'bookish'),
-	            'post_status' => $postStatus,
+                'post_status' => $postStatus,
             ], 403);
         }
 
