@@ -1,5 +1,25 @@
 {% extends 'layouts/app.twig' %}
 
+{% block post_head_scripts %}
+<style>
+    header.header {
+        animation: 1s ease-in-out 0s 1 shake-rotation;
+    }
+
+    @keyframes shake-rotation {
+        0% {
+            transform: rotate(0) translate(0, 0);
+        }
+        50% {
+            transform: rotate(1deg) translate(0%, 25%)
+        }
+        100% {
+            transform: rotate(2deg) translate(0%, 50%);
+        }
+    }
+</style>
+{% endblock %}
+
 {% block content %}
     <main class="container mx-auto my-4">
         <h1>
