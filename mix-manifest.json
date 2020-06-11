@@ -4,7 +4,7 @@
     "/dist/scripts/manifest.js": "/dist/scripts/manifest.js",
     "/dist/scripts/routes/common.js": "/dist/scripts/routes/common.js?id=b7982e1d978ce17411f1",
     "/dist/scripts/routes/home.js": "/dist/scripts/routes/home.js?id=b2465e6bd0395941d667",
-    "/dist/scripts/routes/single-product.js": "/dist/scripts/routes/single-product.js?id=ed98795ac43bac2fcd90",
+    "/dist/scripts/routes/single-product.js": "/dist/scripts/routes/single-product.js?id=508e0de76048218a1a91",
     "/dist/scripts/routes/woocommerce/checkout.js": "/dist/scripts/routes/woocommerce/checkout.js?id=50ceea9e63ad9ac24141",
     "/dist/scripts/routes/woocommerce/store.js": "/dist/scripts/routes/woocommerce/store.js?id=814540bdedab50e48cac"
 }
