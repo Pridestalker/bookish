@@ -64,18 +64,18 @@ class AddToCart extends Component {
 	}
 
 	reduceHandler() {
-		const { minQuantity } = this.state;
+		const { minQuantity, quantity } = this.state;
 		if (this.state.quantity > minQuantity) {
 			this.setState({
-				quantity: this.state.quantity--
+				quantity: quantity - 1
 			});
 		}
 	}
 	increaseHandler() {
-		const { maxQuantity } = this.state;
+		const { maxQuantity, quantity } = this.state;
 		if (this.state.quantity < maxQuantity) {
 			this.setState({
-				quantity: this.state.quantity++
+				quantity: quantity + 1
 			});
 		}
 	}
