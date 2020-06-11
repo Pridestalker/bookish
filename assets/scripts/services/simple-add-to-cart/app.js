@@ -64,6 +64,8 @@ class AddToCart extends Component {
 	}
 
 	reduceHandler() {
+		const { minQuantity } = this.state;
+		console.dir(minQuantity);
 		if (this.state.quantity > (this.state.minQuantity?? 1)) {
 			this.setState({
 				quantity: this.state.quantity--
