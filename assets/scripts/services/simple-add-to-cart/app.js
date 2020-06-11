@@ -4,6 +4,7 @@ import { SubmitButton } from './Components/SubmitButton'
 import { registerToast } from '../notifications'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes} from '@fortawesome/pro-solid-svg-icons';
+import { QuantityInput } from './Components/QuantityInput'
 
 const formElement = document.querySelector('#add-simple-product-to-cart');
 
@@ -21,6 +22,8 @@ class AddToCart extends Component {
 
 		this.addToCart = this.addToCart.bind(this);
 		this.editQuantity = this.editQuantity.bind(this);
+		this.increaseHandler = this.increaseHandler.bind(this);
+		this.reduceHandler = this.reduceHandler.bind(this);
 	}
 
 	/**
@@ -54,21 +57,35 @@ class AddToCart extends Component {
 			});
 	}
 
-	editQuantity(e) {
+	editQuantity(newQuantity) {
 		this.setState({
-			quantity: e.target.value
+			quantity: newQuantity
 		});
+	}
+
+	reduceHandler() {
+		if (this.state.quantity > (this.state.minQuantity?? 1)) {
+			this.setState({
+				quantity: this.state.quantity--
+			});
+		}
+	}
+	increaseHandler() {
+		if (this.state.quantity < (this.state.maxQuantity?? 999)) {
+			this.setState({
+				quantity: this.state.quantity++
+			});
+		}
 	}
 
 	render() {
 		return (
 			<form onSubmit={this.addToCart}>
-				<input
-					type='number'
-					name='quantity'
-					value={this.state.quantity}
-					onChange={this.editQuantity}
-				/>
+				<QuantityInput
+					changeHandler={this.editQuantity}
+					reduceHandler={this.reduceHandler}
+					increaseHandler={this.increaseHandler}
+					quantity={this.state.quantity}/>
 
 				<SubmitButton productID={this.state.productID} loading={this.state.loading} />
 			</form>
