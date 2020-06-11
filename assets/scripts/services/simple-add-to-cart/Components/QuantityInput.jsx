@@ -7,6 +7,8 @@ const Input = styled.input`
 	margin-bottom: 0 !important;
 	box-shadow: none !important;
 	border-radius: 0 !important;
+	text-align: center !important;
+	width: auto !important;
 `;
 
 const Button = styled.button`
