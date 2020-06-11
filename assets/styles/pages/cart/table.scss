@@ -11,7 +11,7 @@ table.cart {
     border-bottom: 1px solid av.$black;
 
     @screen md {
-      display: unset;
+      display: table-header-group;
     }
   }
 
@@ -22,6 +22,7 @@ table.cart {
   tbody {
     tr {
       display: grid;
+      grid-gap: 10px;
       grid-template-areas: "image title title title title title"
                            "image price price price price price"
                            "image . . . . ."
@@ -38,7 +39,7 @@ table.cart {
         background: color.adjust(av.$black, $alpha: -.8);
       }
       @screen md {
-        display: unset;
+        display: table-row;
       }
     }
   }
