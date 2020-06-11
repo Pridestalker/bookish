@@ -66,7 +66,6 @@ class AddToCart extends Component {
 	reduceHandler() {
 		const { minQuantity, quantity } = this.state;
 		if (this.state.quantity > minQuantity) {
-			console.dir(this.state.quantity > minQuantity)
 			this.setState({
 				quantity: quantity - 1
 			});
@@ -75,10 +74,15 @@ class AddToCart extends Component {
 	increaseHandler() {
 		const { maxQuantity, quantity } = this.state;
 		if (this.state.quantity < maxQuantity) {
-			console.dir(this.state.quantity < maxQuantity)
 			this.setState({
 				quantity: quantity + 1
 			});
+		} else {
+			registerToast({
+				content: `Maar ${maxQuantity} beschikbaar`,
+				slug:max-beschikbaarheid,
+				time: 1500
+			})
 		}
 	}
 
