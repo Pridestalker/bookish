@@ -1,4 +1,4 @@
-<main class="container mx-auto my-8">
+<main class="container mx-auto my-8 px-4 lg:px-0">
     {% do action('woocommerce_before_cart') %}
     <form action="{{ fn('wc_get_cart_url')|e }}" class="woocommerce-cart-form cart-form" method="POST">
         <table class="cart">
