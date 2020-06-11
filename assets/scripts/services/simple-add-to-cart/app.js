@@ -80,7 +80,7 @@ class AddToCart extends Component {
 		} else {
 			registerToast({
 				content: `Maar ${maxQuantity} beschikbaar`,
-				slug: 'max-beschikbaarheid',
+				slug: `max_availability-${new Date().getTime()}`,
 				time: 1500
 			})
 		}
