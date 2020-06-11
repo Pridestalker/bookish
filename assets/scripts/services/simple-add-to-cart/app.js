@@ -15,8 +15,8 @@ class AddToCart extends Component {
 		this.state = {
 			productID: window['product_id'],
 			quantity: 1,
-			minQuantity: window['product_settings'].qty.min,
-			maxQuantity: window['product_settings'].qty.max,
+			minQuantity: Number(window['product_settings'].qty.min),
+			maxQuantity: Number(window['product_settings'].qty.max),
 			loading: false
 		};
 

@@ -2,7 +2,7 @@ import React, { Component, h } from 'preact'
 import styled from 'styled-components';
 
 const Input = styled.input`
-	margin-bottom: 0;
+	margin-bottom: 0 !important;
 `;
 
 const Button = styled.button`
