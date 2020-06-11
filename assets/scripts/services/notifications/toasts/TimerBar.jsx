@@ -2,14 +2,14 @@ import React, { Component, h, Fragment } from 'preact';
 import styled from 'styled-components';
 
 const ProgressBar = styled.div`
-position: absolute;
-bottom: 0;
-left: 0;
-width: ${props => (props.width || 0) + '%'};
-transition: width 225ms ease;
-height: 3px;
-background: rgba(255, 255, 255, 0.4);
-backdrop-filter: blur(2px);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: ${props => (props.width || 0) + '%'};
+	transition: width 225ms ease;
+	height: 3px;
+	background: rgba(255, 255, 255, 0.4);
+	backdrop-filter: blur(2px);
 `
 
 export class TimerBar extends Component {
@@ -17,7 +17,6 @@ export class TimerBar extends Component {
 		super(props);
 
 		this.state = {
-			time: props.time || false,
 			width: 0,
 		}
 
@@ -37,11 +36,11 @@ export class TimerBar extends Component {
 	}
 
 	render() {
-		if (!this.state.time) {
+		if (!this.props.time) {
 			return <Fragment />
 		}
 
-		this.interval = setInterval(() => this.increaseWidth(33/this.state.time), (100/this.state.time));
+		this.interval = setInterval(() => this.increaseWidth(33/this.props.time), (100/this.props.time));
 		if (this.state.width >= 100) {
 			clearInterval(this.interval);
 		}
