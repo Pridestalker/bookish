@@ -1,14 +1,46 @@
 @use 'abstracts/variables' as av;
+@use 'sass:color';
 
 table.cart {
+
+
   border-collapse: collapse;
   width: 100%;
   thead {
+    display: none;
     border-bottom: 1px solid av.$black;
+
+    @screen md {
+      display: unset;
+    }
   }
 
   .product-remove {
     color: av.$red;
+  }
+
+  tbody {
+    tr {
+      display: grid;
+      grid-template-areas: "image title title title title title"
+                           "image price price price price price"
+                           "image . . . . ."
+                           "image remove . qty . subtotal";
+      .product-thumbnail { grid-area: image; }
+      .product-name { grid-area: title; }
+      .product-price { grid-area: price; }
+      .product-quantity { grid-area: qty; }
+      .product-remove { grid-area: remove; }
+      .product-subtotal { grid-area: subtotal; }
+
+
+      &:nth-of-type(even) {
+        background: color.adjust(av.$black, $alpha: -.8);
+      }
+      @screen md {
+        display: unset;
+      }
+    }
   }
 }
 

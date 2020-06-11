@@ -62,7 +62,7 @@
                                         value="{{ item.quantity }}" >
                             {% endif %}
                         </td>
-                        <td colspan="product-subtotal" data-title="{{ __('Subtotal', 'woocommerce') }}">
+                        <td class="product-subtotal" data-title="{{ __('Subtotal', 'woocommerce') }}">
                             {{ cart.get_product_subtotal(item.data, item.quantity)|apply_filters('woocommerce_cart_item_subtotal', item, item_key) }}
                         </td>
                     </tr>
