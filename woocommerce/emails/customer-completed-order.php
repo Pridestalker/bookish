@@ -1,23 +1,28 @@
 <?php
 /**
- * Customer completed order email
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/emails/customer-completed-order.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates/Emails
+ * @var string $email_heading The passed email heading.
+ * @var string $email The email address.
+ * @var WC_Order $order The order set on hold.
+ * @var bool $sent_to_admin if email is being sent to admin.
+ * @var bool $plain_text if email is plain text.
+ * @var string|null|false $additional_content Additional content (if set).
  * @version 3.7.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined('ABSPATH') || exit(0);
+
+$context = \Timber\Timber::get_context();
+$context['heading'] = $email_heading;
+$context['to'] = $email;
+$context['order'] = $order;
+$context['content'] = $additional_content;
+$context['css_location'] = \App\Helpers\WP::getStylesheetDir() . '/dist/styles/mail.css';
+
+$templates = [
+    \App\Helpers\Template::emailHtmlTwigFile('customer/completed')
+];
+
+return Timber::render($templates, $context);
 
 /*
  * @hooked WC_Emails::email_header() Output the email header
