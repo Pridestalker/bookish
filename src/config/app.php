@@ -4,6 +4,7 @@ namespace App;
 use App\Providers\MenuServiceProvider;
 use App\Providers\HookServiceProvider;
 use App\Providers\AjaxServiceProvider;
+use App\Providers\RestServiceProvider;
 use App\Providers\AssetsServiceProvider;
 use App\Providers\UpdatesServiceProvider;
 use App\Providers\FunctionServiceProvider;
@@ -15,8 +16,9 @@ return [
         AssetsServiceProvider::class,
         FunctionServiceProvider::class,
         HookServiceProvider::class,
-	    UpdatesServiceProvider::class,
-	    CustomizerServiceProvider::class,
-	    AjaxServiceProvider::class,
+        UpdatesServiceProvider::class,
+        CustomizerServiceProvider::class,
+        AjaxServiceProvider::class,
+        RestServiceProvider::class,
     ]
 ];
