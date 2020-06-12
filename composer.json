@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "require": {
     "php": ">7.2",
+    "ext-json": "*",
     "aristath/kirki": "^3.0",
     "dusank/knapsack": "^10.0",
     "htmlburger/carbon-fields": "^3.1",
@@ -11,6 +12,7 @@
     "monolog/monolog": "^2.0",
     "nesbot/carbon": "^2.29",
     "php-di/php-di": "^6.1",
+    "symfony/http-client": "^5.1",
     "symfony/http-foundation": "^5.0",
     "symfony/mailer": "^5.0",
     "symfony/mime": "^5.0",
