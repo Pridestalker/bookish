@@ -17,6 +17,19 @@ $context['is_recurring_visitor'] = Cookie::hasCookie(Cookies::RECURRING_VISITOR)
 $context['time'] = microtime();
 
 
+if (isset($_GET['promo_code'])) {
+	$code = $_GET['promo_code'];
+	if (Cookie::hasCookie('promo_code') && Cookie::getCookie('promo_code') === $code) {
+		return;
+	}
+
+	Cookie::setCookie(
+		'promo_code',
+		$code,
+		0
+	);
+}
+
 $templates = [
     Template::viewHtmlTwigFile('front-page'),
     Template::viewHtmlTwigFile('page')

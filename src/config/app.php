@@ -21,6 +21,5 @@ return [
         CustomizerServiceProvider::class,
         AjaxServiceProvider::class,
         RestServiceProvider::class,
-	    CouponCheckServiceProvider::class
     ]
 ];
