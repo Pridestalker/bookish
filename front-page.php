@@ -19,9 +19,6 @@ $context['time'] = microtime();
 
 if (isset($_GET['promo_code'])) {
 	$code = $_GET['promo_code'];
-	if (Cookie::hasCookie('promo_code') && Cookie::getCookie('promo_code') === $code) {
-		return;
-	}
 
 	Cookie::setCookie(
 		'promo_code',
