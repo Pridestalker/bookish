@@ -18,11 +18,12 @@ class CheckForCouponCookie extends Action
 		}
 
 		$code = $_GET[static::COOKIE_NAME];
-		if (Cookie::hasCookie(static::COOKIE_NAME) && Cookie::getCookie(static::COOKIE_NAME) == $code) {
+		
+		if (Cookie::has(static::COOKIE_NAME) && Cookie::get(static::COOKIE_NAME) === $code) {
 			return;
 		}
 
-		Cookie::setCookie(
+		Cookie::set(
 			static::COOKIE_NAME,
 			$code,
 			false

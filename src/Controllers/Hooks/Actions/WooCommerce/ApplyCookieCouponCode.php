@@ -8,14 +8,14 @@ use App\Controllers\Hooks\Actions\Action;
 class ApplyCookieCouponCode extends Action
 {
 
-	public function action ()
+	public function action()
 	{
-		if (!Cookie::hasCookie(CheckForCouponCookie::COOKIE_NAME)) {
+		if (!Cookie::has(CheckForCouponCookie::COOKIE_NAME)) {
 			return;
 		}
 
 		$cart = WC()->cart;
-		$cart->apply_coupon(Cookie::getCookie(CheckForCouponCookie::COOKIE_NAME));
+		$cart->apply_coupon(Cookie::get(CheckForCouponCookie::COOKIE_NAME));
 	}
 
 	public function hook()
