@@ -18,7 +18,7 @@ class ApplyCookieCouponCode extends Action
 		$cart->apply_coupon(Cookie::getCookie(CheckForCouponCookie::COOKIE_NAME));
 	}
 
-	public function hook ()
+	public function hook()
 	{
 		return 'bookish/view-composer/order-cart/init';
 	}

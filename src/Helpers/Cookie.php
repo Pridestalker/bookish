@@ -41,7 +41,7 @@ class Cookie
             $name,
             $value,
             [
-                'expires' => time() + $exp,
+                'expires' => $time,
                 'path' => $path,
                 'domain' => $domain,
                 'secure' => true,

@@ -9,7 +9,7 @@ use App\Controllers\Hooks\Actions\Action;
 
 class CheckForCouponCookie extends Action
 {
-	const COOKIE_NAME = 'promo_code';
+	public const COOKIE_NAME = 'promo_code';
 
 	public function action()
 	{
