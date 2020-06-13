@@ -103,18 +103,9 @@ class AddToCart extends Component {
 	}
 
 	increaseHandler() {
-		const { maxQuantity, quantity } = this.state;
-		if (this.state.quantity < maxQuantity) {
-			this.setState({
-				quantity: quantity + 1
-			});
-		} else {
-			registerToast({
-				content: `Maar ${maxQuantity} beschikbaar`,
-				slug: `max_availability-${new Date().getTime()}`,
-				time: 1500
-			})
-		}
+		this.setState({
+			quantity: quantity + 1
+		});
 	}
 
 	render() {
