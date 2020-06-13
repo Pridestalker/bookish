@@ -23,6 +23,10 @@ if (isset($_GET['promo_code'])) {
 		return;
 	}
 
+	if (is_admin_bar_showing()) {
+		var_dump($code);
+	}
+
 	Cookie::setCookie(
 		'promo_code',
 		$code,
