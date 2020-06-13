@@ -120,5 +120,6 @@ class Cookie
     public static function delete($cookie_name)
     {
     	unset($_COOKIE[$cookie_name]);
+    	static::set($cookie_name, null, -10);
     }
 }

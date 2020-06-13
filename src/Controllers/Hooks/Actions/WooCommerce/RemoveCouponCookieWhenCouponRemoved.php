@@ -9,7 +9,6 @@ class RemoveCouponCookieWhenCouponRemoved extends Action
 {
 	public function action($coupon_code = '')
 	{
-		var_dump($coupon_code);
 		if(!Cookie::has(CheckForCouponCookie::COOKIE_NAME)) {
 			return;
 		}
