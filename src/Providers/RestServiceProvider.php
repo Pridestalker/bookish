@@ -4,6 +4,8 @@
 namespace App\Providers;
 
 use App\Controllers\Http\Api\ApiManager;
+use App\Controllers\Http\Api\v1\Shop\GetProductData;
+use App\Controllers\Http\Api\v1\Shop\GetRelatedProducts;
 use App\Controllers\Http\Api\v1\MailChimp\AddNewSubscriber;
 
 class RestServiceProvider extends ServiceProvider
@@ -13,7 +15,9 @@ class RestServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->restClasses = apply_filters('bookish/providers/rest', [
-			AddNewSubscriber::class,
+            AddNewSubscriber::class,
+            GetRelatedProducts::class,
+	        GetProductData::class
         ]);
     }
 
