@@ -11,6 +11,8 @@ use App\Controllers\Hooks\Filters\WooCommerce\CustomOrderAction;
 use App\Controllers\Hooks\Filters\WooCommerce\StoreClassToBody;
 use App\Controllers\Hooks\Filters\WooCommerce\ChangeCheckoutClass;
 use App\Controllers\Hooks\Filters\WooCommerce\ProductFromProductId;
+use App\Controllers\Hooks\Actions\WooCommerce\CheckForCouponCookie;
+use App\Controllers\Hooks\Actions\WooCommerce\ApplyCookieCouponCode;
 use App\Controllers\Hooks\Filters\WooCommerce\CustomSingleOrderStatus;
 use App\Controllers\Hooks\Actions\WooCommerce\OrderStatusPaymentReceived;
 use App\Controllers\Hooks\Actions\WooCommerce\PaymentReceivedCustomNotification;
@@ -48,6 +50,8 @@ class HookServiceProvider extends ServiceProvider
             ],
             OrderStatusPaymentReceived::class,
 	        PaymentReceivedCustomNotification::class,
+	        CheckForCouponCookie::class,
+	        ApplyCookieCouponCode::class,
         ]);
 
         $this->filters_unhook = apply_filters('bookish/providers/filters/unhook', []);

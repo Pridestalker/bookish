@@ -14,18 +14,6 @@ $context['post'] = new Post();
 $context['popular_products'] = Woo::getPopularProducts(3);
 $context['new_products'] = Woo::getNewProducts(3);
 $context['is_recurring_visitor'] = Cookie::hasCookie(Cookies::RECURRING_VISITOR);
-$context['time'] = microtime();
-
-
-if (isset($_GET['promo_code'])) {
-	$code = $_GET['promo_code'];
-
-	Cookie::setCookie(
-		'promo_code',
-		$code,
-		false
-	);
-}
 
 $templates = [
     Template::viewHtmlTwigFile('front-page'),
