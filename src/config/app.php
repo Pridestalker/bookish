@@ -9,6 +9,7 @@ use App\Providers\AssetsServiceProvider;
 use App\Providers\UpdatesServiceProvider;
 use App\Providers\FunctionServiceProvider;
 use App\Providers\CustomizerServiceProvider;
+use App\Providers\Shop\CouponCheckServiceProvider;
 
 return [
     'providers'     => [
@@ -20,5 +21,6 @@ return [
         CustomizerServiceProvider::class,
         AjaxServiceProvider::class,
         RestServiceProvider::class,
+	    CouponCheckServiceProvider::class
     ]
 ];

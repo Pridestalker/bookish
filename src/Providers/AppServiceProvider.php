@@ -12,6 +12,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $providers = include get_stylesheet_directory() . '/src/config/app.php';
         $this->providers = apply_filters('bookish/app/register-providers/providers', $providers['providers']);
+        do_action('bookish/app/init');
     }
 
     public function register(): void
@@ -24,5 +25,7 @@ class AppServiceProvider extends ServiceProvider
             }
             Container::get($provider);
         }
+
+        do_action('bookish/app/providers/initialized');
     }
 }
