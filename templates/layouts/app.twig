@@ -20,8 +20,9 @@
     {% endblock %}
     {% block window_definitions %}
         <script>
-			window['shopping_cart_url'] = "{{ get_cart_url() }}"
 			window['ajax_url'] = "{{ fn('admin_url', 'admin-ajax.php') }}"
+            window['rest_url'] = "{{ fn('get_rest_url') }}"
+			window['shopping_cart_url'] = "{{ get_cart_url() }}"
         </script>
     {% endblock %}
     {% block post_head_scripts %}{% endblock %}
@@ -176,9 +177,7 @@
                 <h3>Op de hoogte blijven?</h3>
                 <p>Meld je aan voor de nieuwsbrief en profiteer van kortingsacties.</p>
 
-                <form>
-                    
-                </form>
+                <section id="mailchimp-subscribe-app"></section>
             </div>
         </div>
     </div>

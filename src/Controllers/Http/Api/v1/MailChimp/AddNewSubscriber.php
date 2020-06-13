@@ -5,7 +5,7 @@ namespace App\Controllers\Http\Api\v1\MailChimp;
 use App\Bootstrap\Env;
 use App\Controllers\Http\Api\RestController;
 use Symfony\Component\HttpClient\HttpClient;
-use Symfony\Component\Mime\Exception\ExceptionInterface;
+use Symfony\Component\HttpClient\Exception\ClientException;
 
 class AddNewSubscriber extends RestController
 {
@@ -72,10 +72,14 @@ class AddNewSubscriber extends RestController
                 ]
             );
 
+            $req->getContent();
+
             $response->set_data([
                 'message' => 'success'
             ]);
-        } catch (\Throwable $e) {
+
+            return $response;
+        } catch (ClientException $e) {
             return new \WP_Error('MC_ERROR', $e->getMessage());
         }
     }

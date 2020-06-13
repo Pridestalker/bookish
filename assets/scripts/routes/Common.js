@@ -2,11 +2,14 @@ import '../services/mini-cart/app';
 import navigation, { addSubMenuListeners } from '../src/Common/navigation';
 import { enableToasts } from '../services/notifications'
 import { renderSearchBar } from '../services/search-bar/app'
+import { enableMailchimpForm } from '../services/mailchimp-subscribe/app'
+
 
 export default {
   init() {
     enableToasts();
     renderSearchBar();
+    enableMailchimpForm();
   },
 
   finalize() {
