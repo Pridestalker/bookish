@@ -31,7 +31,6 @@ class ChangeCheckoutClass extends Filter
             'focus:shadow-outline',
         ]);
 
-
         return $fields;
     }
 }

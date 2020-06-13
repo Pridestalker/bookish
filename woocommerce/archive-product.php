@@ -12,6 +12,7 @@ defined('ABSPATH') || exit(0);
 $context = Timber::get_context();
 $context['post'] = new Post();
 $context['products'] = new PostQuery(false, Product::class);
+
 /** @var Product $product */
 foreach ($context['products'] as $key => $product) {
     if ($product->setProduct()->is_type('variable')) {

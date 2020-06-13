@@ -3,7 +3,7 @@ import ky from 'ky';
 import { SubmitButton } from './Components/SubmitButton'
 import { registerToast } from '../notifications'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes} from '@fortawesome/pro-solid-svg-icons';
+import { faTimes } from '@fortawesome/pro-solid-svg-icons';
 import { QuantityInput } from './Components/QuantityInput'
 
 const formElement = document.querySelector('#add-simple-product-to-cart');
@@ -71,6 +71,7 @@ class AddToCart extends Component {
 			});
 		}
 	}
+
 	increaseHandler() {
 		const { maxQuantity, quantity } = this.state;
 		if (this.state.quantity < maxQuantity) {

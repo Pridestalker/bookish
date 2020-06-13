@@ -6,6 +6,7 @@ import getWindowAttributes from '../../src/Woocommerce/Single/helpers/getWindowA
 import { registerToast } from '../notifications'
 import { faTimes } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { QuantityInput } from '../simple-add-to-cart/Components/QuantityInput'
 
 const formElement = document.querySelector('#add-variable-product-to-cart');
 
@@ -86,10 +87,34 @@ class AddToCart extends Component {
 		}
 	}
 
-	editQuantity(e) {
+	editQuantity(newQuantity) {
 		this.setState({
-			quantity: e.target.value
+			quantity: newQuantity
 		})
+	}
+
+	reduceHandler() {
+		const { minQuantity, quantity } = this.state;
+		if (this.state.quantity > minQuantity) {
+			this.setState({
+				quantity: quantity - 1
+			});
+		}
+	}
+
+	increaseHandler() {
+		const { maxQuantity, quantity } = this.state;
+		if (this.state.quantity < maxQuantity) {
+			this.setState({
+				quantity: quantity + 1
+			});
+		} else {
+			registerToast({
+				content: `Maar ${maxQuantity} beschikbaar`,
+				slug: `max_availability-${new Date().getTime()}`,
+				time: 1500
+			})
+		}
 	}
 
 	render() {
@@ -98,19 +123,19 @@ class AddToCart extends Component {
 		for ( const key in this.variations ) {
 			if (this.variations.hasOwnProperty(key)) {
 				selects.push(<VariableSelect
-					options={this.variations[key]} key={key} changeHandler={this.changeVariation} selectName={key} />)
+					options={this.variations[key]} key={key}
+					changeHandler={this.changeVariation}
+					selectName={key} />)
 			}
 		}
 
 		return (
 			<form onSubmit={this.addToCart}>
-				<input
-					type='number'
-					name='quantity'
-					value={this.state.quantity}
-					className={'w-64'}
-					onChange={this.editQuantity}
-				/>
+				<QuantityInput
+					changeHandler={this.editQuantity}
+					quantity={this.state.quantity}
+					reduceHandler={this.reduceHandler}
+					increaseHandler={this.increaseHandler} />
 				{selects}
 				<SubmitButton productID={this.state.productID} loading={this.state.loading} />
 			</form>
