@@ -26,7 +26,7 @@ if (isset($_GET['promo_code'])) {
 	Cookie::setCookie(
 		'promo_code',
 		$code,
-		-time()
+		false
 	);
 }
 

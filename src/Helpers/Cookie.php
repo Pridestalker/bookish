@@ -35,6 +35,8 @@ class Cookie
      */
     public static function setCookie($name, $value, $exp = 86400, $path = '/', $domain = ''): void
     {
+    	$time = ($exp && $exp > 0)? time() + $exp : 0;
+
         setcookie(
             $name,
             $value,
