@@ -21,7 +21,7 @@ class RemoveCouponCookieWhenCouponRemoved extends Action
 		}
 	}
 
-	public function hook ()
+	public function hook()
 	{
 		return 'woocommerce_removed_coupon';
 	}
