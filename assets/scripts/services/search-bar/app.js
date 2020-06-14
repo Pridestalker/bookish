@@ -52,7 +52,6 @@ export class SearchBar extends Component {
 			.then(res => {
 				const { count, posts } = res.data;
 				this.setState({
-					loading: false,
 					searchResults: posts,
 					count: count
 				});
@@ -60,10 +59,12 @@ export class SearchBar extends Component {
 			.catch((e) => {
 				this.setState( {
 					searchResults: [],
-					loading: false,
 					count: 0,
 				})
-			});
+			})
+			.finally(() => this.setState({
+				loading: false,
+			}))
 	}
 
 	hideAutoFill() {
