@@ -64,7 +64,7 @@ class AssetsServiceProvider extends ServiceProvider
     public function dequeueAssets(): void
     {
         if (!is_admin() || !is_cart() || !is_checkout()) {
-            WP::removeScript('jquery');
+//            WP::removeScript('jquery');
             WP::removeScript('wp-embed');
             WP::removeScript('hoverintent-js');
         }

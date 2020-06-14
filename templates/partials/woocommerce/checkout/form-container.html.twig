@@ -8,7 +8,7 @@
 
     <section class="lg:flex">
         {% if checkout.get_checkout_fields %}
-            <div class="lg:w-2/3 mr-16">
+            <div class="lg:w-2/3 mr-16" id="customer_details">
                 {% do action('woocommerce_checkout_before_customer_details') %}
                 <section id="customer_details" class="customer-details">
                     {% do action('woocommerce_checkout_billing') %}
