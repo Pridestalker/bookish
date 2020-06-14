@@ -433,9 +433,9 @@
             "authors": [
                 {
                     "name": "Dusan Kasan",
+                    "role": "Developer",
                     "email": "dusan@kasan.sk",
-                    "homepage": "http://kasan.sk",
-                    "role": "Developer"
+                    "homepage": "http://kasan.sk"
                 }
             ],
             "description": "Collection library for PHP",
