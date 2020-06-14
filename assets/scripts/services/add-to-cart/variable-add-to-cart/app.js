@@ -1,16 +1,15 @@
 import React, { Component, h, render } from 'preact';
 import ky from 'ky';
-import { SubmitButton } from '../simple-add-to-cart/Components/SubmitButton'
+import { SubmitButton, QuantityInput } from '../';
 import { VariableSelect } from './Components/VariableSelect'
-import getWindowAttributes from '../../src/Woocommerce/Single/helpers/getWindowAttributes'
-import { registerToast } from '../notifications'
+import getWindowAttributes from '../../../src/Woocommerce/Single/helpers/getWindowAttributes'
+import { registerToast } from '../../notifications'
 import { faTimes } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { QuantityInput } from '../simple-add-to-cart/Components/QuantityInput'
 
 const formElement = document.querySelector('#add-variable-product-to-cart');
 
-class AddToCart extends Component {
+export class AddToCart extends Component {
 	constructor(props) {
 		super(props);
 
@@ -134,6 +133,8 @@ class AddToCart extends Component {
 	}
 }
 
-if (formElement) {
-	render(<AddToCart />, formElement);
+export function renderVariableAddToCart() {
+	if (formElement) {
+		render(<AddToCart />, formElement);
+	}
 }

@@ -1,9 +1,10 @@
-import { Component, render, h } from 'preact';
+import React, { Component, render, h } from 'preact';
 import ky from 'ky';
 import { BulbCounter } from './Components/BulbCounter'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/pro-duotone-svg-icons';
 
 class MiniCart extends Component {
-
 	constructor(props) {
 		super(props);
 
@@ -49,18 +50,16 @@ class MiniCart extends Component {
 			   className="text-primary js-shopping-cart-button shopping-cart-button p-2"
 			>
 				<span className="hidden lg:inline-block mr-2">winkelmandje</span>
-				<span className="shopping-icon" key={`icon-${cartCount}`}>
-					<i className="fad fa-shopping-bag" />
-				</span>
+				<FontAwesomeIcon icon={faShoppingCart} className={'shopping-icon'} />
 				<BulbCounter dataRefresh={this.fetchData} cartCount={cartCount} />
 			</a>);
 	}
 }
 
-const cartElement = document.querySelector('#mini-cart-app');
+export function renderMiniCart() {
+	const cartElement = document.querySelector('#mini-cart-app');
 
-
-
-if (cartElement) {
-	render(<MiniCart href={window['shopping_cart_url']} />, cartElement);
+	if (cartElement) {
+		render(<MiniCart href={window['shopping_cart_url']} />, cartElement);
+	}
 }

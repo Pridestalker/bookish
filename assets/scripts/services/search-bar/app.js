@@ -91,8 +91,7 @@ export class SearchBar extends Component {
 					   value={this.state.searchValue}
 					   autoComplete={'off'}
 					   onFocus={this.showAutoFill}
-					   onBlur={this.hideAutoFill}
-				/>
+					   onBlur={this.hideAutoFill} />
 				<button className={'btn search-icon'} type={'submit'} name={'Zoeken'} disabled={this.state.loading}>
 					<FontAwesomeIcon icon={this.state.loading? faSpinnerThird : faSearch}
 									 color={Colors.primary} spin={this.state.loading} />

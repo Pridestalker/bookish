@@ -1,9 +1,7 @@
 import { GalleryGroup, GalleryItem } from '../src/Elements/Product/gallery';
 import { TabGroup, TabItem } from '../src/Elements/Product/tabs';
 import { define } from 'hybrids';
-import variableProduct from '../src/Woocommerce/Single/variableProduct'
-import '../services/simple-add-to-cart/app';
-import '../services/variable-add-to-cart/app';
+import { renderVariableAddToCart, renderSimpleAddToCart } from '../services/add-to-cart';
 
 export default {
 	init() {
@@ -15,6 +13,7 @@ export default {
 	},
 
 	finalize() {
-		variableProduct();
+		renderVariableAddToCart();
+		renderSimpleAddToCart();
 	},
 };

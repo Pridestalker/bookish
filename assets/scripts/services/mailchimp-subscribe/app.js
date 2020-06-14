@@ -17,7 +17,7 @@ padding: .5rem 1rem;
 &[disabled] {
 	background: ${Colors.gray};
 }
-`
+`;
 
 export class MailchimpSubscribe extends Component {
 	constructor(props) {

@@ -1,14 +1,13 @@
 import React, { Component, h, render } from 'preact';
 import ky from 'ky';
-import { SubmitButton } from './Components/SubmitButton'
-import { registerToast } from '../notifications'
+import { SubmitButton, QuantityInput } from './';
+import { registerToast } from '../../notifications'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/pro-solid-svg-icons';
-import { QuantityInput } from './Components/QuantityInput'
 
 const formElement = document.querySelector('#add-simple-product-to-cart');
 
-class AddToCart extends Component {
+export class AddToCart extends Component {
 	constructor(props) {
 		super(props);
 
@@ -102,6 +101,8 @@ class AddToCart extends Component {
 	}
 }
 
-if (formElement) {
-	render(<AddToCart />, formElement);
+export function renderSimpleAddToCart() {
+	if (formElement) {
+		render(<AddToCart />, formElement);
+	}
 }

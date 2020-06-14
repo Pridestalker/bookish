@@ -4,18 +4,18 @@ import styled from 'styled-components';
 import { Toast } from './Toast';
 
 const ToastWrapperElement = styled.aside`
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-pointer-events: none;
-display: flex;
-align-items: flex-end;
-justify-content: flex-end;
-padding: 1rem;
-overflow: hidden;
-flex-direction: column;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	pointer-events: none;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	padding: 1rem;
+	overflow: hidden;
+	flex-direction: column;
 `
 
 export class ToastWrapper extends Component {
