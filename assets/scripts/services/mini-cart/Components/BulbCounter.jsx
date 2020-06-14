@@ -1,4 +1,4 @@
-import { Component, render, h, Fragment } from 'preact'
+import React, { Component, h } from 'preact'
 import styled from 'styled-components';
 
 const Bulb = styled.span`
@@ -19,13 +19,9 @@ export class BulbCounter extends Component {
 		super(props);
 	}
 
-	componentDidMount() {
-		document.body.addEventListener('product-added-to-cart', (e) => this.props.dataRefresh());
-	}
-
 	render() {
 		if (this.props.cartCount === 0) {
-			return <Fragment />;
+			return;
 		}
 
 		return (

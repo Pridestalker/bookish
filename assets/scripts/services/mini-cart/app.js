@@ -10,14 +10,16 @@ class MiniCart extends Component {
 
 		this.state = {
 			cart: [],
-			cartCount: null,
+			cartCount: 0,
 		};
 
 		this.fetchData = this.fetchData.bind(this);
+
+		document.body.addEventListener('product-added-to-cart', () => this.fetchData());
 	}
 
 	componentWillMount() {
-		this.fetchData()
+		this.fetchData();
 	}
 
 	fetchData() {
@@ -51,7 +53,7 @@ class MiniCart extends Component {
 			>
 				<span className="hidden lg:inline-block mr-2">winkelmandje</span>
 				<FontAwesomeIcon icon={faShoppingCart} className={'shopping-icon'} />
-				<BulbCounter dataRefresh={this.fetchData} cartCount={cartCount} />
+				<BulbCounter cartCount={cartCount} />
 			</a>);
 	}
 }
