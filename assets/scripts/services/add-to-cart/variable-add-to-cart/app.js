@@ -121,11 +121,18 @@ export class AddToCart extends Component {
 
 		return (
 			<form onSubmit={this.addToCart}>
-				<QuantityInput
-					changeHandler={this.editQuantity}
-					quantity={this.state.quantity}
-					reduceHandler={this.reduceHandler}
-					increaseHandler={this.increaseHandler} />
+				<input
+					type='number'
+					name='quantity'
+					value={this.state.quantity}
+					className={'w-64'}
+					onChange={(e) => this.editQuantity(e.target.value)}
+				/>
+				{/*<QuantityInput*/}
+				{/*	changeHandler={this.editQuantity}*/}
+				{/*	quantity={this.state.quantity}*/}
+				{/*	reduceHandler={this.reduceHandler}*/}
+				{/*	increaseHandler={this.increaseHandler} />*/}
 				{selects}
 				<SubmitButton productID={this.state.productID} loading={this.state.loading} />
 			</form>
