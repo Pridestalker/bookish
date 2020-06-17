@@ -13,7 +13,18 @@ export const theme = {
 	secondary: colors.yellow,
 }
 
-export default {
+const defaultExport = {
 	...colors,
 	...theme
+}
+
+export default defaultExport;
+
+/**
+ *
+ * @param {string} color
+ * @param {string} fallback
+ */
+export function getThemeColor(color, fallback) {
+	return defaultExport.hasOwnProperty(color)? defaultExport[color] : defaultExport[fallback];
 }
