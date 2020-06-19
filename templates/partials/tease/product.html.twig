@@ -1,4 +1,4 @@
-{% if isAdmin() %}
+{% if is_admin() %}
     <span class="pre-product-card" data-thumbnail="{{ product.get_thumbnail_json|e }}"></span>
 {% else %}
 <article class="product-card">
