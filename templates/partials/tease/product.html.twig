@@ -1,3 +1,6 @@
+{% if isAdmin() %}
+    <span class="pre-product-card" data-thumbnail="{{ product.get_thumbnail_json|e }}"></span>
+{% else %}
 <article class="product-card">
     <a href="{{ product.get_link }}" title="Bekijk {{ product.get_title }}">
         <picture>
@@ -25,3 +28,4 @@
         {% endif %}
     </main>
 </article>
+{% endif %}

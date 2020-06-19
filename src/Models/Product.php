@@ -5,8 +5,10 @@ namespace App\Models;
 use WC_Product;
 use Timber\Post;
 use Timber\Term;
+use Timber\Image;
 use Timber\PostQuery;
 use App\Helpers\Terms;
+use Timber\ImageHelper;
 use WC_Product_Attribute;
 use App\Controllers\TwigFunctions\ProductCategoryUrl;
 
@@ -181,6 +183,16 @@ class Product extends Post
         return array_map(static function ($category) {
             return Terms::getTermNameOnId($category, 'product_cat');
         }, static::$categories_cache[$this->id]);
+    }
+
+    public function get_thumbnail_json()
+    {
+    	$thumbnail = $this->thumbnail();
+
+    	return json_encode([
+    		'webp' => ImageHelper::retina_resize(ImageHelper::img_to_webp($thumbnail)),
+		    'thumbnail' => $thumbnail
+	    ], JSON_THROW_ON_ERROR);
     }
 
     public function setProduct(): \WC_Product

@@ -4,11 +4,12 @@ import { enableToasts } from '../services/notifications'
 import { renderSearchBar } from '../services/search-bar/app'
 import { enableMailchimpForm } from '../services/mailchimp-subscribe/app'
 import { renderMiniCart } from '../services/mini-cart/app'
+import { renderProducts } from '../services/product-card/app'
+
 
 export default {
   init() {
     enableToasts();
-
   },
 
   finalize() {
@@ -16,6 +17,7 @@ export default {
     new navigation;
     addSubMenuListeners();
     renderSearchBar();
+    renderProducts();
     enableMailchimpForm();
     renderMiniCart();
   },
