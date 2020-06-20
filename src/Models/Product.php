@@ -191,7 +191,7 @@ class Product extends Post
 
     	return json_encode([
     		'webp' => ImageHelper::retina_resize(ImageHelper::img_to_webp($thumbnail)),
-		    'thumbnail' => $thumbnail
+		    'thumbnail' => (string) $thumbnail
 	    ], JSON_THROW_ON_ERROR);
     }
 

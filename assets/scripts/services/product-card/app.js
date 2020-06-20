@@ -9,7 +9,7 @@ export function renderProducts() {
 		return;
 	}
 
-	for ( let i = 0; i < targetElements[i]; i++ ) {
+	for ( let i = 0; i < targetElements.length; i++ ) {
 		const { dataset } = targetElements[i];
 
 		render(<Product
@@ -18,6 +18,7 @@ export function renderProducts() {
 			categories={dataset.categories}
 			price={dataset.price}
 			id={dataset.product_id}
+			link={dataset.url}
 		/>, targetElements[i]);
 	}
 }
