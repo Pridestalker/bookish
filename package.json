@@ -54,5 +54,6 @@
     "stylelint": "^13.3.3",
     "vue-template-compiler": "^2.6.11",
     "webpack-livereload-plugin": "1"
-  }
+  },
+  "license": "MIT"
 }
