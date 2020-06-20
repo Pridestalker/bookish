@@ -1,9 +1,10 @@
 import React, { render, h } from 'preact';
 import { Product } from './Product';
 
-const targetElements = document.querySelectorAll('.pre-product-card');
 
 export function renderProducts() {
+	const targetElements = document.querySelectorAll('.pre-product-card');
+
 	if (targetElements.length === 0) {
 		return;
 	}
