@@ -5,8 +5,6 @@ import { faSearch, faSpinnerThird } from '@fortawesome/pro-duotone-svg-icons';
 import { FillWrapper } from './Components/FillWrapper'
 import { Colors } from '../../config';
 
-const searchBar = document.querySelector('#search-form');
-
 export class SearchBar extends Component {
 	form = createRef();
 
@@ -28,10 +26,6 @@ export class SearchBar extends Component {
 		}
 	}
 
-	/**
-	 *
-	 * @param e
-	 */
 	searchHandler(e)
 	{
 		this.abortControllers.forEach(abortController => abortController.abort());
@@ -64,9 +58,7 @@ export class SearchBar extends Component {
 					count: 0,
 				})
 			})
-			.finally(() => this.setState({
-				loading: false,
-			}))
+			.finally(() => this.setState({ loading: false }))
 	}
 
 	hideAutoFill(e) {
@@ -110,9 +102,12 @@ export class SearchBar extends Component {
 }
 
 export function renderSearchBar() {
+	const searchBar = document.querySelector('#search-form');
+
 	if (!searchBar) {
 		return;
 	}
+
 	render(<SearchBar />, searchBar);
 }
 

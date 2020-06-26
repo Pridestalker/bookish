@@ -1,8 +1,8 @@
 {
     "/dist/scripts/vendor.js": "/dist/scripts/vendor.js?id=cd12dd67ea7303fcbb32",
-    "/dist/scripts/main.js": "/dist/scripts/main.js?id=da4a8887f056746e432a",
+    "/dist/scripts/main.js": "/dist/scripts/main.js?id=163620ea7e659ec9251c",
     "/dist/scripts/manifest.js": "/dist/scripts/manifest.js",
-    "/dist/scripts/routes/common.js": "/dist/scripts/routes/common.js?id=8eb7509f143d646e13af",
+    "/dist/scripts/routes/common.js": "/dist/scripts/routes/common.js?id=b8192b16facd40d9349b",
     "/dist/scripts/routes/home.js": "/dist/scripts/routes/home.js?id=b2465e6bd0395941d667",
     "/dist/scripts/routes/single-product.js": "/dist/scripts/routes/single-product.js?id=5fa6e073d0ca098a9ec0",
     "/dist/scripts/routes/woocommerce/checkout.js": "/dist/scripts/routes/woocommerce/checkout.js?id=50ceea9e63ad9ac24141",

@@ -1,7 +1,6 @@
 import React, { render, h } from 'preact';
 import { Product } from './Product';
 
-
 export function renderProducts() {
 	const targetElements = document.querySelectorAll('.pre-product-card');
 

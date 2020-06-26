@@ -3,6 +3,7 @@ import ky from 'ky';
 import { BulbCounter } from './Components/BulbCounter'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/pro-duotone-svg-icons';
+import { LatestProducts } from './Components/LatestProducts'
 
 class MiniCart extends Component {
 	constructor(props) {
@@ -54,6 +55,7 @@ class MiniCart extends Component {
 				<span className="hidden lg:inline-block mr-2">winkelmandje</span>
 				<FontAwesomeIcon icon={faShoppingCart} className={'shopping-icon'} />
 				<BulbCounter cartCount={cartCount} />
+				<LatestProducts />
 			</a>);
 	}
 }

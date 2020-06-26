@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('preact/debug');
+}
+
 import './vendor';
 import './bootstrap';
 import Ready from './tools/Ready';
