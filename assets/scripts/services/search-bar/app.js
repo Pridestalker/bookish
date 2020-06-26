@@ -1,4 +1,4 @@
-import React, { Component, h, render } from 'preact'
+import React, { Component, createRef, h, render } from 'preact'
 import ky from 'ky';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faSpinnerThird } from '@fortawesome/pro-duotone-svg-icons';
@@ -8,6 +8,8 @@ import { Colors } from '../../config';
 const searchBar = document.querySelector('#search-form');
 
 export class SearchBar extends Component {
+	form = createRef();
+
 	constructor(props) {
 		super(props);
 
@@ -67,7 +69,11 @@ export class SearchBar extends Component {
 			}))
 	}
 
-	hideAutoFill() {
+	hideAutoFill(e) {
+		if (this.form.current.contains(e.target)) {
+			return;
+		}
+
 		this.setState({
 			isVisible: false,
 		})

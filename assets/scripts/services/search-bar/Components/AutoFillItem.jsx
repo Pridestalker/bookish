@@ -4,7 +4,6 @@ import { Colors, Trans } from '../../../config';
 
 const Item = styled.li`
 cursor: pointer;
-margin-bottom: .5rem;
 transition: background-color 225ms ease,
 			color 225ms ease-in-out;
 padding: 1rem .5rem;
@@ -12,6 +11,10 @@ padding: 1rem .5rem;
 &:hover {
 	background: ${Colors.primary};
 	color: ${Colors.white};
+}
+
+&:not(:last-of-type) {
+margin-bottom: .5rem;
 }
 `
 
@@ -45,9 +48,7 @@ export class AutoFillItem extends Component {
 
 		return (
 			<Item onClick={this.clickHandler}>
-				<Header>
-					{this.item.post_title}
-				</Header>
+				<Header>{this.item.post_title}</Header>
 				<Aside>
 					{Trans.$t(`search.post_type.${this.item.post_type}`, this.item.post_type)}
 				</Aside>
