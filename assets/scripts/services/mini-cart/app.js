@@ -4,6 +4,15 @@ import { BulbCounter } from './Components/BulbCounter'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/pro-duotone-svg-icons';
 import { LatestProducts } from './Components/LatestProducts'
+import styled from 'styled-components';
+
+const BarredBottom = styled.a`
+position: relative;
+&::before {
+position: absolute;
+content: ' ';
+}
+`
 
 class MiniCart extends Component {
 	constructor(props) {
@@ -49,14 +58,14 @@ class MiniCart extends Component {
 	render() {
 		const { cartCount } = this.state;
 		return (
-			<a href={this.props.href}
+			<BarredBottom href={this.props.href}
 			   className="text-primary js-shopping-cart-button shopping-cart-button p-2"
 			>
 				<span className="hidden lg:inline-block mr-2">winkelmandje</span>
 				<FontAwesomeIcon icon={faShoppingCart} className={'shopping-icon'} />
 				<BulbCounter cartCount={cartCount} />
 				<LatestProducts />
-			</a>);
+			</BarredBottom>);
 	}
 }
 
