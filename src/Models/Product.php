@@ -5,11 +5,11 @@ namespace App\Models;
 use WC_Product;
 use Timber\Post;
 use Timber\Term;
-use Timber\Image;
 use Timber\PostQuery;
 use App\Helpers\Terms;
 use Timber\ImageHelper;
 use WC_Product_Attribute;
+use DusanKasan\Knapsack\Collection;
 use App\Controllers\TwigFunctions\ProductCategoryUrl;
 
 class Product extends Post
@@ -196,6 +196,15 @@ class Product extends Post
     		'webp' => ImageHelper::retina_resize(ImageHelper::img_to_webp($thumbnail)),
 		    'thumbnail' => (string) $thumbnail
 	    ], JSON_THROW_ON_ERROR);
+    }
+
+    public function is_preorder()
+    {
+    	$tags = Collection::from($this->terms('product_tag'));
+
+    	return $tags->filter(static function ($item) {
+    		return $item->name === 'Pre-order';
+	    })->sizeIsGreaterThan(0);
     }
 
     public function setProduct(): \WC_Product

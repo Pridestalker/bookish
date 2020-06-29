@@ -18,14 +18,6 @@ class Woo
                 'orderby' => 'meta_value_num',
                 'order' => 'desc',
                 'meta_key' => '_product_view_count',
-                'tax_query' => [
-	                [
-		                'key' => 'product_visibility',
-		                'field' => 'name',
-		                'terms'    => 'exclude-from-catalog',
-		                'operator' => 'NOT IN',
-	                ]
-                ]
             ];
 
 
@@ -54,9 +46,9 @@ class Woo
                 'posts_per_page' => $limit,
 	            'tax_query' => [
 	            	[
-	            		'key' => 'product_visibility',
+	            		'taxonomy' => 'product_visibility',
 			            'field' => 'name',
-			            'terms' => ['exclude-from-catalog'],
+			            'terms' => ['exclude-from-catalog', 'exclude-from-search'],
 			            'operator' => 'NOT IN',
 		            ]
 	            ]

@@ -101,7 +101,11 @@
                 </noscript>
 
                 {% block productStock %}
-                    {% if product.is_in_stock %}
+                    {% if product.is_preorder %}
+                        <p class="text-primary">
+                            <i class="fad fa-box-check mr-2"></i><span>Pre-Order, Verzending begin augustus</span>
+                        </p>
+                    {% elseif product.is_in_stock %}
                         <p class="text-primary">
                             <i class="fad fa-box-check mr-2"></i><span>Op voorraad! Binnen 2-4 dagen verzonden.</span>
                         </p>
