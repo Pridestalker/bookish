@@ -17,7 +17,15 @@ class Woo
                 'posts_per_page' => $limit,
                 'orderby' => 'meta_value_num',
                 'order' => 'desc',
-                'meta_key' => '_product_view_count'
+                'meta_key' => '_product_view_count',
+                'tax_query' => [
+	                [
+		                'key' => 'product_visibility',
+		                'field' => 'name',
+		                'terms'    => 'exclude-from-catalog',
+		                'operator' => 'NOT IN',
+	                ]
+                ]
             ];
 
 
@@ -43,7 +51,15 @@ class Woo
                 'post_type' => 'product',
                 'orderby' => 'modified',
                 'order' => 'DESC',
-                'posts_per_page' => $limit
+                'posts_per_page' => $limit,
+	            'tax_query' => [
+	            	[
+	            		'key' => 'product_visibility',
+			            'field' => 'name',
+			            'terms'    => 'exclude-from-catalog',
+			            'operator' => 'NOT IN',
+		            ]
+	            ]
             ];
 
             $posts = [];
