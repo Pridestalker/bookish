@@ -1,6 +1,8 @@
 <?php
+
 namespace App\Helpers;
 
+defined('ABSPATH') || exit(0);
 use App\Models\Enums\Cookies;
 use App\Exceptions\CookieNotSetException;
 

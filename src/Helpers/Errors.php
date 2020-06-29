@@ -1,5 +1,8 @@
 <?php
+
 namespace App\Helpers;
+
+defined('ABSPATH') || exit(0);
 
 class Errors
 {
@@ -12,7 +15,7 @@ class Errors
     {
         return defined('WP_DEBUG') && WP_DEBUG;
     }
-    
+
     /**
      * Checks if debug is displayed in HTML
      *
@@ -22,7 +25,7 @@ class Errors
     {
         return defined('WP_DEBUG_DISPLAY') && WP_DEBUG_DISPLAY;
     }
-    
+
     /**
      * Checks if WP_SCRIPT_DEBUG is enabled.
      *

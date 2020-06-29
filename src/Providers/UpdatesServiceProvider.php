@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+defined('ABSPATH') || exit(0);
+
 use App\Helpers\WP;
 use App\Bootstrap\Env;
 

@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Http\Api;
 
+defined('ABSPATH') || exit(0);
+
 use App\Bootstrap\Container;
 
 class ApiManager

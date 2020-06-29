@@ -2,6 +2,8 @@
 
 namespace App\Mail;
 
+defined('ABSPATH') || exit(0);
+
 use App\Helpers\Log;
 use App\Bootstrap\Env;
 use Symfony\Component\Mailer\Transport;

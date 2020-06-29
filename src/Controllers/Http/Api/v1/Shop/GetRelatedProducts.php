@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Http\Api\v1\Shop;
 
+defined('ABSPATH') || exit(0);
+
 use App\Controllers\Http\Api\RestController;
 
 class GetRelatedProducts extends RestController

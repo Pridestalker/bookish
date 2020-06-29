@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Hooks\Actions\WooCommerce;
 
+defined('ABSPATH') || exit(0);
+
 use App\Controllers\Hooks\Actions\Action;
 
 class OrderStatusPaymentReceived extends Action

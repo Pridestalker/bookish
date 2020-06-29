@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Hooks\Filters\WooCommerce;
 
+defined('ABSPATH') || exit(0);
+
 use App\Controllers\Hooks\Filters\Filter;
 
 class CustomOrderAction extends Filter

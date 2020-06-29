@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Http\Api\v1\MailChimp;
 
+defined('ABSPATH') || exit(0);
+
 use App\Bootstrap\Env;
 use App\Controllers\Http\Api\RestController;
 use Symfony\Component\HttpClient\HttpClient;

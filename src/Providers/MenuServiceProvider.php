@@ -1,5 +1,8 @@
 <?php
+
 namespace App\Providers;
+
+defined('ABSPATH') || exit(0);
 
 use Timber\Menu;
 use function register_nav_menus;

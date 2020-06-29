@@ -2,6 +2,8 @@
 
 namespace App\Mail\Order\Status;
 
+defined('ABSPATH') || exit(0);
+
 use Timber\Timber;
 use App\Mail\Mailable;
 use App\Helpers\Template;
@@ -19,7 +21,7 @@ class PaymentReceived extends Mailable
         $this->mail->to($this->to);
         $data = Timber::compile(Template::emailHtmlTwigFile($this->template), $this->data);
         $this->mail->html($data);
-        
+
         return $this->mail;
     }
 }

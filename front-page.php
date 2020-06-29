@@ -8,6 +8,8 @@ use App\Helpers\Template;
 use App\Bootstrap\Env;
 use App\Models\Enums\Cookies;
 
+defined('ABSPATH') || exit(0);
+
 $context = Timber::get_context();
 $context['post'] = new Post();
 

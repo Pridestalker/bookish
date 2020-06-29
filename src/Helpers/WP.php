@@ -3,6 +3,8 @@ declare(strict_types = 1);
 
 namespace App\Helpers;
 
+defined('ABSPATH') || exit(0);
+
 use App\Exceptions\MultiSiteNotEnabledException;
 
 use function wp_dequeue_style;

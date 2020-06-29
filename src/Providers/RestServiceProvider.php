@@ -1,7 +1,8 @@
 <?php
 
-
 namespace App\Providers;
+
+defined('ABSPATH') || exit(0);
 
 use App\Controllers\Http\Api\ApiManager;
 use App\Controllers\Http\Api\v1\Shop\GetProductData;

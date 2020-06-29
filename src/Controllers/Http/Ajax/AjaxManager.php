@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controllers\Http\Ajax;
 
+defined('ABSPATH') || exit(0);
+
 use App\Bootstrap\Container;
 
 class AjaxManager

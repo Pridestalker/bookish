@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+defined('ABSPATH') || exit(0);
+
 abstract class ServiceProvider
 {
 	public function __construct () {

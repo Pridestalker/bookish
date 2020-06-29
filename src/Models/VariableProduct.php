@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+defined('ABSPATH') || exit(0);
+
 use WC_Product_Variable;
 
 class VariableProduct extends Product

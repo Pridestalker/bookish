@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Http\Api;
 
+defined('ABSPATH') || exit(0);
+
 use App\Controllers\Http\Controller;
 
 abstract class RestController extends Controller implements RestInterface

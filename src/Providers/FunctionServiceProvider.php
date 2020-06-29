@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+defined('ABSPATH') || exit(0);
+
 use Twig\Environment;
 use Twig\TwigFunction;
 use App\Controllers\TwigFunctions\AdminHelpers;

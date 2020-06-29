@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Customizer;
 
+defined('ABSPATH') || exit(0);
+
 use Kirki;
 use App\Helpers\Str;
 

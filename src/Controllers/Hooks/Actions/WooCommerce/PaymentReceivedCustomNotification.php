@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Hooks\Actions\WooCommerce;
 
+defined('ABSPATH') || exit(0);
+
 use App\Mail\Mailer;
 use App\Helpers\Log;
 use App\Mail\Mailable;

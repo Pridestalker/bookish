@@ -1,5 +1,8 @@
 <?php
+
 namespace App;
+
+defined('ABSPATH') || exit(0);
 
 use App\Providers\MenuServiceProvider;
 use App\Providers\HookServiceProvider;

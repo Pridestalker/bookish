@@ -2,6 +2,8 @@
 
 namespace App\Controllers\TwigFunctions;
 
+defined('ABSPATH') || exit(0);
+
 use App\Helpers\Str;
 
 class CustomizerHelper

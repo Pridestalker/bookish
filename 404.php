@@ -4,6 +4,8 @@ use Timber\Post;
 use Timber\Timber;
 use App\Helpers\Template;
 
+defined('ABSPATH') || exit(0);
+
 $context         = Timber::get_context();
 $post            = new Post();
 $context['post'] = $post;

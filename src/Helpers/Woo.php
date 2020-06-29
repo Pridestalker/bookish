@@ -2,6 +2,8 @@
 
 namespace App\Helpers;
 
+defined('ABSPATH') || exit(0);
+
 use Timber\Helper;
 use Timber\PostQuery;
 use App\Models\Product;

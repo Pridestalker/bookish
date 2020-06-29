@@ -1,6 +1,8 @@
 <?php
 namespace App\Helpers;
 
+defined('ABSPATH') || exit(0);
+
 use Carbon\Carbon;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
@@ -20,7 +22,7 @@ class Log
     {
         static::log('debug', $message, $context);
     }
-    
+
     /**
      * Send an info message to the log.
      *
@@ -33,7 +35,7 @@ class Log
     {
         static::log('info', $message, $context);
     }
-    
+
     /**
      * Send a notice message to the log.
      *
@@ -46,7 +48,7 @@ class Log
     {
         static::log('notice', $message, $context);
     }
-    
+
     /**
      * Send a warning message to the log.
      *
@@ -59,7 +61,7 @@ class Log
     {
         static::log('warning', $message, $context);
     }
-    
+
     /**
      * Send an error message to the log.
      *
@@ -72,7 +74,7 @@ class Log
     {
         static::log('error', $message, $context);
     }
-    
+
     /**
      * Send a critical message to the log.
      *
@@ -85,7 +87,7 @@ class Log
     {
         static::log('critical', $message, $context);
     }
-    
+
     /**
      * Send a alert message to the log.
      *
@@ -98,7 +100,7 @@ class Log
     {
         static::log('alert', $message, $context);
     }
-    
+
     /**
      * Send a emergency message to the log.
      *
@@ -111,7 +113,7 @@ class Log
     {
         static::log('emergency', $message, $context);
     }
-    
+
     /**
      * [Only for internal use]. Logs a message
      *
@@ -123,27 +125,27 @@ class Log
     {
         $file = static::logFile();
         $logger = new Logger(Errors::isDebug() ? 'DEBUG' : 'PRODUCTION');
-        
+
         try {
             $logger->pushHandler(new StreamHandler($file));
             $logger->pushProcessor(new PsrLogMessageProcessor(null, true));
         } catch (\Exception $e) {
             // Do nothing. Not even logging errors works now.
         }
-        
+
         $logger->$type($message, $context);
     }
-    
+
     private static function logDirectory(): string
     {
         $dir = wp_get_upload_dir()['basedir'] . '/logs';
-        
+
         if (!is_dir($dir)) {
             wp_mkdir_p($dir);
         }
         return $dir;
     }
-    
+
     private static function logFile(): string
     {
         $dir = static::logDirectory();

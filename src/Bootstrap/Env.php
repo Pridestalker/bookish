@@ -2,6 +2,8 @@
 
 namespace App\Bootstrap;
 
+defined('ABSPATH') || exit(0);
+
 use Dotenv\Dotenv;
 use App\Helpers\WP;
 

@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Http;
 
+defined('ABSPATH') || exit(0);
+
 use Symfony\Component\HttpFoundation\Request;
 
 abstract class Controller

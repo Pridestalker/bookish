@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Hooks\Filters\Twig;
 
+defined('ABSPATH') || exit(0);
+
 use Twig\Environment;
 use App\Controllers\Hooks\Filters\Filter;
 use Twig\Extra\CssInliner\CssInlinerExtension;

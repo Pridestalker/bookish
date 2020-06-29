@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Customizer\Footer;
 
+defined('ABSPATH') || exit(0);
+
 use App\Controllers\Customizer\Customize;
 use App\Providers\CustomizerServiceProvider;
 use App\Controllers\Customizer\CustomizerTypeManager;

@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Resources\Api;
 
+defined('ABSPATH') || exit(0);
+
 use Timber\Image;
 
 class Product

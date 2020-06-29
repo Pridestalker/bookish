@@ -1,7 +1,8 @@
 <?php
 
-
 namespace App\Controllers\Hooks\Actions;
+
+defined('ABSPATH') || exit(0);
 
 class Init extends Action
 {

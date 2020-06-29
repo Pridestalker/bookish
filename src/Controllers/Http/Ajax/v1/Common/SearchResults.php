@@ -2,7 +2,8 @@
 
 namespace App\Controllers\Http\Ajax\v1\Common;
 
-use Timber\PostQuery;
+defined('ABSPATH') || exit(0);
+
 use App\Controllers\Http\Ajax\AjaxController;
 
 class SearchResults extends AjaxController

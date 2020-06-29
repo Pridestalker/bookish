@@ -1,7 +1,8 @@
 <?php
 
-
 namespace App\Controllers\Http\Ajax\v1\Shop;
+
+defined('ABSPATH') || exit(0);
 
 use App\Controllers\Http\Ajax\AjaxController;
 

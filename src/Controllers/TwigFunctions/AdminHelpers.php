@@ -2,6 +2,8 @@
 
 namespace App\Controllers\TwigFunctions;
 
+defined('ABSPATH') || exit(0);
+
 class AdminHelpers
 {
     public static function isAdmin()

@@ -2,6 +2,8 @@
 
 namespace App\Helpers;
 
+defined('ABSPATH') || exit(0);
+
 class Terms
 {
     protected static $term_name_cache = [];

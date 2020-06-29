@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Hooks;
 
+defined('ABSPATH') || exit(0);
+
 abstract class Hook
 {
 	/**

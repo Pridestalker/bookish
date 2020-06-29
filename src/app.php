@@ -1,5 +1,8 @@
 <?php
+
 namespace App;
+
+defined('ABSPATH') || exit(0);
 
 use App\Bootstrap\Container;
 use App\Providers\AppServiceProvider;

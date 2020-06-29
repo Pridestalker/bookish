@@ -1,5 +1,8 @@
 <?php
+
 use Timber\Timber;
+
+defined('ABSPATH') || exit(0);
 
 include_once get_stylesheet_directory() . '/vendor/autoload.php';
 

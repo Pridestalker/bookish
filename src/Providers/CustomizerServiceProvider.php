@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+defined('ABSPATH') || exit(0);
+
 use App\Bootstrap\Container;
 use App\Controllers\Customizer\Customize;
 use App\Controllers\Customizer\Footer\FooterCustomizer;

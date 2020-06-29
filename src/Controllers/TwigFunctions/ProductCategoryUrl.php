@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controllers\TwigFunctions;
 
+defined('ABSPATH') || exit(0);
+
 class ProductCategoryUrl
 {
     protected static $term_link_cache = [];

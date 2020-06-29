@@ -2,6 +2,8 @@
 
 namespace App\Mail;
 
+defined('ABSPATH') || exit(0);
+
 use Timber\Timber;
 use App\Helpers\WP;
 use Symfony\Component\Mime\Email;

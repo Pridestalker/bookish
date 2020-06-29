@@ -1,5 +1,8 @@
 <?php
+
 namespace App\Bootstrap;
+
+defined('ABSPATH') || exit(0);
 
 use DI\NotFoundException;
 use DI\DependencyException;

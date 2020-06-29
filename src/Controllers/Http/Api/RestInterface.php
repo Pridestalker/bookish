@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Http\Api;
 
+defined('ABSPATH') || exit(0);
+
 interface RestInterface
 {
 	public function baseUrl(): string;

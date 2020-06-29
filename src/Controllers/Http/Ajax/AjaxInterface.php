@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Http\Ajax;
 
+defined('ABSPATH') || exit(0);
+
 interface AjaxInterface
 {
 	/**
