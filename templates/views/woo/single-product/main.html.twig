@@ -63,6 +63,9 @@
             <aside class="product-sidebar">
                 <h2 class="product-price">
                     {% block productPrice %}
+                    {% if product.is_on_sale %}
+                        <small style="text-decoration: line-through">{{ product.get_regular_price }}</small>
+                    {% endif %}
                     {{ product.get_price }}
                     {% endblock %}
                 </h2>

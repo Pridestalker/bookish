@@ -55,7 +55,17 @@ class Product extends Post
 
         $this->setProduct();
 
-        return wc_price(static::$price_cache[$this->id] = $this->product->get_regular_price());
+        return wc_price(static::$price_cache[$this->id] = $this->product->get_price());
+    }
+
+    public function get_regular_price()
+    {
+    	return $this->setProduct()->get_regular_price();
+    }
+
+    public function is_on_sale()
+    {
+    	return $this->setProduct()->is_on_sale();
     }
 
     public function get_title()
@@ -122,13 +132,6 @@ class Product extends Post
         }
 
         return static::$attributes_cache[$this->id];
-    }
-
-    public function is_on_sale()
-    {
-        $this->setProduct();
-
-        return $this->product->is_on_sale();
     }
 
     public function is_in_stock()
