@@ -56,7 +56,7 @@ class Woo
 	            	[
 	            		'key' => 'product_visibility',
 			            'field' => 'name',
-			            'terms'    => 'exclude-from-catalog',
+			            'terms' => ['exclude-from-catalog'],
 			            'operator' => 'NOT IN',
 		            ]
 	            ]
