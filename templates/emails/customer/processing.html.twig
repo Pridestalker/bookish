@@ -52,6 +52,7 @@
                     </td>
                     <td>
                         {{ fn('wc_price', product.get_subtotal) }}
+                        <small>(excl. {{ fn('wc_price'. product.get_subtotal_tax) }}</small>
                     </td>
                 </tr>
             {% endfor %}
