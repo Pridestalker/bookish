@@ -1,5 +1,10 @@
 {
-    "/dist/styles/main.css": "/dist/styles/main.css",
-    "/dist/styles/mail.css": "/dist/styles/mail.css",
-    "/dist/styles/admin.css": "/dist/styles/admin.css"
+    "/dist/scripts/vendor.js": "/dist/scripts/vendor.js?id=cd1cf829efab878774a8",
+    "/dist/scripts/main.js": "/dist/scripts/main.js?id=9f9ee5cec815aad23cad",
+    "/dist/scripts/manifest.js": "/dist/scripts/manifest.js",
+    "/dist/scripts/routes/common.js": "/dist/scripts/routes/common.js?id=c471bac1e165a24d425a",
+    "/dist/scripts/routes/home.js": "/dist/scripts/routes/home.js?id=f1f1aa8746a5beb7e751",
+    "/dist/scripts/routes/single-product.js": "/dist/scripts/routes/single-product.js?id=9a6af2f3de0f01bb9136",
+    "/dist/scripts/routes/woocommerce/checkout.js": "/dist/scripts/routes/woocommerce/checkout.js?id=a14b1095f26f3d48fd95",
+    "/dist/scripts/routes/woocommerce/store.js": "/dist/scripts/routes/woocommerce/store.js?id=6aadee4fc7768f31495a"
 }

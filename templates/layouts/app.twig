@@ -1,3 +1,4 @@
+{% import "components/base.html.twig" as base %}
 <!doctype html>
 <html lang="{{ site.language }}">
 <head>
@@ -48,22 +49,7 @@
             </a>
         </figure>
         <div class="ml-auto my-auto hidden lg:block w-2/5">
-            <div id="search-form"></div>
-            <noscript>
-                <form class="search-form" action="{{ site.link }}">
-                    <input type="hidden" name="post_type" value="product" id="post_type">
-                    <label for="autoComplete" class="sr-only">
-                        Zoeken naar
-                    </label>
-                    <input type="text"
-                           placeholder="Waar ben je naar op zoek?"
-                           tabindex="1"
-                           id="autoComplete" name="s" autocomplete="off">
-                    <button class="btn search-icon" type="submit" name="Zoeken">
-                        <i class="fad fa-search text-primary"></i>
-                    </button>
-                </form>
-            </noscript>
+            {{ base.search_form() }}
         </div>
         <div class="ml-auto lg:ml-4 my-auto">
             <span id="mini-cart-app"></span>
@@ -76,16 +62,20 @@
         </div>
     </div>
     <div class="flex lg:hidden mt-4">
-        <form class="search-form" action="{{ site.link }}">
-            <input type="hidden" name="post_type" value="product" id="post_type">
-            <input type="text"
-                   placeholder="Waar ben je naar op zoek?"
-                   tabindex="1"
-                   id="autoComplete" name="s" autocomplete="off">
-            <button class="btn search-icon" type="submit">
-                <i class="fad fa-search text-primary"></i>
-            </button>
-        </form>
+        {% if is_admin() %}
+        {{ base.search_form() }}
+        {% else %}
+            <form class="search-form" action="{{ site.link }}">
+                <input type="hidden" name="post_type" value="product" id="post_type">
+                <input type="text"
+                       placeholder="Waar ben je naar op zoek?"
+                       tabindex="1"
+                       id="autoComplete" name="s" autocomplete="off">
+                <button class="btn search-icon" type="submit">
+                    <i class="fad fa-search text-primary"></i>
+                </button>
+            </form>
+        {% endif %}
         <button class="button primary ml-4 js-nav-opener">
             <i class="fas fa-bars"></i>
         </button>
