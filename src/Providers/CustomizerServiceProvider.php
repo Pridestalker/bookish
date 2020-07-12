@@ -12,9 +12,9 @@ class CustomizerServiceProvider extends ServiceProvider
 {
     public const CUS_CONF_ID = 'BOOKISH';
 
-    protected static $customizer_panel_cache = [];
+    protected static array $customizer_panel_cache = [];
 
-    protected $customizer_calls = [];
+    protected array $customizer_calls = [];
 
 
     public function boot(): void

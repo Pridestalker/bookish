@@ -9,11 +9,8 @@ use App\Bootstrap\Env;
 
 class UpdatesServiceProvider extends ServiceProvider
 {
-    protected $settings = [];
-    /**
-     * @var Env
-     */
-    private $env;
+    protected array $settings = [];
+    private Env $env;
 
     public function __construct(Env $env)
     {

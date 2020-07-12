@@ -13,7 +13,7 @@ use App\Controllers\TwigFunctions\WooCommerceGeneral;
 
 class FunctionServiceProvider extends ServiceProvider
 {
-    protected $functions = [];
+    protected array $functions = [];
 
     public function boot(): void
     {

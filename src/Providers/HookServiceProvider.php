@@ -25,14 +25,14 @@ class HookServiceProvider extends ServiceProvider
     /**
      * @var Action[]
      */
-    protected $actions = [];
+	protected array $actions = [];
 
     /**
      * @var Filter[]
      */
-    protected $filters = [];
-    protected $actions_unhook = [];
-    protected $filters_unhook = [];
+	protected array $filters = [];
+    protected array $actions_unhook = [];
+    protected array $filters_unhook = [];
 
     public function boot(): void
     {

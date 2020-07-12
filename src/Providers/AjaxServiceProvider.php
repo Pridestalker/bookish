@@ -10,7 +10,7 @@ use App\Controllers\Http\Ajax\v1\Shop\CurrentUserCartItems;
 
 class AjaxServiceProvider extends ServiceProvider
 {
-    protected $ajaxClasses = [];
+    protected array $ajaxClasses = [];
 
     public function boot()
     {

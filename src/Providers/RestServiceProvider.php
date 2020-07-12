@@ -11,7 +11,7 @@ use App\Controllers\Http\Api\v1\MailChimp\AddNewSubscriber;
 
 class RestServiceProvider extends ServiceProvider
 {
-    protected $restClasses = [];
+    protected array $restClasses = [];
 
     public function boot()
     {

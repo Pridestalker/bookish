@@ -9,7 +9,7 @@ use App\Bootstrap\Container;
 
 class AppServiceProvider extends ServiceProvider
 {
-    protected $providers;
+    protected array $providers;
 
     public function boot(): void
     {

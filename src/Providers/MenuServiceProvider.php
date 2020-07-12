@@ -14,12 +14,7 @@ use function register_nav_menus;
  */
 class MenuServiceProvider extends ServiceProvider
 {
-    /**
-     * The registered menus
-     *
-     * @var array
-     */
-    protected $menus = [
+    protected array $menus = [
         'primary-menu' => 'Primary',
     ];
 
