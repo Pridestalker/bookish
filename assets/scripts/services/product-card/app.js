@@ -18,6 +18,7 @@ export function renderProducts() {
 			price={dataset.price}
 			id={dataset.product_id}
 			link={dataset.url}
+			instock={dataset.instock}
 		/>, targetElements[i]);
 	}
 }

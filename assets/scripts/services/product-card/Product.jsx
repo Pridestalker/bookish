@@ -1,4 +1,7 @@
 import React, { Component, h, Fragment } from 'preact';
+import PropTypes from 'prop-types';
+import { Motion, spring } from 'react-motion';
+import { AnimatedSoldOut } from './components/AnimatedSoldOut'
 
 export class Product extends Component {
 	constructor(props) {
@@ -10,10 +13,10 @@ export class Product extends Component {
 	render() {
 		return (
 			<Fragment>
-				<a href={this.props.link}>
+				<a href={this.props.link} title={`Bekijk ${this.props.title}`}>
 					<picture>
 						<source srcSet={this.thumbnail.webp} type={'image/webp'} />
-						<img src={this.thumbnail.thumbnail} loading={'lazy'} />
+						<img src={this.thumbnail.thumbnail} loading={'lazy'} alt={`Productafbeelding ${this.props.title}`} />
 					</picture>
 				</a>
 				<main className="card-content">
@@ -22,8 +25,24 @@ export class Product extends Component {
 					</a>
 					<p className="product-card--categories mb-2" dangerouslySetInnerHTML={{__html: this.props.categories}} />
 					<p className="product-card--price" dangerouslySetInnerHTML={{__html:this.props.price}} />
+					{!this.props.instock && <AnimatedSoldOut />}
 				</main>
 			</Fragment>
 		)
 	}
+}
+
+Product.propTypes = {
+	thumbnail: PropTypes.exact({
+		webp: PropTypes.string,
+		thumbnail: PropTypes.string.required
+	}),
+	title: PropTypes.string.required,
+	categories: PropTypes.string.required,
+	price: PropTypes.string.required,
+	link: PropTypes.string.required,
+	instock: PropTypes.bool.required,
+
+	id: PropTypes.number,
+
 }
