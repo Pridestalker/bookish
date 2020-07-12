@@ -10,15 +10,9 @@ use DI\Container as IoContainer;
 
 class Container implements Bootstrapper
 {
-    /**
-     * @var null|static
-     */
-    protected static $_instance = null;
+    protected static ?Container $_instance = null;
 
-    /**
-     * @var null|IoContainer
-     */
-    protected static $_container = null;
+    protected static ?IoContainer $_container = null;
 
     public function __construct()
     {
