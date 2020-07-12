@@ -18,7 +18,7 @@ class RestServiceProvider extends ServiceProvider
         $this->restClasses = apply_filters('bookish/providers/rest', [
             AddNewSubscriber::class,
             GetRelatedProducts::class,
-	        GetProductData::class
+            GetProductData::class,
         ]);
     }
 

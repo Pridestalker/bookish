@@ -1,5 +1,6 @@
 {% if is_admin() %}
     <article class="pre-product-card product-card relative"
+             data-product_id="{{ product.get_id }}"
              data-thumbnail="{{ product.get_thumbnail_json|e }}"
              data-title="{{ product.get_title }}"
              data-url="{{ product.get_link }}"

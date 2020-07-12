@@ -1,5 +1,9 @@
 {% extends 'layouts/app.twig' %}
 
+   {% block page_canonical_url %}
+       <meta name="canonical" content="{{ product.get_link }}">
+   {% endblock %}
+
 {% block post_head_scripts %}
     <script>
 		var _paq = window._paq || [];

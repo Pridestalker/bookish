@@ -7,6 +7,10 @@
         <meta name="application-name" content="{{ site.title }}">
     {% endblock %}
 
+    {% block page_canonical_url %}
+        <meta name="canonical" content="{{ post.link }}">
+    {% endblock %}
+
     <meta name="base_assets" content="{{ theme.link }}/">
 
     <title>{% block page_title %}{{ site.title }}{% endblock %}</title>
