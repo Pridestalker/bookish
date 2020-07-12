@@ -1,7 +1,6 @@
 import React, { Component, h, Fragment } from 'preact';
 import PropTypes from 'prop-types';
-import { Motion, spring } from 'react-motion';
-import { AnimatedSoldOut } from './components/AnimatedSoldOut'
+import { AnimatedSaleBanner, AnimatedSoldOut } from './components';
 
 export class Product extends Component {
 	constructor(props) {
@@ -13,6 +12,7 @@ export class Product extends Component {
 	render() {
 		return (
 			<Fragment>
+				{this.props.onsale && <AnimatedSaleBanner />}
 				<a href={this.props.link} title={`Bekijk ${this.props.title}`}>
 					<picture>
 						<source srcSet={this.thumbnail.webp} type={'image/webp'} />
@@ -42,6 +42,7 @@ Product.propTypes = {
 	price: PropTypes.string.required,
 	link: PropTypes.string.required,
 	instock: PropTypes.bool.required,
+	onsale: PropTypes.bool.required,
 
 	id: PropTypes.number,
 

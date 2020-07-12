@@ -1,11 +1,12 @@
 {% if is_admin() %}
-    <article class="pre-product-card product-card"
+    <article class="pre-product-card product-card relative"
              data-thumbnail="{{ product.get_thumbnail_json|e }}"
              data-title="{{ product.get_title }}"
              data-url="{{ product.get_link }}"
              data-price="{{ product.get_price|e }}"
              data-instock="{{ product.is_in_stock }}"
-             data-categories="{{ product.get_product_categories_links|e }}">
+             data-categories="{{ product.get_product_categories_links|e }}"
+             data-onsale="{{ product.is_on_sale }}">
 
         <noscript>
             <a href="{{ product.get_link }}" title="Bekijk {{ product.get_title }}">
