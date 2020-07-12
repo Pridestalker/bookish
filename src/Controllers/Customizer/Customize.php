@@ -9,15 +9,12 @@ use App\Helpers\Str;
 
 abstract class Customize
 {
-    public static $panel_name = null;
-    public static $section_name = null;
-    public static $section_args = [];
+    public static ?string $panel_name = null;
+    public static ?string $section_name = null;
+    public static ?array $section_args = [];
     abstract public function register();
 
-    /**
-     * @var Kirki $kirki
-     */
-    protected $kirki;
+    protected Kirki $kirki;
 
     public function __construct(Kirki $kirki)
     {
