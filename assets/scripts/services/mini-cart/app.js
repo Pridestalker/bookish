@@ -2,7 +2,7 @@ import React, { Component, render, h } from 'preact';
 import ky from 'ky';
 import { BulbCounter } from './Components/BulbCounter'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/pro-duotone-svg-icons';
+import { faShoppingCart, faSpinnerThird } from '@fortawesome/pro-duotone-svg-icons';
 import { LatestProducts } from './Components/LatestProducts'
 import styled from 'styled-components';
 
@@ -21,6 +21,7 @@ class MiniCart extends Component {
 		this.state = {
 			cart: [],
 			cartCount: 0,
+			loading: true,
 		};
 
 		this.fetchData = this.fetchData.bind(this);
@@ -33,6 +34,7 @@ class MiniCart extends Component {
 	}
 
 	fetchData() {
+		this.setState({loading: true});
 		ky.get(window['ajax_url'], {
 			searchParams: {
 				action: 'get_cart_item_count'
@@ -52,17 +54,20 @@ class MiniCart extends Component {
 					cart: res.data?.cart_items || [],
 					cartCount: res.data?.cart_items_count || 0,
 				});
-			});
+			})
+			.finally(() => this.setState({ loading: false }));
 	}
 
 	render() {
-		const { cartCount } = this.state;
+		const { cartCount, loading } = this.state;
 		return (
 			<BarredBottom href={this.props.href}
 			   className="text-primary js-shopping-cart-button shopping-cart-button p-2"
 			>
 				<span className="hidden lg:inline-block mr-2">winkelmandje</span>
-				<FontAwesomeIcon icon={faShoppingCart} className={'shopping-icon'} />
+				<FontAwesomeIcon icon={ loading ? faSpinnerThird : faShoppingCart }
+								 spin={ loading }
+								 className={'shopping-icon'} />
 				<BulbCounter cartCount={cartCount} />
 				<LatestProducts />
 			</BarredBottom>);
