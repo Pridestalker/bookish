@@ -21,7 +21,12 @@ export class FillWrapper extends Component {
 
 		return (
 			<Wrapper>
-				{this.props.posts.map(item => <AutoFillItem item={item} />)}
+				{this.props.posts.map((item, index) => (
+					<AutoFillItem item={item}
+								  focused={index === this.props.cursor}
+								  fillHider={this.props.fillHider}
+								  keyDownHandler={this.props.keyDownHandler} />
+				))}
 			</Wrapper>
 		)
 	}

@@ -7,6 +7,7 @@ defined('ABSPATH') || exit(0);
 use WC_Product;
 use Timber\Post;
 use Timber\Term;
+use App\Helpers\Str;
 use Timber\PostQuery;
 use App\Helpers\Terms;
 use Timber\ImageHelper;
@@ -26,6 +27,7 @@ class Product extends Post
      */
     public $product = null;
     protected static $price_cache = [];
+    protected static $bare_price_cache = [];
     protected static $sale_price_cache = [];
 
     protected static $categories_cache = [];
@@ -40,19 +42,21 @@ class Product extends Post
 
     public function get_price_bare()
     {
-		if (isset(static::$price_cache[$this->id])) {
-			return static::$price_cache[$this->id];
-		}
+        if (isset(static::$bare_price_cache[$this->id])) {
+            return static::$bare_price_cache[$this->id];
+        }
 
-		$this->setProduct();
+        $this->setProduct();
 
-		return static::$price_cache[$this->id] = $this->product->get_price();
+        return static::$bare_price_cache[$this->id] = $this->product->get_price();
     }
 
     public function get_price()
     {
         if (isset(static::$price_cache[$this->id])) {
-            return static::$price_cache[$this->id];
+            if (Str::contains(static::$price_cache[$this->id], '€')) {
+                return static::$price_cache[$this->id];
+            }
         }
 
         $this->setProduct();
@@ -62,12 +66,12 @@ class Product extends Post
 
     public function get_regular_price()
     {
-    	return $this->setProduct()->get_regular_price();
+        return $this->setProduct()->get_regular_price();
     }
 
     public function is_on_sale()
     {
-    	return $this->setProduct()->is_on_sale();
+        return $this->setProduct()->is_on_sale();
     }
 
     public function get_title()
@@ -192,21 +196,21 @@ class Product extends Post
 
     public function get_thumbnail_json()
     {
-    	$thumbnail = $this->thumbnail();
+        $thumbnail = $this->thumbnail();
 
-    	return json_encode([
-    		'webp' => ImageHelper::retina_resize(ImageHelper::img_to_webp($thumbnail)),
-		    'thumbnail' => (string) $thumbnail
-	    ], JSON_THROW_ON_ERROR);
+        return json_encode([
+            'webp' => ImageHelper::retina_resize(ImageHelper::img_to_webp($thumbnail)),
+            'thumbnail' => (string) $thumbnail
+        ], JSON_THROW_ON_ERROR);
     }
 
     public function is_preorder()
     {
-    	$tags = Collection::from($this->terms('product_tag'));
+        $tags = Collection::from($this->terms('product_tag'));
 
-    	return $tags->filter(static function ($item) {
-    		return $item->name === 'Pre-order';
-	    })->sizeIsGreaterThan(0);
+        return $tags->filter(static function ($item) {
+            return $item->name === 'Pre-order';
+        })->sizeIsGreaterThan(0);
     }
 
     public function setProduct(): \WC_Product

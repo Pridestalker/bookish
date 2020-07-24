@@ -11,12 +11,15 @@ class ProductCategoryUrl
     protected static $term_id_link_cache = [];
 
     /**
-     * @param string $category the category to look for
+     * @param string|null $category the category to look for
      *
      * @return string
      */
-    public static function getUrlOnName(String $category): string
+    public static function getUrlOnName(?string $category): string
     {
+        if (!string) {
+            return '';
+        }
         if (isset(static::$term_link_cache[$category])) {
             return static::$term_link_cache[$category];
         }
@@ -27,12 +30,16 @@ class ProductCategoryUrl
     }
 
     /**
-     * @param int $category the category ID to look for.
+     * @param int|null $category the category ID to look for.
      *
      * @return string
      */
-    public static function getUrlOnID(int $category): string
+    public static function getUrlOnID(?int $category): string
     {
+        if (!$category) {
+            return '';
+        }
+
         if (isset(static::$term_id_link_cache[$category])) {
             return static::$term_id_link_cache[$category];
         }
