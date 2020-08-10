@@ -1,6 +1,7 @@
 import React, { Component, h, Fragment } from 'preact';
 import PropTypes from 'prop-types';
 import { AnimatedSaleBanner, AnimatedSoldOut } from './components';
+import { woocommerce } from '../../helpers';
 
 export class Product extends Component {
 	constructor(props) {
@@ -14,10 +15,10 @@ export class Product extends Component {
 		const { onsale, saleprice, price } = this.props;
 
 		if (!!onsale) {
-			return (<Fragment>&euro; <span style='text-decoration: line-through;'>{price}</span> {saleprice}</Fragment>);
+			return (<Fragment>&euro; <span style='text-decoration: line-through;'>{woocommerce.price_europe_separators(price)}</span> {woocommerce.price_europe_separators(saleprice)}</Fragment>);
 		}
 
-		return ( <Fragment>&euro; {price}</Fragment> )
+		return <span>&euro; {woocommerce.price_europe_separators(price)}</span>
 	}
 
 	render() {
