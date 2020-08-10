@@ -9,6 +9,21 @@ export class Product extends Component {
 		this.thumbnail = JSON.parse(this.props.thumbnail);
 	}
 
+	renderPrice() {
+		const { onsale, saleprice, price } = this.props;
+
+		if (onsale) {
+			return (<Fragment>&euro; <span style='text-decoration: line-through;'>{price}</span> {saleprice}</Fragment>);
+		}
+
+		return (
+			<Fragment>
+				&euro;
+				{price}
+			</Fragment>
+		)
+	}
+
 	render() {
 		return (
 			<Fragment>
@@ -24,7 +39,9 @@ export class Product extends Component {
 						<h2 className="is-h3">{this.props.title}</h2>
 					</a>
 					<p className="product-card--categories mb-2" dangerouslySetInnerHTML={{__html: this.props.categories}} />
-					<p className="product-card--price" dangerouslySetInnerHTML={{__html:this.props.price}} />
+					<p className="product-card--price">
+						&euro; {this.props.onsale && this.props.saleprice}
+					</p>
 					{!this.props.instock && <AnimatedSoldOut />}
 				</main>
 			</Fragment>
@@ -35,14 +52,15 @@ export class Product extends Component {
 Product.propTypes = {
 	thumbnail: PropTypes.exact({
 		webp: PropTypes.string,
-		thumbnail: PropTypes.string.required
+		thumbnail: PropTypes.string.isRequired
 	}),
-	title: PropTypes.string.required,
-	categories: PropTypes.string.required,
-	price: PropTypes.string.required,
-	link: PropTypes.string.required,
-	instock: PropTypes.bool.required,
-	onsale: PropTypes.bool.required,
+	title: PropTypes.string.isRequired,
+	categories: PropTypes.string.isRequired,
+	price: PropTypes.string.isRequired,
+	link: PropTypes.string.isRequired,
+	instock: PropTypes.bool.isRequired,
+	onsale: PropTypes.bool.isRequired,
+	saleprice: PropTypes.string,
 
 	id: PropTypes.number,
 

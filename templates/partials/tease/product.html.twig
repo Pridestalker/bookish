@@ -3,9 +3,10 @@
          data-thumbnail="{{ product.get_thumbnail_json|e }}"
          data-title="{{ product.get_title }}"
          data-url="{{ product.get_link }}"
-         data-price="{{ product.get_price|e }}"
+         data-price="{{ product.get_regular_price }}"
          data-instock="{{ product.is_in_stock }}"
          data-categories="{{ product.get_product_categories_links|e }}"
+         data-saleprice="{{ product.get_sale_price }}"
          data-onsale="{{ product.is_on_sale }}">
 
     <noscript>

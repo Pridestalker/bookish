@@ -29,7 +29,7 @@ class ChangeCheckoutClass extends Filter
 //            'rounded',
 //            'shadow',
 //            'leading-tight',
-//            'focuse:outline-none',
+//            'focus:outline-none',
 //            'focus:shadow-outline',
 //        ]);
 
