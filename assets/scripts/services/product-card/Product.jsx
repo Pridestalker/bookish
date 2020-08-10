@@ -7,6 +7,7 @@ export class Product extends Component {
 		super(props);
 
 		this.thumbnail = JSON.parse(this.props.thumbnail);
+		this.renderPrice = this.renderPrice.bind(this);
 	}
 
 	renderPrice() {
@@ -40,7 +41,7 @@ export class Product extends Component {
 					</a>
 					<p className="product-card--categories mb-2" dangerouslySetInnerHTML={{__html: this.props.categories}} />
 					<p className="product-card--price">
-						&euro; {this.props.onsale && this.props.saleprice}
+						{this.renderPrice()}
 					</p>
 					{!this.props.instock && <AnimatedSoldOut />}
 				</main>
