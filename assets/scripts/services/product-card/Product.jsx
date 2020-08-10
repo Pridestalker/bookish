@@ -13,16 +13,11 @@ export class Product extends Component {
 	renderPrice() {
 		const { onsale, saleprice, price } = this.props;
 
-		if (onsale) {
+		if (!!onsale) {
 			return (<Fragment>&euro; <span style='text-decoration: line-through;'>{price}</span> {saleprice}</Fragment>);
 		}
 
-		return (
-			<Fragment>
-				&euro;
-				{price}
-			</Fragment>
-		)
+		return ( <Fragment>&euro; {price}</Fragment> )
 	}
 
 	render() {
