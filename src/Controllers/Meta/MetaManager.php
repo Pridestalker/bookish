@@ -8,10 +8,10 @@ class MetaManager
 {
 	public const T_POST_PRODUCT = 'product';
 
-	public static function load(\Stringable $class)
+	public static function load(string $class)
 	{
 		/** @var Meta $class */
-		$class = Container::get((string) $class);
+		$class = Container::get($class);
 
 		do_action('bookish/meta/register/'.(new \ReflectionClass($class))->getShortName());
 
