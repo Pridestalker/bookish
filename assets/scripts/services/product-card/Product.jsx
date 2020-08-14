@@ -58,9 +58,9 @@ export class Product extends Component {
 						this.setState({
 							inView: true,
 						});
-					}
 
-					observer.unobserve(el);
+						observer.unobserve(el);
+					}
 				}
 			})
 		});
