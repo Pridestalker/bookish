@@ -52,7 +52,7 @@ export class Product extends Component {
 				if (entry.isIntersecting) {
 					let el = entry.target;
 
-					if (entry.intersectionRatio >= .75) {
+					if (entry.intersectionRatio >= .5) {
 						this.setState({
 							inView: true,
 						});
@@ -61,6 +61,10 @@ export class Product extends Component {
 					}
 				}
 			})
+		},{
+			root: null,
+			rootMargin: '0px',
+			threshold: 0.5
 		});
 
 		try {
