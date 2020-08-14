@@ -47,13 +47,9 @@ export class Product extends Component {
 		const observer = new IntersectionObserver((entries, observer) => {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
-					let el = entry.target;
-
 					this.setState({
 						inView: true,
 					});
-
-					observer.unobserve(el);
 				}
 			})
 		},{
