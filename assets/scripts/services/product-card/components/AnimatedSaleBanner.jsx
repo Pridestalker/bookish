@@ -2,6 +2,7 @@ import React, { Component, h } from 'preact';
 import styled from 'styled-components';
 import { Motion, spring } from 'react-motion'
 import { Colors } from '../../../config'
+import { HorizontalRibbon } from './Ribbon'
 
 const SaleBanner = styled.span`
 	position: absolute;
@@ -20,13 +21,14 @@ const SaleBanner = styled.span`
 export class AnimatedSaleBanner extends Component {
 	render() {
 		return (
-			<Motion defaultStyle={{ s: 0, r: 0 }} style={{ s: spring(1, { stiffness: 90, damping: 9}), r: spring(5) }}>
-				{({ s, r }) => (
-					<SaleBanner style={{
-						transform: `scale(${s}) rotate(-${r}deg)`
+			<Motion defaultStyle={{ s: 0 }} style={{ s: spring(1, { stiffness: 90, damping: 9}) }}>
+				{({ s }) => (
+					<HorizontalRibbon style={{
+						transform: `scale(1, ${s})`,
+						transformOrigin: 'top center',
 					}}>
 						Sale
-					</SaleBanner>
+					</HorizontalRibbon>
 				)}
 			</Motion>
 		)
