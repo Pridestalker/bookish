@@ -13,15 +13,9 @@ class ProductVariation extends PostMeta
 
 	public function register(): void
 	{
-	    if (static::$instantiated) {
-	        return;
-        }
-
 		Container::make('post_meta', $this->name)
 			->where('post_type', '=', MetaManager::T_POST_PRODUCT)
 			->add_fields($this->fields);
-
-	    static::$instantiated = true;
 	}
 
 	public function loadFields(): void
