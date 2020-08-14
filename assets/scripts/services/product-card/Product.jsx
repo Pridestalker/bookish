@@ -18,7 +18,35 @@ export class Product extends Component {
 		this.renderPrice = this.renderPrice.bind(this);
 		this.renderPreOrderBanner = this.renderPreOrderBanner.bind(this);
 		this.cardIsInView = this.cardIsInView.bind(this);
+	}
 
+	cardIsInView() {
+		const { inView } = this.state;
+
+		return inView;
+	}
+
+	renderPrice() {
+		const { onsale, saleprice, price } = this.props;
+
+		if (!!onsale) {
+			return (<Fragment>&euro; <span style='text-decoration: line-through;'>{woocommerce.price_europe_separators(price)}</span> {woocommerce.price_europe_separators(saleprice)}</Fragment>);
+		}
+
+		return <span>&euro; {woocommerce.price_europe_separators(price)}</span>
+	}
+
+	renderPreOrderBanner() {
+		if (!this.cardIsInView()) {
+			return;
+		}
+
+		if (this.props.stock_status === 'preorder') {
+			return <AnimatedPreOrderBanner />
+		}
+	}
+
+	componentDidMount() {
 		const observer = new IntersectionObserver((entries, observer) => {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
@@ -41,29 +69,6 @@ export class Product extends Component {
 		try {
 			observer.observe(this.card.current);
 		} catch {}
-	}
-
-	cardIsInView() {
-		const { inView } = this.state;
-
-		return inView;
-	}
-
-	renderPrice() {
-		const { onsale, saleprice, price } = this.props;
-
-		if (!!onsale) {
-			return (<Fragment>&euro; <span style='text-decoration: line-through;'>{woocommerce.price_europe_separators(price)}</span> {woocommerce.price_europe_separators(saleprice)}</Fragment>);
-		}
-
-		return <span>&euro; {woocommerce.price_europe_separators(price)}</span>
-	}
-
-	renderPreOrderBanner() {
-		if (!this.cardIs)
-		if (this.props.stock_status === 'preorder') {
-			return <AnimatedPreOrderBanner />
-		}
 	}
 
 	render() {
