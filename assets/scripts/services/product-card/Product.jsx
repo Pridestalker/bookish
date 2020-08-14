@@ -48,10 +48,10 @@ export class Product extends Component {
 
 	componentDidMount() {
 		const observer = new IntersectionObserver((entries, observer) => {
+			console.dir(entries);
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
 					let el = entry.target;
-					console.dir(entry);
 
 					if (entry.intersectionRatio >= .75) {
 						this.setState({
