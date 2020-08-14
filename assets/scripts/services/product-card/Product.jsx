@@ -46,7 +46,7 @@ export class Product extends Component {
 	componentDidMount() {
 		const observer = new IntersectionObserver((entries, observer) => {
 			entries.forEach(entry => {
-				if (entry.isIntersecting) {
+				if (entry.intersectionRatio > 0) {
 					this.setState({
 						inView: true,
 					});
@@ -54,15 +54,13 @@ export class Product extends Component {
 			})
 		},{
 			root: null,
-			rootMargin: '0px',
-			threshold: 0.5
+			rootMargin: '50px 0px',
+			threshold: 0
 		});
 
 		try {
 			observer.observe(this.card.current);
-		} catch(e) {
-			console.dir(e);
-		}
+		} catch {}
 	}
 
 	render() {
