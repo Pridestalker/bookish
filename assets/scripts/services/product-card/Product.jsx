@@ -45,6 +45,7 @@ export class Product extends Component {
 
 	componentDidMount() {
 		this.io = new IntersectionObserver(([entry]) => {
+			console.log(entry.target);
 			this.setState({
 				inView: entry.isIntersecting,
 			});
