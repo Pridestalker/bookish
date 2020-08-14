@@ -4,7 +4,7 @@ import { AnimatedSaleBanner, AnimatedSoldOut, AnimatedPreOrderBanner } from './c
 import { woocommerce } from '../../helpers';
 
 export class Product extends Component {
-	card = createRef();
+	card = null;
 
 	constructor(props) {
 		super(props);
@@ -68,7 +68,7 @@ export class Product extends Component {
 			<Fragment>
 				{this.props.onsale && <AnimatedSaleBanner />}
 				{this.renderPreOrderBanner()}
-				<a href={this.props.link} title={`Bekijk ${this.props.title}`} ref={this.card}>
+				<a href={this.props.link} title={`Bekijk ${this.props.title}`} ref={a => this.card = a}>
 					<picture>
 						<source srcSet={this.thumbnail.webp} type={'image/webp'} />
 						<img src={this.thumbnail.thumbnail} loading={'lazy'} alt={`Productafbeelding ${this.props.title}`} />
