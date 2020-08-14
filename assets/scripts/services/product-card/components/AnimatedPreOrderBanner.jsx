@@ -2,6 +2,7 @@ import React, { Component, h } from 'preact';
 import styled from 'styled-components';
 import { Motion, spring } from 'react-motion';
 import { Colors } from '../../../config';
+import { darken } from 'polished';
 
 const BannerWrapper = styled.div`
 	position: absolute;
@@ -10,9 +11,16 @@ const BannerWrapper = styled.div`
 	
 	&:before {
 		content: ' ';
+		top: 0;
+		left: 100%;
+		display: block;
+		position: absolute;
+		border-style: solid;
+		border-width: 5px;
+		border-color: transparent transparent ${darken(.2, Colors.green)} ${darken(.2, Colors.green)};
 	}
 	
-	filter: drop-shadow(-1px 6px 3px rgba(51, 51, 51, 0.3))
+	filter: drop-shadow(-1px 6px 3px rgba(51, 51, 51, 1))
 `;
 
 const PreOrderBanner = styled.span`
