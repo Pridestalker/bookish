@@ -21,6 +21,7 @@ export class Product extends Component {
 
 		this.renderPrice = this.renderPrice.bind(this);
 		this.renderPreOrderBanner = this.renderPreOrderBanner.bind(this);
+		this.renderSaleBanner = this.renderSaleBanner.bind(this);
 	}
 
 	renderPrice() {
@@ -34,13 +35,28 @@ export class Product extends Component {
 	}
 
 	renderPreOrderBanner() {
+		if (this.props.stock_status !== 'preorder') {
+			return ' ';
+		}
+
 		if (!this.state.inView) {
 			return '';
 		}
 
-		if (this.props.stock_status === 'preorder') {
-			return <AnimatedPreOrderBanner />
+
+		return <AnimatedPreOrderBanner />
+	}
+
+	renderSaleBanner() {
+		if (this.props.stock_status === 'preorder' || !this.props.onsale) {
+			return ' ';
 		}
+
+		if (!this.state.inView) {
+			return '';
+		}
+
+		return <AnimatedSaleBanner />
 	}
 
 	componentDidMount() {
@@ -70,7 +86,7 @@ export class Product extends Component {
 	render() {
 		return (
 			<Fragment>
-				{this.props.onsale && <AnimatedSaleBanner />}
+				{this.renderSaleBanner()}
 				{this.renderPreOrderBanner()}
 				<a href={this.props.link} title={`Bekijk ${this.props.title}`}>
 					<picture>
