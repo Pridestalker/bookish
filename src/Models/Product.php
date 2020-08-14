@@ -51,11 +51,11 @@ class Product extends Post
      *
      * @return array|mixed|\Timber\mix|\WP_Post
      */
-    public function get_field($field_name)
+    public function get_field($field_name, $default = null)
     {
         $value = carbon_get_post_meta($this->id, $field_name);
         $value = $this->convert($value);
-        return $value;
+        return $value?? $default;
     }
 
     public function get_price_bare()
