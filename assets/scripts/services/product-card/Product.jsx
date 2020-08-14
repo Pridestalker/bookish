@@ -52,13 +52,11 @@ export class Product extends Component {
 				if (entry.isIntersecting) {
 					let el = entry.target;
 
-					if (entry.intersectionRatio >= .5) {
-						this.setState({
-							inView: true,
-						});
+					this.setState({
+						inView: true,
+					});
 
-						observer.unobserve(el);
-					}
+					observer.unobserve(el);
 				}
 			})
 		},{
