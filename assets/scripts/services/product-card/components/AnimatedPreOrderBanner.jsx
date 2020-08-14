@@ -26,6 +26,7 @@ const PreOrderBanner = styled.span`
 	text-transform: uppercase;
 	text-align: center;
 	pointer-events: none;
+	display: block;
 
 	clip-path: polygon(0 0, 0 100%, 50% 7ch, 100% 100%, 100% 0);
 `;
