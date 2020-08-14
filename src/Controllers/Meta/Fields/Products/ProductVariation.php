@@ -3,8 +3,8 @@
 namespace App\Controllers\Meta\Fields\Products;
 
 use Carbon_Fields\Field;
+use Carbon_Fields\Container;
 use App\Controllers\Meta\MetaManager;
-use Carbon_Fields\Container\Container;
 use App\Controllers\Meta\Fields\PostMeta;
 
 class ProductVariation extends PostMeta
