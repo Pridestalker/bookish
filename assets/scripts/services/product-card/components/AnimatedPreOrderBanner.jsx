@@ -6,7 +6,7 @@ import { darken } from 'polished';
 
 const BannerWrapper = styled.div`
 	position: absolute;
-	top: -5px;
+	top: -10px;
 	right: 1rem;
 	pointer-events: none;
 	
