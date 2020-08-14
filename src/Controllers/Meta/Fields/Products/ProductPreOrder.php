@@ -22,6 +22,7 @@ class ProductPreOrder extends PostMeta
 
     public function loadFields(): void
     {
+        var_dump('Fields loading');
         $this->fields []= Field::make('text', 'shipment_estimate', 'Shipment estimate');
     }
 
