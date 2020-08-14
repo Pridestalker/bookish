@@ -23,8 +23,6 @@ export class Product extends Component {
 	cardIsInView() {
 		const { inView } = this.state;
 
-		console.dir(this.card.current);
-
 		return inView;
 	}
 
@@ -49,6 +47,8 @@ export class Product extends Component {
 	}
 
 	componentDidMount() {
+		console.dir(this.card.current);
+
 		const observer = new IntersectionObserver((entries, observer) => {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
