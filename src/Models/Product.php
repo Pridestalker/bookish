@@ -44,6 +44,20 @@ class Product extends Post
 
     protected static $gallery_id_cache = [];
 
+    /**
+     * Returns a carbon-field value
+     *
+     * @param string $field_name
+     *
+     * @return array|mixed|\Timber\mix|\WP_Post
+     */
+    public function get_field($field_name)
+    {
+        $value = carbon_get_post_meta($this->id, $field_name);
+        $value = $this->convert($value);
+        return $value;
+    }
+
     public function get_price_bare()
     {
         if (isset(static::$bare_price_cache[$this->id])) {
