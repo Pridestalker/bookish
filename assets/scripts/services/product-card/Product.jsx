@@ -44,11 +44,14 @@ export class Product extends Component {
 	}
 
 	componentDidMount() {
-		this.io = new IntersectionObserver(([entry]) => {
-			console.log(entry.target);
-			this.setState({
-				inView: entry.isIntersecting,
-			});
+		this.io = new IntersectionObserver(([entry], ob) => {
+			if (entry.isIntersecting) {
+				this.setState({
+					inView: true,
+				});
+
+				ob.unobserve(entry.target);
+			}
 		}, {
 			root: null,
 			rootMargin: '0px',
