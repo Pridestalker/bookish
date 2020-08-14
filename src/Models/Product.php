@@ -66,7 +66,7 @@ class Product extends Post
 
         $this->setProduct();
 
-        return static::$bare_price_cache[$this->id] = $this->product->get_price();
+        return static::$bare_price_cache[$this->id] = $this->product->get_regular_price('edit');
     }
 
     public function get_price()
