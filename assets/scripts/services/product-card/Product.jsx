@@ -5,7 +5,7 @@ import { woocommerce } from '../../helpers';
 
 export class Product extends Component {
 	card = null;
-
+	io = null;
 	constructor(props) {
 		super(props);
 
@@ -44,22 +44,15 @@ export class Product extends Component {
 	}
 
 	componentDidMount() {
-		const observer = new IntersectionObserver((entries, observer) => {
-			entries.forEach(entry => {
-				if (entry.intersectionRatio > 0) {
-					this.setState({
-						inView: true,
-					});
-				}
-			})
-		},{
-			root: null,
-			rootMargin: '50px 0px',
-			threshold: 0
+		console.dir(this.card);
+		this.io = new IntersectionObserver(([entry]) => {
+			this.setState({
+				inView: entry.isIntersecting,
+			});
 		});
 
 		try {
-			observer.observe(this.card.current);
+			this.io.observe(this.card.current);
 		} catch {}
 	}
 
