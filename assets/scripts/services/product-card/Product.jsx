@@ -63,6 +63,8 @@ export class Product extends Component {
 					}
 				}
 			})
+		}, {
+			threshold: .5
 		});
 
 		try {
