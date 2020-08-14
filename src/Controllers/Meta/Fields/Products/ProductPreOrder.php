@@ -15,8 +15,6 @@ class ProductPreOrder extends PostMeta
 
     public function register(): void
     {
-        var_dump('Meta registered');
-
         Container::make('post_meta', $this->name)
             ->where('post_type', '=', MetaManager::T_POST_PRODUCT)
             ->add_fields($this->fields);

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Helpers\Log;
 use Carbon_Fields\Carbon_Fields;
 use App\Controllers\Meta\MetaManager;
 use App\Controllers\Meta\Fields\Products\ProductPreOrder;
@@ -28,6 +29,7 @@ class CarbonServiceProvider extends ServiceProvider
 				MetaManager::load($field);
 			} catch (\Throwable $e) {
 				// Do nothing.
+                Log::alert($e->getMessage());
 			}
 		}
 	}
