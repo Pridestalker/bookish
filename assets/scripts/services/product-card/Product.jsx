@@ -68,7 +68,9 @@ export class Product extends Component {
 
 		try {
 			observer.observe(this.card.current);
-		} catch {}
+		} catch(e) {
+			console.dir(e);
+		}
 	}
 
 	render() {
