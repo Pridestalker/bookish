@@ -5,6 +5,10 @@ import { woocommerce } from '../../helpers';
 
 export class Product extends Component {
 	card = null;
+	/**
+	 *
+	 * @type {IntersectionObserver} io
+	 */
 	io = null;
 	constructor(props) {
 		super(props);
@@ -30,12 +34,10 @@ export class Product extends Component {
 	}
 
 	renderPreOrderBanner() {
-		const { inView } = this.state;
+		console.log(this.state.inView);
 
-		console.log(inView);
-
-		if (!inView) {
-			return;
+		if (!this.state.inView) {
+			return '';
 		}
 
 		if (this.props.stock_status === 'preorder') {
@@ -44,7 +46,6 @@ export class Product extends Component {
 	}
 
 	componentDidMount() {
-		console.dir(this.card);
 		this.io = new IntersectionObserver(([entry]) => {
 			this.setState({
 				inView: entry.isIntersecting,
@@ -54,6 +55,10 @@ export class Product extends Component {
 		try {
 			this.io.observe(this.card.current);
 		} catch {}
+	}
+
+	componentWillUnmount() {
+		this.io.disconnect();
 	}
 
 	render() {
