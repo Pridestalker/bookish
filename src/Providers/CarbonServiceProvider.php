@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Controllers\Meta\MetaManager;
+use App\Controllers\Meta\Fields\Products\ProductPreOrder;
 use App\Controllers\Meta\Fields\Products\ProductVariation;
 
 class CarbonServiceProvider extends ServiceProvider
@@ -12,7 +13,8 @@ class CarbonServiceProvider extends ServiceProvider
 	public function boot(): void
 	{
 		$this->carbonFields = apply_filters('bookish/providers/carbon-meta', [
-			ProductVariation::class
+			ProductVariation::class,
+            ProductPreOrder::class,
 		]);
 	}
 

@@ -19,7 +19,11 @@ class Product extends Post
 {
     public function __call($field, $args)
     {
-        return call_user_func_array([$this->setProduct(), $field], $args);
+        try {
+            return call_user_func_array([$this->setProduct(), $field], $args);
+        } catch (\Throwable $e) {
+            return false;
+        }
     }
 
     /**
@@ -76,6 +80,10 @@ class Product extends Post
 
     public function get_title()
     {
+        if ($this->is_pre_order()) {
+            return 'Preorder: ' . $this->title();
+        }
+
         return $this->title();
     }
 
@@ -151,6 +159,16 @@ class Product extends Post
         return static::$stock_cache[$this->id]['in_stock'] = $this->product->is_in_stock();
     }
 
+    public function is_pre_order(): bool
+    {
+        if (isset(static::$stock_cache[$this->id]['is_pre_order'])) {
+            return static::$stock_cache[$this->id]['is_pre_order'];
+        }
+
+        return static::$stock_cache[$this->id]['is_pre_order'] =
+            $this->setProduct()->get_stock_status('edit') === 'preorder';
+    }
+
     public function can_backorder()
     {
         if (isset(static::$stock_cache[$this->id]['on_backorder'])) {
@@ -204,6 +222,10 @@ class Product extends Post
         ], JSON_THROW_ON_ERROR);
     }
 
+    /**
+     * @return bool
+     * @deprecated use Product::is_pre_order()
+     */
     public function is_preorder()
     {
         $tags = Collection::from($this->terms('product_tag'));
