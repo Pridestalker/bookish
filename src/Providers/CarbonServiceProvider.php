@@ -35,8 +35,6 @@ class CarbonServiceProvider extends ServiceProvider
 
 	public function bootFields(): void
     {
-        if (!Carbon_Fields::is_booted()) {
-            Carbon_Fields::boot();
-        }
+        Carbon_Fields::boot();
     }
 }
