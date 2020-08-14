@@ -17,7 +17,6 @@ export class Product extends Component {
 
 		this.renderPrice = this.renderPrice.bind(this);
 		this.renderPreOrderBanner = this.renderPreOrderBanner.bind(this);
-		this.cardIsInView = this.cardIsInView.bind(this);
 	}
 
 	renderPrice() {
