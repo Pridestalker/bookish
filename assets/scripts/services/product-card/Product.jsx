@@ -38,7 +38,9 @@ export class Product extends Component {
 			rootMargin: '0px'
 		});
 
-		observer.observe(this.card.current);
+		try {
+			observer.observe(this.card.current);
+		} catch {}
 	}
 
 	cardIsInView() {
