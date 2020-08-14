@@ -7,7 +7,8 @@ import { darken } from 'polished';
 const BannerWrapper = styled.div`
 	position: absolute;
 	top: -5px;
-	right: .5rem;
+	right: 1rem;
+	pointer-events: none;
 	
 	&:before {
 		content: ' ';
@@ -16,7 +17,7 @@ const BannerWrapper = styled.div`
 		display: block;
 		position: absolute;
 		border-style: solid;
-		border-width: 2.5px;
+		border-width: 5px;
 		border-color: transparent transparent ${darken(.2, Colors.green)} ${darken(.2, Colors.green)};
 	}
 	
@@ -33,7 +34,6 @@ const PreOrderBanner = styled.span`
 	
 	text-transform: uppercase;
 	text-align: center;
-	pointer-events: none;
 	display: block;
 
 	clip-path: polygon(0 0, 0 100%, 50% 7ch, 100% 100%, 100% 0);
