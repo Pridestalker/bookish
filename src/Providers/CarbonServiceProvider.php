@@ -14,9 +14,7 @@ class CarbonServiceProvider extends ServiceProvider
 
 	public function boot(): void
 	{
-        if (!Carbon_Fields::is_booted()) {
-            Carbon_Fields::boot();
-        }
+	    add_action('after_setup_theme', [__CLASS__, 'bootFields']);
 
 		$this->carbonFields = apply_filters('bookish/providers/carbon-meta', [
 			ProductVariation::class,
@@ -34,4 +32,11 @@ class CarbonServiceProvider extends ServiceProvider
 			}
 		}
 	}
+
+	public static function bootFields(): void
+    {
+        if (!Carbon_Fields::is_booted()) {
+            Carbon_Fields::boot();
+        }
+    }
 }
