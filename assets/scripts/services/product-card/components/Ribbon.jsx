@@ -2,6 +2,7 @@ import React, { Component, h } from 'preact';
 import styled from 'styled-components';
 import { Colors } from '../../../config';
 import { darken } from 'polished';
+import { Motion, spring } from 'react-motion';
 
 const HorizontalBannerWrapper = styled.div`
 	position: absolute;
@@ -40,11 +41,18 @@ const HorizontalBanner = styled.span`
 
 export class HorizontalRibbon extends Component {
 	render() {
-		const { children, ...props } = this.props;
+		const { children } = this.props;
 		return (
-			<HorizontalBannerWrapper {...props}>
-				<HorizontalBanner children={children} />
-			</HorizontalBannerWrapper>
+			<Motion defaultStyle={{ s: 0 }} style={{ s: spring(1, { stiffness: 90, damping: 9}) }}>
+				{({ s }) => (
+					<HorizontalBannerWrapper style={{
+						transform: `scale(1, ${s})`,
+						transformOrigin: 'top center',
+					}}>
+						<HorizontalBanner children={children} />
+					</HorizontalBannerWrapper>
+				)}
+			</Motion>
 		)
 	}
 }
