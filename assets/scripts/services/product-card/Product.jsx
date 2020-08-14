@@ -75,11 +75,11 @@ export class Product extends Component {
 
 	render() {
 		return (
-			<Fragment ref={this.card}>
+			<Fragment>
 				{this.props.onsale && <AnimatedSaleBanner />}
 				{this.renderPreOrderBanner()}
 				<a href={this.props.link} title={`Bekijk ${this.props.title}`}>
-					<picture>
+					<picture ref={this.card}>
 						<source srcSet={this.thumbnail.webp} type={'image/webp'} />
 						<img src={this.thumbnail.thumbnail} loading={'lazy'} alt={`Productafbeelding ${this.props.title}`} />
 					</picture>
