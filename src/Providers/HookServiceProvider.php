@@ -11,6 +11,7 @@ use App\Controllers\Hooks\Filters\Filter;
 use App\Controllers\Hooks\Filters\Twig\AddTwigExtensions;
 use App\Controllers\Hooks\Filters\WooCommerce\CustomOrderAction;
 use App\Controllers\Hooks\Filters\WooCommerce\StoreClassToBody;
+use App\Controllers\Hooks\Filters\WooCommerce\CustomStockStatus;
 use App\Controllers\Hooks\Filters\WooCommerce\ChangeCheckoutClass;
 use App\Controllers\Hooks\Filters\WooCommerce\ProductFromProductId;
 use App\Controllers\Hooks\Actions\WooCommerce\CheckForCouponCookie;
@@ -43,6 +44,7 @@ class HookServiceProvider extends ServiceProvider
             CustomSingleOrderStatus::class,
 	        CustomOrderAction::class,
 	        StoreClassToBody::class,
+            CustomStockStatus::class,
         ]);
 
         $this->actions = apply_filters('bookish/providers/actions', [
