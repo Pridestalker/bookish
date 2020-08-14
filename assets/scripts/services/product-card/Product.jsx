@@ -60,10 +60,6 @@ export class Product extends Component {
 					}
 				}
 			})
-		}, {
-			threshold: 1,
-			rootMargin: '0px',
-			root: null,
 		});
 
 		try {
