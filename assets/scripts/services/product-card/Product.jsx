@@ -51,11 +51,13 @@ export class Product extends Component {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
 					let el = entry.target;
-					console.dir(el);
+
 					if (entry.intersectionRatio >= .75) {
 						this.setState({
 							inView: true,
 						});
+
+						observer.unobserve(el);
 					}
 				}
 			})
@@ -74,9 +76,9 @@ export class Product extends Component {
 				{this.props.onsale && <AnimatedSaleBanner />}
 				{this.renderPreOrderBanner()}
 				<a href={this.props.link} title={`Bekijk ${this.props.title}`}>
-					<picture ref={this.card}>
+					<picture>
 						<source srcSet={this.thumbnail.webp} type={'image/webp'} />
-						<img src={this.thumbnail.thumbnail} loading={'lazy'} alt={`Productafbeelding ${this.props.title}`} />
+						<img src={this.thumbnail.thumbnail} loading={'lazy'} alt={`Productafbeelding ${this.props.title}`} ref={this.card} />
 					</picture>
 				</a>
 				<main className="card-content">
