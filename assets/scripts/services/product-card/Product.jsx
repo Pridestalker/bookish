@@ -4,7 +4,7 @@ import { AnimatedSaleBanner, AnimatedSoldOut, AnimatedPreOrderBanner } from './c
 import { woocommerce } from '../../helpers';
 
 export class Product extends Component {
-	card = null;
+	card = createRef();
 	/**
 	 *
 	 * @type {IntersectionObserver} io
@@ -77,7 +77,7 @@ export class Product extends Component {
 				</a>
 				<main className="card-content">
 					<a href={this.props.link}>
-						<h2 className="is-h3"  ref={h2 => this.card = h2}>{this.props.title}</h2>
+						<h2 className="is-h3"  ref={this.card}>{this.props.title}</h2>
 					</a>
 					<p className="product-card--categories mb-2" dangerouslySetInnerHTML={{__html: this.props.categories}} />
 					<p className="product-card--price">
