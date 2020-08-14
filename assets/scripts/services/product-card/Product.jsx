@@ -1,6 +1,6 @@
 import React, { Component, h, Fragment } from 'preact';
 import PropTypes from 'prop-types';
-import { AnimatedSaleBanner, AnimatedSoldOut } from './components';
+import { AnimatedSaleBanner, AnimatedSoldOut, AnimatedPreOrderBanner } from './components';
 import { woocommerce } from '../../helpers';
 
 export class Product extends Component {
@@ -25,6 +25,7 @@ export class Product extends Component {
 		return (
 			<Fragment>
 				{this.props.onsale && <AnimatedSaleBanner />}
+				{this.props.stock_status === 'preorder' && <AnimatedPreOrderBanner />}
 				<a href={this.props.link} title={`Bekijk ${this.props.title}`}>
 					<picture>
 						<source srcSet={this.thumbnail.webp} type={'image/webp'} />
@@ -58,6 +59,7 @@ Product.propTypes = {
 	instock: PropTypes.bool.isRequired,
 	onsale: PropTypes.bool.isRequired,
 	saleprice: PropTypes.string,
+	stock_status: PropTypes.oneOf(['instock', 'outofstock', 'preorder', 'onbackorder']),
 
 	id: PropTypes.number,
 

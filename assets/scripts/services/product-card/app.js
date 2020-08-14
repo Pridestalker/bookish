@@ -21,6 +21,7 @@ export function renderProducts() {
 			instock={dataset.instock}
 			onsale={dataset.onsale}
 			saleprice={dataset.saleprice}
+			stock_status={dataset.stock_status}
 		/>, targetElements[i]);
 	}
 }

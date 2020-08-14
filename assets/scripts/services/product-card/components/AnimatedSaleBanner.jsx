@@ -13,7 +13,7 @@ const SaleBanner = styled.span`
 	border-radius: 50%;
 	box-shadow: 0 3px 6px rgba(51, 51, 51, 0.2);
 	top: .5rem;
-	left: .5rem;
+	right: .5rem;
 	pointer-events: none;
 `;
 

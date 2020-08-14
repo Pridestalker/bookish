@@ -7,6 +7,7 @@
          data-instock="{{ product.is_in_stock }}"
          data-categories="{{ product.get_product_categories_links|e }}"
          data-saleprice="{{ product.get_sale_price }}"
+         data-stock_status="{{ product.get_stock_status('edit') }}"
          data-onsale="{{ product.is_on_sale }}">
     <noscript>
         <a href="{{ product.get_link }}" title="Bekijk {{ product.get_title }}">
