@@ -49,7 +49,7 @@ export class Product extends Component {
 	componentDidMount() {
 		const observer = new IntersectionObserver((entries, observer) => {
 			entries.forEach(entry => {
-				console.dir(entry.target);
+				console.dir(entry.isIntersecting);
 				if (entry.isIntersecting) {
 					let el = entry.target;
 
