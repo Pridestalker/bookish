@@ -6,7 +6,7 @@ import { Colors } from '../../../config';
 const PreOrderBanner = styled.span`
 	position: absolute;
 	top: 0;
-	left: .5rem;
+	right: .5rem;
 	
 	background: ${Colors.green};
 	color: ${Colors.white};
@@ -20,10 +20,6 @@ const PreOrderBanner = styled.span`
 	pointer-events: none;
 
 	clip-path: polygon(0 0, 0 100%, 50% 7ch, 100% 100%, 100% 0);
-	
-	&::before {
-		content: ' ';
-	}
 `;
 
 export class AnimatedPreOrderBanner extends Component {
