@@ -13,14 +13,14 @@ class ProductPreOrder extends PostMeta
 {
     protected string $name = 'Preorder Settings';
 
-    public function register()
+    public function register(): void
     {
         Container::make('post_meta', $this->name)
             ->where('post_type', '=', MetaManager::T_POST_PRODUCT)
             ->add_fields($this->fields);
     }
 
-    public function loadFields()
+    public function loadFields(): void
     {
         $this->fields []= Field::make('text', 'shipment_estimate', 'Shipment estimate');
     }

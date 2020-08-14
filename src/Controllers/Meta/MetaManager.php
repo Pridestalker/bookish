@@ -15,6 +15,8 @@ class MetaManager
 
 		do_action('bookish/meta/register/'.(new \ReflectionClass($class))->getShortName());
 
+		add_action('carbon_fields_register_fields', [ $class, 'register' ]);
+
 		$class->register();
 	}
 }
