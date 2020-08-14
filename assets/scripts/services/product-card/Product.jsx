@@ -51,6 +51,7 @@ export class Product extends Component {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
 					let el = entry.target;
+					console.dir(el);
 
 					if (entry.intersectionRatio >= .75) {
 						this.setState({
