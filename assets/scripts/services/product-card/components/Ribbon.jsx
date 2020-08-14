@@ -40,9 +40,10 @@ const HorizontalBanner = styled.span`
 
 export class HorizontalRibbon extends Component {
 	render() {
+		const { children, ...props } = this.props;
 		return (
-			<HorizontalBannerWrapper>
-				<HorizontalBanner children={this.props.children} />
+			<HorizontalBannerWrapper {...props}>
+				<HorizontalBanner children={children} />
 			</HorizontalBannerWrapper>
 		)
 	}
