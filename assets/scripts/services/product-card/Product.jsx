@@ -23,7 +23,7 @@ export class Product extends Component {
 	cardIsInView() {
 		const { inView } = this.state;
 
-		console.dir(this.card.current);
+		console.dir(this.card);
 
 		return inView;
 	}
@@ -53,8 +53,6 @@ export class Product extends Component {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
 					let el = entry.target;
-
-					console.dir(entry.intersectionRatio);
 
 					if (entry.intersectionRatio >= .75) {
 						this.setState({
