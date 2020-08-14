@@ -14,7 +14,7 @@ class CarbonServiceProvider extends ServiceProvider
 
 	public function boot(): void
 	{
-	    add_action('after_setup_theme', [$this, 'bootFields']);
+	    add_action('wp_loaded', [$this, 'bootFields']);
 
 		$this->carbonFields = apply_filters('bookish/providers/carbon-meta', [
 			ProductVariation::class,
