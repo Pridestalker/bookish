@@ -47,14 +47,12 @@ export class Product extends Component {
 	}
 
 	componentDidMount() {
-		console.dir(this.card.current);
-
 		const observer = new IntersectionObserver((entries, observer) => {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
 					let el = entry.target;
-
 					if (entry.intersectionRatio >= .75) {
+						console.dir(el);
 						this.setState({
 							inView: true,
 						});
