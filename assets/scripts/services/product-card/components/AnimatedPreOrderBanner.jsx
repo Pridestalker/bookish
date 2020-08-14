@@ -16,7 +16,7 @@ const BannerWrapper = styled.div`
 		display: block;
 		position: absolute;
 		border-style: solid;
-		border-width: 5px;
+		border-width: 2.5px;
 		border-color: transparent transparent ${darken(.2, Colors.green)} ${darken(.2, Colors.green)};
 	}
 	
