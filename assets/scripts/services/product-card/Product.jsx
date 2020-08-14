@@ -34,8 +34,6 @@ export class Product extends Component {
 	}
 
 	renderPreOrderBanner() {
-		console.log(this.state.inView);
-
 		if (!this.state.inView) {
 			return '';
 		}
