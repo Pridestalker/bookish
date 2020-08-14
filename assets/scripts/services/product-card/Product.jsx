@@ -20,12 +20,6 @@ export class Product extends Component {
 		this.cardIsInView = this.cardIsInView.bind(this);
 	}
 
-	cardIsInView() {
-		const { inView } = this.state;
-
-		return inView;
-	}
-
 	renderPrice() {
 		const { onsale, saleprice, price } = this.props;
 
@@ -37,7 +31,9 @@ export class Product extends Component {
 	}
 
 	renderPreOrderBanner() {
-		if (!this.cardIsInView()) {
+		const { inView } = this.state;
+
+		if (!inView) {
 			return;
 		}
 
