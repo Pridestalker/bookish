@@ -51,7 +51,7 @@ export class Product extends Component {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
 					let el = entry.target;
-					console.dir(entry.intersectionRatio);
+					console.dir(entry);
 
 					if (entry.intersectionRatio >= .75) {
 						this.setState({
@@ -64,7 +64,8 @@ export class Product extends Component {
 			})
 		}, {
 			threshold: 1,
-			rootMargin: '0px'
+			rootMargin: '0px',
+			root: null,
 		});
 
 		try {
