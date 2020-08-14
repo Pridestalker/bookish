@@ -3,11 +3,19 @@ import styled from 'styled-components';
 import { Motion, spring } from 'react-motion';
 import { Colors } from '../../../config';
 
-const PreOrderBanner = styled.span`
+const BannerWrapper = styled.div`
 	position: absolute;
 	top: 0;
 	right: .5rem;
 	
+	&:before {
+		content: ' ';
+	}
+	
+	filter: drop-shadow(-1px 6px 3px rgba(51, 51, 51, 0.3))
+`;
+
+const PreOrderBanner = styled.span`
 	background: ${Colors.green};
 	color: ${Colors.white};
 	
@@ -25,9 +33,11 @@ const PreOrderBanner = styled.span`
 export class AnimatedPreOrderBanner extends Component {
 	render() {
 		return (
-			<PreOrderBanner>
-				Pre Order
-			</PreOrderBanner>
+			<BannerWrapper>
+				<PreOrderBanner>
+					Pre Order
+				</PreOrderBanner>
+			</BannerWrapper>
 		)
 	}
 }
