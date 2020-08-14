@@ -52,7 +52,7 @@ export class Product extends Component {
 		}, {
 			root: null,
 			rootMargin: '0px',
-			threshold: 1.0
+			threshold: 0
 		});
 
 		try {
