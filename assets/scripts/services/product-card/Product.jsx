@@ -50,6 +50,10 @@ export class Product extends Component {
 			this.setState({
 				inView: entry.isIntersecting,
 			});
+		}, {
+			root: null,
+			rootMargin: '0px',
+			threshold: 1.0
 		});
 
 		try {
