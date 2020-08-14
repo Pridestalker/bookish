@@ -107,7 +107,7 @@
                 {% block productStock %}
                     {% if product.is_pre_order() %}
                         <p class="text-primary">
-                            <i class="fad fa-box-check mr-2"></i><span>Pre-Order, {{ product.get_field('shipment_estimate') }}</span>
+                            <i class="fad fa-box-check mr-2"></i><span>Pre-Order, {{ product.get_field('shipment_estimate', 'verzending begin december.') }}</span>
                         </p>
                     {% elseif product.is_in_stock %}
                         <p class="text-primary">
