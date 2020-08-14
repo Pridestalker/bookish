@@ -32,6 +32,8 @@ export class Product extends Component {
 	renderPreOrderBanner() {
 		const { inView } = this.state;
 
+		console.log(inView);
+
 		if (!inView) {
 			return;
 		}
