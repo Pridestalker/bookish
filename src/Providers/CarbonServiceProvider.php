@@ -14,7 +14,7 @@ class CarbonServiceProvider extends ServiceProvider
 
 	public function boot(): void
 	{
-	    add_action('wp_loaded', [$this, 'bootFields']);
+        Carbon_Fields::boot();
 
 		$this->carbonFields = apply_filters('bookish/providers/carbon-meta', [
 			ProductVariation::class,
@@ -32,9 +32,4 @@ class CarbonServiceProvider extends ServiceProvider
 			}
 		}
 	}
-
-	public function bootFields(): void
-    {
-        Carbon_Fields::boot();
-    }
 }
