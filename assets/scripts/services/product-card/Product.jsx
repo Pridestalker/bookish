@@ -23,7 +23,7 @@ export class Product extends Component {
 	cardIsInView() {
 		const { inView } = this.state;
 
-		console.dir(this.card);
+		console.dir(this.card.current);
 
 		return inView;
 	}
