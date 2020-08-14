@@ -15,6 +15,8 @@ class ProductPreOrder extends PostMeta
 
     public function register(): void
     {
+        var_dump('Meta registered');
+
         Container::make('post_meta', $this->name)
             ->where('post_type', '=', MetaManager::T_POST_PRODUCT)
             ->add_fields($this->fields);
@@ -22,7 +24,6 @@ class ProductPreOrder extends PostMeta
 
     public function loadFields(): void
     {
-        var_dump('Fields loading');
         $this->fields []= Field::make('text', 'shipment_estimate', 'Shipment estimate');
     }
 
