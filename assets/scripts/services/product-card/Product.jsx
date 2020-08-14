@@ -1,14 +1,50 @@
-import React, { Component, h, Fragment } from 'preact';
+import React, { Component, h, Fragment, createRef } from 'preact';
 import PropTypes from 'prop-types';
 import { AnimatedSaleBanner, AnimatedSoldOut, AnimatedPreOrderBanner } from './components';
 import { woocommerce } from '../../helpers';
 
 export class Product extends Component {
+	card = createRef();
+
 	constructor(props) {
 		super(props);
 
 		this.thumbnail = JSON.parse(this.props.thumbnail);
+
+		this.state = {
+			inView: false,
+		}
+
 		this.renderPrice = this.renderPrice.bind(this);
+		this.renderPreOrderBanner = this.renderPreOrderBanner.bind(this);
+		this.cardIsInView = this.cardIsInView.bind(this);
+
+		const observer = new IntersectionObserver((entries, observer) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					let el = entry.target;
+
+					if (entry.intersectionRatio >= .75) {
+						this.setState({
+							inView: true,
+						});
+
+						observer.unobserve(el);
+					}
+				}
+			})
+		}, {
+			threshold: 1,
+			rootMargin: '0px'
+		});
+
+		observer.observe(this.card.current);
+	}
+
+	cardIsInView() {
+		const { inView } = this.state;
+
+		return inView;
 	}
 
 	renderPrice() {
@@ -21,11 +57,18 @@ export class Product extends Component {
 		return <span>&euro; {woocommerce.price_europe_separators(price)}</span>
 	}
 
+	renderPreOrderBanner() {
+		if (!this.cardIs)
+		if (this.props.stock_status === 'preorder') {
+			return <AnimatedPreOrderBanner />
+		}
+	}
+
 	render() {
 		return (
-			<Fragment>
+			<Fragment ref={this.card}>
 				{this.props.onsale && <AnimatedSaleBanner />}
-				{this.props.stock_status === 'preorder' && <AnimatedPreOrderBanner />}
+				{this.renderPreOrderBanner()}
 				<a href={this.props.link} title={`Bekijk ${this.props.title}`}>
 					<picture>
 						<source srcSet={this.thumbnail.webp} type={'image/webp'} />
