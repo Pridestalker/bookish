@@ -61,9 +61,6 @@ export class Product extends Component {
 					}
 				}
 			})
-		}, {
-			threshold: .5,
-			rootMargin: '0px'
 		});
 
 		try {
