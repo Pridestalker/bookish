@@ -68,7 +68,6 @@ export class Product extends Component {
 	}
 
 	render() {
-		console.dir(this.state.inView);
 		return (
 			<Fragment>
 				{this.props.onsale && <AnimatedSaleBanner />}
