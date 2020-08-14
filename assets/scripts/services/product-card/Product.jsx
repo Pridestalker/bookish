@@ -48,8 +48,8 @@ export class Product extends Component {
 
 	componentDidMount() {
 		const observer = new IntersectionObserver((entries, observer) => {
-			console.dir(entries);
 			entries.forEach(entry => {
+				console.dir(entry.target);
 				if (entry.isIntersecting) {
 					let el = entry.target;
 
@@ -58,6 +58,8 @@ export class Product extends Component {
 							inView: true,
 						});
 					}
+
+					observer.unobserve(el);
 				}
 			})
 		});
