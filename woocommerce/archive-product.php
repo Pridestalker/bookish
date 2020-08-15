@@ -20,6 +20,12 @@ foreach ($context['products'] as $key => $product) {
     }
 }
 
+if (\is_product_category()) {
+    $queried_object = get_queried_object();
+    $term_id = $queried_object->term_id;
+    $context['category'] = new \Timber\Term($term_id, 'product_cat');
+}
+
 $templates = [
     Template::viewHtmlTwigFile('woo/archive-product/main'),
     Template::viewHtmlTwigFile('page'),
