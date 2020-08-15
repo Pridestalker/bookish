@@ -12,6 +12,7 @@ defined('ABSPATH') || exit(0);
 $context = Timber::get_context();
 $context['post'] = new Post();
 $context['products'] = new PostQuery(false, Product::class);
+$context['canon_url'] = strtok($_SERVER['REQUEST_URI'], '?');
 
 /** @var Product $product */
 foreach ($context['products'] as $key => $product) {
@@ -25,6 +26,7 @@ if (\is_product_category()) {
     $term_id = $queried_object->term_id;
     $context['category'] = new \Timber\Term($term_id, 'product_cat');
 }
+
 
 $templates = [
     Template::viewHtmlTwigFile('woo/archive-product/main'),

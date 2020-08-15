@@ -1,5 +1,9 @@
 {% extends 'layouts/app.twig' %}
 
+{% block page_canonical_url %}
+    <meta name="canonical" content="{{ canon_url }}">
+{% endblock %}
+
 {% block content %}
     <div class="container mx-auto my-8 lg:flex">
         <h1>
