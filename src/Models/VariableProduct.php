@@ -4,6 +4,7 @@ namespace App\Models;
 
 defined('ABSPATH') || exit(0);
 
+use App\Helpers\Str;
 use WC_Product_Variable;
 
 class VariableProduct extends Product
@@ -15,10 +16,23 @@ class VariableProduct extends Product
     protected static $variation_attribute_cache = [];
     protected static $variations_cache = [];
 
+    public function get_price_bare()
+    {
+        if (isset(static::$bare_price_cache[$this->id])) {
+            return static::$bare_price_cache[$this->id];
+        }
+
+        $this->setProduct();
+
+        return static::$bare_price_cache[$this->id] = $this->product->get_variation_price('edit');
+    }
+
     public function get_price()
     {
         if (isset(static::$price_cache[$this->id])) {
-            return static::$price_cache[$this->id];
+            if (Str::contains(static::$price_cache[$this->id], '€')) {
+                return static::$price_cache[$this->id];
+            }
         }
 
         $this->setProduct();
