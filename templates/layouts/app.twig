@@ -62,22 +62,10 @@
         </div>
     </div>
     <div class="flex lg:hidden mt-4">
-        {% if is_admin() %}
         {{ base.search_form() }}
-        {% else %}
-            <form class="search-form" action="{{ site.link }}">
-                <input type="hidden" name="post_type" value="product" id="post_type">
-                <input type="text"
-                       placeholder="Waar ben je naar op zoek?"
-                       tabindex="1"
-                       id="autoComplete" name="s" autocomplete="off">
-                <button class="btn search-icon" type="submit">
-                    <i class="fad fa-search text-primary"></i>
-                </button>
-            </form>
-        {% endif %}
         <button class="button primary ml-4 js-nav-opener">
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-bars">
+            </i>
         </button>
     </div>
 </div>
@@ -101,7 +89,8 @@
 
                         {% if item.children %}
                         <button class="js-submenu-opener">
-                            <i class="fad fa-chevron-down"></i>
+                            <i class="fad fa-chevron-down">
+                            </i>
                         </button>
                         {% endif %}
                     </a>
@@ -121,7 +110,8 @@
 
             <div class="submenu-group ml-auto ">
                 <a href="{{ fn('get_permalink', fn('get_option', 'woocommerce_myaccount_page_id')) }}" class="nav-item">
-                    <i class="fad fa-book-reader"></i>
+                    <i class="fad fa-book-reader">
+                    </i>
                     <span class="inline-block">Mijn account</span>
                 </a>
             </div>

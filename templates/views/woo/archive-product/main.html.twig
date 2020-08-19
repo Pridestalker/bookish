@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container mx-auto my-8 lg:flex">
+    <div class="container mx-auto my-8 lg:flex px-4 lg:px-0">
         <h1>
             {{ category ? category.title : 'Alle producten' }}
         </h1>
@@ -36,7 +36,6 @@
                     </p>
                 {% endfor %}
             </section>
-            <!-- Load products 'ere -->
             {% do action('woocommerce_after_shop_loop') %}
         </main>
     </section>

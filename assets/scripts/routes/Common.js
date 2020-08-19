@@ -1,5 +1,4 @@
-import '../services/mini-cart/app';
-import navigation, { addSubMenuListeners } from '../src/Common/navigation';
+import { addSubMenuListeners, openMiniMenu } from '../src/Common/navigation';
 import { enableToasts } from '../services/notifications'
 import { renderSearchBar } from '../services/search-bar/app'
 import { enableMailchimpForm } from '../services/mailchimp-subscribe/app'
@@ -14,7 +13,7 @@ export default {
 
   finalize() {
     // Javascript that fires on all pages. after page specific JS is fires.
-    new navigation;
+    openMiniMenu();
     addSubMenuListeners();
     renderSearchBar();
     renderProducts();
