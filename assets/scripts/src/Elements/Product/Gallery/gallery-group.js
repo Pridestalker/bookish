@@ -1,11 +1,6 @@
 import { LitElement, html, css, customElement, property} from 'lit-element'
 
 export class GalleryGroup extends LitElement {
-
-	createRenderRoot() {
-		return this;
-	}
-
 	static get properties() {
 		return {
 			selected: {
