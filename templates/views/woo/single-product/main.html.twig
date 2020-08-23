@@ -52,7 +52,7 @@
                 {% block productGallery %}
                     {% if is_admin() %}
                         <bookish-gallery selected="thumbnail">
-                            <img name="thumbnail" src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}" />
+                            <gallery-item name="thumbnail" src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}"></gallery-item>
                         </bookish-gallery>
                     {% else %}
                         <gallery-group>
