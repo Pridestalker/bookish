@@ -1,40 +1,17 @@
-import {
-	children,
-	dispatch,
-	html,
-} from 'hybrids';
-import style from './style';
-import GalleryItem from './gallery-item';
+import { LitElement, html, css, customElement, property} from 'lit-element'
 
-function activate(name) {
-	return (host) => {
-		host.activeItem = name;
+@customElement('bookish-gallery')
+export class GalleryGroup extends LitElement {
 
-		dispatch(host, 'gallery-switch');
-	};
+	static get properties() {
+		return {
+			selected: {
+				type: String
+			}
+		}
+	}
+
+	render() {
+		return html`<slot />`;
+	}
 }
-
-export default {
-	items: children(GalleryItem),
-	activeItem: {
-		set: ({items}, name) => items
-			.filter(item => item.active = item.name === name)
-			.map(({name}) => name)[0],
-		get: ({items}) => items.filter(item => item.active)[0]
-	},
-	render: ({ items, activeItem }) => html`
-	${style}
-<figure>
-	<img src="${activeItem.src}" loading="lazy" alt="${activeItem.alt}" class="featured-image" />
-</figure>
-<nav>
-  ${items.map( ( { src, alt, active, name } ) =>
-		html`
-<button class="${{ active }}" onclick="${activate( name )}" >
-	<img src="${src}" alt="${alt}" loading="lazy" class="button-image">
-</button>
-	`.key( name )
-	)}
-</nav>
-	`
-};

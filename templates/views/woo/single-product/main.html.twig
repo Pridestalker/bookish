@@ -50,17 +50,23 @@
         <section class="main-content py-4">
             <div>
                 {% block productGallery %}
-                    <gallery-group>
-                        <gallery-item name="thumbnail" src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}" active></gallery-item>
-                        {% for item in product.gallery_items %}
-                            {% set gallery_item = Image(item) %}
-                            {{ gallery_item.slug }}
-                            <gallery-item name="gallery-{{ loop.index }}" src="{{ gallery_item.src|resize(900,900) }}" alt="{{ gallery_item.alt }}"></gallery-item>
-                        {% endfor %}
-                    </gallery-group>
-                    <noscript>
-                        <img src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}" />
-                    </noscript>
+                    {% if is_admin() %}
+                        <bookish-gallery selected="thumbnail">
+                            <img name="thumbnail" src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}" />
+                        </bookish-gallery>
+                    {% else %}
+                        <gallery-group>
+                            <gallery-item name="thumbnail" src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}" active></gallery-item>
+                            {% for item in product.gallery_items %}
+                                {% set gallery_item = Image(item) %}
+                                {{ gallery_item.slug }}
+                                <gallery-item name="gallery-{{ loop.index }}" src="{{ gallery_item.src|resize(900,900) }}" alt="{{ gallery_item.alt }}"></gallery-item>
+                            {% endfor %}
+                        </gallery-group>
+                        <noscript>
+                            <img src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}" />
+                        </noscript>
+                    {% endif %}
                 {% endblock %}
             </div>
 
@@ -70,11 +76,7 @@
                     {% if product.is_on_sale %}
                         <small style="text-decoration: line-through">{{ product.get_regular_price }}</small>
                     {% endif %}
-                    {% if is_admin %}
-                        <span class="pre-product-price">{{ product.get_price }}</span>
-                    {% else %}
                     {{ product.get_price }}
-                    {% endif %}
                     {% endblock %}
                 </h2>
 
