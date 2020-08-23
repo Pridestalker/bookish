@@ -15,7 +15,7 @@ export class GalleryGroup extends LitElement {
 	}
 
 	get _slottedChildren() {
-		const slot = this.querySelectorAll('slot'),
+		const slot = this.querySelector('slot'),
 			childNodes = slot.assignedNodes({flatten: true});
 
 		return Array.prototype.filter.call(childNodes, (node) => node.nodeType == Node.ELEMENT_NODE);
