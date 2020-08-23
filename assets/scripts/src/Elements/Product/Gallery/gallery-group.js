@@ -25,13 +25,13 @@ export default {
 	render: ({ items, activeItem }) => html`
 	${style}
 <figure>
-	<img src="${activeItem.src}" alt="${activeItem.alt}" class="featured-image" />
+	<img src="${activeItem.src}" loading="lazy" alt="${activeItem.alt}" class="featured-image" />
 </figure>
 <nav>
   ${items.map( ( { src, alt, active, name } ) =>
 		html`
 <button class="${{ active }}" onclick="${activate( name )}" >
-	<img src="${src}" alt="${alt}" class="button-image">
+	<img src="${src}" alt="${alt}" loading="lazy" class="button-image">
 </button>
 	`.key( name )
 	)}
