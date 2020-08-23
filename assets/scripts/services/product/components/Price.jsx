@@ -2,6 +2,8 @@ import React, { Component, h } from 'preact';
 
 export class Price extends Component {
 	render() {
-		return <span>{this.props.children}</span>
+		return <span style={{
+			color: 'red',
+		}}>{this.props.children}</span>
 	}
 }
