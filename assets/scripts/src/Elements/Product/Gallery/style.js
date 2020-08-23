@@ -52,7 +52,7 @@ button > img {
 .button-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;ish
+    object-fit: cover;
 }
 
 figure {

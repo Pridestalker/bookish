@@ -70,7 +70,11 @@
                     {% if product.is_on_sale %}
                         <small style="text-decoration: line-through">{{ product.get_regular_price }}</small>
                     {% endif %}
+                    {% if is_admin %}
+                        <span class="pre-product-price">{{ product.get_price }}</span>
+                    {% else %}
                     {{ product.get_price }}
+                    {% endif %}
                     {% endblock %}
                 </h2>
 
