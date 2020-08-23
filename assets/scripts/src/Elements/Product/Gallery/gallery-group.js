@@ -15,8 +15,10 @@ export class GalleryGroup extends LitElement {
 
 	get _slottedChildren() {
 		const slot = this.querySelector('gallery-item');
-		const childNodes = slot.assignedNodes({flatten: true});
-		return Array.prototype.filter.call(childNodes, (node) => node.nodeType == Node.ELEMENT_NODE);	}
+		console.dir(slot);
+
+		return [];
+	}
 
 	render() {
 		console.dir(this._slottedChildren);
