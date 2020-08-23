@@ -1,6 +1,10 @@
 import { LitElement, html } from 'lit-element'
 
 export class GalleryGroup extends LitElement {
+	createRenderRoot() {
+		return this;
+	}
+
 	static get properties() {
 		return {
 			selected: {
@@ -10,7 +14,7 @@ export class GalleryGroup extends LitElement {
 	}
 
 	get _slottedChildren() {
-		const slot = this.shadowRoot.querySelector('gallery-item');
+		const slot = this.querySelector('gallery-item');
 		const childNodes = slot.assignedNodes({flatten: true});
 		return Array.prototype.filter.call(childNodes, (node) => node.nodeType == Node.ELEMENT_NODE);	}
 
