@@ -1,6 +1,9 @@
 import Variable from './helpers/Variable';
 import getWindowAttributes from './helpers/getWindowAttributes'
 
+/**
+ * @deprecated
+ */
 export default () => {
 	const form = document.querySelector('.js-add-to-cart'),
 		/**

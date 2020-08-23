@@ -50,23 +50,23 @@
         <section class="main-content py-4">
             <div>
                 {% block productGallery %}
-                    {% if is_admin() %}
-                        <bookish-gallery selected="thumbnail">
-                            <gallery-item name="thumbnail" src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}"></gallery-item>
-                        </bookish-gallery>
-                    {% else %}
-                        <gallery-group>
-                            <gallery-item name="thumbnail" src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}" active></gallery-item>
-                            {% for item in product.gallery_items %}
-                                {% set gallery_item = Image(item) %}
-                                {{ gallery_item.slug }}
-                                <gallery-item name="gallery-{{ loop.index }}" src="{{ gallery_item.src|resize(900,900) }}" alt="{{ gallery_item.alt }}"></gallery-item>
-                            {% endfor %}
-                        </gallery-group>
-                        <noscript>
-                            <img src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}" />
-                        </noscript>
-                    {% endif %}
+                <bookish-gallery selected="thumbnail">
+                    <bookish-gallery-item name="thumbnail"
+                                          src="{{ product.thumbnail.src|resize(900,900) }}"
+                                          modern_src="{{ product.thumbnail|resize(900, 900)|towebp }}"
+                                          alt="{{ product.get_title }}"></bookish-gallery-item>
+                    {% for item in product.gallery_items %}
+                        {% set gallery_item = Image(item) %}
+                        {{ gallery_item.slug }}
+                        <bookish-gallery-item name="gallery-{{ loop.index }}"
+                                              src="{{ gallery_item.src|resize(900,900) }}"
+                                              modern_src="{{ gallery_item.src|resize(900, 900)|towebp }}"
+                                              alt="{{ gallery_item.alt }}"></bookish-gallery-item>
+                    {% endfor %}
+                </bookish-gallery>
+                <noscript>
+                    <img src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}" />
+                </noscript>
                 {% endblock %}
             </div>
 

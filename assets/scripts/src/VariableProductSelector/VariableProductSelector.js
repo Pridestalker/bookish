@@ -1,3 +1,6 @@
+/**
+ * @deprecated
+ */
 class VariableProductSelector {
 	static formSelector = '.js-add-to-cart';
 	static selectSelector = 'select[data-attribute_name]';
