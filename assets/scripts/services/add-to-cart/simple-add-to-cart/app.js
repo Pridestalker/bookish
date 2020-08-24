@@ -15,7 +15,7 @@ export class AddToCart extends Component {
 			productID: window['product_id'],
 			quantity: 1,
 			minQuantity: Number(window['product_settings'].qty.min),
-			maxQuantity: Number(window['product_settings'].qty.max),
+			maxQuantity: Number(window['product_settings'].qty.max) !== 0? Number(window['product_settings'].qty.max) : Infinity,
 			loading: false
 		};
 

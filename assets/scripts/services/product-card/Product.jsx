@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { AnimatedSaleBanner, AnimatedSoldOut, AnimatedPreOrderBanner } from './components';
 import { woocommerce } from '../../helpers';
 import { AddToCart } from '../add-to-cart/mini-add-to-cart/app'
+import { Thumbnail } from './components/Thumbnail'
 
 export class Product extends Component {
 	card = createRef();
@@ -88,12 +89,10 @@ export class Product extends Component {
 			<Fragment>
 				{this.renderSaleBanner()}
 				{this.renderPreOrderBanner()}
-				<a href={this.props.link} title={`Bekijk ${this.props.title}`}>
-					<picture>
-						<source srcSet={this.thumbnail.webp} type={'image/webp'} />
-						<img src={this.thumbnail.thumbnail} loading={'lazy'} alt={`Productafbeelding ${this.props.title}`} />
-					</picture>
-				</a>
+				<Thumbnail link={this.props.link}
+						   title={this.props.title}
+						   thumbnail={this.props.thumbnail}
+						   outofstock={this.props.stock_status === 'outofstock'} />
 				<main className="card-content">
 					<a href={this.props.link}>
 						<h2 className="is-h3"  ref={this.card}>{this.props.title}</h2>

@@ -25,7 +25,7 @@
         window['product_settings'] = {
         	"qty": {
         		'min': '{{ product.product.get_min_purchase_quantity }}',
-                'max': '{{ product.product.get_max_purchase_quantity > 0 ? product.product.get_max_purchase_quantity : '' }}',            }
+                'max': '{{ product.product.get_max_purchase_quantity > 0 ? product.product.get_max_purchase_quantity : 3 }}',            }
         }
     </script>
 
