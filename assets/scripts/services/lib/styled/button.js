@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import { getThemeColor } from '../../../config';
 
-export const StyledButton = styled.button`
+const Button = styled.button`
 	border: 1px solid ${props => getThemeColor(props.theme.background, props.defaults.background)};
 	background: ${props => getThemeColor(props.theme.background, props.defaults.background)};
 	color: ${props => getThemeColor(props.theme.color, props.defaults.color)};
@@ -11,7 +11,7 @@ export const StyledButton = styled.button`
 	border-radius: ${props => props.theme.borderRadius?? props.defaults.borderRadius};
 `;
 
-StyledButton.defaultProps = {
+Button.defaultProps = {
 	theme: {
 		background: 'primary',
 		color: 'white',
@@ -24,3 +24,5 @@ StyledButton.defaultProps = {
 	}
 }
 
+export const StyledButton = withTheme(Button);
+export default StyledButton;

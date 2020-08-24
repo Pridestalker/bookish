@@ -2,6 +2,7 @@ import React, { Component, h, Fragment, createRef } from 'preact';
 import PropTypes from 'prop-types';
 import { AnimatedSaleBanner, AnimatedSoldOut, AnimatedPreOrderBanner } from './components';
 import { woocommerce } from '../../helpers';
+import { AddToCart } from '../add-to-cart/mini-add-to-cart/app'
 
 export class Product extends Component {
 	card = createRef();
@@ -42,7 +43,6 @@ export class Product extends Component {
 		if (!this.state.inView) {
 			return '';
 		}
-
 
 		return <AnimatedPreOrderBanner />
 	}
@@ -103,6 +103,7 @@ export class Product extends Component {
 						{this.renderPrice()}
 					</p>
 					{!this.props.instock && <AnimatedSoldOut />}
+					{this.props.instock && <AddToCart id={this.props.id} />}
 				</main>
 			</Fragment>
 		)
@@ -124,5 +125,4 @@ Product.propTypes = {
 	stock_status: PropTypes.oneOf(['instock', 'outofstock', 'preorder', 'onbackorder']),
 
 	id: PropTypes.number,
-
 }

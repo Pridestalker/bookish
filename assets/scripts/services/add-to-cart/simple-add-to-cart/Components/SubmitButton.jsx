@@ -17,7 +17,7 @@ export class SubmitButton extends Component {
 					<span style={{ 'margin-left': '.5rem' }}>
 						{ this.props.loading?
 							'Aan het toevoegen':
-							'Toevoegen aan winkelmand'}
+							'Toevoegen aan winkelmand' }
 					</span>
 				</StyledButton>
 			</ThemeProvider>
