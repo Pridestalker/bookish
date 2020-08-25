@@ -1,6 +1,6 @@
 import React, { Component, h } from 'preact';
 import styled from 'styled-components';
-import { Colors } from '../../../config';
+import { Colors } from '../../../../config';
 import { darken } from 'polished';
 import { Motion, spring } from 'react-motion';
 

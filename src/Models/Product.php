@@ -7,9 +7,11 @@ defined('ABSPATH') || exit(0);
 use WC_Product;
 use Timber\Post;
 use Timber\Term;
+use Carbon\Carbon;
 use App\Helpers\Str;
 use Timber\PostQuery;
 use App\Helpers\Terms;
+use App\Bootstrap\Env;
 use Timber\ImageHelper;
 use WC_Product_Attribute;
 use DusanKasan\Knapsack\Collection;
@@ -43,6 +45,7 @@ class Product extends Post
     protected static $product_cache = [];
 
     protected static $gallery_id_cache = [];
+    protected static $product_new_cache = [];
 
     /**
      * Returns a carbon-field value
@@ -192,6 +195,17 @@ class Product extends Post
         $this->setProduct();
 
         return static::$stock_cache[$this->id]['on_backorder'] = $this->product->backorders_allowed();
+    }
+
+    public function is_new_product()
+    {
+        if (isset(static::$product_new_cache[$this->id])) {
+            return static::$product_new_cache[$this->id];
+        }
+
+        $product = Carbon::createFromFormat(\DateTimeInterface::ATOM, $this->setProduct()->get_date_created('edit')->date(\DateTimeInterface::ATOM), Env::get('TIME_ZONE', 'Europe/Amsterdam'));
+
+        return static::$product_new_cache[$this->id] = $product->isBetween(Carbon::now(Env::get('TIME_ZONE', 'Europe/Amsterdam')), Carbon::now(Env::get('TIME_ZONE', 'Europe/Amsterdam'))->subWeek());
     }
 
     public function related_products()

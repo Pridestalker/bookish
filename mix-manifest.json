@@ -1,10 +1,10 @@
 {
-    "/dist/scripts/vendor.js": "/dist/scripts/vendor.js?id=d6826305c14ed5840a4d",
+    "/dist/scripts/vendor.js": "/dist/scripts/vendor.js?id=e7ff3c93c5e5761c2ba0",
     "/dist/scripts/main.js": "/dist/scripts/main.js?id=1d0d24ff072c58873843",
     "/dist/scripts/manifest.js": "/dist/scripts/manifest.js",
-    "/dist/scripts/routes/common.js": "/dist/scripts/routes/common.js?id=6bd66538b247bdef6c6c",
+    "/dist/scripts/routes/common.js": "/dist/scripts/routes/common.js?id=1b71fa79826653f0acd7",
     "/dist/scripts/routes/home.js": "/dist/scripts/routes/home.js?id=7aa3c16a5f6fff044e92",
-    "/dist/scripts/routes/single-product.js": "/dist/scripts/routes/single-product.js?id=62406b026b3d894e9520",
+    "/dist/scripts/routes/single-product.js": "/dist/scripts/routes/single-product.js?id=d6d595e40326bce45327",
     "/dist/scripts/routes/woocommerce/checkout.js": "/dist/scripts/routes/woocommerce/checkout.js?id=dcafe6e229d4b73c13c5",
     "/dist/scripts/routes/woocommerce/store.js": "/dist/scripts/routes/woocommerce/store.js?id=65dbf0816b01ed7c5b0e"
 }

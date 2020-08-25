@@ -1,6 +1,6 @@
 import React, { Component, h, Fragment, createRef } from 'preact';
 import PropTypes from 'prop-types';
-import { AnimatedSaleBanner, AnimatedSoldOut, AnimatedPreOrderBanner } from './components';
+import { AnimatedSaleBanner, AnimatedSoldOut, AnimatedPreOrderBanner, NewProductRibbon } from './components/AnimatedRibbons';
 import { woocommerce } from '../../helpers';
 import { AddToCart } from '../add-to-cart/mini-add-to-cart/app'
 import { Thumbnail } from './components/Thumbnail'
@@ -34,6 +34,21 @@ export class Product extends Component {
 		}
 
 		return <span>&euro; {woocommerce.price_europe_separators(price)}</span>
+	}
+
+	renderNewProductBanner() {
+		if (!this.props.is_new) {
+			return '';
+		}
+		if (['outofstock', 'preorder', 'onbackorder'].includes(this.props.stock_status)) {
+			return '';
+		}
+
+		if (!this.state.inView || this.props.onsale) {
+			return '';
+		}
+
+		return <NewProductRibbon />
 	}
 
 	renderPreOrderBanner() {
@@ -89,6 +104,7 @@ export class Product extends Component {
 			<Fragment>
 				{this.renderSaleBanner()}
 				{this.renderPreOrderBanner()}
+				{this.renderNewProductBanner()}
 				<Thumbnail link={this.props.link}
 						   title={this.props.title}
 						   thumbnail={this.props.thumbnail}
@@ -122,6 +138,7 @@ Product.propTypes = {
 	onsale: PropTypes.bool.isRequired,
 	saleprice: PropTypes.string,
 	stock_status: PropTypes.oneOf(['instock', 'outofstock', 'preorder', 'onbackorder']),
+	is_new: PropTypes.bool,
 
 	id: PropTypes.number,
 }
