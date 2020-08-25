@@ -1,38 +1,54 @@
-import {
-	children,
-	dispatch,
-	html
-} from 'hybrids';
-import TabItem from './tab-item';
-import buttonStyle from './button-style';
+import { html, LitElement } from 'lit-element';
+import { buttonStyle } from './styles'
 
-function activate(name) {
-	return (host) => {
-		host.activeItem = name;
+export class TabGroup extends LitElement {
+	static get properties() {
+		return {
+			default: {
+				type: String,
+			}
+		}
+	}
 
-		dispatch(host, 'tab-switch');
-	};
+	static get styles() {
+		return [
+			buttonStyle
+		];
+	}
+
+	get _slottedChildren() {
+		return this.querySelectorAll('bookish-tab');
+	}
+
+	get selectedChild() {
+		return Array.prototype.filter.call(this.slottedChildren, (child) => child.name === this.default)?.[0] || ''
+	}
+
+	constructor() {
+		super();
+
+		this.slottedChildren = this._slottedChildren;
+	}
+
+	render() {
+		const selected = this.selectedChild,
+			children = Array.from(this.slottedChildren);
+
+		console.dir(selected);
+
+		return html`
+		<section>
+		<nav>
+			${children.map(child => html`
+			<button class="${this.default === child.name && 'active'}" @click="${() => this.default = child.name}">
+				${child.name}
+			</button>`)}
+		</nav>
+		
+		<main>
+			${selected}
+		</main>
+		</section>
+		`
+	}
 }
-
-export default {
-	items: children(TabItem),
-	activeItem: {
-		set: ({items}, name) => items
-			.filter(item => item.active = item.name === name)
-			.map(({name}) => name)[0],
-	},
-	render: ({ items }) => html`
-${buttonStyle}
-    <nav>
-      ${items.map(({ name, active }) =>
-		html`
-          <button class="${{ active }}" onclick="${activate(name)}">
-            ${name}
-          </button>
-        `.key(name)
-	)}
-    </nav>
-	
-	<slot></slot>
-	`,
-};

@@ -1,11 +1,14 @@
-import { html } from 'hybrids';
-import itemStyle from './item-style';
+import { LitElement, html } from 'lit-element';
 
-export default {
-	name: '',
-	icon: '',
-	active: false,
-	render: ({ active }) => html`
-		${active && html`${itemStyle} <slot></slot>`}
-	`,
-};
+export class TabItem extends LitElement {
+	static get properties() {
+		return {
+			name: { type: String },
+			icon: { type: String },
+		}
+	}
+
+	render () {
+		return html`<slot />`
+	}
+}
