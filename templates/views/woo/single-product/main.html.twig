@@ -45,7 +45,9 @@
 {% block content %}
     <main class="container mx-auto">
         {% do action('woocommerce_before_single_product') %}
-        <h1 class="px-4 lg:px-0">{{ product.get_title }}</h1>
+        <header class="px-4 lg:px-0">
+            <h1 is="bookish-heading">{{ product.get_title }}</h1>
+        </header>
 
         <section class="main-content py-4">
             <div>
@@ -147,7 +149,7 @@
                 <bookish-tabs default="Omschrijving">
                     <bookish-tab name="Omschrijving">
                         <div class="product-description content">
-                            {{ product.content|wpautop }}
+                            {{ product.content|wpautop|apply_filters('bookish/content/product/content') }}
 
                             <p>
                                 <em>
