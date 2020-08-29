@@ -16,6 +16,14 @@
         {% do action('woocommerce_before_checkout_registration_form', checkout) %}
 
         {% if checkout.get_checkout_fields('account') %}
+
+            <p class="form-row form-row-wide">
+                <input class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" id="createaccount" {{ checkout.get_value('createaccount') ? 'checked' : ''  }} type="checkbox" name="createaccount" value="1" />
+                <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox" for="createaccount">
+                    Account aanmaken?
+                </label>
+            </p>
+
             <div class="create-account">
                 {% for key, field in checkout.get_checkout_fields('account') %}
                     {{ fn('woocommerce_form_field', key, field, checkout.get_value(key)) }}

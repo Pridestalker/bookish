@@ -7,5 +7,6 @@ export default {
 	finalize() {
 		Checkout.checkForDifferentShipping();
 		Checkout.openLoginForm();
+		Checkout.openCreateAccount();
 	},
 };
