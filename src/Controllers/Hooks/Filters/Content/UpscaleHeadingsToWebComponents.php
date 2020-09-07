@@ -11,7 +11,7 @@ abstract class UpscaleHeadingsToWebComponents extends Filter
     public function filter($content = '') {
         return preg_replace(
             '/(h[1-6])/',
-            '$1 type="bookish-heading"',
+            '$1 is="bookish-heading"',
             $content
         );
     }
