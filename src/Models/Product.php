@@ -244,6 +244,8 @@ class Product extends Post
     {
         $thumbnail = $this->thumbnail();
 
+        $thumbnail = ImageHelper::resize($thumbnail, 500, 500);
+
         return json_encode([
             'webp' => ImageHelper::retina_resize(ImageHelper::img_to_webp($thumbnail)),
             'thumbnail' => (string) $thumbnail

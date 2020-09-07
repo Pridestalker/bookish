@@ -23,7 +23,7 @@ const FloatingLabel = styled.label.attrs(props => ({
 	left: 1rem;
 	transition: all 225ms ease-in-out;
 	color: ${Colors.black};
-	opacity: 0.6;
+	opacity: 1;
 	
 	&.active {
 		font-size: 50%;

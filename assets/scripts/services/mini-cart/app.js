@@ -63,6 +63,7 @@ class MiniCart extends Component {
 		return (
 			<BarredBottom href={this.props.href}
 			   className="text-primary js-shopping-cart-button shopping-cart-button p-2"
+			  aria-label={'Winkelmandje'}
 			>
 				<span className="hidden lg:inline-block mr-2">winkelmandje</span>
 				<FontAwesomeIcon icon={ loading ? faSpinnerThird : faShoppingCart }
