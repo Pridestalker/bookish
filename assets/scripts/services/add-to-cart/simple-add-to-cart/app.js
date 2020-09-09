@@ -5,7 +5,7 @@ import { registerToast } from '../../notifications'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/pro-solid-svg-icons';
 
-const formElement = document.querySelector('#add-simple-product-to-cart');
+const formElement = document.querySelectorAll('#add-simple-product-to-cart, #add-set-product-to-cart');
 
 export class AddToCart extends Component {
 	constructor(props) {
@@ -102,7 +102,8 @@ export class AddToCart extends Component {
 }
 
 export function renderSimpleAddToCart() {
-	if (formElement) {
-		render(<AddToCart />, formElement);
+	if (formElement.length === 0) {
+		return;
 	}
+	formElement.forEach(element => render(<AddToCart />, element));
 }

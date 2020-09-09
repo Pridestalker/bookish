@@ -86,7 +86,7 @@ export class SearchBar extends Component {
 	showAutoFill() {
 		this.setState({
 			isVisible: true,
-			
+
 		});
 	}
 
@@ -138,13 +138,15 @@ export class SearchBar extends Component {
 			cursor
 		} = this.state;
 
+		const randomPostfix = Math.random().toString(36).substring(7);
+
 		return (
 			<form className={'search-form'} action={'/'} method={'GET'} ref={this.form}>
 				<input type="hidden" name="post_type" value='product' id='post_type'/>
-				<label htmlFor={'autoComplete'} className={'sr-only'}>Zoeken naar...</label>
+				<label htmlFor={`autoComplete_${randomPostfix}`} className={'sr-only'}>Zoeken naar...</label>
 				<input type="text"
 					   placeholder='Waar ben je naar op zoek?'
-					   id={'autoComplete'}
+					   id={`autoComplete_${randomPostfix}`}
 					   name={'s'}
 					   onChange={this.searchHandler}
 					   value={searchValue}
@@ -153,7 +155,7 @@ export class SearchBar extends Component {
 					   onKeyDown={this.keyHandler}
 					   onBlur={this.hideAutoFill} />
 
-				{searchResults.length === 0 && (<button className={'btn search-icon'} type={'submit'} name={'Zoeken'} disabled={loading}>
+				{searchResults.length === 0 && (<button className={'btn search-icon'} type={'submit'} name={'Zoeken'} disabled={loading} aria-label={'Zoeken'}>
 					<FontAwesomeIcon icon={loading? faSpinnerThird : faSearch}
 									 color={Colors.primary} spin={loading} />
 				</button>)}
@@ -161,8 +163,8 @@ export class SearchBar extends Component {
 				{searchResults.length > 0 && (<button className={'btn search-icon'} onClick={(e) => this.hideAutoFill(e, true)} type={'button'} name={'Cancel'}>
 					<FontAwesomeIcon icon={faTimes} color={Colors.primary} />
 				</button>)}
-				{(isVisible && searchValue !== '') && <FillWrapper 
-														posts={searchResults} 
+				{(isVisible && searchValue !== '') && <FillWrapper
+														posts={searchResults}
 														cursor={cursor}
 														fillHider={this.hideAutoFill}
 														keyDownHandler={this.keyHandler} />}

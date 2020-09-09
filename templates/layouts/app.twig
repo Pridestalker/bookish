@@ -17,9 +17,7 @@
     <title>{% block page_title %}{{ site.title }}{% endblock %}</title>
 
     {% block page_description %}{% endblock %}
-    {% block head_styles %}
-        <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Montserrat&display=swap" rel="stylesheet">
-    {% endblock %}
+
     {% block head_scripts %}
         <script src="https://kit.fontawesome.com/eaa399fb9a.js" crossorigin="anonymous"></script>
     {% endblock %}
@@ -54,7 +52,7 @@
         <div class="ml-auto lg:ml-4 my-auto">
             <span id="mini-cart-app"></span>
             <noscript>
-                <a href="{{ get_cart_url() }}" class="text-primary js-shopping-cart-button shopping-cart-button p-2">
+                <a href="{{ get_cart_url() }}" class="text-primary js-shopping-cart-button shopping-cart-button p-2" aria-label="Winkelmandje">
                     <span class="hidden lg:inline-block mr-2">Winkelmandje</span>
                     <i class="fad fa-shopping-bag"></i>
                 </a>
@@ -63,7 +61,7 @@
     </div>
     <div class="flex lg:hidden mt-4">
         {{ base.search_form() }}
-        <button class="button primary ml-4 js-nav-opener">
+        <button class="button primary ml-4 js-nav-opener" aria-label="Menu toggle">
             <i class="fas fa-bars">
             </i>
         </button>
@@ -88,7 +86,7 @@
                         {{ item.name }}
 
                         {% if item.children %}
-                        <button class="js-submenu-opener">
+                        <button class="js-submenu-opener" aria-label="Open {{ item.name }} submenu">
                             <i class="fad fa-chevron-down">
                             </i>
                         </button>
@@ -148,11 +146,11 @@
             </div>
             <div class="lg:w-1/4 mb-4">
                 <h3>Socials</h3>
-                <a href="//facebook.com/bookishgoods" title="Bezoek mijn facebook pagina">
+                <a href="//facebook.com/bookishgoods" title="Bezoek mijn facebook pagina" class="inline-block p-2">
                     <i class="fab fa-facebook-square" style="font-size: 1.5rem;"></i>
                 </a>
 
-                <a href="//www.instagram.com/bookishgoods/" title="Bezoek mijn instagram pagina">
+                <a href="//www.instagram.com/bookishgoods/" title="Bezoek mijn instagram pagina" class="inline-block p-2">
                     <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
                 </a>
             </div>
@@ -166,11 +164,14 @@
     </div>
     <hr>
     <div class="flex justify-center flex-col lg:flex-row py-2 px-4 lg:px-0">
-        <a href="{{ fn('get_privacy_policy_url') }}">Privacy</a> <span class="mx-2 hidden lg:inline">|</span>
-        <a href="/algemene-voorwaarden/">Algemene voorwaarden</a> <span class="mx-2 hidden lg:inline">|</span>
-        <a href="/disclaimer/">Disclaimer</a>
+        <a href="{{ fn('get_privacy_policy_url') }}" class="py-2 inline-block">Privacy</a> <span class="mx-2 hidden lg:inline">|</span>
+        <a href="/algemene-voorwaarden/" class="py-2 inline-block">Algemene voorwaarden</a> <span class="mx-2 hidden lg:inline">|</span>
+        <a href="/disclaimer/" class="py-2 inline-block">Disclaimer</a>
     </div>
 </footer>
+{% endblock %}
+{% block footer_styles %}
+    <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Montserrat&display=swap" rel="stylesheet">
 {% endblock %}
 <span id="toast-container"></span>
 {{ fn('wp_footer') }}
