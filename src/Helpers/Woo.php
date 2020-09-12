@@ -11,6 +11,12 @@ use App\Models\VariableProduct;
 
 class Woo
 {
+    /**
+     * Gets posts,
+     *
+     * @param int   $limit
+     * @return false|mixed
+     */
     public static function getPopularProducts($limit = 4)
     {
         return Helper::transient('_wc_popular_products', static function () use ($limit) {
@@ -27,11 +33,7 @@ class Woo
 
             /** @var Product $post */
             foreach (new PostQuery($args, \App\Models\Product::class) as $post) {
-                if ($post->setProduct()->is_type('variable')) {
-                    $posts[] = new VariableProduct($post->id);
-                } else {
-                    $posts[] = new Product($post->id);
-                }
+                $posts[] = new Product($post->id);
             }
 
             return $posts;
@@ -46,25 +48,21 @@ class Woo
                 'orderby' => 'modified',
                 'order' => 'DESC',
                 'posts_per_page' => $limit,
-	            'tax_query' => [
-	            	[
-	            		'taxonomy' => 'product_visibility',
-			            'field' => 'name',
-			            'terms' => ['exclude-from-catalog', 'exclude-from-search'],
-			            'operator' => 'NOT IN',
-		            ]
-	            ]
+                'tax_query' => [
+                    [
+                        'taxonomy' => 'product_visibility',
+                        'field' => 'name',
+                        'terms' => ['exclude-from-catalog', 'exclude-from-search'],
+                        'operator' => 'NOT IN',
+                    ]
+                ]
             ];
 
             $posts = [];
 
             /** @var Product $post */
             foreach (new PostQuery($args, \App\Models\Product::class) as $post) {
-                if ($post->setProduct()->is_type('variable')) {
-                    $posts[] = new VariableProduct($post->id);
-                } else {
-                    $posts[] = new Product($post->id);
-                }
+                $posts[] = new Product($post->id);
             }
 
             return $posts;

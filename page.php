@@ -7,7 +7,7 @@ use App\Helpers\Template;
 
 defined('ABSPATH') || exit(0);
 
-$context         = Timber::get_context();
+$context = Timber::get_context();
 $post = new Post();
 $context['post'] = $post;
 
@@ -19,7 +19,7 @@ $templates = [
 $context['time'] = microtime();
 
 $caches = [
-    Env::getInt('DEFAULT_USER_CACHING', 0),
+    Env::getInt('DEFAULT_USER_CACHING', false),
     Env::getBool('DEFAULT_ADMIN_CACHING', false)
 ];
 

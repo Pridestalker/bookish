@@ -11,11 +11,11 @@ $post            = new Post();
 $context['post'] = $post;
 
 $templates = [
-	Template::viewHtmlTwigFile('404'),
+    Template::viewHtmlTwigFile('404'),
 ];
 
 return Timber::render(
-	apply_filters('bookish/view-composer/404-page/templates', $templates),
-	apply_filters('bookish/view-composer/404-page/context', $context),
-	apply_filters('bookish/view-composer/404-page/cache', false)
+    apply_filters('bookish/view-composer/404-page/templates', $templates),
+    apply_filters('bookish/view-composer/404-page/context', $context),
+    apply_filters('bookish/view-composer/404-page/cache', false)
 );
