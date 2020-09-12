@@ -3,10 +3,10 @@
          data-thumbnail="{{ product.get_thumbnail_json|e }}"
          data-title="{{ product.get_title }}"
          data-url="{{ product.get_link }}"
-         data-price="{{ product.get_price_bare|striptags|replace({'€': ''}) }}"
+         data-price="{{ product.get_price_bare|striptags }}"
          data-instock="{{ product.is_in_stock }}"
          data-categories="{{ product.get_product_categories_links|e }}"
-         data-saleprice="{{ product.get_sale_price|striptags|replace({'€': ''}) }}"
+         data-saleprice="{{ product.get_sale_price|striptags }}"
          data-stock_status="{{ product.get_stock_status('edit')|striptags }}"
          data-is_new="{{ product.is_new_product }}"
          data-onsale="{{ product.is_on_sale }}">

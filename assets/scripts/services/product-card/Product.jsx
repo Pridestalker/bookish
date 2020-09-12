@@ -29,11 +29,15 @@ export class Product extends Component {
 	renderPrice() {
 		const { onsale, saleprice, price } = this.props;
 
+		let printablePrice = new woocommerce.priceStringBuilder(price).set_euro_separators().strip_euro_sign().toString();
+
 		if (!!onsale) {
-			return (<Fragment>&euro; <span style='text-decoration: line-through;'>{woocommerce.price_europe_separators(price)}</span> {woocommerce.price_europe_separators(saleprice)}</Fragment>);
+			let printableSalePrice = new woocommerce.priceStringBuilder(saleprice).set_euro_separators().strip_euro_sign().toString();
+
+			return (<Fragment>&euro; <span style='text-decoration: line-through;'>{printablePrice}</span> {printableSalePrice}</Fragment>);
 		}
 
-		return <span>&euro; {woocommerce.price_europe_separators(price)}</span>
+		return <span>&euro; {printablePrice}</span>
 	}
 
 	renderNewProductBanner() {

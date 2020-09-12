@@ -1,10 +1,10 @@
 {
-    "/dist/scripts/vendor.js": "/dist/scripts/vendor.js?id=d1c4b80778a58cc8bc70",
+    "/dist/scripts/vendor.js": "/dist/scripts/vendor.js?id=f93eaebc4ed34b63c45b",
     "/dist/scripts/main.js": "/dist/scripts/main.js?id=4db7e0493dabcbdd4270",
     "/dist/scripts/manifest.js": "/dist/scripts/manifest.js",
-    "/dist/scripts/routes/common.js": "/dist/scripts/routes/common.js?id=fb956a4ad0ddcd42c373",
+    "/dist/scripts/routes/common.js": "/dist/scripts/routes/common.js?id=e321ac8898ca96339866",
     "/dist/scripts/routes/home.js": "/dist/scripts/routes/home.js?id=b5a404441189528dbb35",
     "/dist/scripts/routes/single-product.js": "/dist/scripts/routes/single-product.js?id=5c0e8128487762067309",
-    "/dist/scripts/routes/woocommerce/checkout.js": "/dist/scripts/routes/woocommerce/checkout.js?id=1c0c1fa3ffab4258bb5e",
-    "/dist/scripts/routes/woocommerce/store.js": "/dist/scripts/routes/woocommerce/store.js?id=63fd2fe0dded02a2769d"
+    "/dist/scripts/routes/woocommerce/checkout.js": "/dist/scripts/routes/woocommerce/checkout.js?id=0f9c6f6aea5a5301882c",
+    "/dist/scripts/routes/woocommerce/store.js": "/dist/scripts/routes/woocommerce/store.js?id=f7916866339fa5c8ddce"
 }
