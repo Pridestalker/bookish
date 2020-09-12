@@ -15,7 +15,7 @@ $context['post'] = new Post();
 
 $context['popular_products'] = Woo::getPopularProducts(3);
 $context['new_products'] = Woo::getNewProducts(3);
-$context['is_recurring_visitor'] = Cookie::hasCookie(Cookies::RECURRING_VISITOR);
+$context['is_recurring_visitor'] = Cookie::has(Cookies::RECURRING_VISITOR);
 
 $templates = [
     Template::viewHtmlTwigFile('front-page'),
