@@ -14,13 +14,6 @@ $context['post'] = new Post();
 $context['products'] = new PostQuery(false, Product::class);
 $context['canon_url'] = strtok($_SERVER['REQUEST_URI'], '?');
 
-/** @var Product $product */
-foreach ($context['products'] as $key => $product) {
-    if ($product->setProduct()->is_type('variable')) {
-        $context['products'][$key] = new VariableProduct($product->id);
-    }
-}
-
 if (\is_product_category()) {
     $queried_object = get_queried_object();
     $term_id = $queried_object->term_id;
