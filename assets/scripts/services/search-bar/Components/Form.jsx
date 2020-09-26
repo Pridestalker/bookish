@@ -145,6 +145,7 @@ export class SearchBar extends Component {
 				<input type="hidden" name="post_type" value='product' id='post_type'/>
 				<label htmlFor={`autoComplete_${randomPostfix}`} className={'sr-only'}>Zoeken naar...</label>
 				<input type="text"
+					   style={{marginBottom: 0}}
 					   placeholder='Waar ben je naar op zoek?'
 					   id={`autoComplete_${randomPostfix}`}
 					   name={'s'}
