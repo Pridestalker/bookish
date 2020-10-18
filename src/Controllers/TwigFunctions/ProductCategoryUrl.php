@@ -17,9 +17,10 @@ class ProductCategoryUrl
      */
     public static function getUrlOnName(?string $category): string
     {
-        if (!string) {
+        if (!$category) {
             return '';
         }
+
         if (isset(static::$term_link_cache[$category])) {
             return static::$term_link_cache[$category];
         }

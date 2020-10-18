@@ -27,10 +27,10 @@ $caches = [
     Env::getBool('DEFAULT_ADMIN_CACHING', false)
 ];
 
+Cookie::setRecurringVisitor();
+
 Timber::render(
     apply_filters('bookish/view-composer/front-page/templates', $templates),
     apply_filters('bookish/view-composer/front-page/context', $context),
     apply_filters('bookish/view/composer/front-page/cache', $caches)
 );
-
-Cookie::setRecurringVisitor();

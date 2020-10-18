@@ -1,7 +1,6 @@
 {
   "name": "elderbraum/bookish",
   "type": "wordpress-theme",
-  "version": "1.0.0",
   "require": {
     "php": ">7.4",
     "ext-json": "*",
