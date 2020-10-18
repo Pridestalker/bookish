@@ -4,6 +4,7 @@ namespace App\Providers;
 
 defined('ABSPATH') || exit(0);
 
+use App\Controllers\TwigFunctions\Favorites;
 use Twig\Environment;
 use Twig\TwigFunction;
 use App\Controllers\TwigFunctions\AdminHelpers;
@@ -23,7 +24,8 @@ class FunctionServiceProvider extends ServiceProvider
             'get_store_url' => [WooCommerceGeneral::class, 'getShopUrl'],
             'get_cart_url' => [WooCommerceGeneral::class, 'getCartUrl'],
             'bookish_theme_option' => [CustomizerHelper::class, 'getThemeOption'],
-            'is_admin' => [AdminHelpers::class, 'isAdmin']
+            'is_admin' => [AdminHelpers::class, 'isAdmin'],
+            'get_favorites_button' => [Favorites::class, 'getButton']
         ]);
 
         add_filter('timber/twig', [$this, 'registerFunctions']);

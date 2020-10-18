@@ -10,6 +10,7 @@ use App\Providers\AjaxServiceProvider;
 use App\Providers\RestServiceProvider;
 use App\Providers\AssetsServiceProvider;
 use App\Providers\CarbonServiceProvider;
+use App\Providers\ShortcodeProvider;
 use App\Providers\UpdatesServiceProvider;
 use App\Providers\FunctionServiceProvider;
 use App\Providers\CustomizerServiceProvider;
@@ -24,6 +25,7 @@ return [
         CustomizerServiceProvider::class,
         AjaxServiceProvider::class,
         RestServiceProvider::class,
-	    CarbonServiceProvider::class
+	    CarbonServiceProvider::class,
+        ShortcodeProvider::class
     ]
 ];

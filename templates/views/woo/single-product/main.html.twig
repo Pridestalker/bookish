@@ -45,8 +45,11 @@
 {% block content %}
     <main class="container mx-auto">
         {% do action('woocommerce_before_single_product') %}
-        <header class="px-4 lg:px-0">
+        <header class="px-4 lg:px-0 flex flex-wrap">
             <h1 is="bookish-heading">{{ product.get_title }}</h1>
+            <div class="ml-auto is-h1 text-primary">
+                {{ get_favorites_button() }}
+            </div>
         </header>
 
         <section class="main-content py-4">
