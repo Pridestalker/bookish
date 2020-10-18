@@ -1,4 +1,4 @@
-@use "abstracts/variables" as v;
+@use "./variables" as v;
 
 @function theme-color($color, $inverted: false) {
   @if not $color {

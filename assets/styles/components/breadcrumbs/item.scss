@@ -1,4 +1,4 @@
-@use 'abstracts/variables' as v;
+@use 'assets/styles/abstracts/variables' as v;
 
 .product-breadcrumbs a {
   &:not([aria-current="page"]) {
