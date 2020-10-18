@@ -21,6 +21,7 @@ use App\Controllers\Hooks\Filters\WooCommerce\CustomSingleOrderStatus;
 use App\Controllers\Hooks\Actions\WooCommerce\OrderStatusPaymentReceived;
 use App\Controllers\Hooks\Actions\WooCommerce\PaymentReceivedCustomNotification;
 use App\Controllers\Hooks\Actions\WooCommerce\RemoveCouponCookieWhenCouponRemoved;
+use App\Controllers\Hooks\Filters\WooCommerce\WooCommerceAccountPage;
 
 class HookServiceProvider extends ServiceProvider
 {
@@ -47,6 +48,7 @@ class HookServiceProvider extends ServiceProvider
 	        StoreClassToBody::class,
             CustomStockStatus::class,
             UpscaleProductHeadingsToWC::class,
+            WooCommerceAccountPage::class,
         ]);
 
         $this->actions = apply_filters('bookish/providers/actions', [
