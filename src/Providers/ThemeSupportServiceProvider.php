@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-
 class ThemeSupportServiceProvider extends ServiceProvider
 {
     private function add_action($callback)

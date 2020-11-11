@@ -28,6 +28,6 @@ return [
         RestServiceProvider::class,
 	    CarbonServiceProvider::class,
         ShortcodeProvider::class,
-        ThemeSupportServiceProvider::class
+        ThemeSupportServiceProvider::class,
     ]
 ];
