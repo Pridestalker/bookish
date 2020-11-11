@@ -11,6 +11,7 @@ use App\Providers\RestServiceProvider;
 use App\Providers\AssetsServiceProvider;
 use App\Providers\CarbonServiceProvider;
 use App\Providers\ShortcodeProvider;
+use App\Providers\ThemeSupportServiceProvider;
 use App\Providers\UpdatesServiceProvider;
 use App\Providers\FunctionServiceProvider;
 use App\Providers\CustomizerServiceProvider;
@@ -26,6 +27,7 @@ return [
         AjaxServiceProvider::class,
         RestServiceProvider::class,
 	    CarbonServiceProvider::class,
-        ShortcodeProvider::class
+        ShortcodeProvider::class,
+        ThemeSupportServiceProvider::class
     ]
 ];
