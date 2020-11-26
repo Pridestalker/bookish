@@ -1,1 +1,1 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{67:function(n,i,o){"use strict";o.r(i),i.default={init:function(){},finalize:function(){}}}}]);
+(self.webpackChunk=self.webpackChunk||[]).push([[453],{7818:(n,e,i)=>{"use strict";i.r(e),i.d(e,{default:()=>t});const t={init:function(){},finalize:function(){}}}}]);

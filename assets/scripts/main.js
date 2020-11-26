@@ -8,15 +8,15 @@ import Ready from './tools/Ready';
 import Router from './tools/Router';
 
 const common = async () =>
-    (await import(/* webpackChunkName: "dist/scripts/routes/common" */'./routes/Common')).default;
+    (await import(/* webpackChunkName: "scripts/routes/common" */'./routes/Common')).default;
 const home = async () =>
-    (await import(/* webpackChunkName: "dist/scripts/routes/home" */ './routes/Home')).default;
+    (await import(/* webpackChunkName: "scripts/routes/home" */ './routes/Home')).default;
 const singleProduct = async () =>
-    (await import(/* webpackChunkName: "dist/scripts/routes/single-product" */ './routes/SingleProduct')).default;
+    (await import(/* webpackChunkName: "scripts/routes/single-product" */ './routes/SingleProduct')).default;
 const woocommerceCheckout = async () =>
-    (await import(/* webpackChunkName: "dist/scripts/routes/woocommerce/checkout" */ './routes/WoocommerceCheckout')).default;
+    (await import(/* webpackChunkName: "scripts/routes/woocommerce/checkout" */ './routes/WoocommerceCheckout')).default;
 const wooStore = async () =>
-    (await import(/* webpackChunkName: "dist/scripts/routes/woocommerce/store" */ './routes/WooStore')).default;
+    (await import(/* webpackChunkName: "scripts/routes/woocommerce/store" */ './routes/WooStore')).default;
 
 const routes = new Router({
     common,
