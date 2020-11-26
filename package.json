@@ -29,13 +29,13 @@
   },
   "scripts": {
     "dev": "mix",
-    "dev:js": "npm run dev",
-    "dev:css": "npm run dev",
+    "dev:js": "echo \"\\x1b[41mThis script is deprecated. Please use npm run dev\\x1b[0m\" && npm run dev",
+    "dev:css": "echo \"\\x1b[41mThis script is deprecated. Please use npm run dev\\x1b[0m\" && npm run dev",
     "watch": "mix watch",
     "watch:poll": "mix watch -- --watch-options-poll=1000",
     "prod": "mix --production",
-    "prod:js": "npm run prod",
-    "prod:css": "npm run prod"
+    "prod:js": "echo \"\\x1b[41mThis script is deprecated. Please use npm run prod\\x1b[0m\" && npm run prod",
+    "prod:css": "echo \"\\x1b[41mThis script is deprecated. Please use npm run prod\\x1b[0m\" && npm run prod"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.8.3",
