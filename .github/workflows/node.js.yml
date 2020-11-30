@@ -20,8 +20,8 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          - node-version: ${{ matrix.node-version }}
-      env:
-          - _FONTAWESOME_REG_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+          node-version: ${{ matrix.node-version }}
+        env:
+          _FONTAWESOME_REG_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
       - run: npm install
       - run: npm run prod --if-present
