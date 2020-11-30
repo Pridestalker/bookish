@@ -1,6 +1,8 @@
 {
   "name": "elderbraum/bookish",
   "type": "wordpress-theme",
+  "description": "Theme for bookish goods",
+  "license": "proprietary",
   "require": {
     "php": ">7.4",
     "ext-json": "*",
