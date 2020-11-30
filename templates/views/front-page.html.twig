@@ -2,6 +2,8 @@
 
 {% block content %}
     <main class="container mx-auto home px-4 lg:px-0">
+        {{ post.content }}
+
         {% block categoriesCta %}
             <section class="categories-cta py-16">
                 <h2 class="cta-title mb-8">Handgemaakte producten</h2>
@@ -11,7 +13,8 @@
                         {% set _sleeveImage = Image('https://bookishgoods.nl/app/uploads/2020/05/Booksleeve-frontpage-pic.jpg') %}
                         <source srcset="{{ _sleeveImage.src|resize(620, 530)|towebp }}" type="image/webp">
                         <source srcset="{{ _sleeveImage.src|retina(2)|towebp }} 2x" type="image/webp">
-                        <img src="{{ _sleeveImage.src|resize(620, 515) }}" alt="{{ __('Bekijk alle %s', 'bookish')|format('booksleeves') }}" loading="lazy">
+                        <img src="{{ _sleeveImage.src|resize(620, 515) }}"
+                             alt="{{ __('Bekijk alle %s', 'bookish')|format('booksleeves') }}" loading="lazy">
                     </picture>
                     <figcaption>
                         Bekijk alle booksleeves
@@ -26,7 +29,8 @@
                         {% set _ribbonImage = Image('https://bookishgoods.nl/app/uploads/2020/08/boekenleggers-homepage.jpg') %}
                         <source srcset="{{ _ribbonImage.src|resize(620, 530)|towebp }}" type="image/webp">
                         <source srcset="{{ _ribbonImage.src|retina(2)|towebp }} 2x" type="image/webp">
-                        <img src="{{ _ribbonImage.src|resize(620, 515) }}" alt="{{ __('Bekijk alle %s', 'bookish')|format('bookmarks') }}" loading="lazy">
+                        <img src="{{ _ribbonImage.src|resize(620, 515) }}"
+                             alt="{{ __('Bekijk alle %s', 'bookish')|format('bookmarks') }}" loading="lazy">
                     </picture>
                     <figcaption>
                         Bekijk alle boekenleggers
