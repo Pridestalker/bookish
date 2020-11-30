@@ -79,7 +79,7 @@ class AssetsServiceProvider extends ServiceProvider
             WP::removeStyle('dashicons');
         }
 
-        WP::removeStyle('wp-block-library');
+//        WP::removeStyle('wp-block-library');
         WP::removeStyle('wc-block-style');
     }
 }
