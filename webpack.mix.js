@@ -45,4 +45,4 @@ mix
         postCss: [require('tailwindcss'), require('autoprefixer'), ...purger],
     });
 
-mix.setPublicPath('dist')
+mix.setPublicPath('dist');
