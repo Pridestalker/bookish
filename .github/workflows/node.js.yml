@@ -21,7 +21,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-        env:
-          _FONTAWESOME_REG_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
-      - run: npm install
+      - name: npm install
+          run: npm install
+          env:
+            _FONTAWESOME_REG_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
       - run: npm run prod --if-present
