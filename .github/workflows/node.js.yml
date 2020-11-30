@@ -21,5 +21,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - env:
+          - FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+      - run: npm config set //npm.fontawesome.com/:_authToken=${FONTAWESOME_NPM_AUTH_TOKEN}
       - run: npm install
       - run: npm run prod --if-present
