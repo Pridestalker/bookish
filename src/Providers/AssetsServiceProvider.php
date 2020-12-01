@@ -66,16 +66,20 @@ class AssetsServiceProvider extends ServiceProvider
     public function dequeueAssets(): void
     {
         if (!is_admin() || !is_cart() || !is_checkout()) {
-//            WP::removeScript('jquery');
+            WP::removeScript('jquery');
             WP::removeScript('wp-embed');
             WP::removeScript('hoverintent-js');
+        }
+
+        if (is_product()) {
+            WP::addScript('jquery');
         }
 
         if (!is_admin_bar_showing()) {
             WP::removeStyle('dashicons');
         }
 
-        WP::removeStyle('wp-block-library');
+//        WP::removeStyle('wp-block-library');
         WP::removeStyle('wc-block-style');
     }
 }
