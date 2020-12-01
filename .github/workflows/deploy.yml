@@ -2,7 +2,7 @@ name: Build and Deloy
 
 on:
   release:
-    types: [ published, created, edited ]
+    types: [ published ]
 
 jobs:
   build-and-deploy:
@@ -43,7 +43,7 @@ jobs:
       - name: ssh deploy
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-rltgoDzvO --delete"
           SOURCE: "dist/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
