@@ -4,16 +4,16 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          default: 'hsl(265, 83%, 45%)'
+          DEFAULT: 'hsl(265, 83%, 45%)'
         },
         secondary: {
-          default: 'hsl(47, 100%, 68%)',
+          DEFAULT: 'hsl(47, 100%, 68%)',
         },
         red: {
-          default: 'hsl(357, 100%, 55%)',
+          DEFAULT: 'hsl(357, 100%, 55%)',
         },
         green :{
-          default: 'hsl(122, 67%, 48%)',
+          DEFAULT: 'hsl(122, 67%, 48%)',
         }
       }
     },

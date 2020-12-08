@@ -1,16 +1,9 @@
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["scripts/routes/single-product"],{
 
 /***/ "./assets/scripts/config/colors.js":
-/*!*****************************************!*\
+/*!*****************************************!*
   !*** ./assets/scripts/config/colors.js ***!
   \*****************************************/
-/*! namespace exports */
-/*! export colors [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export getThemeColor [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export theme [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -57,15 +50,9 @@ function getThemeColor(color, fallback) {
 /***/ }),
 
 /***/ "./assets/scripts/config/index.js":
-/*!****************************************!*\
+/*!****************************************!*
   !*** ./assets/scripts/config/index.js ***!
   \****************************************/
-/*! namespace exports */
-/*! export Colors [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/config/colors.js .default */
-/*! export Trans [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/config/translations.js .default */
-/*! export getThemeColor [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/config/colors.js .getThemeColor */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -84,15 +71,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ "./assets/scripts/config/translations.js":
-/*!***********************************************!*\
+/*!***********************************************!*
   !*** ./assets/scripts/config/translations.js ***!
   \***********************************************/
-/*! namespace exports */
-/*! export $t [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export nl [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -129,13 +110,9 @@ function $t(string) {
 /***/ }),
 
 /***/ "./assets/scripts/routes/SingleProduct.js":
-/*!************************************************!*\
+/*!************************************************!*
   !*** ./assets/scripts/routes/SingleProduct.js ***!
   \************************************************/
-/*! namespace exports */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -169,16 +146,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ "./assets/scripts/services/add-to-cart/index.js":
-/*!******************************************************!*\
+/*!******************************************************!*
   !*** ./assets/scripts/services/add-to-cart/index.js ***!
   \******************************************************/
-/*! namespace exports */
-/*! export QuantityInput [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/services/add-to-cart/simple-add-to-cart/Components/QuantityInput.jsx .QuantityInput */
-/*! export SubmitButton [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/services/add-to-cart/simple-add-to-cart/Components/SubmitButton.jsx .SubmitButton */
-/*! export renderSimpleAddToCart [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/services/add-to-cart/simple-add-to-cart/app.js .renderSimpleAddToCart */
-/*! export renderVariableAddToCart [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/services/add-to-cart/variable-add-to-cart/app.js .renderVariableAddToCart */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -198,13 +168,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ "./assets/scripts/services/add-to-cart/simple-add-to-cart/Components/QuantityInput.jsx":
-/*!*********************************************************************************************!*\
+/*!*********************************************************************************************!*
   !*** ./assets/scripts/services/add-to-cart/simple-add-to-cart/Components/QuantityInput.jsx ***!
   \*********************************************************************************************/
-/*! namespace exports */
-/*! export QuantityInput [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -321,13 +287,9 @@ var QuantityInput = /*#__PURE__*/function (_Component) {
 /***/ }),
 
 /***/ "./assets/scripts/services/add-to-cart/simple-add-to-cart/Components/SubmitButton.jsx":
-/*!********************************************************************************************!*\
+/*!********************************************************************************************!*
   !*** ./assets/scripts/services/add-to-cart/simple-add-to-cart/Components/SubmitButton.jsx ***!
   \********************************************************************************************/
-/*! namespace exports */
-/*! export SubmitButton [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -406,14 +368,9 @@ var SubmitButton = /*#__PURE__*/function (_Component) {
 /***/ }),
 
 /***/ "./assets/scripts/services/add-to-cart/simple-add-to-cart/app.js":
-/*!***********************************************************************!*\
+/*!***********************************************************************!*
   !*** ./assets/scripts/services/add-to-cart/simple-add-to-cart/app.js ***!
   \***********************************************************************/
-/*! namespace exports */
-/*! export AddToCart [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export renderSimpleAddToCart [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -597,15 +554,9 @@ function renderSimpleAddToCart() {
 /***/ }),
 
 /***/ "./assets/scripts/services/add-to-cart/simple-add-to-cart/index.js":
-/*!*************************************************************************!*\
+/*!*************************************************************************!*
   !*** ./assets/scripts/services/add-to-cart/simple-add-to-cart/index.js ***!
   \*************************************************************************/
-/*! namespace exports */
-/*! export QuantityInput [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/services/add-to-cart/simple-add-to-cart/Components/QuantityInput.jsx .QuantityInput */
-/*! export SubmitButton [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/services/add-to-cart/simple-add-to-cart/Components/SubmitButton.jsx .SubmitButton */
-/*! export renderSimpleAddToCart [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/services/add-to-cart/simple-add-to-cart/app.js .renderSimpleAddToCart */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -626,13 +577,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ "./assets/scripts/services/add-to-cart/variable-add-to-cart/Components/VariableSelect.js":
-/*!***********************************************************************************************!*\
+/*!***********************************************************************************************!*
   !*** ./assets/scripts/services/add-to-cart/variable-add-to-cart/Components/VariableSelect.js ***!
   \***********************************************************************************************/
-/*! namespace exports */
-/*! export VariableSelect [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -718,14 +665,9 @@ var VariableSelect = /*#__PURE__*/function (_Component) {
 /***/ }),
 
 /***/ "./assets/scripts/services/add-to-cart/variable-add-to-cart/app.js":
-/*!*************************************************************************!*\
+/*!*************************************************************************!*
   !*** ./assets/scripts/services/add-to-cart/variable-add-to-cart/app.js ***!
   \*************************************************************************/
-/*! namespace exports */
-/*! export AddToCart [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export renderVariableAddToCart [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -946,13 +888,9 @@ function renderVariableAddToCart() {
 /***/ }),
 
 /***/ "./assets/scripts/services/add-to-cart/variable-add-to-cart/index.js":
-/*!***************************************************************************!*\
+/*!***************************************************************************!*
   !*** ./assets/scripts/services/add-to-cart/variable-add-to-cart/index.js ***!
   \***************************************************************************/
-/*! namespace exports */
-/*! export renderVariableAddToCart [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/services/add-to-cart/variable-add-to-cart/app.js .renderVariableAddToCart */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -967,14 +905,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ "./assets/scripts/services/lib/styled/button.js":
-/*!******************************************************!*\
+/*!******************************************************!*
   !*** ./assets/scripts/services/lib/styled/button.js ***!
   \******************************************************/
-/*! namespace exports */
-/*! export StyledButton [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1028,14 +961,9 @@ var StyledButton = (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.withTheme)(
 /***/ }),
 
 /***/ "./assets/scripts/services/notifications/index.js":
-/*!********************************************************!*\
+/*!********************************************************!*
   !*** ./assets/scripts/services/notifications/index.js ***!
   \********************************************************/
-/*! namespace exports */
-/*! export enableToasts [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/services/notifications/toasts/ToastWrapper.jsx .enableToasts */
-/*! export registerToast [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/services/notifications/toasts/ToastWrapper.jsx .registerToast */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1051,13 +979,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ "./assets/scripts/services/notifications/toasts/TimerBar.jsx":
-/*!*******************************************************************!*\
+/*!*******************************************************************!*
   !*** ./assets/scripts/services/notifications/toasts/TimerBar.jsx ***!
   \*******************************************************************/
-/*! namespace exports */
-/*! export TimerBar [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1166,13 +1090,9 @@ var TimerBar = /*#__PURE__*/function (_Component) {
 /***/ }),
 
 /***/ "./assets/scripts/services/notifications/toasts/Toast.jsx":
-/*!****************************************************************!*\
+/*!****************************************************************!*
   !*** ./assets/scripts/services/notifications/toasts/Toast.jsx ***!
   \****************************************************************/
-/*! namespace exports */
-/*! export Toast [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1282,15 +1202,9 @@ var Toast = /*#__PURE__*/function (_Component) {
 /***/ }),
 
 /***/ "./assets/scripts/services/notifications/toasts/ToastWrapper.jsx":
-/*!***********************************************************************!*\
+/*!***********************************************************************!*
   !*** ./assets/scripts/services/notifications/toasts/ToastWrapper.jsx ***!
   \***********************************************************************/
-/*! namespace exports */
-/*! export ToastWrapper [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export enableToasts [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export registerToast [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1474,13 +1388,9 @@ function registerToast(_ref) {
 /***/ }),
 
 /***/ "./assets/scripts/src/Elements/Product-old/Tabs/button-style.js":
-/*!**********************************************************************!*\
+/*!**********************************************************************!*
   !*** ./assets/scripts/src/Elements/Product-old/Tabs/button-style.js ***!
   \**********************************************************************/
-/*! namespace exports */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_exports__, __webpack_require__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1507,13 +1417,9 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 /***/ }),
 
 /***/ "./assets/scripts/src/Elements/Product-old/Tabs/item-style.js":
-/*!********************************************************************!*\
+/*!********************************************************************!*
   !*** ./assets/scripts/src/Elements/Product-old/Tabs/item-style.js ***!
   \********************************************************************/
-/*! namespace exports */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_exports__, __webpack_require__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1540,13 +1446,9 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 /***/ }),
 
 /***/ "./assets/scripts/src/Elements/Product-old/Tabs/tab-group.js":
-/*!*******************************************************************!*\
+/*!*******************************************************************!*
   !*** ./assets/scripts/src/Elements/Product-old/Tabs/tab-group.js ***!
   \*******************************************************************/
-/*! namespace exports */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1622,13 +1524,9 @@ function activate(name) {
 /***/ }),
 
 /***/ "./assets/scripts/src/Elements/Product-old/Tabs/tab-item.js":
-/*!******************************************************************!*\
+/*!******************************************************************!*
   !*** ./assets/scripts/src/Elements/Product-old/Tabs/tab-item.js ***!
   \******************************************************************/
-/*! namespace exports */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1675,14 +1573,9 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 /***/ }),
 
 /***/ "./assets/scripts/src/Elements/Product-old/tabs.js":
-/*!*********************************************************!*\
+/*!*********************************************************!*
   !*** ./assets/scripts/src/Elements/Product-old/tabs.js ***!
   \*********************************************************/
-/*! namespace exports */
-/*! export TabGroup [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/src/Elements/Product-old/Tabs/tab-group.js .default */
-/*! export TabItem [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/src/Elements/Product-old/Tabs/tab-item.js .default */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1704,13 +1597,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ "./assets/scripts/src/Elements/Product/Gallery/gallery-group.js":
-/*!**********************************************************************!*\
+/*!**********************************************************************!*
   !*** ./assets/scripts/src/Elements/Product/Gallery/gallery-group.js ***!
   \**********************************************************************/
-/*! namespace exports */
-/*! export GalleryGroup [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1843,13 +1732,9 @@ var GalleryGroup = /*#__PURE__*/function (_LitElement) {
 /***/ }),
 
 /***/ "./assets/scripts/src/Elements/Product/Gallery/gallery-item.js":
-/*!*********************************************************************!*\
+/*!*********************************************************************!*
   !*** ./assets/scripts/src/Elements/Product/Gallery/gallery-item.js ***!
   \*********************************************************************/
-/*! namespace exports */
-/*! export GalleryItem [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1960,13 +1845,9 @@ var GalleryItem = /*#__PURE__*/function (_LitElement) {
 /***/ }),
 
 /***/ "./assets/scripts/src/Elements/Product/Gallery/style.js":
-/*!**************************************************************!*\
+/*!**************************************************************!*
   !*** ./assets/scripts/src/Elements/Product/Gallery/style.js ***!
   \**************************************************************/
-/*! namespace exports */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1993,13 +1874,9 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 /***/ }),
 
 /***/ "./assets/scripts/src/Elements/Product/Tabs/styles.js":
-/*!************************************************************!*\
+/*!************************************************************!*
   !*** ./assets/scripts/src/Elements/Product/Tabs/styles.js ***!
   \************************************************************/
-/*! namespace exports */
-/*! export buttonStyle [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2026,13 +1903,9 @@ var buttonStyle = (0,lit_element__WEBPACK_IMPORTED_MODULE_0__.css)(_templateObje
 /***/ }),
 
 /***/ "./assets/scripts/src/Elements/Product/Tabs/tab-group.js":
-/*!***************************************************************!*\
+/*!***************************************************************!*
   !*** ./assets/scripts/src/Elements/Product/Tabs/tab-group.js ***!
   \***************************************************************/
-/*! namespace exports */
-/*! export TabGroup [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2156,13 +2029,9 @@ var TabGroup = /*#__PURE__*/function (_LitElement) {
 /***/ }),
 
 /***/ "./assets/scripts/src/Elements/Product/Tabs/tab-item.js":
-/*!**************************************************************!*\
+/*!**************************************************************!*
   !*** ./assets/scripts/src/Elements/Product/Tabs/tab-item.js ***!
   \**************************************************************/
-/*! namespace exports */
-/*! export TabItem [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2242,14 +2111,9 @@ var TabItem = /*#__PURE__*/function (_LitElement) {
 /***/ }),
 
 /***/ "./assets/scripts/src/Elements/Product/gallery.js":
-/*!********************************************************!*\
+/*!********************************************************!*
   !*** ./assets/scripts/src/Elements/Product/gallery.js ***!
   \********************************************************/
-/*! namespace exports */
-/*! export GalleryGroup [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/src/Elements/Product/Gallery/gallery-group.js .GalleryGroup */
-/*! export GalleryItem [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/src/Elements/Product/Gallery/gallery-item.js .GalleryItem */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2267,14 +2131,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ "./assets/scripts/src/Elements/Product/index.js":
-/*!******************************************************!*\
+/*!******************************************************!*
   !*** ./assets/scripts/src/Elements/Product/index.js ***!
   \******************************************************/
-/*! namespace exports */
-/*! export Gallery [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export Tabs [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2299,14 +2158,9 @@ var Tabs = {
 /***/ }),
 
 /***/ "./assets/scripts/src/Elements/Product/tabs.js":
-/*!*****************************************************!*\
+/*!*****************************************************!*
   !*** ./assets/scripts/src/Elements/Product/tabs.js ***!
   \*****************************************************/
-/*! namespace exports */
-/*! export TabGroup [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/src/Elements/Product/Tabs/tab-group.js .TabGroup */
-/*! export TabItem [provided] [no usage info] [missing usage info prevents renaming] -> ./assets/scripts/src/Elements/Product/Tabs/tab-item.js .TabItem */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2324,14 +2178,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ "./assets/scripts/src/Woocommerce/Single/helpers/getWindowAttributes.js":
-/*!******************************************************************************!*\
+/*!******************************************************************************!*
   !*** ./assets/scripts/src/Woocommerce/Single/helpers/getWindowAttributes.js ***!
   \******************************************************************************/
-/*! namespace exports */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export splitWindowAttributes [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
