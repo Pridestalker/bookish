@@ -1,12 +1,2 @@
-import { GalleryItem, GalleryGroup } from './gallery'
-import { TabItem, TabGroup } from './tabs';
-
-export const Gallery = {
-	GalleryItem,
-	GalleryGroup,
-}
-
-export const Tabs = {
-	TabItem,
-	TabGroup,
-}
+export  { GalleryItem, GalleryGroup } from './gallery'
+export { TabItem, TabGroup } from './tabs';

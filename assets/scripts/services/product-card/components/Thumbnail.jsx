@@ -1,5 +1,14 @@
-import React, { Component, Fragment, h } from 'preact';
+import React, { Component, h } from 'preact';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
+
+const Image = styled.img`
+	${props => props.outofstock && css`
+		filter: grayscale(1);
+		position: relative;
+		z-index: -1;
+	`}
+`
 
 export class Thumbnail extends Component {
 	constructor(props) {
@@ -13,9 +22,7 @@ export class Thumbnail extends Component {
 			<a href={this.props.link} title={`Bekijk ${this.props.title}`}>
 				<picture>
 					<source srcSet={this.thumbnail.webp} type={'image/webp'} />
-					<img src={this.thumbnail.thumbnail} loading={'lazy'} alt={`Productafbeelding ${this.props.title}`} style={{
-						filter: this.props.outofstock? 'grayscale(1)': '',
-					}} />
+					<Image src={this.thumbnail.thumbnail} loading={'lazy'} alt={`Productafbeelding ${this.props.title}`} outofstock={this.props.outofstock}/>
 				</picture>
 			</a>
 		)

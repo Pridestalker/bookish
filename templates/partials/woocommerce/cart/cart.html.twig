@@ -1,3 +1,4 @@
+{% import 'components/checkout.html.twig' as checkout_base %}
 <main class="container mx-auto my-8">
     {% do action('woocommerce_before_cart') %}
     <form action="{{ fn('wc_get_cart_url')|e }}" class="woocommerce-cart-form cart-form" method="POST">
@@ -55,6 +56,7 @@
                                 <label for="cart[{{ item_key }}][qty]" class="sr-only">Hoeveelheid voor {{ item.data.get_name }}</label>
                                 <input
                                         type="number"
+                                        class="max-w-min text-center"
                                         id="cart[{{ item_key }}][qty]"
                                         name="cart[{{ item_key }}][qty]"
                                         min="0"
@@ -74,14 +76,12 @@
         <div class="actions">
             {% if fn('wc_coupons_enabled') %}
                 <div class="coupon">
-                    <label for="coupon_code">{{ __('Coupon:', 'woocommerce')|e }}</label>
-                    <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="{{ __('Coupon Code', 'woocommerce')|e }}" />
-                    <button type="submit" class="button" name="apply_coupon" value="{{ __('Apply coupon', 'woocommerce')|e }}">{{ __('Apply coupon', 'woocommerce')|e }}</button>
+                    {{ checkout_base.coupon_code }}
                     {% do action('woocommerce_cart_coupon') %}
                 </div>
             {% endif %}
 
-            <button type="submit" class="button ml-auto" name="update_cart" value="{{ __('Update cart', 'woocommerce')|e }}">{{ __('Update cart', 'woocommerce')|e }}</button>
+            <button type="submit" class="button primary outlined my-auto ml-auto" name="update_cart" value="{{ __('Update cart', 'woocommerce')|e }}">{{ __('Update cart', 'woocommerce')|e }}</button>
 
             {% do action('woocommerce_cart_actions') %}
 

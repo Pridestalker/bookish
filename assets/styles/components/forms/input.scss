@@ -4,24 +4,21 @@
 input,
 textarea {
   &:not([type="checkbox"]):not([type="radio"]) {
-    display: block;
+    @apply block w-full;
+    @apply rounded;
+    @apply py-2 px-4 mb-4;
+    @apply border border-gray-400;
+    @apply leading-none;
     appearance: textfield;
-    width: 100%;
     background: av.$white;
-    border: 1px solid color.scale(av.$gray, $lightness: 30%);
-    line-height: 1;
-    border-radius: 4px;
-    padding: .5rem 1rem;
-    box-shadow: 0 3px 6px rgba(51, 51, 51, 0.2);
     transition: all 225ms ease;
-    margin-bottom: 1rem;
 
     &:hover {
       border-color: av.$gray;
     }
     &:focus {
       outline: none;
-      box-shadow: 0 3px 6px color.scale(av.$green, $alpha: -80%);
+      border-color: av.$secondary;
     }
   }
 
@@ -77,5 +74,17 @@ textarea {
         opacity: 1;
       }
     }
+  }
+}
+
+select {
+  @apply block appearance-none w-full bg-white border border-gray-400 px-4 py-2 pr-8 rounded leading-tight;
+
+  &:hover {
+    @apply border-gray-500;
+  }
+
+  &:focus {
+    @apply outline-none;
   }
 }

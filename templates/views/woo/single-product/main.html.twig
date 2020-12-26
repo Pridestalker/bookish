@@ -148,42 +148,10 @@
         </section>
 
         <section class="py-4">
-            {% if is_admin() %}
-                <bookish-tabs default="Omschrijving">
-                    <bookish-tab name="Omschrijving">
-                        <div class="product-description content">
-                            {{ product.content|wpautop|apply_filters('bookish/content/product/content') }}
-
-                            <p>
-                                <em>
-                                    Alle producten worden handgemaakt,
-                                    de print en het formaat kunnen dus iets afwijken van de foto's.
-                                </em>
-                            </p>
-                        </div>
-                    </bookish-tab>
-                    <bookish-tab name="Eigenschappen">
-                        <table class="attribute-table">
-                            {% for attribute in product.get_attributes %}
-                                <tr>
-                                    <th>
-                                        {{ attribute.name|capitalize }}
-                                    </th>
-                                    <td>
-                                        {% for option in attribute.options %}
-                                            {{ option.name }}{% if not loop.last %}, {% endif %}
-                                        {% endfor %}
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </table>
-                    </bookish-tab>
-                </bookish-tabs>
-            {% else %}
-            <tab-group>
-                <tab-item name="Omschrijving" active>
+            <bookish-tabs default="Omschrijving">
+                <bookish-tab name="Omschrijving">
                     <div class="product-description content">
-                        {{ product.content|wpautop }}
+                        {{ product.content|wpautop|apply_filters('bookish/content/product/content') }}
 
                         <p>
                             <em>
@@ -192,8 +160,8 @@
                             </em>
                         </p>
                     </div>
-                </tab-item>
-                <tab-item name="Eigenschappen">
+                </bookish-tab>
+                <bookish-tab name="Eigenschappen">
                     <table class="attribute-table">
                         {% for attribute in product.get_attributes %}
                             <tr>
@@ -208,9 +176,8 @@
                             </tr>
                         {% endfor %}
                     </table>
-                </tab-item>
-            </tab-group>
-            {% endif %}
+                </bookish-tab>
+            </bookish-tabs>
         </section>
 
         <section class="related-products py-4">

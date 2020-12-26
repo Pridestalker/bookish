@@ -9,8 +9,8 @@
       flex: 1 0 40%;
 
       input {
+        @apply shadow-none;
         max-width: 16rem;
-        margin: 0 2rem;
       }
     }
   }
