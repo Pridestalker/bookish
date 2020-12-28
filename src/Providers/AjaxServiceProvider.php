@@ -7,6 +7,7 @@ use App\Controllers\Http\Ajax\v1\Shop\AddItemToCart;
 use App\Controllers\Http\Ajax\v1\Shop\GetCrossSells;
 use App\Controllers\Http\Ajax\v1\Common\SearchResults;
 use App\Controllers\Http\Ajax\v1\Shop\CurrentUserCartItems;
+use App\Controllers\Http\Ajax\v1\Shop\GetCustomerAddress;
 
 class AjaxServiceProvider extends ServiceProvider
 {
@@ -18,7 +19,8 @@ class AjaxServiceProvider extends ServiceProvider
             CurrentUserCartItems::class,
             AddItemToCart::class,
 	        SearchResults::class,
-	        GetCrossSells::class
+	        GetCrossSells::class,
+            GetCustomerAddress::class,
         ]);
     }
 

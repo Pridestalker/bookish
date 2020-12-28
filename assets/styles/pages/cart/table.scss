@@ -44,5 +44,6 @@ table.cart {
 form.cart-form {
   .actions {
     display: flex;
+    flex-wrap: wrap;
   }
 }

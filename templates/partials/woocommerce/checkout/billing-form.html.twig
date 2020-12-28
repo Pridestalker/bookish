@@ -24,7 +24,7 @@
                 </label>
             </p>
 
-            <div class="create-account">
+            <div class="create-account" style="display: none;">
                 {% for key, field in checkout.get_checkout_fields('account') %}
                     {{ fn('woocommerce_form_field', key, field, checkout.get_value(key)) }}
                 {% endfor %}

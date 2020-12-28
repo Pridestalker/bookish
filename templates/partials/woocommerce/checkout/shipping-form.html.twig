@@ -1,6 +1,6 @@
 <div class="woocommerce-shipping-fields">
     {% if cart.needs_shipping_address %}
-        <h3 id="ship-to-different-address">
+        <p id="ship-to-different-address">
             <input
                 type="checkbox"
                 id="ship-to-different-address-checkbox"
@@ -12,7 +12,7 @@
             <label for="ship-to-different-address-checkbox">
                 {{ __('Ship to a different address?', 'woocommerce') }}
             </label>
-        </h3>
+        </p>
 
         <div class="shipping_address">
             {% do action('woocommerce_before_checkout_shipping_form', checkout) %}
@@ -28,7 +28,7 @@
     {% endif %}
 </div>
 
-<div class="woocommerce-additional-fields">
+<div class="woocommerce-additional-fields my-4">
     {% do action('woocommerce_before_order_notes', checkout) %}
 
     {% if notes_enabled %}

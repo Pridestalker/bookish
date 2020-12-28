@@ -3,14 +3,17 @@
   margin-bottom: 2rem;
 
   .coupon {
-    @screen lg {
-      display: flex;
-      align-items: center;
-      flex: 1 0 40%;
+    display: flex;
+    align-items: center;
+    flex: 1 0 40%;
 
-      input {
-        @apply shadow-none;
-        max-width: 16rem;
+    input {
+      @apply shadow-none;
+      max-width: 16rem;
+      width: 200px;
+
+      @screen lg {
+        width: 100%;
       }
     }
   }
