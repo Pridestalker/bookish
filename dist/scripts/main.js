@@ -122,7 +122,7 @@ var woocommerceCheckout = /*#__PURE__*/function () {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.next = 2;
-            return __webpack_require__.e(/*! import() | scripts/routes/woocommerce/checkout */ "scripts/routes/woocommerce/checkout").then(__webpack_require__.bind(__webpack_require__, /*! ./routes/WoocommerceCheckout */ "./assets/scripts/routes/WoocommerceCheckout.js"));
+            return Promise.all(/*! import() | scripts/routes/woocommerce/checkout */[__webpack_require__.e("/scripts/vendor"), __webpack_require__.e("scripts/routes/woocommerce/checkout")]).then(__webpack_require__.bind(__webpack_require__, /*! ./routes/WoocommerceCheckout */ "./assets/scripts/routes/WoocommerceCheckout.js"));
 
           case 2:
             return _context4.abrupt("return", _context4.sent["default"]);

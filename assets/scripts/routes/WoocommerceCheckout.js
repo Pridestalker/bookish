@@ -1,12 +1,21 @@
-import { Checkout } from '../src/Woocommerce/';
+import {
+    checkForDifferentShipping,
+    openLoginForm,
+    openCreateAccount,
+    addSelectChangeListeners
+} from '../src/Woocommerce/Checkout';
+import {addListenToAddressFillRequest, insertModalButton, renderPostCodeModal} from "../services/checkout/app";
 
 export default {
-	init() {
-
-	},
-	finalize() {
-		Checkout.checkForDifferentShipping();
-		Checkout.openLoginForm();
-		Checkout.openCreateAccount();
-	},
+    init() {
+        insertModalButton();
+        renderPostCodeModal();
+        addListenToAddressFillRequest();
+    },
+    finalize() {
+        checkForDifferentShipping();
+        openLoginForm();
+        openCreateAccount();
+        addSelectChangeListeners();
+    },
 };
