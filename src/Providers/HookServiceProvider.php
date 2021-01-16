@@ -10,6 +10,7 @@ use App\Controllers\Hooks\Actions\Action;
 use App\Controllers\Hooks\Filters\Filter;
 use App\Controllers\Hooks\Filters\Twig\AddTwigExtensions;
 use App\Controllers\Hooks\Filters\WooCommerce\CustomOrderAction;
+use App\Controllers\Hooks\Filters\WooCommerce\HideKlarnaForPreOrders;
 use App\Controllers\Hooks\Filters\WooCommerce\StoreClassToBody;
 use App\Controllers\Hooks\Filters\WooCommerce\CustomStockStatus;
 use App\Controllers\Hooks\Filters\WooCommerce\ChangeCheckoutClass;
@@ -49,6 +50,7 @@ class HookServiceProvider extends ServiceProvider
             CustomStockStatus::class,
             UpscaleProductHeadingsToWC::class,
             WooCommerceAccountPage::class,
+            HideKlarnaForPreOrders::class,
         ]);
 
         $this->actions = apply_filters('bookish/providers/actions', [
