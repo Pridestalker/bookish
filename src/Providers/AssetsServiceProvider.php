@@ -66,6 +66,7 @@ class AssetsServiceProvider extends ServiceProvider
     public function dequeueAssets(): void
     {
         if (!is_admin() || !is_cart() || !is_checkout() || !is_product()) {
+        	wp_dequeue_script('jquery');
             WP::removeScript('wp-embed');
             WP::removeScript('hoverintent-js');
         }
@@ -74,7 +75,7 @@ class AssetsServiceProvider extends ServiceProvider
             WP::removeStyle('dashicons');
         }
 
-//        WP::removeStyle('wp-block-library');
+        WP::removeStyle('wp-block-library');
         WP::removeStyle('wc-block-style');
     }
 }
