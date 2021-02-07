@@ -32,10 +32,13 @@ export class Thumbnail extends Component {
 Thumbnail.propTypes = {
 	link: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
-	thumbnail: PropTypes.exact({
-		webp: PropTypes.string,
-		thumbnail: PropTypes.string.isRequired
-	}),
+	thumbnail: PropTypes.oneOfType([
+		PropTypes.exact({
+			webp: PropTypes.string,
+			thumbnail: PropTypes.string.isRequired
+		}),
+		PropTypes.string,
+	]),
 
 	outofstock: PropTypes.bool
 }

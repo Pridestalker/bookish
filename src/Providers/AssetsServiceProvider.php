@@ -47,7 +47,7 @@ class AssetsServiceProvider extends ServiceProvider
         );
 
         WP::addScript(
-            'updated-jquery',
+            'jquery',
             'https://code.jquery.com/jquery-3.5.1.min.js',
             [],
             '3.5.1',
@@ -65,14 +65,9 @@ class AssetsServiceProvider extends ServiceProvider
 
     public function dequeueAssets(): void
     {
-        if (!is_admin() || !is_cart() || !is_checkout()) {
-            WP::removeScript('jquery');
+        if (!is_admin() || !is_cart() || !is_checkout() || !is_product()) {
             WP::removeScript('wp-embed');
             WP::removeScript('hoverintent-js');
-        }
-
-        if (is_product()) {
-            WP::addScript('jquery');
         }
 
         if (!is_admin_bar_showing()) {

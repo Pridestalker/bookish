@@ -1,20 +1,7 @@
 {% extends 'layouts/app.twig' %}
 
-   {% block page_canonical_url %}
-       <meta name="canonical" content="{{ product.get_link }}">
-   {% endblock %}
-
-{% block post_head_scripts %}
-    <script>
-		var _paq = window._paq || [];
-		_paq.push([
-			'setEcommerceView',
-            'product-{{ product.get_id }}',
-            '{{ product.get_title }}',
-            ['{{ product.get_category_name_array|join('\', \' ') }}'],
-            {{ product.get_regular_price }}
-        ])
-    </script>
+{% block page_canonical_url %}
+    <meta name="canonical" content="{{ product.get_link }}">
 {% endblock %}
 
 {% block window_definitions %}
@@ -22,11 +9,12 @@
 
     <script>
         window['product_id'] = {{ product.get_id }}
-        window['product_settings'] = {
-        	"qty": {
-        		'min': '{{ product.product.get_min_purchase_quantity }}',
-                'max': '{{ product.product.get_max_purchase_quantity > 0 ? product.product.get_max_purchase_quantity : 3 }}',            }
-        }
+            window['product_settings'] = {
+                "qty": {
+                    'min': '{{ product.product.get_min_purchase_quantity }}',
+                    'max': '{{ product.product.get_max_purchase_quantity > 0 ? product.product.get_max_purchase_quantity : 3 }}',
+                }
+            }
     </script>
 
 {% endblock %}
@@ -47,42 +35,45 @@
         {% do action('woocommerce_before_single_product') %}
         <header class="px-4 lg:px-0 flex flex-wrap">
             <h1 is="bookish-heading">{{ product.get_title }}</h1>
-            <div class="ml-auto is-h1 text-primary">
-                {{ get_favorites_button() }}
-            </div>
         </header>
 
         <section class="main-content py-4">
             <div>
                 {% block productGallery %}
-                <bookish-gallery selected="thumbnail">
-                    <bookish-gallery-item name="thumbnail"
-                                          src="{{ product.thumbnail.src|resize(900,900) }}"
-                                          modern_src="{{ product.thumbnail|resize(900, 900)|towebp }}"
-                                          alt="{{ product.get_title }}"></bookish-gallery-item>
-                    {% for item in product.gallery_items %}
-                        {% set gallery_item = Image(item) %}
-                        {{ gallery_item.slug }}
-                        <bookish-gallery-item name="gallery-{{ loop.index }}"
-                                              src="{{ gallery_item.src|resize(900,900) }}"
-                                              modern_src="{{ gallery_item.src|resize(900, 900)|towebp }}"
-                                              alt="{{ gallery_item.alt }}"></bookish-gallery-item>
-                    {% endfor %}
-                </bookish-gallery>
-                <noscript>
-                    <img src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}" />
-                </noscript>
+                    <bookish-gallery selected="thumbnail">
+                        <bookish-gallery-item name="thumbnail"
+                                              src="{{ product.thumbnail.src|resize(900,900) }}"
+                                              modern_src="{{ product.thumbnail|resize(900, 900)|towebp }}"
+                                              alt="{{ product.get_title }}"></bookish-gallery-item>
+                        {% for item in product.gallery_items %}
+                            {% set gallery_item = Image(item) %}
+                            {{ gallery_item.slug }}
+                            <bookish-gallery-item name="gallery-{{ loop.index }}"
+                                                  src="{{ gallery_item.src|resize(900,900) }}"
+                                                  modern_src="{{ gallery_item.src|resize(900, 900)|towebp }}"
+                                                  alt="{{ gallery_item.alt }}"></bookish-gallery-item>
+                        {% endfor %}
+                    </bookish-gallery>
+                    <noscript>
+                        <img src="{{ product.thumbnail.src|resize(900,900) }}" alt="{{ product.get_title }}"/>
+                    </noscript>
                 {% endblock %}
             </div>
 
             <aside class="product-sidebar">
                 <h2 class="product-price">
                     {% block productPrice %}
-                    {% if product.is_on_sale %}
-                        <small style="text-decoration: line-through">{{ product.get_regular_price }}</small>
-                    {% endif %}
-                    {{ product.get_price }}
+                        {% if product.is_on_sale %}
+                            <small class="mr-2" style="text-decoration: line-through;">{{ product.get_regular_price }}</small>
+                        {% endif %}
+                        {{ product.get_price }}
                     {% endblock %}
+
+                    {% if is_user_logged_in() %}
+                        <div class="ml-auto is-h1 text-primary">
+                            {{ get_favorites_button() }}
+                        </div>
+                    {% endif %}
                 </h2>
 
                 <span id="add-{{ product.get_type }}-product-to-cart"></span>
@@ -99,13 +90,14 @@
                                value="1"
                                class="w-64"
                                min="{{ product.product.get_min_purchase_quantity }}"
-                               max="{{ product.product.get_max_purchase_quantity > 0 ? product.product.get_max_purchase_quantity : '' }}" />
+                               max="{{ product.product.get_max_purchase_quantity > 0 ? product.product.get_max_purchase_quantity : '' }}"/>
 
                         {% do action('woocommerce_after_add_to_cart_quantity') %}
 
                         {% block productAddToCart %}
                             {% do action('woocommerce_before_add_to_cart_button') %}
-                            <button type="submit" name="add-to-cart" value="{{ product.id }}" class="product-add-to-cart">
+                            <button type="submit" name="add-to-cart" value="{{ product.id }}"
+                                    class="product-add-to-cart">
                                 <i class="fad fa-plus-hexagon"></i>
                                 <span>Toevoegen aan winkelmand</span>
                             </button>
@@ -148,36 +140,16 @@
         </section>
 
         <section class="py-4">
-            <bookish-tabs default="Omschrijving">
-                <bookish-tab name="Omschrijving">
-                    <div class="product-description content">
-                        {{ product.content|wpautop|apply_filters('bookish/content/product/content') }}
+            <div class="product-description content">
+                {{ product.content|wpautop|apply_filters('bookish/content/product/content') }}
 
-                        <p>
-                            <em>
-                                Alle producten worden handgemaakt,
-                                de print en het formaat kunnen dus iets afwijken van de foto's.
-                            </em>
-                        </p>
-                    </div>
-                </bookish-tab>
-                <bookish-tab name="Eigenschappen">
-                    <table class="attribute-table">
-                        {% for attribute in product.get_attributes %}
-                            <tr>
-                                <th>
-                                    {{ attribute.name|capitalize }}
-                                </th>
-                                <td>
-                                    {% for option in attribute.options %}
-                                        {{ option.name }}{% if not loop.last %}, {% endif %}
-                                    {% endfor %}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                </bookish-tab>
-            </bookish-tabs>
+                <p>
+                    <em>
+                        Alle producten worden handgemaakt,
+                        de print en het formaat kunnen dus iets afwijken van de foto's.
+                    </em>
+                </p>
+            </div>
         </section>
 
         <section class="related-products py-4">
@@ -205,9 +177,9 @@
             "image": [
             "{{ product.thumbnail.src|resize(900,900) }}"{% if product.gallery_items|length > 0 %},{% endif %}
             {% for item in product.gallery_items %}
-                {% set gallery_item = Image(item) %}
-                "{{ gallery_item.src|resize(900,900) }}"{% if not loop.last %},{% endif %}
-            {% endfor %}
+        {% set gallery_item = Image(item) %}
+                "{{ gallery_item.src|resize(900,900) }}"{% if not loop.last %}{% endif %}
+        {% endfor %}
             ],
             "description": "{{ product.get_description|striptags }}",
             "offers": {
@@ -220,5 +192,6 @@
                 "availability": "https://schema.org/InStock"
             }
         }
+
     </script>
 {% endblock %}

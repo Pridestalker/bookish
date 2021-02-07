@@ -8,7 +8,7 @@ const Input = styled.input`
 	box-shadow: none !important;
 	border-radius: 0 !important;
 	text-align: center !important;
-	width: auto !important;
+	flex: 1 0 250px;
 `;
 
 const Button = styled.button`

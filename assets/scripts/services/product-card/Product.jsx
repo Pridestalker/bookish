@@ -130,19 +130,22 @@ export class Product extends Component {
 }
 
 Product.propTypes = {
-	thumbnail: PropTypes.exact({
-		webp: PropTypes.string,
-		thumbnail: PropTypes.string.isRequired
-	}),
+	thumbnail: PropTypes.oneOfType([
+		PropTypes.exact({
+			webp: PropTypes.string,
+			thumbnail: PropTypes.string.isRequired
+		}),
+		PropTypes.string,
+	]),
 	title: PropTypes.string.isRequired,
 	categories: PropTypes.string.isRequired,
 	price: PropTypes.string.isRequired,
 	link: PropTypes.string.isRequired,
-	instock: PropTypes.bool.isRequired,
-	onsale: PropTypes.bool.isRequired,
+	instock: PropTypes.oneOf(['1', '']),
+	onsale: PropTypes.oneOf(['1', '']),
 	saleprice: PropTypes.string,
 	stock_status: PropTypes.oneOf(['instock', 'outofstock', 'preorder', 'onbackorder']),
-	is_new: PropTypes.bool,
+	is_new: PropTypes.oneOf(['1', '']),
 
-	id: PropTypes.number,
+	id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 }

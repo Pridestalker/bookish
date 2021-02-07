@@ -36,10 +36,10 @@
   > figcaption {
     position: absolute;
     bottom: 0;
-    padding: .5rem;
-    backdrop-filter: blur(3px);
-    color: variables.$secondary;
-    background-color: color.scale(variables.$primary, $alpha: -40%);
+    padding-block: 1rem;
+    padding-inline: .75rem;
+    color: variables.$white;
+    background-color: color.scale(variables.$primary);
     width: 100%;
   }
 

@@ -146,10 +146,9 @@ class Product extends Post
         if (isset(static::$attributes_cache[$this->id])) {
             return static::$attributes_cache[$this->id];
         }
-        $this->setProduct();
 
         /** @var WC_Product_Attribute $attribute */
-        foreach ($this->product->get_attributes() as $attribute) {
+        foreach ($this->setProduct()->get_attributes() as $attribute) {
             if (!$attribute->get_visible()) {
                 continue;
             }
@@ -162,7 +161,8 @@ class Product extends Post
             ];
         }
 
-        return static::$attributes_cache[$this->id];
+        return isset(static::$attributes_cache[$this->id]) ?
+	        static::$attributes_cache[$this->id] : false;
     }
 
     public function is_in_stock()

@@ -1,14 +1,19 @@
 @use 'assets/styles/abstracts/variables' as av;
 
 .product-sidebar {
-  padding: 2rem;
+  padding-inline: 1rem;
+  padding-block: 1rem;
 
   @screen lg {
-    padding: 0;
+    border: 1px solid rgba(av.$black, 0.2);
+    border-radius: .25rem;
+    align-self: flex-start;
   }
 
   .product-price {
+    display: flex;
     color: av.$black;
+    margin-block-end: 1rem;
   }
 
   label[for^="pa_"] {

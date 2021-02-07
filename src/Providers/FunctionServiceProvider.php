@@ -4,6 +4,7 @@ namespace App\Providers;
 
 defined('ABSPATH') || exit(0);
 
+use App\Controllers\TwigFunctions\AccountHelpers;
 use App\Controllers\TwigFunctions\Favorites;
 use Twig\Environment;
 use Twig\TwigFunction;
@@ -23,9 +24,13 @@ class FunctionServiceProvider extends ServiceProvider
             'product_cat_url_on_id' => [ProductCategoryUrl::class, 'getUrlOnID'],
             'get_store_url' => [WooCommerceGeneral::class, 'getShopUrl'],
             'get_cart_url' => [WooCommerceGeneral::class, 'getCartUrl'],
+            'get_wishlist_url' => [WooCommerceGeneral::class, 'getFavoritesUrl'],
+            'get_woo_url' => [WooCommerceGeneral::class, 'getUrl'],
             'bookish_theme_option' => [CustomizerHelper::class, 'getThemeOption'],
             'is_admin' => [AdminHelpers::class, 'isAdmin'],
-            'get_favorites_button' => [Favorites::class, 'getButton']
+            'get_favorites_button' => [Favorites::class, 'getButton'],
+	        'is_user_logged_in' => [AccountHelpers::class, 'isLoggedIn'],
+	        'get_current_user' => [AccountHelpers::class, 'getUser']
         ]);
 
         add_filter('timber/twig', [$this, 'registerFunctions']);

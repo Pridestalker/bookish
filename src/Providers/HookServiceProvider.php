@@ -7,6 +7,7 @@ defined('ABSPATH') || exit(0);
 use App\Bootstrap\Container;
 use App\Controllers\Hooks\Actions\Init;
 use App\Controllers\Hooks\Actions\Action;
+use App\Controllers\Hooks\Filters\Content\AddBodyClasses;
 use App\Controllers\Hooks\Filters\Filter;
 use App\Controllers\Hooks\Filters\Twig\AddTwigExtensions;
 use App\Controllers\Hooks\Filters\WooCommerce\CustomOrderAction;
@@ -51,6 +52,7 @@ class HookServiceProvider extends ServiceProvider
             UpscaleProductHeadingsToWC::class,
             WooCommerceAccountPage::class,
             HideKlarnaForPreOrders::class,
+	        AddBodyClasses::class,
         ]);
 
         $this->actions = apply_filters('bookish/providers/actions', [

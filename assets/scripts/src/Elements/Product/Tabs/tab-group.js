@@ -34,8 +34,6 @@ export class TabGroup extends LitElement {
 		const selected = this.selectedChild,
 			children = Array.from(this.slottedChildren);
 
-		console.dir(selected);
-
 		return html`
 		<section>
 		<nav>

@@ -1,5 +1,6 @@
 @use 'assets/styles/abstracts/variables' as av;
 @use 'sass:color';
+@use 'sass:map';
 
 .woocommerce-account {
   .woocommerce {
@@ -31,7 +32,6 @@
       line-height: 1;
       border-radius: 4px;
       padding: .5rem 1rem;
-      box-shadow: 0 3px 6px rgba(51, 51, 51, 0.2);
       transition: all 225ms ease;
 
       &:hover {
@@ -55,16 +55,36 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+
+  @screen lg {
+    flex-direction: row;
+  }
 
   .col-1, .col-2 {
-    flex: 0 1 45%;
+    flex: 1 0 45%;
   }
 
   .col-1 {
-    margin-right: auto;
+    @screen lg {
+      margin-right: 5%;
+    }
   }
 }
 
 .woocommerce-privacy-policy-text {
   margin-bottom: 1rem;
+}
+
+.woocommerce-form-login,
+.woocommerce-form-register {
+  padding: 1rem;
+  border: 1px solid rgba(av.$black, 0.2);
+  border-radius: map.get(av.$radii, 'md');
+
+  .woocommerce-button {
+    background: av.$primary;
+    color: av.$white;
+    width: 100%;
+  }
 }

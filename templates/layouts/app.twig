@@ -23,9 +23,9 @@
     {% endblock %}
     {% block window_definitions %}
         <script>
-			window['ajax_url'] = "{{ fn('admin_url', 'admin-ajax.php') }}"
+            window['ajax_url'] = "{{ fn('admin_url', 'admin-ajax.php') }}"
             window['rest_url'] = "{{ fn('get_rest_url') }}"
-			window['shopping_cart_url'] = "{{ get_cart_url() }}"
+            window['shopping_cart_url'] = "{{ get_cart_url() }}"
         </script>
     {% endblock %}
     {% block post_head_scripts %}{% endblock %}
@@ -33,89 +33,108 @@
 </head>
 <body {{ fn('body_class') }}>
 {% block header %}
-<header class="header" id="header_{{ post.id }}">
-<div class="container mx-auto py-4">
-    <div class="flex">
-        <figure>
-            {% set _logo = Image(theme.theme_mod('custom_logo')) %}
-            <a href="{{ site.link }}">
-                <picture>
-                    <source srcset="{{ _logo.src|towebp }}" type="image/webp">
-                    <source srcset="{{ _logo.src|retina(2)|towebp }} 2x" type="image/webp">
-                    <img src="{{ _logo.src }}" alt="{{ site.title }}" class="custom-logo">
-                </picture>
-            </a>
-        </figure>
-        <div class="ml-auto my-auto hidden lg:block w-2/5">
-            {{ base.search_form() }}
+    <header class="header" id="header_{{ post.id }}">
+        <div class="container mx-auto py-4">
+            <div class="flex">
+                <figure>
+                    {% set _logo = Image(theme.theme_mod('custom_logo')) %}
+                    <a href="{{ site.link }}">
+                        <picture>
+                            <source srcset="{{ _logo.src|towebp }}" type="image/webp">
+                            <source srcset="{{ _logo.src|retina(2)|towebp }} 2x" type="image/webp">
+                            <img src="{{ _logo.src }}" alt="{{ site.title }}" class="custom-logo">
+                        </picture>
+                    </a>
+                </figure>
+                <div class="ml-auto my-auto hidden lg:block w-2/5">
+                    {{ base.search_form() }}
+                </div>
+                <div class="ml-auto lg:ml-4 my-auto">
+                    <span id="mini-cart-app"></span>
+                    <noscript>
+                        <a href="{{ get_cart_url() }}"
+                           class="text-primary js-shopping-cart-button shopping-cart-button p-2"
+                           aria-label="Winkelmandje">
+                            <span class="hidden lg:inline-block mr-2">Winkelmandje</span>
+                            <i class="fad fa-shopping-bag"></i>
+                        </a>
+                    </noscript>
+                </div>
+            </div>
+            <div class="flex lg:hidden mt-4">
+                {{ base.search_form() }}
+                <button class="button primary ml-4 js-nav-opener" aria-label="Menu toggle">
+                    <i class="fas fa-bars">
+                    </i>
+                </button>
+            </div>
         </div>
-        <div class="ml-auto lg:ml-4 my-auto">
-            <span id="mini-cart-app"></span>
-            <noscript>
-                <a href="{{ get_cart_url() }}" class="text-primary js-shopping-cart-button shopping-cart-button p-2" aria-label="Winkelmandje">
-                    <span class="hidden lg:inline-block mr-2">Winkelmandje</span>
-                    <i class="fad fa-shopping-bag"></i>
-                </a>
-            </noscript>
-        </div>
-    </div>
-    <div class="flex lg:hidden mt-4">
-        {{ base.search_form() }}
-        <button class="button primary ml-4 js-nav-opener" aria-label="Menu toggle">
-            <i class="fas fa-bars">
-            </i>
-        </button>
-    </div>
-</div>
-</header>
+    </header>
 {% endblock %}
 
 {% block navbar %}
-<div class="nav-wrapper">
-    <div class="container mx-auto">
-        <nav class="nav">
-            {% do action('bookish/view/layout/app/nav/pre') %}
-            {% for item in primaryMenu.items %}
-                <div class="submenu-group">
-                    <a
-                            href="{{ item.link }}"
-                            class="nav-item {{ item.classes|join(' ') }}"
-                            title="{{ item.title }}"
-                            rel="{{ link.is_external? 'noopener': '' }}"
-                    >
-                        {{ item.name }}
+    <div class="nav-wrapper">
+        <div class="container mx-auto">
+            <nav class="nav">
+                {% do action('bookish/view/layout/app/nav/pre') %}
+                {% for item in primaryMenu.items %}
+                    <div class="submenu-group">
+                        <a
+                                href="{{ item.link }}"
+                                class="nav-item {{ item.classes|join(' ') }}"
+                                title="{{ item.title }}"
+                                rel="{{ link.is_external? 'noopener': '' }}"
+                        >
+                            {{ item.name }}
+
+                            {% if item.children %}
+                                <button class="js-submenu-opener" aria-label="Open {{ item.name }} submenu">
+                                    <i class="fad fa-chevron-down">
+                                    </i>
+                                </button>
+                            {% endif %}
+                        </a>
 
                         {% if item.children %}
-                        <button class="js-submenu-opener" aria-label="Open {{ item.name }} submenu">
-                            <i class="fad fa-chevron-down">
-                            </i>
-                        </button>
+                            <ul class="submenu">
+                                {% for child in item.children %}
+                                    <li>
+                                        <a href="{{ child.link }}" title="{{ child.title }}">{{ child.name }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                {% do action('bookish/view/layout/app/nav/post') %}
+
+                <div class="submenu-group ml-auto ">
+                    <a href="{{ get_woo_url('myaccount') }}"
+                       class="nav-item">
+                        <i class="fad fa-book-reader"></i>
+                        {% if is_user_logged_in() %}
+                            <span class="inline-block">
+                            Mijn account
+                        </span>
+                        {% else %}
+                            <span class="inline-block">Inloggen</span>
                         {% endif %}
                     </a>
-
-                    {% if item.children %}
-                        <ul class="submenu">
-                            {% for child in item.children %}
-                                <li>
-                                    <a href="{{ child.link }}" title="{{ child.title }}">{{ child.name }}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
                 </div>
-            {% endfor %}
-            {% do action('bookish/view/layout/app/nav/post') %}
-
-            <div class="submenu-group ml-auto ">
-                <a href="{{ fn('get_permalink', fn('get_option', 'woocommerce_myaccount_page_id')) }}" class="nav-item">
-                    <i class="fad fa-book-reader">
-                    </i>
-                    <span class="inline-block">Mijn account</span>
-                </a>
-            </div>
-        </nav>
+                {% if is_user_logged_in() %}
+                    <div class="submenu-group">
+                        <a href="{{ get_wishlist_url() }}"
+                           class="nav-item">
+                            <i class="fad fa-heart"></i>
+                            <span class="inline-block">
+                                Mijn wishlist
+                            </span>
+                        </a>
+                    </div>
+                {% endif %}
+            </nav>
+        </div>
     </div>
-</div>
 {% endblock %}
 
 {% block content %}
@@ -125,50 +144,53 @@
 {% endblock %}
 
 {% block footer %}
-<footer class="footer">
-    <div class="container mx-auto py-4 px-4 lg:px-0">
-        <div class="lg:flex">
-            <div class="lg:w-1/4 mb-4">
-                <h3>Contact</h3>
+    <footer class="footer">
+        <div class="container mx-auto py-4 px-4 lg:px-0">
+            <div class="lg:flex">
+                <div class="lg:w-1/4 mb-4">
+                    <h3>Contact</h3>
 
-                <p>
-                    <a href="mailto:info@bookishgoods.nl">
-                        <i class="fad fa-envelope-open-text"></i>
-                        info@bookishgoods.nl
+                    <p>
+                        <a href="mailto:info@bookishgoods.nl">
+                            <i class="fad fa-envelope-open-text"></i>
+                            info@bookishgoods.nl
+                        </a>
+                    </p>
+                </div>
+                <div class="lg:w-1/4 mb-4 px-0 lg:px-4">
+                    <h3>Over Bookish Goods</h3>
+                    <div class="content">
+                        {{ bookish_theme_option('about-store') }}
+                    </div>
+                </div>
+                <div class="lg:w-1/4 mb-4">
+                    <h3>Socials</h3>
+                    <a href="//facebook.com/bookishgoods" title="Bezoek mijn facebook pagina" class="inline-block p-2">
+                        <i class="fab fa-facebook-square" style="font-size: 1.5rem;"></i>
                     </a>
-                </p>
-            </div>
-            <div class="lg:w-1/4 mb-4 px-0 lg:px-4">
-                <h3>Over Bookish Goods</h3>
-                <div class="content">
-                    {{ bookish_theme_option('about-store') }}
+
+                    <a href="//www.instagram.com/bookishgoods/" title="Bezoek mijn instagram pagina"
+                       class="inline-block p-2">
+                        <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
+                    </a>
+                </div>
+                <div class="lg:w-1/4">
+                    <h3>Op de hoogte blijven?</h3>
+                    <p>Meld je aan voor de nieuwsbrief en profiteer van kortingsacties.</p>
+
+                    <section id="mailchimp-subscribe-app"></section>
                 </div>
             </div>
-            <div class="lg:w-1/4 mb-4">
-                <h3>Socials</h3>
-                <a href="//facebook.com/bookishgoods" title="Bezoek mijn facebook pagina" class="inline-block p-2">
-                    <i class="fab fa-facebook-square" style="font-size: 1.5rem;"></i>
-                </a>
-
-                <a href="//www.instagram.com/bookishgoods/" title="Bezoek mijn instagram pagina" class="inline-block p-2">
-                    <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
-                </a>
-            </div>
-            <div class="lg:w-1/4">
-                <h3>Op de hoogte blijven?</h3>
-                <p>Meld je aan voor de nieuwsbrief en profiteer van kortingsacties.</p>
-
-                <section id="mailchimp-subscribe-app"></section>
-            </div>
         </div>
-    </div>
-    <hr>
-    <div class="flex justify-center flex-col lg:flex-row py-2 px-4 lg:px-0">
-        <a href="{{ fn('get_privacy_policy_url') }}" class="py-2 inline-block">Privacy</a> <span class="m-2 hidden lg:inline">|</span>
-        <a href="/algemene-voorwaarden/" class="py-2 inline-block">Algemene voorwaarden</a> <span class="m-2 hidden lg:inline">|</span>
-        <a href="/disclaimer/" class="py-2 inline-block">Disclaimer</a>
-    </div>
-</footer>
+        <hr>
+        <div class="flex justify-center flex-col lg:flex-row py-2 px-4 lg:px-0">
+            <a href="{{ fn('get_privacy_policy_url') }}" class="py-2 inline-block">Privacy</a> <span
+                    class="m-2 hidden lg:inline">|</span>
+            <a href="/algemene-voorwaarden/" class="py-2 inline-block">Algemene voorwaarden</a> <span
+                    class="m-2 hidden lg:inline">|</span>
+            <a href="/disclaimer/" class="py-2 inline-block">Disclaimer</a>
+        </div>
+    </footer>
 {% endblock %}
 {% block footer_styles %}
     <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Montserrat&display=swap" rel="stylesheet">

@@ -35,25 +35,27 @@
   }
 }
 
-.content {
-  > p:not(:last-child) {
-    margin-bottom: 1.5rem;
-    display: block;
-  }
-
-  a:not(.button) {
-    color: variables.$primary;
-    text-decoration: underline;
-    transition: color 225ms ease;
-
-    &:hover {
-      color: color.scale(variables.$primary, $lightness: -20%);
+body:not(.page-wishlist) {
+  .content {
+    > p:not(:last-child) {
+      margin-bottom: 1.5rem;
+      display: block;
     }
-  }
 
-  > h2, h3 {
-    margin-bottom: .5rem;
-    display: block;
+    a:not(.button) {
+      color: variables.$primary;
+      text-decoration: underline;
+      transition: color 225ms ease;
+
+      &:hover {
+        color: color.scale(variables.$primary, $lightness: -20%);
+      }
+    }
+
+    > h2, h3 {
+      margin-bottom: .5rem;
+      display: block;
+    }
   }
 }
 

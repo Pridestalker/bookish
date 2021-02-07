@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 
 const theme = {
 	background: 'green',
+	width: '100%',
 }
 
 export class SubmitButton extends Component {

@@ -9,6 +9,7 @@ const Button = styled.button`
 	margin: 1rem 0;
 	display: block;
 	border-radius: ${props => props.theme.borderRadius?? props.defaults.borderRadius};
+	width: ${props => props.theme.width?? props.defaults.width};
 `;
 
 Button.defaultProps = {
@@ -16,11 +17,13 @@ Button.defaultProps = {
 		background: 'primary',
 		color: 'white',
 		borderRadius: '4px',
+		width: 'auto',
 	},
 	defaults: {
 		background: 'primary',
 		color: 'white',
 		borderRadius: '4px',
+		width: 'auto',
 	}
 }
 

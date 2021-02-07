@@ -31,4 +31,9 @@ class WooCommerceGeneral
 
         return static::$url_cache[$page] = get_permalink(wc_get_page_id($page));
     }
+
+    public static function getFavoritesUrl(): string
+    {
+    	return static::getUrl('myaccount') . 'wishlist';
+    }
 }
