@@ -41,8 +41,10 @@ mix
     .sass('assets/styles/mail/default/main.sass', 'styles/mail.css')
     .sass('assets/styles/admin/main.sass', 'styles/admin.css')
     .options({
-        processCssUrls: false,
         postCss: [require('tailwindcss'), require('autoprefixer'), ...purger],
     });
 
 mix.setPublicPath('dist');
+mix.setResourceRoot('/wp-content/themes/bookish/dist/')
+
+mix.browserSync('https://bookishgoods.dev.mitchhijlkema.nl');
