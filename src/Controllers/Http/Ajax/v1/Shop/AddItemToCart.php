@@ -31,6 +31,7 @@ class AddItemToCart extends AjaxController
         $productID = apply_filters('bookish/ajax/v1/shop/add-to-cart/product-id', $request->request->get('product_id', false));
         $quantity = apply_filters('bookish/ajax/v1/shop/add-to-cart/qty', $request->request->get('qty', 1), $productID);
         $variationID = apply_filters('bookish/ajax/v1/shop/add-to-cart/product-variation-id', $request->request->get('variation_id', 0));
+        $value = apply_filters('bookish/ajax/v1/shop/add-to-cart/product-value', $request->request->get('value', []));
         $postStatus = get_post_status($productID);
 
         if ($postStatus !== 'publish') {
@@ -41,7 +42,7 @@ class AddItemToCart extends AjaxController
             ], 403);
         }
 
-        if (!$this->validate($productID, $quantity) || !WC()->cart->add_to_cart($productID, $quantity, $variationID)) {
+        if (!$this->validate($productID, $quantity) || !WC()->cart->add_to_cart($productID, $quantity, $variationID, $value)) {
             wp_send_json_error([
                 'error_code' => 'REQUEST_NOT_VALID',
                 'message' => __('Het product is niet toegevoegd aan je mandje.', 'bookish')

@@ -427,7 +427,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var Button = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\tborder: 1px solid ", ";\n\tbackground: ", ";\n\tcolor: ", ";\n\tpadding: .5rem;\n\tmargin: 1rem 0;\n\tdisplay: block;\n\tborder-radius: ", ";\n\twidth: ", ";\n"])), function (props) {
+var Button = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\tborder: 1px solid ", ";\n\tbackground: ", ";\n\tcolor: ", ";\n\tpadding: .75rem 1rem;\n\tmargin: 1rem 0;\n\tdisplay: block;\n\tborder-radius: ", ";\n\twidth: ", ";\n"])), function (props) {
   return (0,_config__WEBPACK_IMPORTED_MODULE_0__.getThemeColor)(props.theme.background, props.defaults.background);
 }, function (props) {
   return (0,_config__WEBPACK_IMPORTED_MODULE_0__.getThemeColor)(props.theme.background, props.defaults.background);
@@ -446,13 +446,13 @@ Button.defaultProps = {
   theme: {
     background: 'primary',
     color: 'white',
-    borderRadius: '4px',
+    borderRadius: '8px',
     width: 'auto'
   },
   defaults: {
     background: 'primary',
     color: 'white',
-    borderRadius: '4px',
+    borderRadius: '8px',
     width: 'auto'
   }
 };
@@ -594,9 +594,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
 /* harmony import */ var _Components_Input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/Input */ "./assets/scripts/services/mailchimp-subscribe/Components/Input.jsx");
 /* harmony import */ var _notifications__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../notifications */ "./assets/scripts/services/notifications/index.js");
-/* harmony import */ var ky__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ky */ "./node_modules/ky/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var ky__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ky */ "./node_modules/ky/index.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../config */ "./assets/scripts/config/index.js");
+/* harmony import */ var _theme__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../theme */ "./assets/scripts/theme.js");
 var _templateObject;
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -631,8 +632,9 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
 var appElement = document.querySelector('#mailchimp-subscribe-app');
-var SubmitButton = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral(["\nbox-shadow: 0 3px 6px rgba(51, 51, 51, .2);\nbackground: ", ";\ncolor: ", ";\nborder-radius: 4px;\npadding: .5rem 1rem;\n\n&[disabled] {\n\tbackground: ", ";\n}\n"])), _config__WEBPACK_IMPORTED_MODULE_3__.Colors.white, _config__WEBPACK_IMPORTED_MODULE_3__.Colors.primary, _config__WEBPACK_IMPORTED_MODULE_3__.Colors.gray);
+var SubmitButton = styled_components__WEBPACK_IMPORTED_MODULE_5__.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral(["\nbox-shadow: 0 3px 6px rgba(51, 51, 51, .2);\nbackground: ", ";\ncolor: ", ";\nborder-radius: 4px;\npadding: .5rem 1rem;\n\n&[disabled] {\n\tbackground: ", ";\n}\n"])), _config__WEBPACK_IMPORTED_MODULE_3__.Colors.primary, _config__WEBPACK_IMPORTED_MODULE_3__.Colors.white, _config__WEBPACK_IMPORTED_MODULE_3__.Colors.gray);
 var MailchimpSubscribe = /*#__PURE__*/function (_Component) {
   _inherits(MailchimpSubscribe, _Component);
 
@@ -696,7 +698,7 @@ var MailchimpSubscribe = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      ky__WEBPACK_IMPORTED_MODULE_5__.default.post(window['rest_url'] + 'bookish/v1/mailchimp', {
+      ky__WEBPACK_IMPORTED_MODULE_6__.default.post(window['rest_url'] + 'bookish/v1/mailchimp', {
         body: data$
       }).then(function (res) {
         return res.json();
@@ -2526,7 +2528,7 @@ var SearchBar = /*#__PURE__*/function (_Component) {
   }, {
     key: "hideAutoFill",
     value: function hideAutoFill(e) {
-      var _this$form, _this$form2, _this$form2$current;
+      var _this$form, _this$form$current;
 
       var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
@@ -2538,9 +2540,7 @@ var SearchBar = /*#__PURE__*/function (_Component) {
         });
       }
 
-      console.dir((_this$form = this.form) === null || _this$form === void 0 ? void 0 : _this$form.current);
-
-      if ((_this$form2 = this.form) !== null && _this$form2 !== void 0 && (_this$form2$current = _this$form2.current) !== null && _this$form2$current !== void 0 && _this$form2$current.contains(e.target) || false) {
+      if ((_this$form = this.form) !== null && _this$form !== void 0 && (_this$form$current = _this$form.current) !== null && _this$form$current !== void 0 && _this$form$current.contains(e.target)) {
         return;
       }
 
@@ -2898,6 +2898,41 @@ var Heading = /*#__PURE__*/function (_LitElement) {
 
   return Heading;
 }(lit_element__WEBPACK_IMPORTED_MODULE_0__.LitElement);
+
+/***/ }),
+
+/***/ "./assets/scripts/theme.js":
+/*!*********************************!*\
+  !*** ./assets/scripts/theme.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ThemeProvider": () => (/* reexport safe */ _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__.default),
+/* harmony export */   "defaultTheme": () => (/* binding */ defaultTheme)
+/* harmony export */ });
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/createMuiTheme.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js");
+
+
+var defaultTheme = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__.default)({
+  palette: {
+    primary: {
+      main: 'hsl(265, 83%, 45%)'
+    },
+    secondary: {
+      main: 'hsl(47, 100%, 68%)'
+    },
+    error: {
+      main: 'hsl(357, 100%, 55%)'
+    },
+    success: {
+      main: 'hsl(122, 67%, 48%)'
+    }
+  }
+});
 
 /***/ })
 

@@ -592,6 +592,7 @@ video {
 
 body {
   font-family: "Montserrat", sans-serif;
+  color: #270d30;
 }
 
 body p {
@@ -635,8 +636,8 @@ label,
 }
 
 .button {
-  padding: 0.5rem;
-  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
   border: 1px solid transparent;
   display: inline-block;
 }
@@ -659,6 +660,16 @@ label,
 .button.black.outlined {
   background: transparent;
   color: #212121;
+}
+
+.button.dark {
+  background: #270d30;
+  color: white;
+}
+
+.button.dark.outlined {
+  background: transparent;
+  color: #270d30;
 }
 
 .button.gray {
@@ -1019,7 +1030,7 @@ header.header {
     padding: 1rem 0;
     position: relative;
     perspective: 1500px;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
     text-align: left;
   }
 
@@ -1041,7 +1052,7 @@ header.header {
 }
 
 a.nav-item {
-  color: #6314d2;
+  color: #212121;
   transition: color 225ms ease;
   position: relative;
   padding: 0.5rem 0;
@@ -1071,9 +1082,13 @@ a.nav-item {
   }
 }
 
+a.nav-item.current-menu-item {
+  color: #6314d2;
+}
+
 a.nav-item:hover {
   cursor: pointer;
-  color: #370b75;
+  color: #6314d2;
 }
 
 .pre-search-form {
@@ -1130,8 +1145,10 @@ a.nav-item:hover {
 }
 
 .footer {
-  background-color: #6314d2;
-  color: white;
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: #6314d2;
+  color: #270d30;
 }
 
 .products-list {
@@ -1243,9 +1260,12 @@ a.nav-item:hover {
   transition: box-shadow 225ms ease-in-out;
   display: flex;
   flex-direction: column;
+  border-radius: 1rem;
 }
 
 .product-card img {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1256,6 +1276,9 @@ a.nav-item:hover {
   height: 100%;
   display: flex;
   flex-direction: column;
+  background: white;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 .product-card form {
@@ -1272,6 +1295,10 @@ a.nav-item:hover {
 
 .product-card--categories > a:hover {
   color: #5010ab;
+}
+
+.new-products {
+  background: #e3e3e3;
 }
 
 @media (min-width: 1024px) {

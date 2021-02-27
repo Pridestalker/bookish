@@ -1,5 +1,7 @@
+@use "assets/styles/abstracts/variables" as v;
 body {
   font-family: 'Montserrat', sans-serif;
+  color: v.$dark;
   p {
     font-size: 1rem;
     line-height: 1.5rem;

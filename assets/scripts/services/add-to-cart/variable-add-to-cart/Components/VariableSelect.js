@@ -10,11 +10,11 @@ export class VariableSelect extends Component {
 	render() {
 		return (
 			<Fragment>
-				<label htmlFor={this.props.selectName}>
+				<label htmlFor={this.props.selectName} className={'sr-only block'}>
 					{fixSelectLabel(this.props.selectName)}
 				</label>
 
-				<div className={'inline-block relative w-64'}>
+				<div className={'block relative w-full'}>
 					<select onChange={this.props.changeHandler}
 							id={this.props.selectName}
 							name={this.props.selectName}

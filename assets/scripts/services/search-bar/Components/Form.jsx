@@ -72,9 +72,7 @@ export class SearchBar extends Component {
 			});
 		}
 
-		console.dir(this.form?.current);
-
-		if (this.form?.current?.contains(e.target) || false) {
+		if (this.form?.current?.contains(e.target)) {
 			return;
 		}
 

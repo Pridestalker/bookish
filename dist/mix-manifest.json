@@ -1,9 +1,9 @@
 {
     "/scripts/main.js": "/scripts/main.js",
     "/scripts/manifest.js": "/scripts/manifest.js",
-    "/scripts/routes/common.js": "/scripts/routes/common.js?id=c8b6a46a35b82c65d43c",
+    "/scripts/routes/common.js": "/scripts/routes/common.js?id=06371c57c9c86bd6b45b",
     "/scripts/routes/home.js": "/scripts/routes/home.js?id=d5f6e5f24acce56c8d3f",
-    "/scripts/routes/single-product.js": "/scripts/routes/single-product.js?id=1cfe3179d395d2b2418a",
+    "/scripts/routes/single-product.js": "/scripts/routes/single-product.js?id=e347fcb40631cb967f52",
     "/scripts/routes/woocommerce/checkout.js": "/scripts/routes/woocommerce/checkout.js?id=2344dbda36f8e48d06c3",
     "/scripts/routes/woocommerce/store.js": "/scripts/routes/woocommerce/store.js?id=3f1a4530982c5714ed9c",
     "/styles/admin.css": "/styles/admin.css",

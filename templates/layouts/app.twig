@@ -145,24 +145,10 @@
 
 {% block footer %}
     <footer class="footer">
-        <div class="container mx-auto py-4 px-4 lg:px-0">
+        <div class="container mx-auto py-12 px-4 lg:px-0">
             <div class="lg:flex">
-                <div class="lg:w-1/4 mb-4">
-                    <h3>Contact</h3>
-
-                    <p>
-                        <a href="mailto:info@bookishgoods.nl">
-                            <i class="fad fa-envelope-open-text"></i>
-                            info@bookishgoods.nl
-                        </a>
-                    </p>
-                </div>
-                <div class="lg:w-1/4 mb-4 px-0 lg:px-4">
-                    <h3>Over Bookish Goods</h3>
-                    <div class="content">
-                        {{ bookish_theme_option('about-store') }}
-                    </div>
-                </div>
+                {% do fn('dynamic_sidebar', 'footer_col_1') %}
+                {% do fn('dynamic_sidebar', 'footer_col_2') %}
                 <div class="lg:w-1/4 mb-4">
                     <h3>Socials</h3>
                     <a href="//facebook.com/bookishgoods" title="Bezoek mijn facebook pagina" class="inline-block p-2">

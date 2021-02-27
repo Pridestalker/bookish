@@ -1,5 +1,6 @@
 $white: hsl(0, 100%, 100%) !default;
 $black: hsl(0, 0%, 13%) !default;
+$dark: hsl(284, 57%, 12%) !default;
 $gray: hsl(0, 0%, 89%) !default;
 $green: hsl(163, 67%, 48%) !default;
 $red: hsl(357, 100%, 55%) !default;
@@ -15,6 +16,7 @@ $secondary-invert: $black !default;
 $colors: (
         'white': ($white, $black),
         'black': ($black, $white),
+        'dark': ($dark, $white),
         'gray': ($gray, $black),
         'green': ($green ,$black),
         'yellow': ($yellow, $black),

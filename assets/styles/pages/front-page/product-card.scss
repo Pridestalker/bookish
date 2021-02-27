@@ -6,8 +6,11 @@
   transition: box-shadow 225ms ease-in-out;
   display: flex;
   flex-direction: column;
+  border-radius: 1rem;
 
   & img {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
     width: 100%;
     object-fit: cover;
   }
@@ -17,6 +20,9 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    background: variables.$white;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
   }
 
   form {

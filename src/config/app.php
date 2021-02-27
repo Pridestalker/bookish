@@ -14,6 +14,7 @@ use App\Providers\ShortcodeProvider;
 use App\Providers\UpdatesServiceProvider;
 use App\Providers\FunctionServiceProvider;
 use App\Providers\CustomizerServiceProvider;
+use App\Providers\WidgetServiceProvider;
 
 return [
     'providers'     => [
@@ -26,6 +27,7 @@ return [
         AjaxServiceProvider::class,
         RestServiceProvider::class,
 	    CarbonServiceProvider::class,
-        ShortcodeProvider::class
+        ShortcodeProvider::class,
+        WidgetServiceProvider::class
     ]
 ];

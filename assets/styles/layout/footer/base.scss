@@ -2,6 +2,8 @@
 ;
 
 .footer {
-  background-color: v.$primary;
-  color: v.$white;
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: v.$primary;
+  color: v.$dark;
 }

@@ -612,9 +612,10 @@ var VariableSelect = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(preact__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("label", {
-        htmlFor: this.props.selectName
+        htmlFor: this.props.selectName,
+        className: 'sr-only block'
       }, fixSelectLabel(this.props.selectName)), (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("div", {
-        className: 'inline-block relative w-64'
+        className: 'block relative w-full'
       }, (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)("select", {
         onChange: this.props.changeHandler,
         id: this.props.selectName,
@@ -709,7 +710,8 @@ var AddToCart = /*#__PURE__*/function (_Component) {
       minQuantity: window['product_settings'].qty.min,
       maxQuantity: window['product_settings'].qty.max,
       loading: false,
-      variationID: false
+      variationID: false,
+      value: []
     };
     _this.editQuantity = _this.editQuantity.bind(_assertThisInitialized(_this));
     _this.addToCart = _this.addToCart.bind(_assertThisInitialized(_this));
@@ -743,7 +745,8 @@ var AddToCart = /*#__PURE__*/function (_Component) {
           action: 'add_product_to_cart',
           product_id: this.state.productID,
           qty: this.state.quantity,
-          variation_id: this.state.variationID
+          variation_id: this.state.variationID,
+          value: this.state.value
         },
         credentials: 'same-origin'
       }).then(function (res) {
@@ -779,16 +782,24 @@ var AddToCart = /*#__PURE__*/function (_Component) {
       }).filter(function (attribute) {
         return attribute.attributes[attribute_name] === '' ? true : attribute.attributes[attribute_name] === value;
       });
+      console.dir({
+        value: value,
+        dataset: dataset,
+        attribute_name: attribute_name,
+        possibilities: possibilities
+      });
 
       if (possibilities.length === 1) {
         this.setState({
           variationID: possibilities[0].id,
-          loading: false
+          loading: false,
+          value: [value]
         });
       } else {
         this.setState({
           variationID: false,
-          loading: false
+          loading: false,
+          value: []
         });
       }
     }
@@ -901,7 +912,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var Button = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\tborder: 1px solid ", ";\n\tbackground: ", ";\n\tcolor: ", ";\n\tpadding: .5rem;\n\tmargin: 1rem 0;\n\tdisplay: block;\n\tborder-radius: ", ";\n\twidth: ", ";\n"])), function (props) {
+var Button = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\tborder: 1px solid ", ";\n\tbackground: ", ";\n\tcolor: ", ";\n\tpadding: .75rem 1rem;\n\tmargin: 1rem 0;\n\tdisplay: block;\n\tborder-radius: ", ";\n\twidth: ", ";\n"])), function (props) {
   return (0,_config__WEBPACK_IMPORTED_MODULE_0__.getThemeColor)(props.theme.background, props.defaults.background);
 }, function (props) {
   return (0,_config__WEBPACK_IMPORTED_MODULE_0__.getThemeColor)(props.theme.background, props.defaults.background);
@@ -920,13 +931,13 @@ Button.defaultProps = {
   theme: {
     background: 'primary',
     color: 'white',
-    borderRadius: '4px',
+    borderRadius: '8px',
     width: 'auto'
   },
   defaults: {
     background: 'primary',
     color: 'white',
-    borderRadius: '4px',
+    borderRadius: '8px',
     width: 'auto'
   }
 };

@@ -47,4 +47,6 @@ mix
 mix.setPublicPath('dist');
 mix.setResourceRoot('/wp-content/themes/bookish/dist/')
 
-mix.browserSync('https://bookishgoods.dev.mitchhijlkema.nl');
+mix.browserSync({
+    proxy: 'https://bookishgoods.dev.mitchhijlkema.nl'
+});

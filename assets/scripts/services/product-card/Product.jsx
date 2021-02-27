@@ -107,6 +107,7 @@ export class Product extends Component {
 		return (
 			<Fragment>
 				{this.renderSaleBanner()}
+
 				{this.renderPreOrderBanner()}
 				{this.renderNewProductBanner()}
 				<Thumbnail link={this.props.link}

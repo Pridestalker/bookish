@@ -43,7 +43,8 @@ nav.nav {
     padding: 1rem 0;
     position: relative;
     perspective: 1500px;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
+
     text-align: left;
     .submenu {
       display: block;
@@ -67,7 +68,7 @@ nav.nav {
 }
 
 a.nav-item {
-  color: v.$primary;
+  color: v.$black;
   transition: color 225ms ease;
   position: relative;
   padding: .5rem 0;
@@ -96,10 +97,13 @@ a.nav-item {
     }
   }
 
+  &.current-menu-item {
+    color: v.$primary;
+  }
 
   &:hover {
     cursor: pointer;
-    color: color.adjust(v.$primary, $lightness: -20%);
+    color: v.$primary;
   }
 }
 

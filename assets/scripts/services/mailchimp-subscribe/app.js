@@ -4,13 +4,14 @@ import { registerToast } from '../notifications';
 import ky from 'ky';
 import styled from 'styled-components'
 import { Colors } from '../../config'
+import {ThemeProvider} from "../../theme";
 
 const appElement = document.querySelector('#mailchimp-subscribe-app');
 
 const SubmitButton = styled.button`
 box-shadow: 0 3px 6px rgba(51, 51, 51, .2);
-background: ${Colors.white};
-color: ${Colors.primary};
+background: ${Colors.primary};
+color: ${Colors.white};
 border-radius: 4px;
 padding: .5rem 1rem;
 
