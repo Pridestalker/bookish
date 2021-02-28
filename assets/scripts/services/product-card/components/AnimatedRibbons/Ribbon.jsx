@@ -7,7 +7,7 @@ import { Motion, spring } from 'react-motion';
 const HorizontalBannerWrapper = styled.div`
 	position: absolute;
 	top: -10px;
-	right: 1rem;
+	right: 2rem;
 	pointer-events: none;
 	
 	&:before {
