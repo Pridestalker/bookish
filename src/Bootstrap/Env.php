@@ -19,8 +19,9 @@ class Env implements Bootstrapper
     {
         static::bootstrap();
 
+
         if ($type === null) {
-            return getenv($name)?? $default;
+            return $_ENV[$name]?? $default;
         }
 
         switch ($type) {
@@ -28,12 +29,12 @@ class Env implements Bootstrapper
             case 'integer':
             case 'number':
             case 'num':
-                return (int) (getenv($name)?? $default);
+                return (int) ($_ENV[$name]?? $default);
             case 'bool':
             case 'boolean':
-                return filter_var((getenv($name)?? $default), FILTER_VALIDATE_BOOLEAN);
+                return filter_var(($_ENV[$name]?? $default), FILTER_VALIDATE_BOOLEAN);
             default:
-                return getenv($name)?? $default;
+                return $_ENV[$name]?? $default;
         }
     }
 
@@ -49,8 +50,8 @@ class Env implements Bootstrapper
 
     public function __construct()
     {
-        $this->env = Dotenv::createMutable(WP::getStylesheetDir());
-        $this->env->load();
+        $this->env = Dotenv::createImmutable(WP::getStylesheetDir());
+        $this->env->safeLoad();
     }
 
     public static function bootstrap(): self

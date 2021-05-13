@@ -1,9 +1,9 @@
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["scripts/routes/woocommerce/store"],{
 
-/***/ "./assets/scripts/routes/WooStore.js":
-/*!*******************************************!*\
-  !*** ./assets/scripts/routes/WooStore.js ***!
-  \*******************************************/
+/***/ "./assets/scripts/routes/woo-store/index.js":
+/*!**************************************************!*\
+  !*** ./assets/scripts/routes/woo-store/index.js ***!
+  \**************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -11,7 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _src_Woocommerce__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../src/Woocommerce */ "./assets/scripts/src/Woocommerce/index.js");
+/* harmony import */ var _src_Woocommerce__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../src/Woocommerce */ "./assets/scripts/src/Woocommerce/index.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   init: function init() {

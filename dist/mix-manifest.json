@@ -1,13 +1,14 @@
 {
     "/scripts/main.js": "/scripts/main.js",
     "/scripts/manifest.js": "/scripts/manifest.js",
-    "/scripts/routes/common.js": "/scripts/routes/common.js?id=ac268ecabdd4dddd442b",
-    "/scripts/routes/home.js": "/scripts/routes/home.js?id=d5f6e5f24acce56c8d3f",
-    "/scripts/routes/single-product.js": "/scripts/routes/single-product.js?id=e347fcb40631cb967f52",
-    "/scripts/routes/woocommerce/checkout.js": "/scripts/routes/woocommerce/checkout.js?id=2344dbda36f8e48d06c3",
-    "/scripts/routes/woocommerce/store.js": "/scripts/routes/woocommerce/store.js?id=3f1a4530982c5714ed9c",
+    "/scripts/routes/woocommerce/checkout.js": "/scripts/routes/woocommerce/checkout.js?id=333a9423437b5f997837",
+    "/scripts/routes/woocommerce/store.js": "/scripts/routes/woocommerce/store.js?id=73480c2347dbf3ee1a89",
+    "/scripts/routes/common.js": "/scripts/routes/common.js?id=6210d25c12f3e5f6d6b0",
+    "/scripts/routes/home.js": "/scripts/routes/home.js?id=69b8f7945e4141fdde62",
+    "/scripts/routes/single-product.js": "/scripts/routes/single-product.js?id=9ae95a19c301f62ef866",
     "/styles/admin.css": "/styles/admin.css",
     "/styles/mail.css": "/styles/mail.css",
     "/styles/main.css": "/styles/main.css",
-    "/scripts/vendor.js": "/scripts/vendor.js"
+    "/scripts/vendor.js": "/scripts/vendor.js",
+    "/scripts/components/hero/banner.js": "/scripts/components/hero/banner.js?id=6bbea3fd33d33d6bdfd3"
 }

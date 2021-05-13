@@ -18,9 +18,9 @@
     "symfony/http-foundation": "^5.0",
     "symfony/mailer": "^5.0",
     "symfony/mime": "^5.0",
-    "timber/timber": "^1.15",
+    "timber/timber": "^1.18",
     "twig/cssinliner-extra": "^3.0",
-    "vlucas/phpdotenv": "^4.1",
+    "vlucas/phpdotenv": "^5.3",
     "yahnis-elsts/plugin-update-checker": "^4.8.1"
   },
   "require-dev": {
