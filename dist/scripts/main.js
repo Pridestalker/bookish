@@ -10,6 +10,57 @@ __webpack_require__.p = document.head.querySelector('meta[name="base_assets"]').
 
 /***/ }),
 
+/***/ "./assets/scripts/components/index.js":
+/*!********************************************!*\
+  !*** ./assets/scripts/components/index.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([{
+  target: '[data-component="hero-banner"]',
+  file: function () {
+    var _file = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return Promise.all(/*! import() | scripts/components/hero/banner */[__webpack_require__.e("/scripts/vendor"), __webpack_require__.e("scripts/components/hero/banner")]).then(__webpack_require__.bind(__webpack_require__, /*! ./hero-banner */ "./assets/scripts/components/hero-banner/index.js"));
+
+            case 2:
+              return _context.abrupt("return", _context.sent["default"]);
+
+            case 3:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    function file() {
+      return _file.apply(this, arguments);
+    }
+
+    return file;
+  }()
+}]);
+
+/***/ }),
+
 /***/ "./assets/scripts/main.js":
 /*!********************************!*\
   !*** ./assets/scripts/main.js ***!
@@ -18,19 +69,12 @@ __webpack_require__.p = document.head.querySelector('meta[name="base_assets"]').
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _vendor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./vendor */ "./assets/scripts/vendor/index.js");
-/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bootstrap */ "./assets/scripts/bootstrap.js");
-/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _tools_Ready__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tools/Ready */ "./assets/scripts/tools/Ready.js");
-/* harmony import */ var _tools_Router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./tools/Router */ "./assets/scripts/tools/Router.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var _vendor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./vendor */ "./assets/scripts/vendor/index.js");
+/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bootstrap */ "./assets/scripts/bootstrap.js");
+/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _webreact_webreactor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @webreact/webreactor */ "./node_modules/@webreact/webreactor/dist/index.js");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./routes */ "./assets/scripts/routes/index.js");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components */ "./assets/scripts/components/index.js");
 if (true) {
   __webpack_require__(/*! preact/debug */ "./node_modules/preact/debug/dist/debug.module.js");
 }
@@ -40,6 +84,34 @@ if (true) {
 
 
 
+var router = new _webreact_webreactor__WEBPACK_IMPORTED_MODULE_4__.PageRouter(_routes__WEBPACK_IMPORTED_MODULE_2__.default);
+var componentLoader = new _webreact_webreactor__WEBPACK_IMPORTED_MODULE_4__.ComponentRouter(_components__WEBPACK_IMPORTED_MODULE_3__.default);
+(0,_webreact_webreactor__WEBPACK_IMPORTED_MODULE_4__.fullReady)(function () {
+  router.loadEvents();
+  componentLoader.loadEvents();
+});
+
+/***/ }),
+
+/***/ "./assets/scripts/routes/index.js":
+/*!****************************************!*\
+  !*** ./assets/scripts/routes/index.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 var common = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -47,7 +119,7 @@ var common = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return Promise.all(/*! import() | scripts/routes/common */[__webpack_require__.e("/scripts/vendor"), __webpack_require__.e("scripts/routes/common")]).then(__webpack_require__.bind(__webpack_require__, /*! ./routes/Common */ "./assets/scripts/routes/Common.js"));
+            return Promise.all(/*! import() | scripts/routes/common */[__webpack_require__.e("/scripts/vendor"), __webpack_require__.e("scripts/routes/common")]).then(__webpack_require__.bind(__webpack_require__, /*! ./common */ "./assets/scripts/routes/common/index.js"));
 
           case 2:
             return _context.abrupt("return", _context.sent["default"]);
@@ -72,7 +144,7 @@ var home = /*#__PURE__*/function () {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return __webpack_require__.e(/*! import() | scripts/routes/home */ "scripts/routes/home").then(__webpack_require__.bind(__webpack_require__, /*! ./routes/Home */ "./assets/scripts/routes/Home.js"));
+            return __webpack_require__.e(/*! import() | scripts/routes/home */ "scripts/routes/home").then(__webpack_require__.bind(__webpack_require__, /*! ./home */ "./assets/scripts/routes/home/index.js"));
 
           case 2:
             return _context2.abrupt("return", _context2.sent["default"]);
@@ -97,7 +169,7 @@ var singleProduct = /*#__PURE__*/function () {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return Promise.all(/*! import() | scripts/routes/single-product */[__webpack_require__.e("/scripts/vendor"), __webpack_require__.e("scripts/routes/single-product")]).then(__webpack_require__.bind(__webpack_require__, /*! ./routes/SingleProduct */ "./assets/scripts/routes/SingleProduct.js"));
+            return Promise.all(/*! import() | scripts/routes/single-product */[__webpack_require__.e("/scripts/vendor"), __webpack_require__.e("scripts/routes/single-product")]).then(__webpack_require__.bind(__webpack_require__, /*! ./single-product */ "./assets/scripts/routes/single-product/index.js"));
 
           case 2:
             return _context3.abrupt("return", _context3.sent["default"]);
@@ -122,7 +194,7 @@ var woocommerceCheckout = /*#__PURE__*/function () {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.next = 2;
-            return Promise.all(/*! import() | scripts/routes/woocommerce/checkout */[__webpack_require__.e("/scripts/vendor"), __webpack_require__.e("scripts/routes/woocommerce/checkout")]).then(__webpack_require__.bind(__webpack_require__, /*! ./routes/WoocommerceCheckout */ "./assets/scripts/routes/WoocommerceCheckout.js"));
+            return Promise.all(/*! import() | scripts/routes/woocommerce/checkout */[__webpack_require__.e("/scripts/vendor"), __webpack_require__.e("scripts/routes/woocommerce/checkout")]).then(__webpack_require__.bind(__webpack_require__, /*! ./checkout */ "./assets/scripts/routes/checkout/index.js"));
 
           case 2:
             return _context4.abrupt("return", _context4.sent["default"]);
@@ -147,7 +219,7 @@ var wooStore = /*#__PURE__*/function () {
         switch (_context5.prev = _context5.next) {
           case 0:
             _context5.next = 2;
-            return __webpack_require__.e(/*! import() | scripts/routes/woocommerce/store */ "scripts/routes/woocommerce/store").then(__webpack_require__.bind(__webpack_require__, /*! ./routes/WooStore */ "./assets/scripts/routes/WooStore.js"));
+            return __webpack_require__.e(/*! import() | scripts/routes/woocommerce/store */ "scripts/routes/woocommerce/store").then(__webpack_require__.bind(__webpack_require__, /*! ./woo-store */ "./assets/scripts/routes/woo-store/index.js"));
 
           case 2:
             return _context5.abrupt("return", _context5.sent["default"]);
@@ -165,148 +237,13 @@ var wooStore = /*#__PURE__*/function () {
   };
 }();
 
-var routes = new _tools_Router__WEBPACK_IMPORTED_MODULE_4__.default({
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   common: common,
   home: home,
   singleProduct: singleProduct,
   woocommerceCheckout: woocommerceCheckout,
   wooStore: wooStore
 });
-(0,_tools_Ready__WEBPACK_IMPORTED_MODULE_3__.default)(function () {
-  return routes.loadEvents();
-});
-
-/***/ }),
-
-/***/ "./assets/scripts/tools/CamelCase.js":
-/*!*******************************************!*\
-  !*** ./assets/scripts/tools/CamelCase.js ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/**
- * the most terrible camelizer on the internet, guaranteed!
- * @param {string} str String that isn't camel-case, e.g., CAMeL_CaSEiS-harD
- * @return {string} String converted to camel-case, e.g., camelCaseIsHard
- *
- * @author roots
- */
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (str) {
-  return "".concat(str.charAt(0).toLowerCase()).concat(str.replace(/[\W_]/g, '|').split('|').map(function (part) {
-    return "".concat(part.charAt(0).toUpperCase()).concat(part.slice(1));
-  }).join('').slice(1));
-});
-
-/***/ }),
-
-/***/ "./assets/scripts/tools/Ready.js":
-/*!***************************************!*\
-  !*** ./assets/scripts/tools/Ready.js ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ ready)
-/* harmony export */ });
-function ready(fn) {
-  if (document.readyState !== 'loading') {
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
-  }
-}
-
-/***/ }),
-
-/***/ "./assets/scripts/tools/Router.js":
-/*!****************************************!*\
-  !*** ./assets/scripts/tools/Router.js ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _CamelCase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CamelCase */ "./assets/scripts/tools/CamelCase.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-
-
-var Router = /*#__PURE__*/function () {
-  /**
-   * Create a new Router
-   * @param {Object} routes
-   */
-  function Router(routes) {
-    _classCallCheck(this, Router);
-
-    this.routes = routes;
-  }
-  /**
-   * Fire Router events
-   * @param {string} route DOM-based route derived from body classes (`<body class="...">`)
-   * @param {string} [event] Events on the route. By default, `init` and `finalize` events are called.
-   * @param {string} [arg] Any custom argument to be passed to the event.
-   */
-
-
-  _createClass(Router, [{
-    key: "fire",
-    value: function fire(route) {
-      var event = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'init';
-      var arg = arguments.length > 2 ? arguments[2] : undefined;
-      document.dispatchEvent(new CustomEvent('routed', {
-        bubbles: true,
-        detail: {
-          route: route,
-          fn: event
-        }
-      }));
-
-      if (!this.routes[route]) {
-        return;
-      }
-
-      this.routes[route]().then(function (res) {
-        var fire = route !== '' && res && typeof res[event] === 'function';
-
-        if (fire) {
-          res[event](arg);
-        }
-      });
-    }
-  }, {
-    key: "loadEvents",
-    value: function loadEvents() {
-      var _this = this;
-
-      this.fire('common');
-      document.body.className.toLowerCase().replace(/-/g, '_').split(/\s+/).map(_CamelCase__WEBPACK_IMPORTED_MODULE_0__.default).forEach(function (className) {
-        _this.fire(className);
-
-        _this.fire(className, 'finalize');
-      });
-      this.fire('common', 'finalize');
-    }
-  }]);
-
-  return Router;
-}();
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Router);
 
 /***/ }),
 
@@ -540,4 +477,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ })
 
 },
-0,[["./assets/scripts/main.js","/scripts/manifest","/scripts/vendor"],["./assets/styles/main.scss","/scripts/manifest","/scripts/vendor"],["./assets/styles/mail/default/main.sass","/scripts/manifest","/scripts/vendor"],["./assets/styles/admin/main.sass","/scripts/manifest","/scripts/vendor"]]]);
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ "use strict";
+/******/ 
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ __webpack_require__.O(0, ["styles/admin","styles/mail","styles/main","/scripts/vendor"], () => (__webpack_exec__("./assets/scripts/main.js"), __webpack_exec__("./assets/styles/main.scss"), __webpack_exec__("./assets/styles/mail/default/main.sass"), __webpack_exec__("./assets/styles/admin/main.sass")));
+/******/ var __webpack_exports__ = __webpack_require__.O();
+/******/ }
+]);

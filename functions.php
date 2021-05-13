@@ -2,14 +2,17 @@
 
 use Timber\Timber;
 
-defined('ABSPATH') || exit(0);
+defined( 'ABSPATH' ) || exit( 0 );
 
-include_once get_stylesheet_directory() . '/vendor/autoload.php';
+include_once __DIR__ . '/vendor/autoload.php';
 
-add_theme_support('custom-logo');
-add_theme_support('woocommerce');
-add_theme_support('html5');
+add_theme_support( 'custom-logo' );
+add_theme_support( 'woocommerce' );
+add_theme_support( 'html5' );
+
+\Carbon\Carbon::setLocale( 'nl' );
+setlocale( LC_TIME, 'nl' );
 
 Timber::$locations = [
-    get_stylesheet_directory() . '/templates/',
+	get_stylesheet_directory() . '/templates/',
 ];

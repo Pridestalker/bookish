@@ -4,26 +4,14 @@ if (process.env.NODE_ENV !== 'production') {
 
 import './vendor';
 import './bootstrap';
-import Ready from './tools/Ready';
-import Router from './tools/Router';
+import {ComponentRouter, fullReady as Ready, PageRouter as Router} from "@webreact/webreactor";
+import routes from './routes';
+import components from './components';
 
-const common = async () =>
-    (await import(/* webpackChunkName: "scripts/routes/common" */'./routes/Common')).default;
-const home = async () =>
-    (await import(/* webpackChunkName: "scripts/routes/home" */ './routes/Home')).default;
-const singleProduct = async () =>
-    (await import(/* webpackChunkName: "scripts/routes/single-product" */ './routes/SingleProduct')).default;
-const woocommerceCheckout = async () =>
-    (await import(/* webpackChunkName: "scripts/routes/woocommerce/checkout" */ './routes/WoocommerceCheckout')).default;
-const wooStore = async () =>
-    (await import(/* webpackChunkName: "scripts/routes/woocommerce/store" */ './routes/WooStore')).default;
+const router = new Router(routes);
+const componentLoader = new ComponentRouter(components);
 
-const routes = new Router({
-    common,
-    home,
-    singleProduct,
-    woocommerceCheckout,
-    wooStore
+Ready(() => {
+    router.loadEvents();
+    componentLoader.loadEvents();
 });
-
-Ready(() => routes.loadEvents());

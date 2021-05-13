@@ -1,47 +1,12 @@
 {% extends 'layouts/app.twig' %}
 
 {% block content %}
-    <main class="home px-4 lg:px-0">
-        {{ post.content }}
-
-        <div class="container mx-auto">
-            {% block categoriesCta %}
-                <section class="categories-cta py-16">
-                    <h2 class="cta-title mb-8">{{ __('Handgemaakte producten', 'bookish') }}</h2>
-
-                    <figure class="category-cta">
-                        <picture>
-                            {% set _sleeveImage = Image('https://bookishgoods.nl/wp-content/uploads/2020/05/Booksleeve-frontpage-pic.jpg') %}
-                            <source srcset="{{ _sleeveImage.src|resize(620, 530)|towebp }}" type="image/webp">
-                            <source srcset="{{ _sleeveImage.src|retina(2)|towebp }} 2x" type="image/webp">
-                            <img src="{{ _sleeveImage.src|resize(620, 515) }}"
-                                 alt="{{ __('Bekijk alle %s', 'bookish')|format('booksleeves') }}" loading="lazy">
-                        </picture>
-                        <figcaption class="is-label">
-                            {{ __('Bekijk alle %s', 'bookish')|format('booksleeves') }}
-                        </figcaption>
-                        <a href="{{ product_cat_url_on_name('booksleeves') }}"
-                           title="{{ __('Bekijk alle %s', 'bookish')|format('booksleeves') }}"
-                           id="booksleeve-cta-link"></a>
-                    </figure>
-                    <figure class="category-cta">
-                        <picture>
-                            {% set _ribbonImage = Image('https://bookishgoods.nl/wp-content/uploads/2020/08/boekenleggers-homepage.jpg') %}
-                            <source srcset="{{ _ribbonImage.src|resize(620, 530)|towebp }}" type="image/webp">
-                            <source srcset="{{ _ribbonImage.src|retina(2)|towebp }} 2x" type="image/webp">
-                            <img src="{{ _ribbonImage.src|resize(620, 515) }}"
-                                 alt="{{ __('Bekijk alle %s', 'bookish')|format('boekenleggers') }}" loading="lazy">
-                        </picture>
-                        <figcaption class="is-label">
-                            {{ __('Bekijk alle %s', 'bookish')|format('boekenleggers') }}
-                        </figcaption>
-                        <a href="{{ product_cat_url_on_name('boekenleggers') }}"
-                           title="{{ __('Bekijk alle %s', 'bookish')|format('boekenleggers') }}"
-                           id="bookmark-cta-link"></a>
-                    </figure>
-                </section>
-            {% endblock %}
-        </div>
+    <main class="home">
+        {% block heroBanner %}
+            {% if get_field('show_hero_banner') %}
+                {{ include('partials/pages/front-page/hero-banner.html.twig') }}
+            {% endif %}
+        {% endblock heroBanner %}
 
         {% block newProducts %}
             <section class="new-products py-16">
@@ -60,14 +25,14 @@
                     <div class="flex">
                         <a href="{{ get_store_url() }}/?orderby=date"
                            id="new-products-store-link"
-                           class="mx-auto button primary">{{  __('Alles bekijken', 'bookish') }}</a>
+                           class="mx-auto button primary">{{ __('Alles bekijken', 'bookish') }}</a>
                     </div>
                 </div>
             </section>
         {% endblock %}
 
         {% block popularProducts %}
-            <section class="popular-products py-12">
+            <section class="popular-products py-12 px-4 lg:px-0">
                 <div class="container mx-auto">
                     <h2 class="text-center mb-8">{{ __('Populaire producten', 'bookish') }}</h2>
 
@@ -83,7 +48,7 @@
                     <div class="flex">
                         <a href="{{ get_store_url() }}/?orderby=popularity"
                            id="popular-products-store-link"
-                           class="mx-auto button primary">{{  __('Alles bekijken', 'bookish') }}</a>
+                           class="mx-auto button primary">{{ __('Alles bekijken', 'bookish') }}</a>
                     </div>
                 </div>
             </section>

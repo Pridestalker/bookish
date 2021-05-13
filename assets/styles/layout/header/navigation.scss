@@ -19,8 +19,9 @@
   }
 
   @screen lg {
-    position: static;
+    position: relative;
     transform: unset;
+    z-index: 10;
   }
 }
 

@@ -1,9 +1,9 @@
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["scripts/routes/home"],{
 
-/***/ "./assets/scripts/routes/Home.js":
-/*!***************************************!*\
-  !*** ./assets/scripts/routes/Home.js ***!
-  \***************************************/
+/***/ "./assets/scripts/routes/home/index.js":
+/*!*********************************************!*\
+  !*** ./assets/scripts/routes/home/index.js ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
