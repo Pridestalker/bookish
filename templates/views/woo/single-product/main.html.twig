@@ -65,7 +65,8 @@
                     <h2 class="product-price">
                         {% block productPrice %}
                             {% if product.is_on_sale %}
-                                <small class="mr-2" style="text-decoration: line-through;">{{ product.get_regular_price }}</small>
+                                <small class="mr-2"
+                                       style="text-decoration: line-through;">{{ product.get_regular_price }}</small>
                             {% endif %}
                             {{ product.get_price }}
                         {% endblock %}
@@ -198,6 +199,8 @@
                 "availability": "https://schema.org/InStock"
             }
         }
+
+
 
     </script>
 {% endblock %}

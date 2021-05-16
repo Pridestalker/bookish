@@ -6,6 +6,7 @@ defined( 'ABSPATH' ) || exit( 0 );
 
 use App\Bootstrap\Env;
 use App\Controllers\TwigFunctions\ProductCategoryUrl;
+use App\Helpers\Number;
 use App\Helpers\Str;
 use App\Helpers\Terms;
 use Carbon\Carbon;
@@ -19,6 +20,21 @@ use WC_Product_Attribute;
 
 class Product extends Post
 {
+	protected static array $price_cache = [];
+	protected static array $bare_price_cache = [];
+	protected static array $sale_price_cache = [];
+	protected static array $categories_cache = [];
+	protected static array $attributes_cache = [];
+	protected static array $stock_cache = [];
+	protected static array $related_cache = [];
+	protected static array $product_cache = [];
+	protected static array $gallery_id_cache = [];
+	protected static array $product_new_cache = [];
+	/**
+	 * @var WC_Product|null $product
+	 */
+	public ?WC_Product $product = null;
+
 	public function __call( $field, $args )
 	{
 		try {
@@ -28,31 +44,25 @@ class Product extends Post
 		}
 	}
 
-	/**
-	 * @var WC_Product|null $product
-	 */
-	public $product = null;
-	protected static $price_cache = [];
-	protected static $bare_price_cache = [];
-	protected static $sale_price_cache = [];
+	public function setProduct(): \WC_Product
+	{
+		if ( $this->product === null ) {
+			if ( isset( static::$product_cache[ $this->id ] ) ) {
+				$this->product = static::$product_cache[ $this->id ];
+			} else {
+				$this->product = static::$product_cache[ $this->id ] = wc_get_product( $this->id );
+			}
+		}
 
-	protected static $categories_cache = [];
-	protected static $attributes_cache = [];
-
-	protected static $stock_cache = [];
-
-	protected static $related_cache = [];
-	protected static $product_cache = [];
-
-	protected static $gallery_id_cache = [];
-	protected static $product_new_cache = [];
+		return $this->product;
+	}
 
 	/**
 	 * Returns a carbon-field value
 	 *
 	 * @param  string  $field_name
 	 *
-	 * @return array|mixed|\Timber\mix|\WP_Post
+	 * @return array|mixed|\WP_Post
 	 */
 	public function get_field( $field_name, $default = null )
 	{
@@ -83,12 +93,12 @@ class Product extends Post
 
 		$this->setProduct();
 
-		return wc_price( static::$price_cache[ $this->id ] = $this->product->get_price() );
+		return Number::formatAsCurrency( static::$price_cache[ $this->id ] = $this->product->get_price() );
 	}
 
 	public function get_regular_price()
 	{
-		return $this->setProduct()->get_regular_price();
+		return Number::formatAsCurrency( $this->setProduct()->get_regular_price('edit') );
 	}
 
 	public function is_on_sale()
@@ -105,13 +115,23 @@ class Product extends Post
 		return $this->title();
 	}
 
+	public function is_pre_order(): bool
+	{
+		if ( isset( static::$stock_cache[ $this->id ][ 'is_pre_order' ] ) ) {
+			return static::$stock_cache[ $this->id ][ 'is_pre_order' ];
+		}
+
+		return static::$stock_cache[ $this->id ][ 'is_pre_order' ] =
+			$this->setProduct()->get_stock_status( 'edit' ) === 'preorder';
+	}
+
 	/**
 	 * @param  string  $separator
 	 * @param  array|string  $classes
 	 *
 	 * @return string
 	 */
-	public function get_product_categories_links( $separator = ', ', $classes = null )
+	public function get_product_categories_links( string $separator = ', ', $classes = null ): string
 	{
 		if ( ! isset( static::$categories_cache[ $this->id ] ) ) {
 			$this->setProduct();
@@ -163,8 +183,7 @@ class Product extends Post
 			];
 		}
 
-		return isset( static::$attributes_cache[ $this->id ] ) ?
-			static::$attributes_cache[ $this->id ] : false;
+		return static::$attributes_cache[ $this->id ] ?? false;
 	}
 
 	public function is_in_stock()
@@ -176,16 +195,6 @@ class Product extends Post
 		$this->setProduct();
 
 		return static::$stock_cache[ $this->id ][ 'in_stock' ] = $this->product->is_in_stock();
-	}
-
-	public function is_pre_order(): bool
-	{
-		if ( isset( static::$stock_cache[ $this->id ][ 'is_pre_order' ] ) ) {
-			return static::$stock_cache[ $this->id ][ 'is_pre_order' ];
-		}
-
-		return static::$stock_cache[ $this->id ][ 'is_pre_order' ] =
-			$this->setProduct()->get_stock_status( 'edit' ) === 'preorder';
 	}
 
 	public function can_backorder()
@@ -261,6 +270,7 @@ class Product extends Post
 
 	/**
 	 * @return bool
+	 * @see is_pre_order()
 	 * @deprecated use Product::is_pre_order()
 	 */
 	public function is_preorder()
@@ -271,18 +281,5 @@ class Product extends Post
 		{
 			return $item->name === 'Pre-order';
 		} )->sizeIsGreaterThan( 0 );
-	}
-
-	public function setProduct(): \WC_Product
-	{
-		if ( $this->product === null ) {
-			if ( isset( static::$product_cache[ $this->id ] ) ) {
-				$this->product = static::$product_cache[ $this->id ];
-			} else {
-				$this->product = static::$product_cache[ $this->id ] = wc_get_product( $this->id );
-			}
-		}
-
-		return $this->product;
 	}
 }

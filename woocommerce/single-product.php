@@ -6,33 +6,32 @@ use App\Helpers\Woo;
 use App\Models\Product;
 use Timber\Timber;
 
-defined('ABSPATH') || exit(0);
+defined( 'ABSPATH' ) || exit( 0 );
 
-$context            = Timber::get_context();
-$context['product'] = new Product();
+$context              = Timber::get_context();
+$context[ 'product' ] = new Product();
 
-Woo::setProductView($context['product']->id);
+Woo::setProductView( $context[ 'product' ]->id );
 
 $templates = [
-    Template::viewHtmlTwigFile('woo/single-product/specific/' . $context['product']->slug),
-    Template::viewHtmlTwigFile('woo/single-product/main'),
-    Template::viewHtmlTwigFile('page'),
+	Template::viewHtmlTwigFile( 'woo/single-product/specific/' . $context[ 'product' ]->slug ),
+	Template::viewHtmlTwigFile( 'woo/single-product/main' ),
+	Template::viewHtmlTwigFile( 'page' ),
 ];
 
-if ($context['product']->is_type('variable')) {
-    array_unshift(
-        $templates,
-        Template::viewHtmlTwigFile('woo/single-product/variable'),
-    );
+if ( $context[ 'product' ]->is_type( 'variable' ) ) {
+	array_unshift(
+		$templates,
+		Template::viewHtmlTwigFile( 'woo/single-product/variable' ),
+	);
 
-    $context['product'] = new \App\Models\VariableProduct();
+	$context[ 'product' ] = new \App\Models\VariableProduct();
 }
 
+Cookie::setLastViewedProduct( $context[ 'product' ]->id );
 
 Timber::render(
-    apply_filters('bookish/view-composer/single-product/templates', $templates),
-    apply_filters('bookish/view-composer/single-product/context', $context),
-    apply_filters('bookish/view-composer/single-product/cache', [600, false])
+	apply_filters( 'bookish/view-composer/single-product/templates', $templates ),
+	apply_filters( 'bookish/view-composer/single-product/context', $context ),
+	apply_filters( 'bookish/view-composer/single-product/cache', [ 600, false ] )
 );
-
-Cookie::setLastViewedProduct($context['product']->id);
