@@ -42,10 +42,10 @@ class Woo
 
     public static function getNewProducts($limit = 4)
     {
-        return Helper::transient('_wc_last_modified_products', static function () use ($limit) {
+        return Helper::transient('_wc_last_changed_products', static function () use ($limit) {
             $args = [
                 'post_type' => 'product',
-                'orderby' => 'modified',
+                'orderby' => 'date',
                 'order' => 'DESC',
                 'posts_per_page' => $limit,
                 'tax_query' => [
