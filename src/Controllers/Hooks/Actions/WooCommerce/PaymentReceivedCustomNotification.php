@@ -35,7 +35,7 @@ class PaymentReceivedCustomNotification extends Action
 
     public function hook()
     {
-        return 'woocommerce_new_order';
+        return 'woocommerce_order_status_payment-received';
     }
 
     public function priority(): int
